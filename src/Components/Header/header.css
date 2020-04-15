@@ -1,0 +1,27 @@
+.navbar {
+    background-color: #6198ec !important;
+}
+
+.navbar-nav,
+.mr-auto {
+    flex: 1;
+    margin: auto !important;
+    display: flex;
+    justify-content: space-around;
+}
+
+.nav-logo{
+    background-color: #f6f2f2 !important;
+    display: flex;
+    margin: auto !important;
+    justify-content: space-between;
+}
+
+.logo{
+    font-size: 3rem;
+    padding: 0.5rem 2rem;
+    background-color: #4145dd;
+}
+
+
+

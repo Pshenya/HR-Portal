@@ -2,11 +2,15 @@ import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 
-import Header from "./Components/header";
+import Header from "./Components/Header/header";
+import News from "./Components/News/news";
 
 function App() {
     return (
-        <Header></Header>
+        <React.Fragment>
+            <Header/>
+            <News/>
+        </React.Fragment>
     );
 }
 
