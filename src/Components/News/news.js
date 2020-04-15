@@ -1,11 +1,16 @@
 import React from "react";
+import './news.css';
+import Slider from "./slider";
+
 
 const News = () => {
-    return(
+    return (
         <div className="news-area">
-            <h3>ПОПУЛЯРНОЕ</h3>
+            <h1 className="underline"><span>ПОПУЛЯРНОЕ</span></h1>
+            <Slider/>
         </div>
     )
 };
 
 export default News;
+

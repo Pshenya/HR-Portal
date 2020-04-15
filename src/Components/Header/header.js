@@ -12,7 +12,7 @@ export default function Header() {
 
             <TopBar/>
 
-            <Navbar collapseOnSelect expand="sm" variant={"light"}>
+            <Navbar className="main-header" collapseOnSelect expand="sm" variant={"light"}>
                 <Container>
                     <Navbar.Toggle aria-controls="responsive-navbar-nav"/>
                     <Navbar.Collapse id="responsive-navbar-nav">
