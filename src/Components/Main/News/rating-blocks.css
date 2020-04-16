@@ -1,20 +1,26 @@
 .rating-blocks{
     display: flex;
     flex-direction: column;
-    flex-grow: 1;
 }
 
 .rating-item{
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    margin: 0 8px 7px 7px;
-    padding: 5px;
-    box-shadow: 0 1px 2px 1px rgba(0,0,0,0.2);
+    height: 90px;
+    box-sizing: border-box;
+    /*margin: 0 8px 7px 7px;*/
+    padding: 0 0 5px 5px;
+    border-bottom: 1px solid rgba(0,0,0,0.2);
+    /*box-shadow: 1px 1px 1px 0 rgba(0,0,0,0.2);*/
     transition: all 0.5s ease;
+    overflow: hidden;
+}
+.rating-item:first-child{
+    border-top: 1px solid rgba(0,0,0,0.2);
 }
 .rating-item:hover{
-    background-color: #6198ec;
+    background-color: #3292de;
 }
 .rating-item:hover .col-box a:first-child{
     color: #e3e3e3;
@@ -24,7 +30,6 @@
 }
 
 .user-icon{
-    margin: 5px 5px;
     padding: 5px 5px;
     box-shadow: 1px 1px 2px 1px rgba(0,0,0,0.2);
 }
@@ -33,21 +38,23 @@
     flex-direction: column;
 }
 .col-box a {
-    font-size: 15px;
-    color: #6198ec;
+    margin-left: 15px;
+    font-size: 20px;
+    color: #3292de;
     text-decoration: none;
 }
 .col-box a + a{
-    font-size: 10px;
+    font-size: 15px;
     color: #4e4e4e;
     text-decoration: none;
+    text-transform: uppercase;
 }
 .rating-blocks .rating-item .flex-placeholder{
     flex: 1;
 }
 
 .rating-blocks .rating-item .points{
-    margin-right: 5px;
+    margin-right: 15px;
     line-height: 1rem;
     white-space: nowrap;
 }

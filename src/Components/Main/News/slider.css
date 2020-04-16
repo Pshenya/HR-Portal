@@ -2,6 +2,7 @@
     margin: 1rem 0 0 1rem;
     width: 75vw;
     position: relative;
+    box-shadow: 1px 1px 1px 1px rgba(0,0,0,0.2);
 }
 
 .carousel-item {
@@ -41,7 +42,8 @@ button {
     -webkit-transition: all 0.5s ease;
     transition: all 0.5s ease;
     border: none;
-    background-color: #6198ec;
+    background-color: #3292de;
+    color: #fff;
     border-radius: 30px;
     text-transform: uppercase;
     box-sizing: border-box;
@@ -52,8 +54,8 @@ button {
 }
 
 button:hover {
-    color: #ffffff;
-    background: #222222;
+    color: #3292de;
+    background: #fff;
     -webkit-filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.2));
     filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.2));
 }

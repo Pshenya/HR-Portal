@@ -1,6 +1,5 @@
 .navbar {
-    background-color: #6198ec !important;
-    margin: 0 1rem;
+    background-color: #3292de !important;
 }
 .main-header{
     position: sticky;
@@ -8,6 +7,11 @@
     min-height: 2em;
     z-index: 999;
 }
+
+.nav-link{
+    color: #fff !important;
+}
+
 
 .navbar-nav,
 .mr-auto {
@@ -19,7 +23,7 @@
 }
 
 .nav-logo{
-    background-color: #f6f2f2 !important;
+    background-color: #f4f4f4 !important;
     display: flex;
     margin: auto !important;
     justify-content: space-between;
