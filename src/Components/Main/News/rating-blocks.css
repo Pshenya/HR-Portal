@@ -1,0 +1,62 @@
+.rating-blocks{
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.rating-item{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin: 0 8px 7px 7px;
+    padding: 5px;
+    box-shadow: 0 1px 2px 1px rgba(0,0,0,0.2);
+    transition: all 0.5s ease;
+}
+.rating-item:hover{
+    background-color: #6198ec;
+}
+.rating-item:hover .col-box a:first-child{
+    color: #e3e3e3;
+}
+.rating-item:hover .col-box a:last-child{
+    color: #181818;
+}
+
+.user-icon{
+    margin: 5px 5px;
+    padding: 5px 5px;
+    box-shadow: 1px 1px 2px 1px rgba(0,0,0,0.2);
+}
+.col-box{
+    display: flex;
+    flex-direction: column;
+}
+.col-box a {
+    font-size: 15px;
+    color: #6198ec;
+    text-decoration: none;
+}
+.col-box a + a{
+    font-size: 10px;
+    color: #4e4e4e;
+    text-decoration: none;
+}
+.rating-blocks .rating-item .flex-placeholder{
+    flex: 1;
+}
+
+.rating-blocks .rating-item .points{
+    margin-right: 5px;
+    line-height: 1rem;
+    white-space: nowrap;
+}
+
+.points .bold{
+    font-weight: 700 !important;
+}
+
+.points .small{
+    font-weight: 400 !important;
+    font-size: 10px;
+}
