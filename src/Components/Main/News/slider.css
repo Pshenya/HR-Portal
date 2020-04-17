@@ -1,6 +1,4 @@
 .carousel {
-    margin: 1rem 0 0 1rem;
-    width: 75vw;
     position: relative;
     box-shadow: 1px 1px 1px 1px rgba(0,0,0,0.2);
 }
@@ -42,7 +40,7 @@ button {
     -webkit-transition: all 0.5s ease;
     transition: all 0.5s ease;
     border: none;
-    background-color: #3292de;
+    background-color: #48478a;
     color: #fff;
     border-radius: 30px;
     text-transform: uppercase;
@@ -54,7 +52,7 @@ button {
 }
 
 button:hover {
-    color: #3292de;
+    color: #48478a;
     background: #fff;
     -webkit-filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.2));
     filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.2));

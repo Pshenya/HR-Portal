@@ -1,7 +1,14 @@
+.header{
+    display: block;
+    position: relative !important;
+    background: #fff !important;
+}
+
 .navbar {
-    background-color: #3292de !important;
+    background-color: #48478a !important;
 }
 .main-header{
+    padding: 0 !important;
     position: sticky;
     top: 0;
     min-height: 2em;
@@ -9,9 +16,36 @@
 }
 
 .nav-link{
-    color: #fff !important;
+    color: #eaeaea !important;
+    transition: all .5s ease;
 }
 
+.nav-link, .nav-link:before,
+.nav-link:after{
+    transition: all .5s
+}
+.nav-link:hover{
+    text-shadow: 0 0 0 white, 0 0 0 white;
+}
+
+.nav-link{
+    position: relative;
+}
+.nav-link:after{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: 0;
+    width: 0;
+    content: '.';
+    color: transparent;
+    background: #fff;
+    height: 2px;
+}
+.nav-link:hover:after{
+    width: 100%;
+}
 
 .navbar-nav,
 .mr-auto {
@@ -31,6 +65,7 @@
 
 .logo{
     font-size: 3rem;
+    margin: 0 !important;
     padding: 0.5rem 2rem;
     background-color: #4145dd;
 }

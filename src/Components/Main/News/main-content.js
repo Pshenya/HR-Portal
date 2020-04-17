@@ -2,22 +2,26 @@ import React from "react";
 import './news.css';
 import Slider from "./slider";
 import RatingBlocks from "./rating-blocks";
+import NewsCards from "./news-cards";
 
 
-const News = () => {
+const MainContent = () => {
     return (
-        <React.Fragment>
-            <h1 className="underline"><span>Популярное</span></h1>
-            <div className="news-area">
+        <div className="width-control">
+            <div className="main-content">
                 <Slider/>
+                <NewsCards/>
+            </div>
+            <div className="aside">
                 <div className="rating">
                     <h3><a href="/best-hr">Топ HR</a></h3>
                     <RatingBlocks/>
                 </div>
             </div>
-        </React.Fragment>
+        </div>
+
     )
 };
 
-export default News;
+export default MainContent;
 

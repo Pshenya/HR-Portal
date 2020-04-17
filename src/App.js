@@ -3,14 +3,16 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 
 import Header from "./Components/Header/header";
-import News from "./Components/Main/News/news";
+import MainContent from "./Components/Main/News/main-content";
+import Footer from "./Components/Footer/footer";
 
 function App() {
     return (
-        <React.Fragment>
+        <div className="app">
             <Header/>
-            <News/>
-        </React.Fragment>
+            <MainContent/>
+            <Footer/>
+        </div>
     );
 }
 
