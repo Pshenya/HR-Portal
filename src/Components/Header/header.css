@@ -57,7 +57,12 @@
 .logo{
     margin: 0 !important;
     padding: 0.5rem 2rem;
-    background-color: #4145dd;
+    background-color: #48478a;
+}
+
+.nav-logo h1 a{
+    color: #fff;
+    text-decoration: none;
 }
 
 

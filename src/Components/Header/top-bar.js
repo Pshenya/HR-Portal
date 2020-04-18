@@ -1,4 +1,7 @@
 import React from "react";
+
+import {Link} from "react-router-dom";
+
 import { Navbar } from "react-bootstrap";
 import { makeStyles } from "@material-ui/core/styles";
 import Paper from '@material-ui/core/Paper';
@@ -30,8 +33,10 @@ const useStyles = makeStyles((theme) => ({
         return (
             <React.Fragment>
                 <Navbar className="nav-logo" collapseOnSelect expand="sm" variant={"light"}>
-                    <Navbar.Brand href="/">
-                        <h1 className="d-inline-block align-top logo">LOGO</h1>
+                    <Navbar.Brand>
+                        <h1 className="d-inline-block align-top logo">
+                            <Link to="/">LOGO</Link>
+                        </h1>
                     </Navbar.Brand>
                     <Paper component="form" className={classes.root}>
                         <InputBase
