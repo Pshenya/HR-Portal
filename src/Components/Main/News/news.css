@@ -1,9 +1,12 @@
 .width-control{
+    font-family: "Roboto-Condensed Regular", sans-serif;
+    font-weight: 400;
     display: flex;
     justify-content: space-between;
     align-items: stretch;
 }
 .main-content{
+
     display: block;
     width: 80%;
     padding: 30px;

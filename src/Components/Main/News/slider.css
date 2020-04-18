@@ -1,4 +1,6 @@
 .carousel {
+    font-family: "Roboto-Condensed Regular", sans-serif;
+    font-weight: normal;
     position: relative;
     box-shadow: 1px 1px 1px 1px rgba(0,0,0,0.2);
 }
@@ -46,8 +48,7 @@ button {
     text-transform: uppercase;
     box-sizing: border-box;
     padding: 15px 40px;
-    font-weight: 400;
-    font-size: 13px;
+    font-size: 1rem;
     cursor: pointer;
 }
 
@@ -65,17 +66,18 @@ button {
 }
 
 .carousel-caption h1 {
-    font-weight: 900;
+    font-family: "Roboto-Condensed Bold", sans-serif;
+    font-weight: 700;
     margin: 0 auto;
     max-width: 840px;
     color: #ffffff;
-    font-size: 48px;
+    font-size: 3rem;
     line-height: 1;
 }
 
 .carousel-caption p {
     color: #ffffff;
-    font-size: 14px;
+    font-size: 1rem;
     line-height: 1.5;
     margin: 20px auto 30px;
     max-width: 640px;

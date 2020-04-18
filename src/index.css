@@ -1,43 +1,39 @@
-*{
-    margin: 0;
-    padding: 0;
-    border: 0;
-    font: inherit;
-    font-size: 100%;
-    vertical-align: baseline;
-    /*box-sizing: border-box;*/
-}
+@font-face{
 
-*{
-    box-sizing: border-box;
-    outline: 0;
+    font-family: "Roboto-Condensed Regular";
+
+    src: url("./assets/fonts/Roboto Condensed/RobotoCondensed-Regular.ttf") format("truetype");
+
+    font-weight: normal;
+
+    font-style: normal;
+}
+@font-face{
+
+    font-family: "Roboto-Condensed Bold";
+
+    src: url("./assets/fonts/Roboto Condensed/RobotoCondensed-Bold.ttf") format("truetype");
+
+    font-weight: 700;
+
+    font-style: normal;
+}
+@font-face{
+
+    font-family: "Roboto-Condensed Light";
+
+    src: url("./assets/fonts/Roboto Condensed/RobotoCondensed-Light.ttf") format("truetype");
+
+    font-weight: 300;
+
+    font-style: normal;
 }
 
 body{
-    background: #f4f4f4;
-    height: 100%;
-    color: #000;
-    -webkit-font-smoothing: antialiased;
-}
-
-body, html{
     margin: 0;
     padding: 0;
-    border: 0;
-    vertical-align: baseline;
-    outline: none;
-    -webkit-tap-highlight-color: rgba(0,0,0,0);
-}
-
-ol,ul{
-    list-style: none;
-}
-
-.root{
-    position: relative;
-    overflow: hidden;
-    min-width: 320px;
-    min-height: 100%;
-
+    font-family: "Roboto-Condensed Regular", sans-serif !important;
+    font-weight: normal !important;
+    font-size: 14px !important;
 }
 
