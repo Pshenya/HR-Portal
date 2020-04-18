@@ -1,4 +1,6 @@
 import React from 'react';
+
+import { Link } from "react-router-dom";
 import { Container, Nav, Navbar } from "react-bootstrap";
 import TopBar from "./top-bar";
 
@@ -11,16 +13,15 @@ export default function Header() {
         <div className="header">
             <header>
                 <TopBar/>
-
                 <Navbar collapseOnSelect expand="sm">
                     <Container>
                         <Navbar.Toggle aria-controls="responsive-navbar-nav"/>
                         <Navbar.Collapse id="responsive-navbar-nav">
                             <Nav>
-                                <Nav.Link href="/comments">ОТЗЫВЫ</Nav.Link>
-                                <Nav.Link href="/best-hr">ЛУЧШИЕ HR</Nav.Link>
-                                <Nav.Link href="/vacancies">ВАКАНСИИ</Nav.Link>
-                                <Nav.Link href="/stats">СТАТИСТИКА ЗП</Nav.Link>
+                                <Nav.Link as={Link} to="/comments">ОТЗЫВЫ</Nav.Link>
+                                <Nav.Link as={Link} to="/ratings">ЛУЧШИЕ HR</Nav.Link>
+                                <Nav.Link as={Link} to="/vacancies">ВАКАНСИИ</Nav.Link>
+                                <Nav.Link as={Link} to="/stats">СТАТИСТИКА ЗП</Nav.Link>
                             </Nav>
                         </Navbar.Collapse>
                     </Container>
