@@ -1,18 +1,33 @@
 .header{
-    background: #fff;
+    /*background: #fff;*/
     font-family: "Roboto-Condensed Bold", sans-serif;
     font-weight: normal;
     font-size: 1.5rem;
 }
 
 .navbar {
-    background-color: #48478a;
+    background-color: #fff;
+    padding: 30px;
 }
 
+.navbar .container-fluid{
+    padding: 0;
+}
+.flex-placeholder{
+    flex: 0;
+}
+.flex-end{
+}
 .nav-link{
     position: relative;
-    color: #eaeaea !important;
+    color: #000 !important;
     transition: all .5s ease;
+}
+.nav-link:nth-child(1){
+    margin: 0 0 0 5em;
+}
+.nav-link:last-child{
+    margin: 0 5em 0 0;
 }
 
 .nav-link, .nav-link:before,
@@ -32,7 +47,7 @@
     width: 0;
     content: '.';
     color: transparent;
-    background: #fff;
+    background: #000;
     height: 2px;
 }
 .nav-link:hover:after{
@@ -48,10 +63,7 @@
 }
 
 .nav-logo{
-    background-color: #f4f4f4 !important;
-    display: flex;
     margin: auto !important;
-    justify-content: space-between;
 }
 
 .logo{
