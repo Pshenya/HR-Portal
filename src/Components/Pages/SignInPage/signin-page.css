@@ -1,0 +1,119 @@
+/* HEADER */
+
+.signIn-content{
+    width: 100%;
+    background-color: #fff;
+}
+
+.signIn-header{
+    width: 100%;
+    display: flex;
+    display: -webkit-flex;
+    justify-content: space-between;
+    z-index: 4;
+}
+
+.signIn-header .signIn-logo,
+.signIn-header .x-class{
+    margin: 60px;
+}
+
+.signIn-logo{
+    padding: 0.5rem 2rem;
+    background-color: #48478a;
+}
+
+.signIn-logo a{
+    color: #fff;
+    text-decoration: none;
+}
+
+.signIn-header .x-class, .x-class:hover, .x-class:active{
+    padding-top: 20px;
+    text-decoration: none;
+    color: black;
+}
+
+/* Main Content */
+
+.signIn-main{
+    font-family: "Helvetica Neue", sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    max-width: 800px;
+    margin: 10px auto;
+    /*background-color: #4145dd;*/
+}
+
+.signIn-main .signIn-title{
+    font-weight: 300;
+    font-size: 56px;
+    margin-bottom: 17px;
+}
+.signIn-main .new-user{
+    margin-bottom: 34px;
+}
+.signIn-main .new-user h3{
+    font-size: 20px;
+    font-weight: 300;
+}
+
+.signIn-main a{
+    text-decoration: none;
+}
+
+.new-user a, .new-user a:hover, .new-user a:active{
+    font-size: 20px;
+    font-weight: 300;
+    color: #007bff;
+    text-decoration: none;
+}
+
+/* Login Content */
+
+.login-content{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.right-content{
+    margin-right: 100px;
+}
+
+.divider {
+    width: 1px;
+    opacity: .8;
+    background-color: #858f96;
+    margin: 0 0 0 115px;
+}
+
+.btn{
+    font-family: "Helvetica Neue", sans-serif !important;
+    font-size: 14px !important;
+    font-weight: 300 !important;
+    color: #fff !important;
+    padding: .5rem 2rem;
+}
+
+.btn-social{
+    text-align: center !important;
+}
+
+.btn-google{
+    background-color: #4285f4 !important;
+    color: #fff !important;
+}
+.right-content a .google-icon{
+    margin-top: 5px;
+    color: #fff;
+}
+
+.terms-of-use{
+    font-weight: 300;
+    max-width: 350px;
+    text-align: center;
+    margin-top: 30px;
+}

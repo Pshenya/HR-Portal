@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { Switch, Route } from "react-router-dom";
+import {withRouter} from "react-router";
 
 import Header from "./Components/Header/header";
 import MainContent from "./Components/Main/News/main-content";
@@ -15,13 +16,15 @@ import StatsPage from "./Components/Pages/StatsPage/stats-page";
 import AboutPage from "./Components/Pages/AboutPage/about-page";
 import CommercialPage from "./Components/Pages/CommercialPage/commercial-page";
 import CoWorkingPage from "./Components/Pages/CoWorkingPage/coworking-page";
+import SignInPage from "./Components/Pages/SignInPage/signin-page";
 
-export default class App extends Component {
+class App extends Component {
     render() {
+        const shouldShowFooter = this.props.location.pathname !== '/signin';
+
         return (
-            <Router>
                 <div className="app">
-                    <Header/>
+                    {shouldShowFooter && <Header/>}
                     <Switch>
                         <Route exact path="/" component={MainContent}/>
                         <Route path="/comments" component={CommentsPage}/>
@@ -31,12 +34,13 @@ export default class App extends Component {
                         <Route path="/about" component={AboutPage}/>
                         <Route path="/commercial" component={CommercialPage}/>
                         <Route path="/co-working" component={CoWorkingPage}/>
+                        <Route path="/signin" component={SignInPage}/>
                     </Switch>
-                    {/*<MainContent/>*/}
-                    <Footer/>
+                    {shouldShowFooter && <Footer/>}
                 </div>
-            </Router>
         )
     }
 }
+
+export default withRouter(App);
 

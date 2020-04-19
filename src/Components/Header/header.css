@@ -13,11 +13,7 @@
 .navbar .container-fluid{
     padding: 0;
 }
-.flex-placeholder{
-    flex: 0;
-}
-.flex-end{
-}
+
 .nav-link{
     position: relative;
     color: #000 !important;
@@ -75,6 +71,11 @@
 .nav-logo h1 a{
     color: #fff;
     text-decoration: none;
+}
+
+.header-icon, .header-icon:hover, .header-icon:active{
+    text-decoration: none;
+    color: black;
 }
 
 

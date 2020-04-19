@@ -36,7 +36,7 @@
     transform: translate(-50%, -50%);
 }
 
-button {
+.carousel button {
     -webkit-filter: drop-shadow(0 5px 5px rgba(0, 0, 0, 0.1));
     filter: drop-shadow(0 5px 5px rgba(0, 0, 0, 0.1));
     -webkit-transition: all 0.5s ease;
@@ -52,7 +52,7 @@ button {
     cursor: pointer;
 }
 
-button:hover {
+.carousel button:hover {
     color: #48478a;
     background: #fff;
     -webkit-filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.2));
@@ -60,7 +60,7 @@ button:hover {
 }
 
 
-button {
+.carousel button {
     -webkit-transition-delay: 0s;
     transition-delay: 0s;
 }
