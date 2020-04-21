@@ -31,9 +31,10 @@ import Paper from "@material-ui/core/Paper";
 //     },
 // }));
 
-export default function Header() {
+export default function Header({isLoggedIn}) {
 
-    // const classes = useStyles();
+    const loginPath = isLoggedIn ? "/profile/" : '/signin';
+
 
     return (
         <div className="header">
@@ -53,9 +54,10 @@ export default function Header() {
                                 <Nav.Link as={Link} to="/vacancies">ВАКАНСИИ</Nav.Link>
                                 <Nav.Link as={Link} to="/stats">СТАТИСТИКА ЗП</Nav.Link>
                             </Nav>
-                            <Link className="header-icon" to="/signin">
+                            <Link className="header-icon" to={loginPath}>
                                 <FontAwesomeIcon icon={faUser} size="1x"/>
                             </Link>
+                            {/*<Link to="/profile">PROFILE</Link>*/}
                             {/*<div className="flex-placeholder"></div>*/}
                             {/*<Paper component="form" className={classes.root}>*/}
                             {/*    <InputBase*/}

@@ -1,5 +1,5 @@
 import React from "react";
-import './news.css';
+import './main-content.css';
 import Slider from "./slider";
 import RatingBlocks from "./rating-blocks";
 import NewsCards from "./news-cards";
