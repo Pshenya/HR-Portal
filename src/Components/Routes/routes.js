@@ -1,7 +1,14 @@
-import React from "react";
+export const ROUTES = {
+    MAIN: '/',
+    COMMENTS: '/comments/',
+    RATINGS: '/ratings/',
+    VACANCIES: '/vacancies/',
+    STATS: '/stats/',
+    ABOUT: '/about',
+    LOGIN: '/login',
+    REGISTRATION: '/registration',
+    PROFILE: '/profile/'
+};
 
-export default function Routes() {
-     const LOGIN = '/signin';
-     const VACANCIES = '/vacancies/';
-}
+
 

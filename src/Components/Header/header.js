@@ -4,6 +4,7 @@ import './header.css'
 
 import { Link } from "react-router-dom";
 import { Container, Nav, Navbar } from "react-bootstrap";
+import { ROUTES } from "../Routes/routes";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser } from "@fortawesome/free-regular-svg-icons";
@@ -33,8 +34,7 @@ import Paper from "@material-ui/core/Paper";
 
 export default function Header({isLoggedIn}) {
 
-    const loginPath = isLoggedIn ? "/profile/" : '/signin';
-
+    const loginPath = isLoggedIn ? ROUTES.PROFILE : ROUTES.LOGIN;
 
     return (
         <div className="header">

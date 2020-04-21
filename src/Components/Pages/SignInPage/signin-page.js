@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link, Redirect } from "react-router-dom";
+import {ROUTES} from '../../Routes/routes';
 
 import './signin-page.css';
 import './forms.css';
@@ -28,7 +29,7 @@ const SignInPage = ({isLoggedIn, onLogin}) => {
             <div className="signIn-main">
                 <h1 className="signIn-title">Вход</h1>
                 <div className="new-user">
-                    <h3>У вас ещё нет аккаунта? <a href="/">Создать</a></h3>
+                    <h3>У вас ещё нет аккаунта? <Link to={ROUTES.REGISTRATION}>Создать</Link></h3>
                 </div>
                 <div className="login-content">
                     <div className="left-content">

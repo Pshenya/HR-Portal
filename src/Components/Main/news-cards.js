@@ -2,10 +2,10 @@ import React, { Component } from 'react';
 import './news-cards.css';
 
 import CardDeck from "react-bootstrap/CardDeck";
-import { Card, Col, Container, Row } from 'react-bootstrap';
-import watch from "../../../assets/img/watch.png";
-import bg from "../../../assets/img/for.jpg";
-import forest from "../../../assets/img/forest.jpg";
+import { Card, Col, Row } from 'react-bootstrap';
+import watch from "../../assets/img/watch.png";
+import bg from "../../assets/img/for.jpg";
+import forest from "../../assets/img/forest.jpg";
 
 
 class NewsCards extends Component {
