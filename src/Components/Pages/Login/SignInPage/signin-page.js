@@ -1,16 +1,17 @@
 import React from 'react';
-import { Link, Redirect } from "react-router-dom";
-import {ROUTES} from '../../Routes/routes';
 
-import './signin-page.css';
-import './forms.css';
+import { Link, Redirect } from "react-router-dom";
+import {ROUTES} from '../../../Routes/routes';
+
+import '../login.css';
+import '../forms.css';
 
 import 'bootstrap-social';
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTimesCircle } from "@fortawesome/free-regular-svg-icons";
 import { faGoogle, faFacebook, faLinkedin, faGithub } from "@fortawesome/free-brands-svg-icons";
-import Form from "react-bootstrap/Form";
+import { Form, Button } from "react-bootstrap";
 
 const SignInPage = ({isLoggedIn, onLogin}) => {
     if (isLoggedIn){
@@ -22,9 +23,9 @@ const SignInPage = ({isLoggedIn, onLogin}) => {
                 <h1 className="signIn-logo">
                     <Link to="/">LOGO</Link>
                 </h1>
-                <a className="x-class" aria-label="back to HR's" href="/">
+                <Link className="x-class" aria-label="back to HR's" to={ROUTES.MAIN}>
                     <FontAwesomeIcon icon={faTimesCircle} size="2x"/>
-                </a>
+                </Link>
             </div>
             <div className="signIn-main">
                 <h1 className="signIn-title">Вход</h1>
@@ -33,18 +34,20 @@ const SignInPage = ({isLoggedIn, onLogin}) => {
                 </div>
                 <div className="login-content">
                     <div className="left-content">
-                        <Form>
-                            <Form.Group controlId="formBasicEmail">
-                                <Form.Control type="email" placeholder="Эл. почта"/>
+                        <Form className="common-form mx-auto">
+                            <Form.Group controlId="formEmail">
+                                <Form.Label>Эл. почта:</Form.Label>
+                                <Form.Control type="email"/>
                             </Form.Group>
 
-                            <Form.Group controlId="formBasicPassword">
-                                <Form.Control type="password" placeholder="Пароль"/>
+                            <Form.Group controlId="formPassword">
+                                <Form.Label>Пароль:</Form.Label>
+                                <Form.Control type="password"/>
                             </Form.Group>
                             <Form.Group controlId="formBasicCheckbox">
                                 <Form.Check type="checkbox" label="Запомнить меня"/>
                             </Form.Group>
-                            <button onClick={onLogin} className="form-btn">Войти</button>
+                            <Button onClick={onLogin} className="form-btn">Войти</Button>
                         </Form>
                     </div>
                     <div className="divider"></div>

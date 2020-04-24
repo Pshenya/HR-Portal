@@ -1,5 +1,7 @@
 import React from "react";
 import './main-content.css';
+import { ROUTES } from "../Routes/routes";
+import {Link} from "react-router-dom";
 import Slider from "./slider";
 import RatingBlocks from "./rating-blocks";
 import NewsCards from "./news-cards";
@@ -14,7 +16,7 @@ const MainContent = () => {
             </div>
             <div className="aside">
                 <div className="rating">
-                    <h3><a href="/best-hr">Топ HR</a></h3>
+                    <h3><Link to={ROUTES.RATINGS}>Топ HR</Link></h3>
                     <RatingBlocks/>
                 </div>
             </div>

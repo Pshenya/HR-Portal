@@ -2,9 +2,6 @@ import React from 'react';
 
 import './about-page.css';
 
-import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import pavlik from '../../../assets/img/pavlik.jpg'
-
 const AboutPage = () => {
     return (
         <div className="footerPages-content">

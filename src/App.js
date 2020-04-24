@@ -18,7 +18,8 @@ import {
 class App extends Component {
 
     state = {
-        isLoggedIn: false
+        isLoggedIn: false,
+        isRegistered: false
     };
 
     onLogin = () => {
@@ -27,9 +28,17 @@ class App extends Component {
         });
     };
 
+    onRegister = () => {
+        setTimeout(() => {
+            this.setState({
+                isRegistered: true
+            })
+        }, 500)
+    };
+
     render() {
         const {location} = this.props;
-        const {isLoggedIn} = this.state;
+        const {isLoggedIn, isRegistered} = this.state;
         const shouldShowHeaderAndFooter = location.pathname !== ROUTES.LOGIN && location.pathname !== ROUTES.REGISTRATION;
 
         return (
@@ -52,7 +61,12 @@ class App extends Component {
                             isLoggedIn={isLoggedIn}
                         />
                     }}/>
-                    <Route path={ROUTES.REGISTRATION} component={RegistrationPage}/>
+                    <Route path={ROUTES.REGISTRATION} render={() => {
+                        return <RegistrationPage
+                            isRegistered={isRegistered}
+                            onRegister={this.onRegister}
+                        />
+                    }}/>
                 </Switch>
                 {shouldShowHeaderAndFooter && <Footer/>}
             </div>

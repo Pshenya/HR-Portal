@@ -49,15 +49,14 @@ export default function Header({isLoggedIn}) {
                         <Navbar.Toggle aria-controls="responsive-navbar-nav"/>
                         <Navbar.Collapse id="responsive-navbar-nav">
                             <Nav>
-                                <Nav.Link as={Link} to="/comments">ОТЗЫВЫ</Nav.Link>
-                                <Nav.Link as={Link} to="/ratings">ЛУЧШИЕ HR</Nav.Link>
-                                <Nav.Link as={Link} to="/vacancies">ВАКАНСИИ</Nav.Link>
-                                <Nav.Link as={Link} to="/stats">СТАТИСТИКА ЗП</Nav.Link>
+                                <Nav.Link as={Link} to={ROUTES.COMMENTS}>ОТЗЫВЫ</Nav.Link>
+                                <Nav.Link as={Link} to={ROUTES.RATINGS}>ЛУЧШИЕ HR</Nav.Link>
+                                <Nav.Link as={Link} to={ROUTES.VACANCIES}>ВАКАНСИИ</Nav.Link>
+                                <Nav.Link as={Link} to={ROUTES.STATS}>СТАТИСТИКА ЗП</Nav.Link>
                             </Nav>
                             <Link className="header-icon" to={loginPath}>
                                 <FontAwesomeIcon icon={faUser} size="1x"/>
                             </Link>
-                            {/*<Link to="/profile">PROFILE</Link>*/}
                             {/*<div className="flex-placeholder"></div>*/}
                             {/*<Paper component="form" className={classes.root}>*/}
                             {/*    <InputBase*/}
