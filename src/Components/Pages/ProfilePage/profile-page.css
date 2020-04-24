@@ -43,6 +43,12 @@
     padding-right: 15em;
 }
 
+.profile-data .underinput-text{
+    font-family: "Roboto-Condensed Light",sans-serif;
+    font-size: 12px;
+    color: #5d6065;
+}
+
 .profile-img{
     display: block;
     width: 30%;
@@ -70,4 +76,25 @@
 
 .social-flex .social-square{
     margin-right: 50px;
+}
+
+.add-job-btn{
+    opacity: 0.7;
+    transition: all 0.5s ease;
+    background-color: #fff;
+    color: #48478a;
+    border: 1px solid #48478a;
+    border-radius: 8px;
+    box-sizing: border-box;
+    padding: 10px 50px;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.add-job-btn:hover{
+    opacity: 1;
+}
+
+.select-flex{
+    width: 200px;
 }
