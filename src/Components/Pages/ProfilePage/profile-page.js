@@ -16,14 +16,54 @@ import { ROUTES } from "../../Routes/routes";
 
 export default class ProfilePage extends Component {
     state = {
-        showSocial: false,
         addJob: false
     };
 
-    onSocial = () => {
-        this.setState(prevState => ({
-            showSocial: !prevState.showSocial
-        }))
+    // onSocialSelected = (name) => {
+    //     const {showSocial, selectedSocial} = this.state;
+    //     if ( !showSocial) {
+    //         this.setState({
+    //             showSocial: true,
+    //             selectedSocial: name
+    //         });
+    //     } else if (showSocial && selectedSocial === name) {
+    //         this.setState({
+    //             showSocial: false,
+    //             selectedSocial: ''
+    //         })
+    //     } else if (showSocial && selectedSocial !== name) {
+    //         this.setState({selectedSocial: name})
+    //     }
+    // };
+
+    onSocialSelected = (name) => {
+        const isShowComponent = this.state[name];
+        if (!isShowComponent) {
+            this.setState({[name]: name});
+        } else {
+            this.setState({[name]: ''})
+        }
+    };
+
+    Socials = [
+        {name: "Facebook", icon: faFacebookSquare, color: "#4267B2"},
+        {name: "LinkedIn", icon: faLinkedin, color: "#0e76a8"},
+        {name: "Github", icon: faGithubSquare, color: "#333"},
+        {name: "Google", icon: faGooglePlusSquare, color: "#db3236"},
+    ];
+
+
+    renderSocials = (arr) => {
+        return arr.map(({name, icon, color}) => {
+            return (
+                <div className="social-square">
+                    <FontAwesomeIcon icon={icon}
+                                     size="3x"
+                                     style={{color: color, cursor: "pointer"}}
+                                     onClick={() => this.onSocialSelected(name)}/>
+                </div>
+            )
+        })
     };
 
     onAddJob = () => {
@@ -33,8 +73,11 @@ export default class ProfilePage extends Component {
     };
 
     render() {
-        // const {isLoggedIn} = this.props;
-        // if (isLoggedIn) {
+        const {Facebook, LinkedIn, Github, Google} = this.state;
+
+        const socials = this.renderSocials(this.Socials);
+
+
         return (
             <div className="profile-content">
                 <div className="profile-header">
@@ -90,7 +133,7 @@ export default class ProfilePage extends Component {
                                     </Form.Control>
                                 </Col>
                             </Form.Group>
-                            <Form.Group as={Row} controlId="formHorizontalCompany">
+                            <Form.Group as={Row} controlId="formHorizontalSalary">
                                 <Form.Label column sm={2}>
                                     Текущая ЗП ($)
                                 </Form.Label>
@@ -121,7 +164,7 @@ export default class ProfilePage extends Component {
                     </div>
                     <div className="profile-blockContent">
                         <div className="profile-data w-100">
-                            <Form.Group as={Row} controlId="formHorizontalName">
+                            <Form.Group as={Row} controlId="formHorizontalPhone">
                                 <Form.Label column sm={4}>
                                     Телефон (в формате <strong><i>"+код страны"</i></strong> )
                                 </Form.Label>
@@ -129,7 +172,7 @@ export default class ProfilePage extends Component {
                                     <Form.Control type="text"/>
                                 </Col>
                             </Form.Group>
-                            <Form.Group as={Row} controlId="formHorizontalLastName">
+                            <Form.Group as={Row} controlId="formHorizontalEmail">
                                 <Form.Label column sm={4}>
                                     Эл. почта
                                 </Form.Label>
@@ -137,40 +180,28 @@ export default class ProfilePage extends Component {
                                     <Form.Control type="text"/>
                                 </Col>
                             </Form.Group>
-                            <Form.Group as={Row} controlId="formHorizontalCompany">
+                            <Form.Group as={Row} controlId="formHorizontalSocials">
                                 <Form.Label column sm={4}>
                                     Соц. сети
                                 </Form.Label>
                                 <Col sm={8}>
                                     <div className="social-flex">
-                                        <div className="social-square">
-                                            <FontAwesomeIcon icon={faFacebookSquare}
-                                                             size="3x"
-                                                             style={{color: "#4267B2", cursor: "pointer"}}
-                                                             onClick={this.onSocial}/>
-                                        </div>
-                                        <div className="social-square">
-                                            <FontAwesomeIcon icon={faLinkedin}
-                                                             size="3x"
-                                                             style={{color: "#0e76a8", cursor: "pointer"}}
-                                                             onClick={this.onSocial}/>
-                                        </div>
-                                        <div className="social-square">
-                                            <FontAwesomeIcon icon={faGithubSquare}
-                                                             size="3x"
-                                                             style={{color: "#24292e", cursor: "pointer"}}
-                                                             onClick={this.onSocial}/>
-                                        </div>
-                                        <div className="social-square">
-                                            <FontAwesomeIcon icon={faGooglePlusSquare}
-                                                             size="3x"
-                                                             style={{color: "#DB4437", cursor: "pointer"}}
-                                                             onClick={this.onSocial}/>
-                                        </div>
+                                        {socials}
                                     </div>
                                 </Col>
                             </Form.Group>
-                            {this.state.showSocial ? <SocialDynamic/> : null}
+                            {Facebook && (
+                                <SocialDynamic selectedSocial={Facebook}/>
+                            )}
+                            {LinkedIn && (
+                                <SocialDynamic selectedSocial={LinkedIn}/>
+                            )}
+                            {Github && (
+                                <SocialDynamic selectedSocial={Github}/>
+                            )}
+                            {Google && (
+                                <SocialDynamic selectedSocial={Google}/>
+                            )}
                         </div>
                     </div>
                 </div>
@@ -183,16 +214,14 @@ export default class ProfilePage extends Component {
                             {this.state.addJob ? <JobDynamic/> : null}
                             <button className="add-job-btn"
                                     type="button"
-                                    onClick={this.onAddJob}>Добавить</button>
+                                    onClick={this.onAddJob}>Добавить
+                            </button>
                         </div>
                     </div>
                 </div>
             </div>
         )
     }
-
-    //     return <Redirect to={ROUTES.LOGIN}/>
-    // }
 }
 
 

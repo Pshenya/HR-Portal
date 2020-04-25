@@ -6,7 +6,7 @@ import { faFacebookSquare, faGithubSquare, faGooglePlusSquare, faLinkedin } from
 const JobDynamic = () => {
     return (
         <React.Fragment>
-            <Form.Group as={Row} controlId="formHorizontalName">
+            <Form.Group as={Row} controlId="formHorizontalAdditionalCompany">
                 <Form.Label column sm={4}>
                     Название компании
                 </Form.Label>
@@ -14,7 +14,7 @@ const JobDynamic = () => {
                     <Form.Control type="text"/>
                 </Col>
             </Form.Group>
-            <Form.Group as={Row} controlId="formHorizontalLastName">
+            <Form.Group as={Row} controlId="formHorizontalPeriod">
                 <Form.Label column sm={4}>
                     Период работы
                 </Form.Label>
@@ -246,7 +246,7 @@ const JobDynamic = () => {
                 </Col>
                 </div>
             </Form.Group>
-            <Form.Group as={Row} controlId="formHorizontalName">
+            <Form.Group as={Row} controlId="formHorizontalJob">
                 <Form.Label column sm={4}>
                     Достижения за время работы
                 </Form.Label>
