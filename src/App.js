@@ -28,13 +28,13 @@ class App extends Component {
         });
     };
 
-    onRegister = () => {
-        setTimeout(() => {
-            this.setState({
-                isRegistered: true
-            })
-        }, 500)
-    };
+    // onRegister = () => {
+    //     setTimeout(() => {
+    //         this.setState({
+    //             isRegistered: true
+    //         })
+    //     }, 500)
+    // };
 
     render() {
         const {location} = this.props;
