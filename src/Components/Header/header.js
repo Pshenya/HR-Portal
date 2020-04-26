@@ -1,6 +1,8 @@
 import React from 'react';
 
-import './header.css'
+import './header.css';
+
+import {useEffect, useState} from "react";
 
 import { Link } from "react-router-dom";
 import { Container, Nav, Navbar } from "react-bootstrap";
@@ -54,7 +56,7 @@ export default function Header({isLoggedIn}) {
                                 <Nav.Link as={Link} to={ROUTES.VACANCIES}>ВАКАНСИИ</Nav.Link>
                                 <Nav.Link as={Link} to={ROUTES.STATS}>СТАТИСТИКА ЗП</Nav.Link>
                             </Nav>
-                            <Link className="header-icon" to={ROUTES.PROFILE}>
+                            <Link className="header-icon" to={loginPath}>
                                 <FontAwesomeIcon icon={faUser} size="1x"/>
                             </Link>
                             {/*<div className="flex-placeholder"></div>*/}

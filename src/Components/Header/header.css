@@ -1,9 +1,14 @@
 .header{
-    /*background: #fff;*/
     font-family: "Roboto-Condensed Bold", sans-serif;
     font-weight: normal;
     font-size: 1.5rem;
 }
+
+/*.navbar, .navbar-expand-sm, .navbar-light, .sticky-top{*/
+/*    position: fixed;*/
+/*    width: 100%;*/
+/*    top: 0;*/
+/*}*/
 
 .navbar {
     background-color: #fff;
