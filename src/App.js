@@ -2,10 +2,11 @@ import React, { Component } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 
-import { Switch, Route } from "react-router-dom";
-import { withRouter } from "react-router-dom";
+import { connect } from "react-redux";
+import { Switch, Route, withRouter } from "react-router-dom";
 import { ROUTES } from './Components/Routes/routes';
 
+import { isLoggedIn } from "./Actions/actions";
 import Header from "./Components/Header/header";
 import MainContent from "./Components/Main/main-content";
 import Footer from "./Components/Footer/footer";
@@ -13,20 +14,20 @@ import Footer from "./Components/Footer/footer";
 import {
     AboutPage, CommentsPage, ProfilePage, RatingPage,
     VacanciesPage, StatsPage, SignInPage, RegistrationPage
-} from './Components/Pages/exports';
+} from './Components/Pages';
 
 class App extends Component {
 
-    state = {
-        isLoggedIn: false,
-        isRegistered: false
-    };
-
-    onLogin = () => {
-        this.setState({
-            isLoggedIn: true
-        });
-    };
+    // state = {
+    //     isLoggedIn: false,
+    //     isRegistered: false
+    // };
+    //
+    // onLogin = () => {
+    //     this.setState({
+    //         isLoggedIn: true
+    //     });
+    // };
 
     // onRegister = () => {
     //     setTimeout(() => {
@@ -38,7 +39,7 @@ class App extends Component {
 
     render() {
         const {location} = this.props;
-        const {isLoggedIn, isRegistered} = this.state;
+        const {isLoggedIn} = this.props;
         const shouldShowHeaderAndFooter = location.pathname !== ROUTES.LOGIN && location.pathname !== ROUTES.REGISTRATION;
 
         return (
@@ -53,8 +54,7 @@ class App extends Component {
                     <Route path={ROUTES.ABOUT} component={AboutPage}/>
                     <Route path={ROUTES.LOGIN} render={() => {
                         return <SignInPage
-                            isLoggedIn={isLoggedIn}
-                            onLogin={this.onLogin}/>
+                            isLoggedIn={isLoggedIn}/>
                     }}/>
                     <Route path={ROUTES.PROFILE} render={() => {
                         return <ProfilePage
@@ -63,8 +63,6 @@ class App extends Component {
                     }}/>
                     <Route path={ROUTES.REGISTRATION} render={() => {
                         return <RegistrationPage
-                            isRegistered={isRegistered}
-                            onRegister={this.onRegister}
                         />
                     }}/>
                 </Switch>
@@ -74,4 +72,15 @@ class App extends Component {
     }
 }
 
-export default withRouter(App);
+const mapStateToProps = ({isLoggedIn}) => {
+    return {
+        isLoggedIn
+    }
+};
+
+const mapDispatchToProps = {
+    isLoggedIn
+};
+
+export default withRouter(
+    connect(mapStateToProps, mapDispatchToProps)(App));

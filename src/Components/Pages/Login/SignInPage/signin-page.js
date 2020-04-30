@@ -13,10 +13,9 @@ import { faTimesCircle } from "@fortawesome/free-regular-svg-icons";
 import { faGoogle, faFacebook, faLinkedin, faGithub } from "@fortawesome/free-brands-svg-icons";
 import { Form, Button } from "react-bootstrap";
 
-const SignInPage = ({isLoggedIn, onLogin}) => {
-    if (isLoggedIn){
-        return <Redirect to="/"/>;
-    }
+
+
+const SignInPage = () => {
     return (
         <div className="signIn-content">
             <div className="signIn-header">
@@ -47,7 +46,7 @@ const SignInPage = ({isLoggedIn, onLogin}) => {
                             <Form.Group controlId="formBasicCheckbox">
                                 <Form.Check type="checkbox" label="Запомнить меня"/>
                             </Form.Group>
-                            <Button onClick={onLogin} className="form-btn">Войти</Button>
+                            <Button className="form-btn">Войти</Button>
                         </Form>
                     </div>
                     <div className="divider"></div>
@@ -77,6 +76,6 @@ const SignInPage = ({isLoggedIn, onLogin}) => {
             </div>
         </div>
     );
-}
+};
 
 export default SignInPage;

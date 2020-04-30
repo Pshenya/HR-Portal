@@ -2,8 +2,6 @@ import React from 'react';
 
 import './header.css';
 
-import {useEffect, useState} from "react";
-
 import { Link } from "react-router-dom";
 import { Container, Nav, Navbar } from "react-bootstrap";
 import { ROUTES } from "../Routes/routes";
@@ -11,11 +9,11 @@ import { ROUTES } from "../Routes/routes";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser } from "@fortawesome/free-regular-svg-icons";
 
-import { makeStyles } from "@material-ui/core/styles";
-import InputBase from "@material-ui/core/InputBase";
-import IconButton from "@material-ui/core/IconButton";
-import SearchIcon from "@material-ui/icons/Search";
-import Paper from "@material-ui/core/Paper";
+// import { makeStyles } from "@material-ui/core/styles";
+// import InputBase from "@material-ui/core/InputBase";
+// import IconButton from "@material-ui/core/IconButton";
+// import SearchIcon from "@material-ui/icons/Search";
+// import Paper from "@material-ui/core/Paper";
 
 
 // const useStyles = makeStyles((theme) => ({
@@ -36,7 +34,7 @@ import Paper from "@material-ui/core/Paper";
 
 export default function Header({isLoggedIn}) {
 
-    const loginPath = isLoggedIn ? ROUTES.PROFILE : ROUTES.LOGIN;
+    // const loginPath = isLoggedIn ? ROUTES.PROFILE : ROUTES.LOGIN;
 
     return (
         <div className="header">
@@ -56,7 +54,7 @@ export default function Header({isLoggedIn}) {
                                 <Nav.Link as={Link} to={ROUTES.VACANCIES}>ВАКАНСИИ</Nav.Link>
                                 <Nav.Link as={Link} to={ROUTES.STATS}>СТАТИСТИКА ЗП</Nav.Link>
                             </Nav>
-                            <Link className="header-icon" to={loginPath}>
+                            <Link className="header-icon" to={ROUTES.LOGIN}>
                                 <FontAwesomeIcon icon={faUser} size="1x"/>
                             </Link>
                             {/*<div className="flex-placeholder"></div>*/}
