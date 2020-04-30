@@ -12,7 +12,7 @@ import { faStar } from "@fortawesome/free-solid-svg-icons";
 import { faFacebookSquare, faGooglePlusSquare, faLinkedin, faGithubSquare } from "@fortawesome/free-brands-svg-icons";
 
 import { Redirect } from "react-router-dom";
-import { ROUTES } from "../../Routes/routes";
+import { ROUTES } from "../../../Routes/routes";
 
 export default class ProfilePage extends Component {
     state = {

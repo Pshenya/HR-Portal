@@ -1,17 +1,25 @@
-const inititalState = {
-    isLoggedIn: false,
-};
+import { userConstants } from '../CONSTANTS';
 
-const authReducer = (state = inititalState, action) => {
-    const {type} = action;
-    switch (type) {
-        case 'USER_LOGGED_IN':
-            return{
-                isLoggedIn: true
+let user = JSON.parse(localStorage.getItem('user'));
+const initialState = user ? { loggedIn: true, user } : {};
+
+export function auth(state = initialState, action) {
+    switch (action.type) {
+        case userConstants.LOGIN_REQUEST:
+            return {
+                loggingIn: true,
+                user: action.user
             };
+        case userConstants.LOGIN_SUCCESS:
+            return {
+                loggedIn: true,
+                user: action.user
+            };
+        case userConstants.LOGIN_FAILURE:
+            return {};
+        case userConstants.LOGOUT:
+            return {};
         default:
-            return state;
+            return state
     }
-};
-
-export default authReducer;
+}

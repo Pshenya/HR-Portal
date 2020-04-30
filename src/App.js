@@ -3,10 +3,12 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 
 import { connect } from "react-redux";
-import { Switch, Route, withRouter } from "react-router-dom";
-import { ROUTES } from './Components/Routes/routes';
+import { Switch, Route, withRouter, Redirect } from "react-router-dom";
+import { ROUTES } from './Routes/routes';
+import { history } from './Components/HOC';
+import { alertActions } from './Actions';
+import { PrivateRoute } from './Routes'
 
-import { isLoggedIn } from "./Actions/actions";
 import Header from "./Components/Header/header";
 import MainContent from "./Components/Main/main-content";
 import Footer from "./Components/Footer/footer";
@@ -17,36 +19,26 @@ import {
 } from './Components/Pages';
 
 class App extends Component {
-
-    // state = {
-    //     isLoggedIn: false,
-    //     isRegistered: false
-    // };
+    // constructor(props) {
+    //     super(props);
     //
-    // onLogin = () => {
-    //     this.setState({
-    //         isLoggedIn: true
+    //     history.listen((location, action) => {
+    //         // clear alert on location change
+    //         this.props.clearAlerts();
     //     });
-    // };
-
-    // onRegister = () => {
-    //     setTimeout(() => {
-    //         this.setState({
-    //             isRegistered: true
-    //         })
-    //     }, 500)
-    // };
+    // }
 
     render() {
-        const {location} = this.props;
-        const {isLoggedIn} = this.props;
+        const {location, alert} = this.props;
         const shouldShowHeaderAndFooter = location.pathname !== ROUTES.LOGIN && location.pathname !== ROUTES.REGISTRATION;
 
         return (
             <div className="app">
-                {shouldShowHeaderAndFooter && <Header isLoggedIn={isLoggedIn}/>}
+                {shouldShowHeaderAndFooter && <Header/>}
+                {alert.message &&
+                <div style={{marginBottom: 0}} className={`alert ${alert.type}`}>{alert.message}</div> }
                 <Switch>
-                    <Route exact path={ROUTES.MAIN} component={MainContent}/>
+                    <PrivateRoute exact path={ROUTES.MAIN} component={MainContent}/>
                     <Route path={ROUTES.COMMENTS} component={CommentsPage}/>
                     <Route path={ROUTES.RATINGS} component={RatingPage}/>
                     <Route path={ROUTES.VACANCIES} component={VacanciesPage}/>
@@ -54,17 +46,18 @@ class App extends Component {
                     <Route path={ROUTES.ABOUT} component={AboutPage}/>
                     <Route path={ROUTES.LOGIN} render={() => {
                         return <SignInPage
-                            isLoggedIn={isLoggedIn}/>
+                        />
                     }}/>
                     <Route path={ROUTES.PROFILE} render={() => {
                         return <ProfilePage
-                            isLoggedIn={isLoggedIn}
+
                         />
                     }}/>
                     <Route path={ROUTES.REGISTRATION} render={() => {
                         return <RegistrationPage
                         />
                     }}/>
+                    <Redirect from="*" to="/"/>
                 </Switch>
                 {shouldShowHeaderAndFooter && <Footer/>}
             </div>
@@ -72,14 +65,12 @@ class App extends Component {
     }
 }
 
-const mapStateToProps = ({isLoggedIn}) => {
-    return {
-        isLoggedIn
-    }
+const mapStateToProps = ({alert}) => {
+    return {alert};
 };
 
 const mapDispatchToProps = {
-    isLoggedIn
+    clearAlerts: alertActions.clear
 };
 
 export default withRouter(

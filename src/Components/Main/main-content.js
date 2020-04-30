@@ -1,6 +1,6 @@
 import React from "react";
 import './main-content.css';
-import { ROUTES } from "../Routes/routes";
+import { ROUTES } from "../../Routes/routes";
 import {Link} from "react-router-dom";
 import Slider from "./slider";
 import RatingBlocks from "./rating-blocks";
