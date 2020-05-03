@@ -19,6 +19,25 @@
     padding: 0;
 }
 
+.navbar .login-btn{
+    filter: drop-shadow(0 5px 5px rgba(0, 0, 0, 0.1));
+    -webkit-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+    border: none;
+    background-color: #fff;
+    color: #000;
+    border-radius: 20px;
+    box-sizing: border-box;
+    padding: 10px 35px;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.navbar .login-btn:hover{
+    background-color: #000;
+    color: #fff;
+}
+
 .nav-link{
     position: relative;
     color: #000 !important;
@@ -79,8 +98,18 @@
 }
 
 .header-icon, .header-icon:hover, .header-icon:active{
+    box-sizing: border-box;
     text-decoration: none;
     color: black;
+}
+.header-icon .icon{
+    margin-top: .4rem;
+    margin-right: 2rem;
+}
+
+.header-icon h3{
+    padding: .5rem;
+    font-size: 1.5rem;
 }
 
 

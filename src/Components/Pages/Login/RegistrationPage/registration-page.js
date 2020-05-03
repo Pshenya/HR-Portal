@@ -6,15 +6,12 @@ import { userActions } from '../../../../Actions';
 
 import '../login.css';
 
-import validationSchema from "../forms-validation";
-
-import { Formik } from 'formik';
-import { Form, Button } from 'react-bootstrap';
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTimesCircle } from "@fortawesome/free-regular-svg-icons";
 import { ROUTES } from "../../../../Routes/routes";
 import { faFacebook, faGithub, faGoogle, faLinkedin } from "@fortawesome/free-brands-svg-icons";
+import { Button, Form } from "react-bootstrap";
 
 class RegistrationPage extends Component {
     constructor(props) {
@@ -75,102 +72,35 @@ class RegistrationPage extends Component {
                     </div>
                     <div className="login-content">
                         <div className="left-content">
-                            <form name="form" onSubmit={this.handleSubmit}>
-                                <div className={'form-group' + (submitted && !user.name ? ' has-error' : '')}>
-                                    <label htmlFor="name">Name</label>
-                                    <input type="text" className="form-control" name="name" value={user.name} onChange={this.handleChange} />
+                            <Form className="common-form mx-auto" name="form" onSubmit={this.handleSubmit}>
+                                <Form.Group className={(submitted && !user.name ? ' has-error' : '')}>
+                                    <Form.Label htmlFor="name">Имя</Form.Label>
+                                    <Form.Control type="text" name="name" value={user.name} onChange={this.handleChange} />
                                     {submitted && !user.name &&
-                                    <div className="help-block">First Name is required</div>
+                                    <div className="help-block">* Это обязательное поле</div>
                                     }
-                                </div>
-                                <div className={'form-group' + (submitted && !user.email ? ' has-error' : '')}>
-                                    <label htmlFor="email">Email</label>
-                                    <input type="text" className="form-control" name="email" value={user.email} onChange={this.handleChange} />
+                                </Form.Group>
+                                <Form.Group className={(submitted && !user.email ? ' has-error' : '')}>
+                                    <Form.Label htmlFor="email">Эл. почта</Form.Label>
+                                    <Form.Control type="email" className="form-control" name="email" value={user.username} onChange={this.handleChange} />
                                     {submitted && !user.email &&
-                                    <div className="help-block">Username is required</div>
+                                    <div className="help-block">* Это обязательное поле</div>
                                     }
-                                </div>
-                                <div className={'form-group' + (submitted && !user.password ? ' has-error' : '')}>
-                                    <label htmlFor="password">Password</label>
-                                    <input type="password" className="form-control" name="password" value={user.password} onChange={this.handleChange} />
+                                </Form.Group>
+                                <Form.Group className={(submitted && !user.password ? ' has-error' : '')}>
+                                    <Form.Label htmlFor="password">Пароль</Form.Label>
+                                    <Form.Control type="password" className="form-control" name="password" value={user.password} onChange={this.handleChange} />
                                     {submitted && !user.password &&
-                                    <div className="help-block">Password is required</div>
+                                    <div className="help-block">* Это обязательное поле</div>
                                     }
-                                </div>
-                                <div className="form-group">
-                                    <button className="btn btn-primary">Register</button>
-                                    {registering}
+                                </Form.Group>
+                                <Form.Group>
+                                    <button className="form-btn">Register</button>
+                                    {registering &&
+                                    <img src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
                                     }
-                                    <Link to="/login" className="btn btn-link">Cancel</Link>
-                                </div>
-                            </form>
-                            {/*<Formik*/}
-                            {/*    initialValues={{name: "", email: "", password: ""}}*/}
-                            {/*    validationSchema={validationSchema}*/}
-                            {/*    onSubmit={values => {*/}
-                            {/*        debugger*/}
-                            {/*        this.props.register(values);*/}
-                            {/*    }}*/}
-                            {/*>*/}
-                            {/*    {({*/}
-                            {/*          values,*/}
-                            {/*          errors,*/}
-                            {/*          touched,*/}
-                            {/*          handleChange,*/}
-                            {/*          handleBlur,*/}
-                            {/*          handleSubmit,*/}
-                            {/*          isSubmitting*/}
-                            {/*      }) => (*/}
-                            {/*        <Form className="common-form mx-auto" onSubmit={handleSubmit}>*/}
-                            {/*            <Form.Group controlId="formConfirmPassword">*/}
-                            {/*                <Form.Label>Имя:</Form.Label>*/}
-                            {/*                <Form.Control*/}
-                            {/*                    type="name"*/}
-                            {/*                    name="name"*/}
-                            {/*                    onChange={handleChange}*/}
-                            {/*                    onBlur={handleBlur}*/}
-                            {/*                    value={values.name}*/}
-                            {/*                    className={touched.name && errors.name ? "error" : null}*/}
-                            {/*                />*/}
-                            {/*                {touched.name && errors.name ? (*/}
-                            {/*                    <div className="error-message">{errors.name}</div>*/}
-                            {/*                ) : null}*/}
-                            {/*            </Form.Group>*/}
-                            {/*            <Form.Group controlId="formEmail">*/}
-                            {/*                <Form.Label>Эл. почта:</Form.Label>*/}
-                            {/*                <Form.Control*/}
-                            {/*                    type="text"*/}
-                            {/*                    name="email"*/}
-                            {/*                    onChange={handleChange}*/}
-                            {/*                    onBlur={handleBlur}*/}
-                            {/*                    value={values.email}*/}
-                            {/*                    className={touched.email && errors.email ? "error" : null}*/}
-                            {/*                />*/}
-                            {/*                {touched.email && errors.email ? (*/}
-                            {/*                    <div className="error-message">{errors.email}</div>*/}
-                            {/*                ) : null}*/}
-                            {/*            </Form.Group>*/}
-                            {/*            <Form.Group controlId="formPassword">*/}
-                            {/*                <Form.Label>Придумайте пароль:</Form.Label>*/}
-                            {/*                <Form.Control*/}
-                            {/*                    type="password"*/}
-                            {/*                    name="password"*/}
-                            {/*                    onChange={handleChange}*/}
-                            {/*                    onBlur={handleBlur}*/}
-                            {/*                    value={values.password}*/}
-                            {/*                    className={touched.password && errors.password ? "error" : null}*/}
-                            {/*                />*/}
-                            {/*                {touched.password && errors.password ? (*/}
-                            {/*                    <div className="error-message">{errors.password}</div>*/}
-                            {/*                ) : null}*/}
-                            {/*            </Form.Group>*/}
-                            {/*            <Button className="form-btn" variant="primary" type="submit"*/}
-                            {/*                    disabled={isSubmitting}>*/}
-                            {/*                Создать*/}
-                            {/*            </Button>*/}
-                            {/*        </Form>*/}
-                            {/*    )}*/}
-                            {/*</Formik>*/}
+                                </Form.Group>
+                            </Form>
                         </div>
                         <div className="divider"></div>
                         <div className="right-content">

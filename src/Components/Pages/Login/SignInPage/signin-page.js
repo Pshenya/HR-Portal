@@ -21,7 +21,6 @@ class SignInPage extends Component {
         super(props);
 
         // reset login status
-        this.props.logout();
 
         this.state = {
             email: '',
@@ -68,21 +67,43 @@ class SignInPage extends Component {
                     </div>
                     <div className="login-content">
                         <div className="left-content">
-                            <Form onSubmit={this.handleSubmit} className="common-form mx-auto">
-                                <Form.Group controlId="formEmail">
-                                    <Form.Label>Эл. почта:</Form.Label>
-                                    <Form.Control type="email" name="email" value={email} onChange={this.handleChange} />
+                            <Form className="common-form mx-auto" name="form" onSubmit={this.handleSubmit}>
+                                <Form.Group className={submitted && !email ? ' has-error' : ''}>
+                                    <Form.Label htmlFor="email">Эл. почта</Form.Label>
+                                    <Form.Control type="text" name="email" value={email} onChange={this.handleChange} />
+                                    {submitted && !email &&
+                                    <div className="help-block">Это обязательное поле</div>
+                                    }
                                 </Form.Group>
-
-                                <Form.Group controlId="formPassword">
-                                    <Form.Label>Пароль:</Form.Label>
-                                    <Form.Control type="password" name="password" value={password} onChange={this.handleChange}/>
+                                <div className={'form-group' + (submitted && !password ? ' has-error' : '')}>
+                                    <Form.Label htmlFor="password">Пароль</Form.Label>
+                                    <Form.Control type="password" name="password" value={password} onChange={this.handleChange} />
+                                    {submitted && !password &&
+                                    <div className="help-block">Это обязательное поле</div>
+                                    }
+                                </div>
+                                <Form.Group>
+                                    <button className="form-btn">Войти</button>
+                                    {loggingIn &&
+                                    <img src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
+                                    }
                                 </Form.Group>
-                                <Form.Group controlId="formBasicCheckbox">
-                                    <Form.Check type="checkbox" label="Запомнить меня"/>
-                                </Form.Group>
-                                <Button className="form-btn">Войти</Button>
                             </Form>
+                            {/*<Form onSubmit={this.handleSubmit} className="common-form mx-auto">*/}
+                            {/*    <Form.Group controlId="formEmail">*/}
+                            {/*        <Form.Form.Label>Эл. почта:</Form.Form.Label>*/}
+                            {/*        <Form.Control type="email" name="email" value={email} onChange={this.handleChange} />*/}
+                            {/*    </Form.Group>*/}
+
+                            {/*    <Form.Group controlId="formPassword">*/}
+                            {/*        <Form.Form.Label>Пароль:</Form.Form.Label>*/}
+                            {/*        <Form.Control type="password" name="password" value={password} onChange={this.handleChange}/>*/}
+                            {/*    </Form.Group>*/}
+                            {/*    <Form.Group controlId="formBasicCheckbox">*/}
+                            {/*        <Form.Check type="checkbox" Form.Label="Запомнить меня"/>*/}
+                            {/*    </Form.Group>*/}
+                            {/*    <Button className="form-btn">Войти</Button>*/}
+                            {/*</Form>*/}
                         </div>
                         <div className="divider"></div>
                         <div className="right-content">

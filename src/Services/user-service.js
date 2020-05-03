@@ -3,8 +3,8 @@ import { authHeader } from '../Components/HOC';
 export const userService = {
     login,
     logout,
-    register
-    // getAll,
+    register,
+    getUserData
     // getById,
     // update,
     // delete: _delete
@@ -23,7 +23,7 @@ function login(email, password) {
         .then(handleResponse)
         .then(user => {
             // store user details and jwt token in local storage to keep user logged in between page refreshes
-            localStorage.setItem('user', JSON.stringify(user));
+            localStorage.setItem('user', user);
 
             return user;
         });
@@ -34,14 +34,20 @@ function logout() {
     localStorage.removeItem('user');
 }
 
-// function getAll() {
-//     const requestOptions = {
-//         method: 'GET',
-//         headers: authHeader()
-//     };
-//
-//     return fetch(`${_apiURL}/posts`, requestOptions).then(handleResponse);
-// }
+function getUserData() {
+    const requestOptions = {
+        method: 'GET',
+        headers: authHeader(),
+        redirect: 'follow'
+    };
+
+    return fetch(`${_apiURL}/posts`, requestOptions)
+        .then(handleResponse)
+        .then(userData => {
+            console.log(JSON.parse(userData));
+            return JSON.parse(userData);
+        })
+}
 
 // function getById(id) {
 //     const requestOptions = {
@@ -91,13 +97,14 @@ function handleResponse(response) {
                 if (response.status === 401) {
                     // auto logout if 400 response returned from api
                     logout();
-                    window.location.reload();
+                    // window.location.reload();
                 }
                 const error = data.toString();
 
                 return Promise.reject(error);
             }
             return data;
+
         })
     //      const data = text && JSON.parse(text);
 }
