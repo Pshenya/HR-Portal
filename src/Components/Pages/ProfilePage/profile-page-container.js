@@ -36,7 +36,7 @@ class ProfilePageContainer extends Component {
     };
 
     render() {
-        const {userData} = this.props;
+        const {loggedIn, userData} = this.props;
         const {addJob, Facebook, LinkedIn, Github, Google} = this.state;
         const data = {
             addJob,
@@ -47,15 +47,21 @@ class ProfilePageContainer extends Component {
         };
         const socials = renderSocials(Socials, this.onSocialSelected);
 
-        return(
-            <ProfilePage userData={userData} data={data} socials={socials} onAddJob={this.onAddJob} onDeleteJob={this.onDeleteJob}/>
-        )
+        if (loggedIn) {
+            return (
+                <ProfilePage userData={userData} data={data} socials={socials} onAddJob={this.onAddJob}
+                             onDeleteJob={this.onDeleteJob}/>
+            )
+        }
+
+
     }
 }
 
 
 const mapStateToProps = (state) => {
     return {
+        loggedIn: state.auth,
         userData: state.getUser.userData
     }
 };

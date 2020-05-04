@@ -2,7 +2,6 @@ import { userConstants } from '../CONSTANTS';
 import { userService } from '../Services';
 import { alertActions } from './';
 import { history } from '../Components/HOC';
-import { Redirect } from 'react-router-dom';
 
 export const userActions = {
     login,

@@ -1,0 +1,141 @@
+.vac-content{
+    width: 100%;
+    font-family: Roboto-Condensed, sans-serif;
+    font-weight: normal;
+    font-size: 1rem;
+}
+
+.vac-header{
+    background-color: #48478a;
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.2);
+}
+
+.vac-header-content{
+    position: relative;
+    padding: 20px;
+    max-width: 1260px;
+    margin: 0 auto;
+}
+
+.vac-header-content .header-list{
+    font-family: "Roboto-Condensed", sans-serif;
+    font-size: 14px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin: 0 0 0 48px;
+    color: white;
+}
+
+.vac-header-content .header-list li{
+    margin-right: 60px;
+    cursor: pointer;
+}
+
+.vac-main{
+    max-width: 1080px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 20px;
+}
+.vac-main-wrapper{
+    display: flex;
+    justify-content: flex-start;
+    align-items: stretch;
+}
+.vac-leftContent{
+    flex: 1;
+    padding: 0 10px;
+    background: transparent;
+    border: none;
+    max-width: 770px;
+    overflow: hidden;
+}
+.vac-leftContent .vac-card{
+    background: #fff;
+    box-shadow: 0 10px 10px rgba(33,37,39,.05);
+    border-radius: 5px;
+    margin-bottom: 20px;
+    overflow: hidden;
+    transition: box-shadow .2s;
+    cursor: pointer;
+}
+
+.vac-leftContent .vac-card .vac-card-body{
+    padding: 20px
+}
+
+.vac-leftContent .vac-card .card-main-content{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.card-main-content .common-info .vac-card-title{
+    color: #36c;
+    font-size: 20px;
+    line-height: 30px;
+    font-weight: 800;
+    margin: 0;
+}
+
+.card-main-content .common-info .company-name{
+    font-size: 20px;
+    line-height: 30px;
+    margin-bottom: 10px;
+    margin-top: 0;
+}
+
+.salary, .location{
+    font-size: 16px;
+    line-height: 20px;
+}
+
+.salary{
+    font-weight: 700;
+    font-family: Graphik Bold,sans-serif;
+    margin-right: 20px;
+    vertical-align: top;
+}
+
+.vac-card-description{
+    font-size: 12px;
+    line-height: 20px;
+    margin-top: 10px;
+    color: #687e88;
+    max-height: 40px;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+}
+
+.vac-card-footer{
+    border-top: 1px solid #e0e7eb;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.vac-card-footer .publication-time{
+    font-size: 14px;
+    line-height: 20px;
+    color: #687e88;
+}
+
+/* Aside right content */
+
+.vac-aside-wrapper{
+    margin-left: 10px;
+}
+
+.vac-rightContent{
+    padding: 30px 25px;
+    box-shadow: 0 0 10px rgba(33,37,39,.15);
+    border-radius: 5px;
+    border: none;
+    background: #fff;
+}
+
+.vac-sidebar{
+    max-width: 250px;
+}

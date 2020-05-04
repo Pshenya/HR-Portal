@@ -2,40 +2,24 @@ import React, { Component } from 'react';
 
 import './header.css';
 
+import { connect } from "react-redux";
+
 import { Link } from "react-router-dom";
 import { Button, Container, Nav, Navbar } from "react-bootstrap";
 import { ROUTES } from "../../Routes/routes";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUserCircle } from "@fortawesome/free-regular-svg-icons";
-import { faUserTie, faSignOutAlt } from "@fortawesome/free-solid-svg-icons";
-
-// import { makeStyles } from "@material-ui/core/styles";
-// import InputBase from "@material-ui/core/InputBase";
-// import IconButton from "@material-ui/core/IconButton";
-// import SearchIcon from "@material-ui/icons/Search";
-// import Paper from "@material-ui/core/Paper";
-
-
-// const useStyles = makeStyles((theme) => ({
-//     root: {
-//         padding: '2px 2px',
-//         display: 'flex',
-//         alignItems: 'center',
-//         width: 300,
-//     },
-//     input: {
-//         marginLeft: theme.spacing(1),
-//         flex: 1,
-//     },
-//     iconButton: {
-//         padding: 5,
-//     },
-// }));
+import { faSignOutAlt } from "@fortawesome/free-solid-svg-icons";
+import { userActions } from "../../Actions";
 
 class Header extends Component {
+    componentDidMount() {
+        this.props.getUser();
+    }
+
     render() {
-        const {loggedIn} = this.props;
+        const {loggedIn, userData, logout} = this.props;
 
         return (
             <div className="header">
@@ -58,26 +42,19 @@ class Header extends Component {
                                 {loggedIn &&
                                 <div className="d-flex">
                                     <Link className="header-icon d-flex" to={ROUTES.PROFILE}>
-                                        <FontAwesomeIcon  icon={faUserCircle}/>
+                                        <h3>{userData.name}</h3>
+                                        <FontAwesomeIcon className="icon" title="Мой профиль" icon={faUserCircle}/>
                                     </Link>
-                                    <FontAwesomeIcon onClick={this.props.logout} style={{marginLeft: '2rem', cursor:'pointer'}} icon={faSignOutAlt}/>
+                                    <FontAwesomeIcon title='Выход' style={{marginTop: '.5rem', cursor: 'pointer'}}
+                                                     onClick={logout}
+                                                     icon={faSignOutAlt}/>
                                 </div>
                                 }
                                 { !loggedIn &&
                                 <Link to={ROUTES.LOGIN}>
                                     <Button className="login-btn">Вход</Button>
                                 </Link>}
-                                {/*<div className="flex-placeholder"></div>*/}
-                                {/*<Paper component="form" className={classes.root}>*/}
-                                {/*    <InputBase*/}
-                                {/*        className={classes.input}*/}
-                                {/*        placeholder="Поиск"*/}
-                                {/*        inputProps={{'aria-label': 'search'}}*/}
-                                {/*    />*/}
-                                {/*    <IconButton type="submit" className={classes.iconButton} aria-label="search">*/}
-                                {/*        <SearchIcon/>*/}
-                                {/*    </IconButton>*/}
-                                {/*</Paper>*/}
+
 
                             </Navbar.Collapse>
                         </Container>
@@ -88,5 +65,18 @@ class Header extends Component {
     }
 }
 
-export default Header;
+const mapStateToProps = (state) => {
+    return {
+        loggedIn: state.auth.loggedIn,
+        userData: state.getUser.userData
+    }
+};
+
+const mapDispatchToProps = {
+    logout: userActions.logout,
+    getUser: userActions.getUserData
+};
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(Header);
 

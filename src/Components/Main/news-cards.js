@@ -15,7 +15,7 @@ class NewsCards extends Component {
                 <CardDeck>
                     <Row>
                         <Col sm={12} md={6} lg={4}>
-                            <Card>
+                            <Card className="news-card">
                                 <Card.Img variant="top" src={watch}/>
                                 <Card.Body>
                                     <Card.Title>Card title</Card.Title>
@@ -32,7 +32,7 @@ class NewsCards extends Component {
                             </Card>
                         </Col>
                         <Col sm={12} md={6} lg={4}>
-                            <Card>
+                            <Card className="news-card">
                                 <Card.Img variant="top" src={bg}/>
                                 <Card.Body>
                                     <Card.Title>Card title</Card.Title>
@@ -47,7 +47,7 @@ class NewsCards extends Component {
                             </Card>
                         </Col>
                         <Col sm={12} md={12} lg={4}>
-                            <Card>
+                            <Card className="news-card">
                                 <Card.Img variant="top" src={forest}/>
                                 <Card.Body>
                                     <Card.Title>Card title</Card.Title>
@@ -64,8 +64,8 @@ class NewsCards extends Component {
                         </Col>
                     </Row>
                     <Row>
-                        <Col sm={4}>
-                            <Card>
+                        <Col sm={12} md={6} lg={4}>
+                            <Card className="news-card">
                                 <Card.Img variant="top" src={watch}/>
                                 <Card.Body>
                                     <Card.Title>Card title</Card.Title>
@@ -81,8 +81,8 @@ class NewsCards extends Component {
                                 </Card.Footer>
                             </Card>
                         </Col>
-                        <Col sm={4}>
-                            <Card>
+                        <Col sm={12} md={6} lg={4}>
+                            <Card className="news-card">
                                 <Card.Img variant="top" src={bg}/>
                                 <Card.Body>
                                     <Card.Title>Card title</Card.Title>
@@ -96,8 +96,8 @@ class NewsCards extends Component {
                                 </Card.Footer>
                             </Card>
                         </Col>
-                        <Col sm={4}>
-                            <Card>
+                        <Col sm={12} md={12} lg={4}>
+                            <Card className="news-card">
                                 <Card.Img variant="top" src={forest}/>
                                 <Card.Body>
                                     <Card.Title>Card title</Card.Title>

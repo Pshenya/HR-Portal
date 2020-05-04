@@ -28,14 +28,14 @@ class App extends Component {
     }
 
     render() {
-        const {alert, loggedIn, logout} = this.props;
+        const {alert} = this.props;
         const shouldShowHeaderAndFooter = history.location.pathname !== ROUTES.LOGIN && history.location.pathname !== ROUTES.REGISTRATION;
 
 
         return (
             <div className="app">
                 <Router history={history}>
-                    {shouldShowHeaderAndFooter && <Header loggedIn={loggedIn} logout={logout}/>}
+                    {shouldShowHeaderAndFooter && <Header/>}
                     {alert.message &&
                     <div style={{marginBottom: 0}} className={`alert ${alert.type}`}>{alert.message}</div>}
                     <Switch>
@@ -59,8 +59,7 @@ class App extends Component {
 
 const mapStateToProps = (state) => {
     return {
-        alert: state.alert,
-        loggedIn: state.auth.loggedIn,
+        alert: state.alert
     }
 };
 

@@ -94,10 +94,10 @@ function handleResponse(response) {
     return response.text()
         .then(data => {
             if ( !response.ok) {
-                if (response.status === 401) {
+                if (data === 'Invalid token') {
                     // auto logout if 400 response returned from api
                     logout();
-                    // window.location.reload();
+                    window.location.reload();
                 }
                 const error = data.toString();
 

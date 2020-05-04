@@ -7,7 +7,7 @@
     margin-bottom: 60px;
 }
 
-.card{
+.news-card{
     overflow: hidden;
     position: relative;
     background-color: #fff;
@@ -28,11 +28,11 @@
     height: 225px;
 }
 
-.card:hover .card-img-top {
+.news-card:hover .card-img-top {
     transform: scale(1.1);
 }
 
-.card::before{
+.news-card::before{
     cursor: pointer;
     content: "";
     display: block;
@@ -44,7 +44,7 @@
     transition: all 1.5s ease;
 
 }
-.card:hover::before{
+.news-card:hover::before{
     background: linear-gradient(rgba(72, 72, 138, 0.4),transparent);
 }
 
@@ -61,6 +61,6 @@
     color: rgba(0,0,0,.3) !important
 }
 
-.card:hover .card-title{
+.news-card:hover .card-title{
     color: #7c7aeb;
 }
