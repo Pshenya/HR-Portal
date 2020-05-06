@@ -9,7 +9,7 @@ import { history } from './Components/HOC';
 import { alertActions, userActions } from './Actions';
 
 import Header from "./Components/Header/header";
-import MainContent from "./Components/Main/main-content";
+import MainPage from "./Components/Pages/Main/main-page";
 import Footer from "./Components/Footer/footer";
 
 import {
@@ -39,7 +39,7 @@ class App extends Component {
                     {alert.message &&
                     <div style={{marginBottom: 0}} className={`alert ${alert.type}`}>{alert.message}</div>}
                     <Switch>
-                        <Route exact path={ROUTES.MAIN} component={MainContent}/>
+                        <Route exact path={ROUTES.MAIN} component={MainPage}/>
                         <Route path={ROUTES.COMMENTS} component={CommentsPage}/>
                         <Route path={ROUTES.RATINGS} component={RatingPage}/>
                         <Route path={ROUTES.VACANCIES} component={VacanciesPage}/>

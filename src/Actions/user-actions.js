@@ -7,7 +7,8 @@ export const userActions = {
     login,
     logout,
     register,
-    getUserData
+    getUserData,
+    getAllUsers
     // delete: _delete
 };
 
@@ -76,6 +77,20 @@ function getUserData() {
     function request() { return { type: userConstants.GETUSER_REQUEST } }
     function success(userData) { return { type: userConstants.GETUSER_SUCCESS, userData } }
     function failure(error) { return { type: userConstants.GETUSER_FAILURE, error } }
+}
+
+function getAllUsers() {
+    return dispatch => {
+        dispatch(request());
+
+        userService.getAllUsers()
+            .then(usersList => dispatch(success(usersList)))
+            .catch(error => dispatch(failure(error)))
+    };
+
+    function request() { return {type: userConstants.GETALL_USERS_REQUEST} }
+    function success(usersList) { return { type: userConstants.GETALL_USERS_SUCCESS, usersList } }
+    function failure(error) { return { type: userConstants.GETALL_USERS_FAILURE, error } }
 }
 //
 // // prefixed function name with underscore because delete is a reserved word in javascript

@@ -1,11 +1,12 @@
 import { userConstants } from '../CONSTANTS';
 
 const initialState = {
-    loading: false,
     userData: {},
+    usersList: [],
+    loading: false,
     error: ''
 };
-export function getUser(state = initialState, action) {
+export function users(state = initialState, action) {
     switch (action.type) {
         case userConstants.GETUSER_REQUEST:
             return {
@@ -22,35 +23,26 @@ export function getUser(state = initialState, action) {
                 ...state,
                 error: action.error
             };
-        case userConstants.DELETE_REQUEST:
-            // add 'deleting:true' property to user being deleted
+        case userConstants.GETALL_USERS_REQUEST:
+            return{
+                ...state,
+                usersList: [],
+                loading: true,
+                error: null
+            };
+        case userConstants.GETALL_USERS_SUCCESS:
             return {
                 ...state,
-                items: state.items.map(user =>
-                    user.id === action.id
-                        ? { ...user, deleting: true }
-                        : user
-                )
+                usersList: action.usersList,
+                loading: false,
+                error: null
             };
-        case userConstants.DELETE_SUCCESS:
-            // remove deleted user from state
-            return {
-                items: state.items.filter(user => user.id !== action.id)
-            };
-        case userConstants.DELETE_FAILURE:
-            // remove 'deleting:true' property and add 'deleteError:[error]' property to user
+        case userConstants.GETALL_USERS_FAILURE:
             return {
                 ...state,
-                items: state.items.map(user => {
-                    if (user.id === action.id) {
-                        // make copy of user without 'deleting:true' property
-                        const { deleting, ...userCopy } = user;
-                        // return copy of user with 'deleteError:[error]' property
-                        return { ...userCopy, deleteError: action.error };
-                    }
-
-                    return user;
-                })
+                usersList: [],
+                loading: false,
+                error: action.error
             };
         default:
             return state

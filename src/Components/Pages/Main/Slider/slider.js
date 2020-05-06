@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import { Carousel } from "react-bootstrap";
 import './slider.css';
 import './slide-animations.css'
-import watch from "../../assets/img/watch.png";
-import bg from "../../assets/img/for.jpg";
-import forest from "../../assets/img/forest.jpg";
+import watch from "../../../../assets/img/watch.png";
+import bg from "../../../../assets/img/for.jpg";
+import forest from "../../../../assets/img/forest.jpg";
 
 class Slider extends Component {
     render() {

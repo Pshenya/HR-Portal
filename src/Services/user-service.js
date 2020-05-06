@@ -1,16 +1,80 @@
 import { authHeader } from '../Components/HOC';
 
 export const userService = {
+    register,
     login,
     logout,
-    register,
-    getUserData
+    getUserData,
+    getAllUsers
     // getById,
     // update,
     // delete: _delete
 };
 
 const _apiURL = "http://localhost:3000/api";
+
+const data = [
+    {
+        id: 1,
+        name: 'Pavlik',
+        lastname: 'Pshenya',
+        companyName: 'Google',
+        rating: 9.2
+    },
+    {
+        id: 2,
+        name: 'Miho',
+        lastname: 'Kater',
+        companyName: 'Amazon',
+        rating: 8.8
+    },
+    {
+        id: 3,
+        name: 'Leha',
+        lastname: 'Kol',
+        companyName: 'Netflix',
+        rating: 9.5
+    },
+    {
+        id: 4,
+        name: 'Jeff',
+        lastname: 'Bezos',
+        companyName: 'Amazon',
+        rating: 10
+    },
+    {
+        id: 5,
+        name: 'Elon',
+        lastname: 'Mask',
+        companyName: 'Tesla',
+        rating: 9.7
+    },
+    {
+        id: 6,
+        name: 'Mark',
+        lastname: 'Zuckerberg',
+        companyName: 'Facebook',
+        rating: 9.1
+    },
+    {
+        id: 7,
+        name: 'Leha',
+        lastname: 'Bichkoff',
+        companyName: 'FIT',
+        rating: 100
+    }
+];
+
+function register(user) {
+    const requestOptions = {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify(user),
+        redirect: "follow"
+    };
+
+    return fetch(`${_apiURL}/user/register`, requestOptions).then(handleResponse);
+}
 
 function login(email, password) {
     const requestOptions = {
@@ -49,6 +113,18 @@ function getUserData() {
         })
 }
 
+function getAllUsers() {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            if (Math.random() > 0.75) {
+                reject(new Error('ERROR'))
+            } else {
+                resolve(data);
+            }
+        }, 700);
+    })
+}
+
 // function getById(id) {
 //     const requestOptions = {
 //         method: 'GET',
@@ -58,16 +134,6 @@ function getUserData() {
 //     return fetch(`${config.apiUrl}/users/${id}`, requestOptions).then(handleResponse);
 // }
 
-function register(user) {
-    const requestOptions = {
-        method: 'POST',
-        headers: {'Content-Type': 'application/json'},
-        body: JSON.stringify(user),
-        redirect: "follow"
-    };
-
-    return fetch(`${_apiURL}/user/register`, requestOptions).then(handleResponse);
-}
 
 // function update(user) {
 //     const requestOptions = {
@@ -106,5 +172,4 @@ function handleResponse(response) {
             return data;
 
         })
-    //      const data = text && JSON.parse(text);
 }

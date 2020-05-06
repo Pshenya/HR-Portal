@@ -62,7 +62,7 @@ class ProfilePageContainer extends Component {
 const mapStateToProps = (state) => {
     return {
         loggedIn: state.auth,
-        userData: state.getUser.userData
+        userData: state.users.userData
     }
 };
 
