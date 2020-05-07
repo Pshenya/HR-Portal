@@ -1,0 +1,49 @@
+.rating-container{
+    width: 100%;
+    font-family: Roboto-Condensed, sans-serif;
+    font-size: 1rem;
+}
+
+.rating-content{
+    padding: 0 20px 0 40px;
+}
+
+.rating-title{
+    position: relative;
+    line-height: 44px;
+    padding-bottom: 22px;
+    font-weight: 700;
+}
+
+.rating-table{
+    vertical-align: top;
+    border-collapse: collapse;
+    border-spacing: 0;
+    /*table-layout: fixed;*/
+    min-width: 900px;
+    width: 100%;
+    margin-bottom: 60px;
+}
+.rating-table thead{
+    display: table-header-group;
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+.rating-table thead th{
+    padding-bottom: 10px;
+    border-bottom: 1px solid black;
+}
+
+.rating-table th{
+    vertical-align: bottom;
+    font-weight: 400;
+    text-align: left;
+    font-size: 13px;
+}
+
+.rating-table td{
+    vertical-align: top;
+    padding: 6px 0;
+    line-height: 20px;
+    font-size: 13px;
+}

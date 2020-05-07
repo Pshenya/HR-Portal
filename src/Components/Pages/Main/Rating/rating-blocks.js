@@ -12,17 +12,17 @@ import { userActions } from "../../../../Actions";
 import ErrorIndicator from "../../../ErrorIndicator/error-indicator";
 
 
-const RatingBlocks = ({usersList}) => {
-
+const RatingBlocks = ({profilesList}) => {
+    console.log(profilesList);
     return (
         <aside className="aside">
-            <div className="rating">
+            <div className="aside-rating">
                 <h3><Link to={ROUTES.RATINGS}>Топ HR</Link></h3>
-                <ul className="rating-blocks">
+                <ul className="aside-rating-blocks">
                     {
-                        usersList.map((user) => {
+                        profilesList.map((user) => {
                             return (
-                                <li key={user.id}>
+                                <li key={user._id}>
                                     <RatingBlocksItem user={user}/>
                                 </li>
                             )
@@ -37,38 +37,43 @@ const RatingBlocks = ({usersList}) => {
 class RatingBlocksContainer extends Component {
     componentDidMount() {
         this.props.getAllUsers();
+        this.props.getAllProfiles();
     }
 
     render() {
-        const {usersList, loading, error} = this.props;
+        const {profilesList, usersList, loading, error} = this.props;
         if (loading) {
             return (
-                <div className="rating-loading">
+                <div className="aside-rating-loading">
                     <Loading/>
                 </div>
             )
         }
         if (error) {
             return (
-                <div className="rating-error">
+                <div className="aside-rating-error">
                     <ErrorIndicator/>
                 </div>
             )
         }
-        return <RatingBlocks usersList={usersList}/>
+        return <RatingBlocks usersList={usersList} profilesList={profilesList}/>
     }
 }
 
 const mapStateToProps = ({users}) => {
     return {
+        userData: users.userData,
         usersList: users.usersList,
+        profilesList: users.profilesList,
         loading: users.loading,
         error: users.error
     }
 };
 
 const mapDispatchToProps = {
-    getAllUsers: userActions.getAllUsers
+    getUser: userActions.getUserData,
+    getAllUsers: userActions.getAllUsers,
+    getAllProfiles: userActions.getAllProfiles
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(RatingBlocksContainer);

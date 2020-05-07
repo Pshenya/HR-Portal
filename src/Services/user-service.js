@@ -5,7 +5,8 @@ export const userService = {
     login,
     logout,
     getUserData,
-    getAllUsers
+    getAllUsers,
+    getAllProfiles
     // getById,
     // update,
     // delete: _delete
@@ -13,57 +14,6 @@ export const userService = {
 
 const _apiURL = "http://localhost:3000/api";
 
-const data = [
-    {
-        id: 1,
-        name: 'Pavlik',
-        lastname: 'Pshenya',
-        companyName: 'Google',
-        rating: 9.2
-    },
-    {
-        id: 2,
-        name: 'Miho',
-        lastname: 'Kater',
-        companyName: 'Amazon',
-        rating: 8.8
-    },
-    {
-        id: 3,
-        name: 'Leha',
-        lastname: 'Kol',
-        companyName: 'Netflix',
-        rating: 9.5
-    },
-    {
-        id: 4,
-        name: 'Jeff',
-        lastname: 'Bezos',
-        companyName: 'Amazon',
-        rating: 10
-    },
-    {
-        id: 5,
-        name: 'Elon',
-        lastname: 'Mask',
-        companyName: 'Tesla',
-        rating: 9.7
-    },
-    {
-        id: 6,
-        name: 'Mark',
-        lastname: 'Zuckerberg',
-        companyName: 'Facebook',
-        rating: 9.1
-    },
-    {
-        id: 7,
-        name: 'Leha',
-        lastname: 'Bichkoff',
-        companyName: 'FIT',
-        rating: 100
-    }
-];
 
 function register(user) {
     const requestOptions = {
@@ -114,15 +64,29 @@ function getUserData() {
 }
 
 function getAllUsers() {
-    return new Promise((resolve, reject) => {
-        setTimeout(() => {
-            if (Math.random() > 0.75) {
-                reject(new Error('ERROR'))
-            } else {
-                resolve(data);
-            }
-        }, 700);
-    })
+    const requsetOptions = {
+        method: 'GET',
+        redirect: 'follow'
+    };
+    return fetch(`${_apiURL}/user/all`, requsetOptions)
+        .then(handleResponse)
+        .then(userData => {
+            console.log(JSON.parse(userData));
+            return JSON.parse(userData);
+        });
+}
+
+function getAllProfiles() {
+    const requsetOptions = {
+        method: 'GET',
+        redirect: 'follow'
+    };
+    return fetch(`${_apiURL}/user/profileadd`, requsetOptions)
+        .then(handleResponse)
+        .then(profileData => {
+            console.log(JSON.parse(profileData));
+            return JSON.parse(profileData);
+        });
 }
 
 // function getById(id) {

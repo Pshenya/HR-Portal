@@ -34,10 +34,16 @@
 
 .vac-main{
     max-width: 1080px;
-    margin-left: auto;
-    margin-right: auto;
+    margin-left: 160px;
+    margin-right: 160px;
     padding: 20px;
 }
+.vac-main h3{
+    font-family: "Roboto-Condensed Bold", sans-serif;
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
 .vac-main-wrapper{
     display: flex;
     justify-content: flex-start;
@@ -60,6 +66,10 @@
     transition: box-shadow .2s;
     cursor: pointer;
 }
+.vac-leftContent .vac-card:hover{
+    box-shadow: 0 230px 20px rgba(33,37,39,.05);
+    background-color: rgba(72, 71, 138, 0.1);
+}
 
 .vac-leftContent .vac-card .vac-card-body{
     padding: 20px
@@ -72,6 +82,7 @@
 }
 
 .card-main-content .common-info .vac-card-title{
+    transition: .2s all ease;
     color: #36c;
     font-size: 20px;
     line-height: 30px;
@@ -86,14 +97,13 @@
     margin-top: 0;
 }
 
-.salary, .location{
+.vac-card-salary, .vac-card-location{
     font-size: 16px;
     line-height: 20px;
 }
 
-.salary{
-    font-weight: 700;
-    font-family: Graphik Bold,sans-serif;
+.vac-card-salary{
+    font-family: "Roboto-Condensed Bold", sans-serif;
     margin-right: 20px;
     vertical-align: top;
 }
@@ -126,6 +136,7 @@
 
 .vac-aside-wrapper{
     margin-left: 10px;
+    width: 300px;
 }
 
 .vac-rightContent{
@@ -137,5 +148,66 @@
 }
 
 .vac-sidebar{
-    max-width: 250px;
+    max-width:250px;
 }
+
+.sidebar-divider{
+    height: 1px;
+    width: 100%;
+    background-color: #d2d2d2;
+    margin-top: 20px;
+}
+
+.vac-sidebar-schedule, .vac-sidebar-salary, .vac-sidebar-workLevel{
+    padding-top: 20px;
+}
+
+.salary-flex{
+    display: inline-block;
+    position: relative;
+    margin: 5px 0;
+    outline: none;
+}
+
+.salary-input-line{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.salary-input{
+    height: 30px;
+    max-width: 100px;
+    padding: 0 10px;
+    margin: 0 10px;
+    border: 1px solid;
+    border-radius: 3px;
+    border-color: rgba(0,0,0,0.54);
+}
+
+.salary-input-btn{
+    border-radius: 3px;
+    border: 1px solid #48478a;
+    margin-left: 10px !important;
+    text-transform: uppercase;
+    height: 30px;
+    width: 37px;
+    padding: 0 !important;
+    position: relative;
+    top: -.5px;
+    min-width: 0 !important;
+    color: #48478a;
+    transition: .3s all ease;
+}
+
+.salary-input-btn:hover{
+    color: white;
+    background-color: #48478a;
+}
+
+
+
+
+
+
+

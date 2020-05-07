@@ -83,15 +83,18 @@ function VacanciesPage() {
                                         <div className="common-info">
                                             <h3 className="vac-card-title">Title</h3>
                                             <p className="company-name">Company</p>
-                                            <span className="salary">40&nbsp;000 грн</span>
-                                            <span className="location">
+                                            <span className="vac-card-salary">40&nbsp;000 грн</span>
+                                            <span className="vac-card-location">
                                                 <RoomIcon style={{marginRight: '5px'}}/>
                                                 Киев
                                             </span>
                                         </div>
                                     </div>
                                     <div className="vac-card-description">
-                                        Compamy - Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam deleniti ea ipsum, odio quae repellat reprehenderit! Beatae, cupiditate distinctio eius est, fugit itaque possimus praesentium quibusdam quod rerum tempore ullam?
+                                        Compamy - Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam
+                                        deleniti ea ipsum, odio quae repellat reprehenderit! Beatae, cupiditate
+                                        distinctio eius est, fugit itaque possimus praesentium quibusdam quod rerum
+                                        tempore ullam?
                                     </div>
                                 </div>
                                 <div className="vac-card-footer">
@@ -108,15 +111,18 @@ function VacanciesPage() {
                                         <div className="common-info">
                                             <h3 className="vac-card-title">Title</h3>
                                             <p className="company-name">Company</p>
-                                            <span className="salary">40&nbsp;000 грн</span>
-                                            <span className="location">
+                                            <span className="vac-card-salary">40&nbsp;000 грн</span>
+                                            <span className="vac-card-location">
                                                 <RoomIcon style={{marginRight: '5px'}}/>
                                                 Киев
                                             </span>
                                         </div>
                                     </div>
                                     <div className="vac-card-description">
-                                        Compamy - Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam deleniti ea ipsum, odio quae repellat reprehenderit! Beatae, cupiditate distinctio eius est, fugit itaque possimus praesentium quibusdam quod rerum tempore ullam?
+                                        Compamy - Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam
+                                        deleniti ea ipsum, odio quae repellat reprehenderit! Beatae, cupiditate
+                                        distinctio eius est, fugit itaque possimus praesentium quibusdam quod rerum
+                                        tempore ullam?
                                     </div>
                                 </div>
                                 <div className="vac-card-footer">
@@ -133,15 +139,18 @@ function VacanciesPage() {
                                         <div className="common-info">
                                             <h3 className="vac-card-title">Title</h3>
                                             <p className="company-name">Company</p>
-                                            <span className="salary">40&nbsp;000 грн</span>
-                                            <span className="location">
+                                            <span className="vac-card-salary">40&nbsp;000 грн</span>
+                                            <span className="vac-card-location">
                                                 <RoomIcon style={{marginRight: '5px'}}/>
                                                 Киев
                                             </span>
                                         </div>
                                     </div>
                                     <div className="vac-card-description">
-                                        Compamy - Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam deleniti ea ipsum, odio quae repellat reprehenderit! Beatae, cupiditate distinctio eius est, fugit itaque possimus praesentium quibusdam quod rerum tempore ullam?
+                                        Compamy - Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam
+                                        deleniti ea ipsum, odio quae repellat reprehenderit! Beatae, cupiditate
+                                        distinctio eius est, fugit itaque possimus praesentium quibusdam quod rerum
+                                        tempore ullam?
                                     </div>
                                 </div>
                                 <div className="vac-card-footer">
@@ -155,10 +164,86 @@ function VacanciesPage() {
                     <aside className="vac-aside-wrapper">
                         <div className="vac-rightContent">
                             <div className="vac-sidebar">
-                                <h3>Категория</h3>
-                                <Form.Control as="select" custom>
-                                    <option>Все категории</option>
-                                </Form.Control>
+                                <div className="vac-sidebar-categories">
+                                    <h3>Категория</h3>
+                                    <Form.Control as="select" custom>
+                                        <option>Все категории</option>
+                                    </Form.Control>
+                                </div>
+                                <div className="sidebar-divider"/>
+                                <div className="vac-sidebar-schedule">
+                                    <h3>Занятость: </h3>
+                                    <Form>
+                                        {['radio'].map((type) => (
+                                            <div key={`default-${type}`} className="mb-3">
+                                                <Form.Check
+                                                    type={type}
+                                                    id={`default-${type}`}
+                                                    label={`Полная занятость`}
+                                                />
+
+                                                <Form.Check
+                                                    type={type}
+                                                    label={`Практика/стажирвка`}
+                                                    id={`default-${type}`}
+                                                />
+                                                <Form.Check
+                                                    type={type}
+                                                    label={`Неполная занятость`}
+                                                    id={`default-${type}`}
+                                                />
+                                                <Form.Check
+                                                    type={type}
+                                                    label={`Удаленная работа`}
+                                                    id={`default-${type}`}
+                                                />
+                                            </div>
+                                        ))}
+                                    </Form>
+                                </div>
+                                <div className="sidebar-divider"/>
+                                <div className="vac-sidebar-salary">
+                                    <h3>Зарплата: </h3>
+                                    <div className="salary-flex">
+                                        <div className="salary-input-line">
+                                            <span>от</span>
+                                            <input className="salary-input" type="text" />
+                                            <span>грн.</span>
+                                            <button type="button" className="salary-input-btn">OK</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className="sidebar-divider"/>
+                                <div className="vac-sidebar-workLevel">
+                                    <h3>Уровень должности: </h3>
+                                    <Form>
+                                        {['checkbox'].map((type) => (
+                                            <div key={`default-${type}`} className="mb-3">
+                                                <Form.Check
+                                                    type={type}
+                                                    id={`default-${type}`}
+                                                    label={`Полная занятость`}
+                                                />
+
+                                                <Form.Check
+                                                    type={type}
+                                                    label={`Практика/стажирвка`}
+                                                    id={`default-${type}`}
+                                                />
+                                                <Form.Check
+                                                    type={type}
+                                                    label={`Неполная занятость`}
+                                                    id={`default-${type}`}
+                                                />
+                                                <Form.Check
+                                                    type={type}
+                                                    label={`Удаленная работа`}
+                                                    id={`default-${type}`}
+                                                />
+                                            </div>
+                                        ))}
+                                    </Form>
+                                </div>
                             </div>
                         </div>
                     </aside>
