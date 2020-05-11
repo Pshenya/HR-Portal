@@ -13,18 +13,36 @@
     max-width: 70px;
     text-align: center;
 }
-
-.menu-container, .menu{
-    display: flex;
-    align-items: flex-end;
+.footer-content .info p a{
+    text-decoration: none;
+    color: white;
+    border-bottom: 1px solid white;
 }
 
-.menu-container .menu li{
-    position: relative;
-    margin-right: 40px;
+.footer-content .info p a:hover{
+    text-decoration: none;
+    color: #6361bd;
+    border-bottom: 1px solid #6361bd;
 }
 
-.menu-container .menu li a{
+.menu-container .menu{
+    padding-top: 20px;
+    margin-bottom: 0;
+}
+
+.footer-email{
+    text-decoration: none;
+    color: white;
+    border-bottom: 1px solid white;
+}
+
+.footer-email:hover{
+    text-decoration: none;
+    color: #6361bd;
+    border-bottom: 1px solid #6361bd;
+}
+
+.menu-container .menu li:first-child a{
     text-decoration: none;
     font-weight: 500;
     font-size: 14px;
@@ -37,4 +55,86 @@
 
 .menu-container .menu li a:hover{
     text-shadow: 0 0 0 white, 0 0 0 white;
+}
+
+.footer-socials{
+    display: flex;
+}
+.footer-socials a {
+    text-decoration: none;
+}
+
+.footer-socials li{
+    width: 75px;
+    height: 75px;
+    margin: 0 20px;
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.footer-socials li:before,
+.footer-socials li:after{
+    position: absolute;
+    content: '';
+    height: 75px;
+    width: 75px;
+    border-radius: 50%;
+    transition: all .3s linear;
+}
+
+.footer-socials li:nth-child(1):before{
+    border: 2px solid #1DA1F2;
+}
+.footer-socials li:nth-child(1):after{
+    background: #1DA1F2;
+}
+.footer-socials li:nth-child(2):before{
+    border: 2px solid #d72888;
+}
+.footer-socials li:nth-child(2):after{
+    background: #d72888;
+}
+.footer-socials li:nth-child(3):before{
+    border: 2px solid #007bb6;
+}
+.footer-socials li:nth-child(3):after{
+    background: #007bb6;
+}
+.footer-socials li:nth-child(4):before{
+    border: 2px solid #FF0000;
+}
+.footer-socials li:nth-child(4):after{
+    background: #FF0000;
+}
+.footer-socials li:after{
+    opacity: 0;
+    z-index: -1;
+}
+.footer-socials li:hover:after{
+    opacity: 1;
+}
+.footer-socials li i{
+    font-size: 35px;
+}
+.footer-socials li:nth-child(1) {
+    color: #1DA1F2;
+}
+.footer-socials li:nth-child(2) .footer-icon{
+    color: #d72888;
+}
+.footer-socials li:nth-child(3) .footer-icon{
+    color: #007bb6;
+}
+.footer-socials li:nth-child(4) .footer-icon{
+    color: #FF0000;
+}
+.footer-socials li:hover .footer-icon{
+    color: white;
+    transition: .3s linear;
+}
+.footer-socials li:hover:before{
+    transform: scale(1.1);
 }

@@ -40,7 +40,7 @@ class RatingBlocksContainer extends Component {
     }
 
     render() {
-        const {profilesList, usersList, loading, error} = this.props;
+        const {usersList, loading, error} = this.props;
         if (loading) {
             return (
                 <div className="aside-rating-loading">
@@ -55,13 +55,12 @@ class RatingBlocksContainer extends Component {
                 </div>
             )
         }
-        return <RatingBlocks usersList={usersList} profilesList={profilesList}/>
+        return <RatingBlocks usersList={usersList}/>
     }
 }
 
 const mapStateToProps = ({users}) => {
     return {
-        userData: users.userData,
         usersList: users.usersList,
         loading: users.loading,
         error: users.error
@@ -69,7 +68,6 @@ const mapStateToProps = ({users}) => {
 };
 
 const mapDispatchToProps = {
-    getUser: userActions.getUserData,
     getAllUsers: userActions.getAllUsers
 };
 

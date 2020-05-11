@@ -16,6 +16,7 @@
 }
 
 .rating-table{
+    font-size: 14px;
     vertical-align: top;
     border-collapse: collapse;
     border-spacing: 0;
@@ -31,19 +32,28 @@
 }
 .rating-table thead th{
     padding-bottom: 10px;
-    border-bottom: 1px solid black;
+    padding-left: 10px;
+    border-bottom: 1px solid rgba(182, 182, 182, 0.51);
 }
 
 .rating-table th{
     vertical-align: bottom;
     font-weight: 400;
     text-align: left;
-    font-size: 13px;
 }
 
 .rating-table td{
     vertical-align: top;
-    padding: 6px 0;
+    padding: 6px 10px;
     line-height: 20px;
-    font-size: 13px;
+}
+
+.rating-table td a{
+    font-family: "Roboto-Condensed Bold", sans-serif;
+    color: black;
+    border-bottom: 1px solid rgba(0,0,0,.35)
+}
+
+.ratingPage-item-block:hover{
+    background-color: rgba(32, 78, 110, 0.1);
 }

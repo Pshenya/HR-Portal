@@ -19,7 +19,7 @@ div{
 }
 
 .app{
-    height: 100% ;
+    width: 100%;
     color: #000 ;
     -webkit-font-smoothing: antialiased ;
     background-color: #f4f4f4;
