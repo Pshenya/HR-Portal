@@ -29,15 +29,22 @@ class App extends Component {
 
     render() {
         const {alert} = this.props;
-        const shouldShowHeaderAndFooter = history.location.pathname !== ROUTES.LOGIN && history.location.pathname !== ROUTES.REGISTRATION;
 
+        // Скривання хедеру та футеру на сторінках регістрації та логіну
+        const shouldShowHeaderAndFooter = history.location.pathname !== ROUTES.LOGIN
+            && history.location.pathname !== ROUTES.REGISTRATION;
 
         return (
             <div className="app">
                 <Router history={history}>
                     {shouldShowHeaderAndFooter && <Header/>}
-                    {alert.message &&
-                    <div style={{marginBottom: 0}} className={`alert ${alert.type}`}>{alert.message}</div>}
+                    {
+                        alert.message &&
+                    <div style={{marginBottom: 0}} className={`alert ${alert.type}`}>
+                        {alert.message}
+                    </div>
+                    }
+                    { /*Роутинг сайту (сторінки і навігація по ним)*/ }
                     <Switch>
                         <Route exact path={ROUTES.MAIN} component={MainPage}/>
                         <Route path={ROUTES.COMMENTS} component={CommentsPage}/>

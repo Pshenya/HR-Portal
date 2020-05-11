@@ -12,15 +12,15 @@ import { userActions } from "../../../../Actions";
 import ErrorIndicator from "../../../ErrorIndicator/error-indicator";
 
 
-const RatingBlocks = ({profilesList}) => {
-    console.log(profilesList);
+const RatingBlocks = ({usersList}) => {
+    console.log(usersList);
     return (
         <aside className="aside">
             <div className="aside-rating">
                 <h3><Link to={ROUTES.RATINGS}>Топ HR</Link></h3>
                 <ul className="aside-rating-blocks">
                     {
-                        profilesList.map((user) => {
+                        usersList.map((user) => {
                             return (
                                 <li key={user._id}>
                                     <RatingBlocksItem user={user}/>
@@ -37,7 +37,6 @@ const RatingBlocks = ({profilesList}) => {
 class RatingBlocksContainer extends Component {
     componentDidMount() {
         this.props.getAllUsers();
-        this.props.getAllProfiles();
     }
 
     render() {
@@ -64,7 +63,6 @@ const mapStateToProps = ({users}) => {
     return {
         userData: users.userData,
         usersList: users.usersList,
-        profilesList: users.profilesList,
         loading: users.loading,
         error: users.error
     }
@@ -72,8 +70,7 @@ const mapStateToProps = ({users}) => {
 
 const mapDispatchToProps = {
     getUser: userActions.getUserData,
-    getAllUsers: userActions.getAllUsers,
-    getAllProfiles: userActions.getAllProfiles
+    getAllUsers: userActions.getAllUsers
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(RatingBlocksContainer);

@@ -101,17 +101,17 @@
     flex: 1;
 }
 
-.aside-rating-blocks .aside-rating-item .points{
+.aside-rating-blocks .aside-rating-item .aside-points{
     margin-right: 15px;
     line-height: 1rem;
     white-space: nowrap;
 }
 
-.points .bold{
+.aside-points .bold{
     font-family: "Roboto-Condensed Bold", sans-serif;
     font-size: 1rem;
 }
 
-.points .small{
+.aside-points .small{
     font-size: 12px;
 }

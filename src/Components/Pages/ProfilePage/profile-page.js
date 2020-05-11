@@ -40,7 +40,7 @@ const ProfilePage = ({userData, data, socials, onAddJob, onDeleteJob}) => {
                                     Фамилия
                                 </Form.Label>
                                 <Col sm={10}>
-                                    <Form.Control type="text"/>
+                                    <Form.Control type="text" value={userData.lastName}/>
                                 </Col>
                             </Form.Group>
                             <Form.Group as={Row} controlId="formHorizontalCompany">

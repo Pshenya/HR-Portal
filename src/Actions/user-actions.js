@@ -8,8 +8,7 @@ export const userActions = {
     logout,
     register,
     getUserData,
-    getAllUsers,
-    getAllProfiles
+    getAllUsers
     // delete: _delete
 };
 
@@ -94,19 +93,6 @@ function getAllUsers() {
     function failure(error) { return { type: userConstants.GETALL_USERS_FAILURE, error } }
 }
 
-function getAllProfiles() {
-    return dispatch => {
-        dispatch(request());
-
-        userService.getAllProfiles()
-            .then(profilesList => dispatch(success(profilesList)))
-            .catch(error => dispatch(failure(error)))
-    };
-
-    function request() { return {type: userConstants.GETALL_PROFILES_REQUEST} }
-    function success(profilesList) { return { type: userConstants.GETALL_PROFILES_SUCCESS, profilesList } }
-    function failure(error) { return { type: userConstants.GETALL_PROFILES_FAILURE, error } }
-}
 //
 // // prefixed function name with underscore because delete is a reserved word in javascript
 // function _delete(id) {

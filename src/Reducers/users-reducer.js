@@ -3,7 +3,6 @@ import { userConstants } from '../CONSTANTS';
 const initialState = {
     userData: {},
     usersList: [],
-    profilesList: [],
     loading: false,
     error: null
 };
@@ -42,30 +41,6 @@ export function users(state = initialState, action) {
             return {
                 ...state,
                 usersList: [],
-                loading: false,
-                error: action.error
-            };
-        case userConstants.GETALL_PROFILES_REQUEST:
-            return {
-                ...state,
-                profilesList: [],
-                loading: true,
-                error: null
-            };
-        case userConstants.GETALL_PROFILES_SUCCESS:
-            return {
-                ...state,
-                profilesList: [
-                    ...state.action.profilesList,
-                    ...action.usersList
-                ],
-                loading: false,
-                error: null
-            };
-        case userConstants.GETALL_PROFILES_FAILURE:
-            return {
-                ...state,
-                profilesList: [],
                 loading: false,
                 error: action.error
             };

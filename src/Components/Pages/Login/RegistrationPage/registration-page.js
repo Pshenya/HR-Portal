@@ -20,6 +20,7 @@ class RegistrationPage extends Component {
         this.state = {
             user: {
                 name: '',
+                lastName: '',
                 email: '',
                 password: ''
             },
@@ -46,7 +47,7 @@ class RegistrationPage extends Component {
 
         this.setState({submitted: true});
         const {user} = this.state;
-        if (user.name && user.email && user.password) {
+        if (user.name && user.lastName && user.email && user.password) {
             this.props.register(user);
         }
     }
@@ -77,6 +78,13 @@ class RegistrationPage extends Component {
                                     <Form.Label htmlFor="name">Имя</Form.Label>
                                     <Form.Control type="text" name="name" value={user.name} onChange={this.handleChange} />
                                     {submitted && !user.name &&
+                                    <div className="help-block">* Это обязательное поле</div>
+                                    }
+                                </Form.Group>
+                                <Form.Group className={(submitted && !user.lastName ? ' has-error' : '')}>
+                                    <Form.Label htmlFor="name">Фамилия</Form.Label>
+                                    <Form.Control type="text" name="lastName" value={user.lastName} onChange={this.handleChange} />
+                                    {submitted && !user.lastName &&
                                     <div className="help-block">* Это обязательное поле</div>
                                     }
                                 </Form.Group>

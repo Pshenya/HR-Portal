@@ -5,8 +5,7 @@ export const userService = {
     login,
     logout,
     getUserData,
-    getAllUsers,
-    getAllProfiles
+    getAllUsers
     // getById,
     // update,
     // delete: _delete
@@ -58,7 +57,7 @@ function getUserData() {
     return fetch(`${_apiURL}/posts`, requestOptions)
         .then(handleResponse)
         .then(userData => {
-            console.log(JSON.parse(userData));
+            console.log(userData);
             return JSON.parse(userData);
         })
 }
@@ -68,24 +67,10 @@ function getAllUsers() {
         method: 'GET',
         redirect: 'follow'
     };
-    return fetch(`${_apiURL}/user/all`, requsetOptions)
+    return fetch(`${_apiURL}/user/profile/all`, requsetOptions)
         .then(handleResponse)
         .then(userData => {
-            console.log(JSON.parse(userData));
             return JSON.parse(userData);
-        });
-}
-
-function getAllProfiles() {
-    const requsetOptions = {
-        method: 'GET',
-        redirect: 'follow'
-    };
-    return fetch(`${_apiURL}/user/profileadd`, requsetOptions)
-        .then(handleResponse)
-        .then(profileData => {
-            console.log(JSON.parse(profileData));
-            return JSON.parse(profileData);
         });
 }
 
