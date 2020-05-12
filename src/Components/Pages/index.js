@@ -1,5 +1,5 @@
 import AboutPage from "./AboutPage/about-page";
-import CommentsPage from "./CommentsPage/comments-page";
+import SearchPage from "./SearchPage/search-page";
 import ProfilePageContainer from "./ProfilePage/profile-page-container";
 import RatingPage from "./RatingPage/rating-page";
 import SignInPage from "./Login/SignInPage/signin-page";
@@ -9,7 +9,7 @@ import RegistrationPage from "./Login/RegistrationPage/registration-page";
 
 export {
     AboutPage,
-    CommentsPage,
+    SearchPage,
     ProfilePageContainer,
     RatingPage,
     SignInPage,

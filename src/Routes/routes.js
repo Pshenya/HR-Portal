@@ -1,13 +1,13 @@
 export const ROUTES = {
     MAIN: '/',
-    COMMENTS: '/comments/',
-    RATINGS: '/ratings/',
-    VACANCIES: '/vacancies/',
-    STATS: '/stats/',
+    SEARCH: '/search',
+    RATINGS: '/ratings',
+    VACANCIES: '/vacancies',
+    STATS: '/stats',
     ABOUT: '/about',
     LOGIN: '/login',
     REGISTRATION: '/registration',
-    PROFILE: '/profile/'
+    PROFILE: '/profile'
 };
 
 

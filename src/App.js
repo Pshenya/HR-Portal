@@ -13,7 +13,7 @@ import MainPage from "./Components/Pages/Main/main-page";
 import Footer from "./Components/Footer/footer";
 
 import {
-    AboutPage, CommentsPage, ProfilePageContainer, RatingPage,
+    AboutPage, SearchPage, ProfilePageContainer, RatingPage,
     VacanciesPage, StatsPage, SignInPage, RegistrationPage
 } from './Components/Pages';
 
@@ -47,7 +47,7 @@ class App extends Component {
                     { /*Роутинг сайту (сторінки і навігація по ним)*/ }
                     <Switch>
                         <Route exact path={ROUTES.MAIN} component={MainPage}/>
-                        <Route path={ROUTES.COMMENTS} component={CommentsPage}/>
+                        <Route path={ROUTES.SEARCH} component={SearchPage}/>
                         <Route path={ROUTES.RATINGS} component={RatingPage}/>
                         <Route path={ROUTES.VACANCIES} component={VacanciesPage}/>
                         <Route path={ROUTES.STATS} component={StatsPage}/>

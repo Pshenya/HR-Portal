@@ -5,7 +5,7 @@ import './footer.css';
 import { Link } from "react-router-dom";
 import { ROUTES } from "../../Routes/routes";
 
-import { faFacebook, faFacebookF, faGithub, faGoogle, faLinkedin, faTelegram} from "@fortawesome/free-brands-svg-icons";
+import {faFacebookF, faGithub, faLinkedinIn, faTelegramPlane} from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 
@@ -19,10 +19,10 @@ const Footer = () => {
                             <p style={{marginBottom: '0'}}>2020 © <Link to={ROUTES.MAIN}>HR Portal</Link></p>
                         </div>
                         <ul className="footer-socials">
-                            <li><FontAwesomeIcon className="footer-icon" icon={faFacebookF} size="2x"/></li>
-                            <li><FontAwesomeIcon className="footer-icon" icon={faLinkedin} size="2x"/></li>
-                            <li><FontAwesomeIcon className="footer-icon" icon={faGithub} size="2x"/></li>
-                            <li><FontAwesomeIcon className="footer-icon" icon={faTelegram} size="2x"/></li>
+                            <li><a href="#"><FontAwesomeIcon className="footer-icon" icon={faFacebookF}/></a></li>
+                            <li><a href="#"><FontAwesomeIcon className="footer-icon" icon={faLinkedinIn}/></a></li>
+                            <li><a href="#"><FontAwesomeIcon className="footer-icon github-icon" icon={faGithub}/></a></li>
+                            <li><a href="#"><FontAwesomeIcon className="footer-icon telegram-icon" icon={faTelegramPlane}/></a></li>
                         </ul>
                         <nav className="menu-container">
                                 <ul className="menu">

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import './vacancies-page.css';
 
-import { makeStyles } from '@material-ui/core/styles';
+import {withStyles} from "../../HOC/withStyles";
 import Paper from '@material-ui/core/Paper';
 import InputBase from '@material-ui/core/InputBase';
 import Divider from '@material-ui/core/Divider';
@@ -14,243 +14,223 @@ import SearchIcon from '@material-ui/icons/Search';
 import DirectionsIcon from '@material-ui/icons/Directions';
 import { Form } from "react-bootstrap";
 
-const useStyles = makeStyles((theme) => ({
-    root: {
-        padding: '2px 10px',
-        marginRight: '24px',
-        display: 'flex',
-        alignItems: 'center',
-        width: 900,
-    },
-    input: {
-        fontSize: '1.5rem',
-        marginLeft: theme.spacing(1),
-        flex: 1,
-    },
-    iconButton: {
-        padding: 10,
-    },
-    divider: {
-        height: 28,
-        margin: 4,
-    },
-}));
-
-function VacanciesPage() {
-    const classes = useStyles();
-
-    return (
-        <div className="vac-content">
-            <div className="vac-header">
-                <div className="vac-header-content d-flex">
-                    <div className="vac-search">
-                        <Paper component="form" className={classes.root}>
-                            <InputBase
-                                className={classes.input}
-                                placeholder="Поиск"
-                                inputProps={{'aria-label': 'Поиск'}}
-                            />
-                            <IconButton type="submit" className={classes.iconButton} aria-label="search">
-                                <SearchIcon/>
-                            </IconButton>
-                            <Divider className={classes.divider} orientation="vertical"/>
-                            <IconButton color="primary" className={classes.iconButton} aria-label="directions">
-                                <RoomIcon/>
-                                <h3 style={{marginLeft: '5px', fontSize: '1.5rem'}}>Все регионы</h3>
-                                <ExpandMoreIcon/>
-                            </IconButton>
-                        </Paper>
+class VacanciesPage extends Component {
+    render() {
+        const {stylesHook} = this.props;
+        const classes = stylesHook;
+        return (
+            <div className="vac-content">
+                <div className="search-header">
+                    <div className="search-header-content d-flex">
+                        <div className="vac-search">
+                            <Paper component="form" className={classes.root}>
+                                <InputBase
+                                    className={classes.input}
+                                    placeholder="Поиск вакансий"
+                                    inputProps={{'aria-label': 'Поиск вакансий'}}
+                                />
+                                <IconButton type="submit" className={classes.iconButton} aria-label="search">
+                                    <SearchIcon/>
+                                </IconButton>
+                                <Divider className={classes.divider} orientation="vertical"/>
+                                <IconButton color="primary" className={classes.iconButton} aria-label="directions">
+                                    <RoomIcon/>
+                                    <h3 style={{marginLeft: '5px', fontSize: '1.5rem'}}>Все регионы</h3>
+                                    <ExpandMoreIcon/>
+                                </IconButton>
+                            </Paper>
+                        </div>
+                        <ul className="header-list">
+                            <li className="d-flex">
+                                <span>Категории</span>
+                                <ExpandMoreIcon style={{paddingBottom: '3px'}}/>
+                            </li>
+                            <li className="d-flex">
+                                <span>Компании</span>
+                                <ExpandMoreIcon style={{paddingBottom: '3px'}}/>
+                            </li>
+                        </ul>
                     </div>
-                    <ul className="header-list">
-                        <li className="d-flex">
-                            <span>Категории</span>
-                            <ExpandMoreIcon style={{paddingBottom: '3px'}}/>
-                        </li>
-                        <li className="d-flex">
-                            <span>Компании</span>
-                            <ExpandMoreIcon style={{paddingBottom: '3px'}}/>
-                        </li>
-                    </ul>
                 </div>
-            </div>
-            <div className="vac-main">
-                <div className="vac-main-wrapper">
-                    <section className="vac-leftContent">
-                        <div id="1">
-                            <article className="vac-card">
-                                <div className="vac-card-body">
-                                    <div className="card-main-content">
-                                        <div className="common-info">
-                                            <h3 className="vac-card-title">Title</h3>
-                                            <p className="company-name">Company</p>
-                                            <span className="vac-card-salary">40&nbsp;000 грн</span>
-                                            <span className="vac-card-location">
+                <div className="vac-main">
+                    <div className="vac-main-wrapper">
+                        <section className="vac-leftContent">
+                            <div id="1">
+                                <article className="vac-card">
+                                    <div className="vac-card-body">
+                                        <div className="card-main-content">
+                                            <div className="common-info">
+                                                <h3 className="vac-card-title">Title</h3>
+                                                <p className="company-name">Company</p>
+                                                <span className="vac-card-salary">40&nbsp;000 грн</span>
+                                                <span className="vac-card-location">
                                                 <RoomIcon style={{marginRight: '5px'}}/>
                                                 Киев
                                             </span>
-                                        </div>
-                                    </div>
-                                    <div className="vac-card-description">
-                                        Compamy - Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam
-                                        deleniti ea ipsum, odio quae repellat reprehenderit! Beatae, cupiditate
-                                        distinctio eius est, fugit itaque possimus praesentium quibusdam quod rerum
-                                        tempore ullam?
-                                    </div>
-                                </div>
-                                <div className="vac-card-footer">
-                                    <div className="publication-time">
-                                        30 минут назаж
-                                    </div>
-                                </div>
-                            </article>
-                        </div>
-                        <div id="2">
-                            <article className="vac-card">
-                                <div className="vac-card-body">
-                                    <div className="card-main-content">
-                                        <div className="common-info">
-                                            <h3 className="vac-card-title">Title</h3>
-                                            <p className="company-name">Company</p>
-                                            <span className="vac-card-salary">40&nbsp;000 грн</span>
-                                            <span className="vac-card-location">
-                                                <RoomIcon style={{marginRight: '5px'}}/>
-                                                Киев
-                                            </span>
-                                        </div>
-                                    </div>
-                                    <div className="vac-card-description">
-                                        Compamy - Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam
-                                        deleniti ea ipsum, odio quae repellat reprehenderit! Beatae, cupiditate
-                                        distinctio eius est, fugit itaque possimus praesentium quibusdam quod rerum
-                                        tempore ullam?
-                                    </div>
-                                </div>
-                                <div className="vac-card-footer">
-                                    <div className="publication-time">
-                                        30 минут назаж
-                                    </div>
-                                </div>
-                            </article>
-                        </div>
-                        <div id="3">
-                            <article className="vac-card">
-                                <div className="vac-card-body">
-                                    <div className="card-main-content">
-                                        <div className="common-info">
-                                            <h3 className="vac-card-title">Title</h3>
-                                            <p className="company-name">Company</p>
-                                            <span className="vac-card-salary">40&nbsp;000 грн</span>
-                                            <span className="vac-card-location">
-                                                <RoomIcon style={{marginRight: '5px'}}/>
-                                                Киев
-                                            </span>
-                                        </div>
-                                    </div>
-                                    <div className="vac-card-description">
-                                        Compamy - Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam
-                                        deleniti ea ipsum, odio quae repellat reprehenderit! Beatae, cupiditate
-                                        distinctio eius est, fugit itaque possimus praesentium quibusdam quod rerum
-                                        tempore ullam?
-                                    </div>
-                                </div>
-                                <div className="vac-card-footer">
-                                    <div className="publication-time">
-                                        30 минут назаж
-                                    </div>
-                                </div>
-                            </article>
-                        </div>
-                    </section>
-                    <aside className="vac-aside-wrapper">
-                        <div className="vac-rightContent">
-                            <div className="vac-sidebar">
-                                <div className="vac-sidebar-categories">
-                                    <h3>Категория</h3>
-                                    <Form.Control as="select" custom>
-                                        <option>Все категории</option>
-                                    </Form.Control>
-                                </div>
-                                <div className="sidebar-divider"/>
-                                <div className="vac-sidebar-schedule">
-                                    <h3>Занятость: </h3>
-                                    <Form>
-                                        {['radio'].map((type) => (
-                                            <div key={`default-${type}`} className="mb-3">
-                                                <Form.Check
-                                                    type={type}
-                                                    id={`default-${type}`}
-                                                    label={`Полная занятость`}
-                                                />
-
-                                                <Form.Check
-                                                    type={type}
-                                                    label={`Практика/стажирвка`}
-                                                    id={`default-${type}`}
-                                                />
-                                                <Form.Check
-                                                    type={type}
-                                                    label={`Неполная занятость`}
-                                                    id={`default-${type}`}
-                                                />
-                                                <Form.Check
-                                                    type={type}
-                                                    label={`Удаленная работа`}
-                                                    id={`default-${type}`}
-                                                />
                                             </div>
-                                        ))}
-                                    </Form>
-                                </div>
-                                <div className="sidebar-divider"/>
-                                <div className="vac-sidebar-salary">
-                                    <h3>Зарплата: </h3>
-                                    <div className="salary-flex">
-                                        <div className="salary-input-line">
-                                            <span>от</span>
-                                            <input className="salary-input" type="text" />
-                                            <span>грн.</span>
-                                            <button type="button" className="salary-input-btn">OK</button>
+                                        </div>
+                                        <div className="vac-card-description">
+                                            Compamy - Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam
+                                            deleniti ea ipsum, odio quae repellat reprehenderit! Beatae, cupiditate
+                                            distinctio eius est, fugit itaque possimus praesentium quibusdam quod rerum
+                                            tempore ullam?
                                         </div>
                                     </div>
-                                </div>
-                                <div className="sidebar-divider"/>
-                                <div className="vac-sidebar-workLevel">
-                                    <h3>Уровень должности: </h3>
-                                    <Form>
-                                        {['checkbox'].map((type) => (
-                                            <div key={`default-${type}`} className="mb-3">
-                                                <Form.Check
-                                                    type={type}
-                                                    id={`default-${type}`}
-                                                    label={`Полная занятость`}
-                                                />
-
-                                                <Form.Check
-                                                    type={type}
-                                                    label={`Практика/стажирвка`}
-                                                    id={`default-${type}`}
-                                                />
-                                                <Form.Check
-                                                    type={type}
-                                                    label={`Неполная занятость`}
-                                                    id={`default-${type}`}
-                                                />
-                                                <Form.Check
-                                                    type={type}
-                                                    label={`Удаленная работа`}
-                                                    id={`default-${type}`}
-                                                />
+                                    <div className="vac-card-footer">
+                                        <div className="publication-time">
+                                            30 минут назаж
+                                        </div>
+                                    </div>
+                                </article>
+                            </div>
+                            <div id="2">
+                                <article className="vac-card">
+                                    <div className="vac-card-body">
+                                        <div className="card-main-content">
+                                            <div className="common-info">
+                                                <h3 className="vac-card-title">Title</h3>
+                                                <p className="company-name">Company</p>
+                                                <span className="vac-card-salary">40&nbsp;000 грн</span>
+                                                <span className="vac-card-location">
+                                                <RoomIcon style={{marginRight: '5px'}}/>
+                                                Киев
+                                            </span>
                                             </div>
-                                        ))}
-                                    </Form>
+                                        </div>
+                                        <div className="vac-card-description">
+                                            Compamy - Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam
+                                            deleniti ea ipsum, odio quae repellat reprehenderit! Beatae, cupiditate
+                                            distinctio eius est, fugit itaque possimus praesentium quibusdam quod rerum
+                                            tempore ullam?
+                                        </div>
+                                    </div>
+                                    <div className="vac-card-footer">
+                                        <div className="publication-time">
+                                            30 минут назаж
+                                        </div>
+                                    </div>
+                                </article>
+                            </div>
+                            <div id="3">
+                                <article className="vac-card">
+                                    <div className="vac-card-body">
+                                        <div className="card-main-content">
+                                            <div className="common-info">
+                                                <h3 className="vac-card-title">Title</h3>
+                                                <p className="company-name">Company</p>
+                                                <span className="vac-card-salary">40&nbsp;000 грн</span>
+                                                <span className="vac-card-location">
+                                                <RoomIcon style={{marginRight: '5px'}}/>
+                                                Киев
+                                            </span>
+                                            </div>
+                                        </div>
+                                        <div className="vac-card-description">
+                                            Compamy - Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam
+                                            deleniti ea ipsum, odio quae repellat reprehenderit! Beatae, cupiditate
+                                            distinctio eius est, fugit itaque possimus praesentium quibusdam quod rerum
+                                            tempore ullam?
+                                        </div>
+                                    </div>
+                                    <div className="vac-card-footer">
+                                        <div className="publication-time">
+                                            30 минут назаж
+                                        </div>
+                                    </div>
+                                </article>
+                            </div>
+                        </section>
+                        <aside className="vac-aside-wrapper">
+                            <div className="vac-rightContent">
+                                <div className="vac-sidebar">
+                                    <div className="vac-sidebar-categories">
+                                        <h3>Категория</h3>
+                                        <Form.Control as="select" custom>
+                                            <option>Все категории</option>
+                                        </Form.Control>
+                                    </div>
+                                    <div className="sidebar-divider"/>
+                                    <div className="vac-sidebar-schedule">
+                                        <h3>Занятость: </h3>
+                                        <Form>
+                                            {['radio'].map((type) => (
+                                                <div key={`default-${type}`} className="mb-3">
+                                                    <Form.Check
+                                                        type={type}
+                                                        id={`default-${type}`}
+                                                        label={`Полная занятость`}
+                                                    />
+
+                                                    <Form.Check
+                                                        type={type}
+                                                        label={`Практика/стажирвка`}
+                                                        id={`default-${type}`}
+                                                    />
+                                                    <Form.Check
+                                                        type={type}
+                                                        label={`Неполная занятость`}
+                                                        id={`default-${type}`}
+                                                    />
+                                                    <Form.Check
+                                                        type={type}
+                                                        label={`Удаленная работа`}
+                                                        id={`default-${type}`}
+                                                    />
+                                                </div>
+                                            ))}
+                                        </Form>
+                                    </div>
+                                    <div className="sidebar-divider"/>
+                                    <div className="vac-sidebar-salary">
+                                        <h3>Зарплата: </h3>
+                                        <div className="salary-flex">
+                                            <div className="salary-input-line">
+                                                <span>от</span>
+                                                <input className="salary-input" type="text"/>
+                                                <span>грн.</span>
+                                                <button type="button" className="salary-input-btn">OK</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div className="sidebar-divider"/>
+                                    <div className="vac-sidebar-workLevel">
+                                        <h3>Уровень должности: </h3>
+                                        <Form>
+                                            {['checkbox'].map((type) => (
+                                                <div key={`default-${type}`} className="mb-3">
+                                                    <Form.Check
+                                                        type={type}
+                                                        id={`default-${type}`}
+                                                        label={`Полная занятость`}
+                                                    />
+
+                                                    <Form.Check
+                                                        type={type}
+                                                        label={`Практика/стажирвка`}
+                                                        id={`default-${type}`}
+                                                    />
+                                                    <Form.Check
+                                                        type={type}
+                                                        label={`Неполная занятость`}
+                                                        id={`default-${type}`}
+                                                    />
+                                                    <Form.Check
+                                                        type={type}
+                                                        label={`Удаленная работа`}
+                                                        id={`default-${type}`}
+                                                    />
+                                                </div>
+                                            ))}
+                                        </Form>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    </aside>
+                        </aside>
+                    </div>
                 </div>
             </div>
-        </div>
-    );
+        );
+    }
 }
 
-export default VacanciesPage;
+export default withStyles(VacanciesPage);

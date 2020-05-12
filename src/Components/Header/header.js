@@ -34,6 +34,7 @@ class Header extends Component {
                             <Navbar.Toggle aria-controls="responsive-navbar-nav"/>
                             <Navbar.Collapse id="responsive-navbar-nav">
                                 <Nav>
+                                    <Nav.Link as={Link} to={ROUTES.SEARCH}>ПОИСК</Nav.Link>
                                     <Nav.Link as={Link} to={ROUTES.RATINGS}>РЕЙТИНГИ</Nav.Link>
                                     <Nav.Link as={Link} to={ROUTES.VACANCIES}>ВАКАНСИИ</Nav.Link>
                                     <Nav.Link as={Link} to={ROUTES.STATS}>СТАТИСТИКА ЗП</Nav.Link>
