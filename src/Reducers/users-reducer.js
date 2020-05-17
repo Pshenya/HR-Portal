@@ -2,7 +2,8 @@ import { userConstants } from '../CONSTANTS';
 
 const initialState = {
     userData: {},
-    usersList: [],
+    profileData: {},
+    profilesList: [],
     loading: false,
     error: null
 };
@@ -26,22 +27,37 @@ export function users(state = initialState, action) {
         case userConstants.GETALL_USERS_REQUEST:
             return{
                 ...state,
-                usersList: [],
+                profilesList: [],
                 loading: true,
                 error: null
             };
         case userConstants.GETALL_USERS_SUCCESS:
             return {
                 ...state,
-                usersList: action.usersList,
+                profilesList: action.profilesList,
                 loading: false,
                 error: null
             };
         case userConstants.GETALL_USERS_FAILURE:
             return {
                 ...state,
-                usersList: [],
+                profilesList: [],
                 loading: false,
+                error: action.error
+            };
+        case userConstants.GETPROFILE_REQUEST:
+            return {
+                ...state,
+                loading: true
+            };
+        case userConstants.GETPROFILE_SUCCESS:
+            return {
+                ...state,
+                profileData: action.profileData
+            };
+        case userConstants.GETPROFILE_FAILURE:
+            return {
+                ...state,
                 error: action.error
             };
         default:

@@ -1,56 +1,58 @@
 import React, { Component } from 'react';
-import { makeStyles } from "@material-ui/core/styles";
-import InputBase from "@material-ui/core/InputBase";
-import IconButton from "@material-ui/core/IconButton";
-import SearchIcon from "@material-ui/icons/Search";
-import Divider from "@material-ui/core/Divider";
-import WorkIcon from '@material-ui/icons/Work';
-import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
-import Paper from "@material-ui/core/Paper";
-import { withStyles } from "../../HOC/withStyles";
+import { connect } from "react-redux";
 
+import './search-page.css';
 
-class SearchPage extends Component {
-    render() {
-        const {stylesHook} = this.props;
-        const classes = stylesHook;
-        return (
-            <div>
-                <div className="search-header">
-                    <div className="search-header-content d-flex">
-                        <div className="search">
-                            <Paper component="form" className={classes.root}>
-                                <InputBase
-                                    className={classes.input}
-                                    placeholder="Поиск"
-                                    inputProps={{'aria-label': 'Поиск'}}
-                                />
-                                <IconButton type="submit" className={classes.iconButton} aria-label="search">
-                                    <SearchIcon/>
-                                </IconButton>
-                                <Divider className={classes.divider} orientation="vertical"/>
-                                <IconButton color="primary" className={classes.iconButton} aria-label="directions">
-                                    <WorkIcon/>
-                                    <h3 style={{marginLeft: '5px', fontSize: '1.5rem'}}>Все компании</h3>
-                                    <ExpandMoreIcon/>
-                                </IconButton>
-                            </Paper>
-                        </div>
-                        <ul className="header-list">
-                            <li className="d-flex">
-                                <span>Должность</span>
-                                <ExpandMoreIcon style={{paddingBottom: '3px'}}/>
-                            </li>
-                            <li className="d-flex">
-                                <span>Рейтинг</span>
-                                <ExpandMoreIcon style={{paddingBottom: '3px'}}/>
-                            </li>
-                        </ul>
+import SearchBlock from "./search-block";
+import { userActions } from "../../../Actions";
+import Loading from "../../Loading/loading";
+import ErrorIndicator from "../../ErrorIndicator/error-indicator";
+import SearchPageItem from "./search-page-item";
+
+const SearchPage = ({profilesList}) => {
+    return (
+        <div className="sp">
+            <SearchBlock/>
+
+            {
+                profilesList.map((user, idx) => {
+                    return <div className="sp-item" key={user._id}>
+                        <SearchPageItem user={user} idx={idx}/>
                     </div>
+                })
+            }
+        </div>
+    );
+};
+
+class SearchPageContainer extends Component {
+    componentDidMount() {
+        this.props.getAllUsers();
+    }
+
+    render() {
+        const {profilesList, loading, error} = this.props;
+        if (loading)
+            return (
+                <div className="searchPage-loading">
+                    <Loading/>
                 </div>
-            </div>
-        );
+            );
+        if (error) return <ErrorIndicator/>;
+        return <SearchPage profilesList={profilesList}/>
     }
 }
 
-export default withStyles(SearchPage);
+const mapStateToProps = ({users}) => {
+    return {
+        profilesList: users.profilesList,
+        loading: users.loading,
+        error: users.error
+    }
+};
+
+const mapDispatchToProps = {
+    getAllUsers: userActions.getAllUsers
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(SearchPageContainer);

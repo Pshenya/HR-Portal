@@ -1,122 +1,63 @@
 import React, { Component } from 'react';
+import { connect } from "react-redux";
 import './news-cards.css';
 
+import NewsCardsItem from "./news-cards-item";
 import CardDeck from "react-bootstrap/CardDeck";
 import { Card, Col, Row } from 'react-bootstrap';
-import watch from "../../../../assets/img/watch.png";
-import bg from "../../../../assets/img/for.jpg";
-import forest from "../../../../assets/img/forest.jpg";
+import Loading from "../../../Loading/loading";
+import ErrorIndicator from "../../../ErrorIndicator/error-indicator";
+import { assetsActions } from "../../../../Actions";
 
 
-class NewsCards extends Component {
-    render() {
-        return (
-            <div className="news-container">
-                <CardDeck>
-                    <Row>
-                        <Col sm={12} md={6} lg={4}>
-                            <Card className="news-card">
-                                <Card.Img variant="top" src={watch}/>
-                                <Card.Body>
-                                    <Card.Title>Card title</Card.Title>
-                                    <Card.Text>
-                                        This is a wider card with supporting text below as a natural lead-in to
-                                        additional content. This content is a little bit longer.
-                                        This is a wider card with supporting text below as a natural lead-in to
-                                        additional content. This content is a little bit longer.
-                                    </Card.Text>
-                                </Card.Body>
-                                <Card.Footer>
-                                    <small className="text-muted">16 апреля 2020</small>
-                                </Card.Footer>
-                            </Card>
-                        </Col>
-                        <Col sm={12} md={6} lg={4}>
-                            <Card className="news-card">
-                                <Card.Img variant="top" src={bg}/>
-                                <Card.Body>
-                                    <Card.Title>Card title</Card.Title>
-                                    <Card.Text>
-                                        This card has supporting text below as a natural lead-in to additional
-                                        content.{' '}
-                                    </Card.Text>
-                                </Card.Body>
-                                <Card.Footer>
-                                    <small className="text-muted">16 апреля 2020</small>
-                                </Card.Footer>
-                            </Card>
-                        </Col>
-                        <Col sm={12} md={12} lg={4}>
-                            <Card className="news-card">
-                                <Card.Img variant="top" src={forest}/>
-                                <Card.Body>
-                                    <Card.Title>Card title</Card.Title>
-                                    <Card.Text>
-                                        This is a wider card with supporting text below as a natural lead-in to
-                                        additional content. This card has even longer content than the first to
-                                        show that equal height action.
-                                    </Card.Text>
-                                </Card.Body>
-                                <Card.Footer>
-                                    <small className="text-muted">16 апреля 2020</small>
-                                </Card.Footer>
-                            </Card>
-                        </Col>
-                    </Row>
-                    <Row>
-                        <Col sm={12} md={6} lg={4}>
-                            <Card className="news-card">
-                                <Card.Img variant="top" src={watch}/>
-                                <Card.Body>
-                                    <Card.Title>Card title</Card.Title>
-                                    <Card.Text>
-                                        This is a wider card with supporting text below as a natural lead-in to
-                                        additional content. This content is a little bit longer.
-                                        This is a wider card with supporting text below as a natural lead-in to
-                                        additional content. This content is a little bit longer.
-                                    </Card.Text>
-                                </Card.Body>
-                                <Card.Footer>
-                                    <small className="text-muted">16 апреля 2020</small>
-                                </Card.Footer>
-                            </Card>
-                        </Col>
-                        <Col sm={12} md={6} lg={4}>
-                            <Card className="news-card">
-                                <Card.Img variant="top" src={bg}/>
-                                <Card.Body>
-                                    <Card.Title>Card title</Card.Title>
-                                    <Card.Text>
-                                        This card has supporting text below as a natural lead-in to additional
-                                        content.{' '}
-                                    </Card.Text>
-                                </Card.Body>
-                                <Card.Footer>
-                                    <small className="text-muted">16 апреля 2020</small>
-                                </Card.Footer>
-                            </Card>
-                        </Col>
-                        <Col sm={12} md={12} lg={4}>
-                            <Card className="news-card">
-                                <Card.Img variant="top" src={forest}/>
-                                <Card.Body>
-                                    <Card.Title>Card title</Card.Title>
-                                    <Card.Text>
-                                        This is a wider card with supporting text below as a natural lead-in to
-                                        additional content. This card has even longer content than the first to
-                                        show that equal height action.
-                                    </Card.Text>
-                                </Card.Body>
-                                <Card.Footer>
-                                    <small className="text-muted">16 апреля 2020</small>
-                                </Card.Footer>
-                            </Card>
-                        </Col>
-                    </Row>
-                </CardDeck>
-            </div>
-        );
-    }
+const NewsCards = ({newsList}) => {
+    return (
+        <div className="news-container">
+            <CardDeck>
+                <Row>
+                    {
+                        newsList.map(news => {
+                            return <NewsCardsItem news={news}/>
+                        })
+                    }
+
+                </Row>
+            </CardDeck>
+        </div>
+    );
 }
 
-export default NewsCards;
+
+class NewsCardsContainer extends Component {
+    componentDidMount() {
+        this.props.getAllNews();
+    }
+
+    render() {
+        const {newsList, loading, error} = this.props;
+        if (loading)
+            return (
+                <div className="vacPage-loading">
+                    <Loading/>
+                </div>
+            );
+        if (error) return <ErrorIndicator/>;
+        return <NewsCards newsList={newsList}/>
+    }
+};
+
+
+const mapStateToProps = ({assets}) => {
+    return {
+        newsList: assets.newsList,
+        loading: assets.loading,
+        error: assets.error
+    }
+};
+
+const mapDispatchToProps = {
+    getAllNews: assetsActions.getAllNews
+};
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(NewsCardsContainer);

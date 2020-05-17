@@ -1,0 +1,71 @@
+.sp {
+    width: 100%;
+    font-family: Roboto-Condensed, sans-serif;
+    font-size: 1rem;
+}
+
+.sp-item {
+    max-width: 1200px;
+    margin: 20px auto 20px;
+}
+
+.sp-item-block {
+    height: 175px;
+    background-color: white;
+    display: flex;
+    justify-content: flex-start;
+    box-sizing: border-box;
+    border-radius: 5px;
+    padding: 0 0 5px 5px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    transition: all 0.5s ease;
+    overflow: hidden;
+}
+.sp-item-block:hover{
+    box-shadow: 0 230px 20px rgba(33,37,39,.05);
+    background-color: rgba(72, 71, 138, 0.1);
+}
+
+.flex-placeholder {
+    flex: 1;
+}
+
+.item-col {
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+}
+
+.item-col a {
+    margin-left: 15px;
+    font-size: 25px;
+    color: black;
+}
+
+.item-col a + p {
+    margin-left: 15px;
+    font-size: 20px;
+    color: #4e4e4e;
+}
+
+.sp-companyName{
+    text-decoration: none;
+    color: #4e4e4e;
+    margin-top: 30px;
+    font-size: 20px;
+}
+.sp-companyName:hover{
+    color: #4e4e4e;
+}
+
+.sp-points{
+    font-size: 25px;
+    margin: 30px 30px 0 0;
+    line-height: 1rem;
+    white-space: nowrap;
+}
+
+.sp-points .bold{
+    font-family: "Roboto-Condensed Bold", sans-serif;
+
+}

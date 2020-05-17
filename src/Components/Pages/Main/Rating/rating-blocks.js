@@ -12,15 +12,14 @@ import { userActions } from "../../../../Actions";
 import ErrorIndicator from "../../../ErrorIndicator/error-indicator";
 
 
-const RatingBlocks = ({usersList}) => {
-    console.log(usersList);
+const RatingBlocks = ({profilesList}) => {
     return (
         <aside className="aside">
             <div className="aside-rating">
                 <h3><Link to={ROUTES.RATINGS}>Топ HR</Link></h3>
                 <ul className="aside-rating-blocks">
                     {
-                        usersList.map((user) => {
+                        profilesList.map((user) => {
                             return (
                                 <li key={user._id}>
                                     <RatingBlocksItem user={user}/>
@@ -40,7 +39,7 @@ class RatingBlocksContainer extends Component {
     }
 
     render() {
-        const {usersList, loading, error} = this.props;
+        const {profilesList, loading, error} = this.props;
         if (loading) {
             return (
                 <div className="aside-rating-loading">
@@ -55,13 +54,13 @@ class RatingBlocksContainer extends Component {
                 </div>
             )
         }
-        return <RatingBlocks usersList={usersList}/>
+        return <RatingBlocks profilesList={profilesList}/>
     }
 }
 
 const mapStateToProps = ({users}) => {
     return {
-        usersList: users.usersList,
+        profilesList: users.profilesList,
         loading: users.loading,
         error: users.error
     }

@@ -1,12 +1,15 @@
 import React, { Component } from "react";
+import {Redirect} from "react-router-dom";
 import { renderSocials, Socials } from "./DynamicHelpers/socials";
 import { userActions } from "../../../Actions";
 import { connect } from "react-redux";
 import ProfilePage from "./profile-page";
+import { ROUTES } from "../../../Routes/routes";
 
 class ProfilePageContainer extends Component {
     componentDidMount() {
         this.props.getUserData();
+        this.props.getProfileData();
     }
 
     state = {
@@ -23,20 +26,8 @@ class ProfilePageContainer extends Component {
     };
 
 
-    onAddJob = () => {
-        this.setState({
-            addJob: true
-        })
-    };
-
-    onDeleteJob = () => {
-        this.setState({
-            addJob: false
-        })
-    };
-
     render() {
-        const {loggedIn, userData} = this.props;
+        const {loggedIn, userData, profileData} = this.props;
         const {addJob, Facebook, LinkedIn, Github, Google} = this.state;
         const data = {
             addJob,
@@ -49,25 +40,27 @@ class ProfilePageContainer extends Component {
 
         if (loggedIn) {
             return (
-                <ProfilePage userData={userData} data={data} socials={socials} onAddJob={this.onAddJob}
+                <ProfilePage userData={userData} profileData={profileData} data={data} socials={socials} onAddJob={this.onAddJob}
                              onDeleteJob={this.onDeleteJob}/>
             )
         }
-
+        return <Redirect to={ROUTES.MAIN}/>
 
     }
 }
 
 
-const mapStateToProps = (state) => {
+const mapStateToProps = ({auth, users}) => {
     return {
-        loggedIn: state.auth,
-        userData: state.users.userData
+        loggedIn: auth.loggedIn,
+        userData: users.userData,
+        profileData: users.profileData
     }
 };
 
 const mapDispatchToProps = {
-    getUserData: userActions.getUserData
+    getUserData: userActions.getUserData,
+    getProfileData: userActions.getProfileData
 };
 
 

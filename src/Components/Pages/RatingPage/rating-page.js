@@ -8,7 +8,7 @@ import RatingPageItem from "./rating-page-item";
 import Loading from "../../Loading/loading";
 import ErrorIndicator from "../../ErrorIndicator/error-indicator";
 
-const RatingPage = ({usersList}) => {
+const RatingPage = ({profilesList}) => {
     return (
         <div className="rating-container">
             <div className="rating-content">
@@ -29,7 +29,7 @@ const RatingPage = ({usersList}) => {
                     </tr>
                     </thead>
                     {
-                        usersList.map((user, idx) => {
+                        profilesList.map((user, idx) => {
                             return <tbody key={user._id}>
                                 <RatingPageItem user={user} idx={idx}/>
                             </tbody>
@@ -47,7 +47,7 @@ class RatingPageContainer extends Component {
     }
 
     render() {
-        const {usersList, loading, error} = this.props;
+        const {profilesList, loading, error} = this.props;
 
         if (loading)
             return (
@@ -55,14 +55,14 @@ class RatingPageContainer extends Component {
                     <Loading/>
                 </div>
             );
-        if (error) return <ErrorIndicator/>
-        return <RatingPage usersList={usersList}/>
+        if (error) return <ErrorIndicator/>;
+        return <RatingPage profilesList={profilesList}/>
     }
 }
 
 const mapStateToProps = ({users}) => {
     return {
-        usersList: users.usersList,
+        profilesList: users.profilesList,
         loading: users.loading,
         error: users.error
     }

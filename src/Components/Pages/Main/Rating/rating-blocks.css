@@ -71,11 +71,11 @@
     color: #A9A9A9;
 }
 
-.aside-rating-item:hover .points .bold{
+.aside-rating-item:hover .aside-points .bold{
     color: #fff;
 }
 
-.aside-rating-item:hover .points .small{
+.aside-rating-item:hover .aside-points .small{
     color: #A9A9A9;
 }
 
