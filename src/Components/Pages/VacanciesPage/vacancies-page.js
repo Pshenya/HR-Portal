@@ -59,7 +59,7 @@ class VacanciesPage extends Component {
         const {category} = this.state.category;
         let filteredVacancy = vacanciesList.filter(
             (vacancy) => {
-                return (vacancy.heading.toLowerCase().includes(this.state.searchInput.toLowerCase())) || (vacancy.company.toLowerCase().includes(this.state.searchInput.toLowerCase())) || (vacancy.category.includes(this.state.category));
+                return (vacancy.heading.toLowerCase().includes(this.state.searchInput.toLowerCase())) || (vacancy.company.toLowerCase().includes(this.state.searchInput.toLowerCase()));
             }
         );
         const uniqueVacancy = this.getUnique(vacanciesList, "category");
