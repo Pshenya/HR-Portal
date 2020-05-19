@@ -13,6 +13,8 @@ import { faUserCircle } from "@fortawesome/free-regular-svg-icons";
 import { faSignOutAlt } from "@fortawesome/free-solid-svg-icons";
 import { userActions } from "../../Actions";
 
+import Logo from '../../assets/img/MIIIIIIIIIIII.jpg';
+
 class Header extends Component {
     componentDidMount() {
         this.props.getUser();
@@ -27,9 +29,9 @@ class Header extends Component {
                     <Navbar collapseOnSelect expand="sm">
                         <Container fluid>
                             <Navbar.Brand className="nav-logo">
-                                <h1 className="d-inline-block align-top logo">
-                                    <Link to="/">LOGO</Link>
-                                </h1>
+                                <Link to="/">
+                                    <img style={{paddingTop: "8px"}} src={Logo} alt="logo" width={200} height={75}/>
+                                </Link>
                             </Navbar.Brand>
                             <Navbar.Toggle aria-controls="responsive-navbar-nav"/>
                             <Navbar.Collapse id="responsive-navbar-nav">
