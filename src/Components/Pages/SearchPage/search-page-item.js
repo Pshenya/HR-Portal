@@ -6,6 +6,7 @@ import { faStar } from "@fortawesome/free-regular-svg-icons";
 
 const SearchPageItem = ({user, idx}) => {
     const {profile} = user;
+    const isCompany = profile ? profile.companyName : 'Залупская залупа';
     return (
         <div className="sp-item-block">
             <FontAwesomeIcon style={{marginTop: "7px"}} className="user-icon" icon={faUser} size="10x"/>
@@ -14,7 +15,7 @@ const SearchPageItem = ({user, idx}) => {
                 <p href="#">Team Lead</p>
             </div>
             <div className="flex-placeholder"></div>
-            <a href="#" className="sp-companyName">{profile.companyName}</a>
+            <a href="#" className="sp-companyName">{isCompany}</a>
             <div className="flex-placeholder"></div>
             <div className="sp-points">
                 <FontAwesomeIcon style={{color: "#48478a", marginRight: "5px"}} icon={faStar}/>

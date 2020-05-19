@@ -2,6 +2,7 @@ import React from "react";
 
 const RatingPageItem = ({user, idx}) => {
     const {profile} = user;
+    const isCompany = profile ? profile.companyName : 'Залупская залупа';
     return (
         <tr className="ratingPage-item-block">
             <td>
@@ -14,7 +15,7 @@ const RatingPageItem = ({user, idx}) => {
                 </div>
             </td>
             <td></td>
-            <td>{profile.companyName}</td>
+            <td>{isCompany}</td>
             <td>
                 <p style={{color: "green"}}>+800</p>
             </td>
