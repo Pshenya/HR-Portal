@@ -1,49 +1,66 @@
 import React, { Component } from 'react';
-import { Carousel } from "react-bootstrap";
+
+import { connect } from "react-redux";
+
 import './slider.css';
 import './slide-animations.css'
-import watch from "../../../../assets/img/watch.png";
-import bg from "../../../../assets/img/for.jpg";
-import forest from "../../../../assets/img/forest.jpg";
+
+import { Carousel } from "react-bootstrap";
+
+import { assetsActions } from "../../../../Actions";
+import Loading from "../../../Loading/loading";
+import ErrorIndicator from "../../../ErrorIndicator/error-indicator";
 
 class Slider extends Component {
+    componentDidMount() {
+        this.props.getAllNews();
+    }
+
     render() {
+        const {newsList, loading, error} = this.props;
+        if (loading)
+            return (
+                <div className="slider-loading">
+                    <Loading/>
+                </div>
+            );
+        if (error) return <ErrorIndicator/>;
         return (
+            <div>
                 <Carousel>
-                    <Carousel.Item>
-                        <img className="d-block w-100"
-                             src={watch}
-                             alt="watch"/>
-                        <Carousel.Caption>
-                                <h1>Lorem ipsum</h1>
-                                <p>PPoofjvjjsnncm jjfiwii llfkkdj nvnnmcfjjdkow</p>
-                            <button>Read More</button>
-                        </Carousel.Caption>
-                    </Carousel.Item>
-                    <Carousel.Item>
-                        <img className="d-block w-100"
-                             src={bg}
-                             alt="watch"/>
-                        <Carousel.Caption>
-                            <h1>Lorem ipsum</h1>
-                            <p>PPoofjvjjsnncm jjfiwii llfkkdj nvnnmcfjjdkow</p>
-                            <button>Read More</button>
-                        </Carousel.Caption>
-                    </Carousel.Item>
-                    <Carousel.Item>
-                        <img className="d-block w-100"
-                             src={forest}
-                             alt="bg"
-                        />
-                        <Carousel.Caption>
-                            <h1>Lorem ipsum</h1>
-                            <p>PPoofjvjjsnncm jjfiwii llfkkdj nvnnmcfjjdkow</p>
-                            <button>Read More</button>
-                        </Carousel.Caption>
-                    </Carousel.Item>
+                    {
+                        newsList.map(news => {
+                            return (
+                                <Carousel.Item key={news._id}>
+                                    <img className="d-block w-100"
+                                         src={news.imgUrl}
+                                         alt="watch"/>
+                                    <Carousel.Caption>
+                                        <h1>{news.header}</h1>
+                                        <p>{news.shortDescription}</p>
+                                        <button>Read More</button>
+                                    </Carousel.Caption>
+                                </Carousel.Item>
+                            )
+                        })
+                    }
                 </Carousel>
+            </div>
+
         );
     }
 }
 
-export default Slider;
+const mapStateToProps = ({assets}) => {
+    return {
+        newsList: assets.newsList,
+        loading: assets.loading,
+        error: assets.error
+    }
+};
+
+const mapDispatchToProps = {
+    getAllNews: assetsActions.getAllNews
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Slider);

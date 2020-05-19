@@ -24,6 +24,7 @@
 .sp-item-block:hover{
     box-shadow: 0 230px 20px rgba(33,37,39,.05);
     background-color: rgba(72, 71, 138, 0.1);
+    cursor: pointer;
 }
 
 .flex-placeholder {

@@ -158,8 +158,13 @@
     margin-top: 20px;
 }
 
-.vac-sidebar-schedule, .vac-sidebar-salary, .vac-sidebar-workLevel{
+.vac-sidebar-schedule, .vac-sidebar-salary, .vac-sidebar-select{
     padding-top: 20px;
+}
+.vac-sidebar-select{
+    border: 1px solid #4e4e4e;
+    height: 30px;
+    width: 150px;
 }
 
 .salary-flex{

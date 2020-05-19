@@ -4,7 +4,7 @@ import './news-cards.css';
 
 import NewsCardsItem from "./news-cards-item";
 import CardDeck from "react-bootstrap/CardDeck";
-import { Card, Col, Row } from 'react-bootstrap';
+import { Row } from 'react-bootstrap';
 import Loading from "../../../Loading/loading";
 import ErrorIndicator from "../../../ErrorIndicator/error-indicator";
 import { assetsActions } from "../../../../Actions";
@@ -17,10 +17,9 @@ const NewsCards = ({newsList}) => {
                 <Row>
                     {
                         newsList.map(news => {
-                            return <NewsCardsItem news={news}/>
+                            return <NewsCardsItem key={news._id} news={news}/>
                         })
                     }
-
                 </Row>
             </CardDeck>
         </div>

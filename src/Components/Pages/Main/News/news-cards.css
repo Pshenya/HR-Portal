@@ -6,6 +6,10 @@
 .row{
     margin-bottom: 60px;
 }
+.news-col{
+    margin-bottom: 60px;
+}
+
 
 .news-card{
     overflow: hidden;
@@ -14,6 +18,7 @@
     border: none;
     height: 100%;
     width: auto;
+
 }
 
 .card-img-top{

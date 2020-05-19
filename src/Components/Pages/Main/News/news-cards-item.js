@@ -1,22 +1,24 @@
 import React from "react";
 
-import { Card, Col, Row } from "react-bootstrap";
-import watch from "../../../../assets/img/watch.png";
-import CardDeck from "react-bootstrap/CardDeck";
+import { Card, Col } from "react-bootstrap";
+
 
 const NewsCardsItem = ({news}) => {
+    const months = ['января', 'февраля', 'марта', 'апреля','мая', 'июня', 'июля', 'августа','сентября', 'октября', 'ноября', 'декабря'];
+    const date = new Date(Date.parse(news.date));
+    const newsDate = `${date.getDate()} ${months[date.getMonth()+1]} ${date.getFullYear()}`;
     return (
-        <Col sm={12} md={6} lg={4}>
+        <Col className="news-col" sm={12} md={6} lg={4}>
             <Card className="news-card">
-                <Card.Img variant="top" src="https://i.ibb.co/hZnxBzq/image.png"/>
+                <Card.Img variant="top" src={news.imgUrl}/>
                 <Card.Body>
                     <Card.Title>{news.header}</Card.Title>
                     <Card.Text>
-                        {news.text}
+                        {news.shortDescription}
                     </Card.Text>
                 </Card.Body>
                 <Card.Footer>
-                    <small className="text-muted">16 апреля 2020</small>
+                    <small className="text-muted">{newsDate}</small>
                 </Card.Footer>
             </Card>
         </Col>

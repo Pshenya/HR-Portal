@@ -1,155 +1,175 @@
 import React, { Component } from 'react';
 
-import { connect } from "react-redux";
+import { withStyles } from "../../HOC/withStyles";
 
-import './vacancies-page.css';
-
-import VacSearchBlock from "./vac-search-block";
+import Paper from "@material-ui/core/Paper";
+import InputBase from "@material-ui/core/InputBase";
+import IconButton from "@material-ui/core/IconButton";
+import SearchIcon from "@material-ui/icons/Search";
+import Divider from "@material-ui/core/Divider";
+import WorkIcon from "@material-ui/icons/Work";
+import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import VacanciesPageItem from "./vacancies-page-item";
-import { assetsActions } from "../../../Actions";
-
 import { Form } from "react-bootstrap";
-import RoomIcon from "@material-ui/icons/Room";
-import Loading from "../../Loading/loading";
-import ErrorIndicator from "../../ErrorIndicator/error-indicator";
 
-const VacanciesPage = ({vacanciesList}) => {
-    return (
-        <div className="vac-content">
-            <VacSearchBlock/>
-            <div className="vac-main">
-                <div className="vac-main-wrapper">
-                    <section className="vac-leftContent">
-                        {
-                            vacanciesList.map((vacancy) => {
-                                return <div key={vacancy._id}>
-                                    <VacanciesPageItem vacancy={vacancy}/>
-                                </div>
-                            })
-                        }
-                    </section>
-                    <aside className="vac-aside-wrapper">
-                        <div className="vac-rightContent">
-                            <div className="vac-sidebar">
-                                <div className="vac-sidebar-categories">
-                                    <h3>Категория</h3>
-                                    <Form.Control as="select" custom>
-                                        <option>Все категории</option>
-                                    </Form.Control>
-                                </div>
-                                <div className="sidebar-divider"/>
-                                <div className="vac-sidebar-schedule">
-                                    <h3>Занятость: </h3>
-                                    <Form>
-                                        {['radio'].map((type) => (
-                                            <div key={`default-${type}`} className="mb-3">
-                                                <Form.Check
-                                                    type={type}
-                                                    id={`default-${type}`}
-                                                    label={`Полная занятость`}
-                                                />
 
-                                                <Form.Check
-                                                    type={type}
-                                                    label={`Практика/стажирвка`}
-                                                    id={`default-${type}`}
-                                                />
-                                                <Form.Check
-                                                    type={type}
-                                                    label={`Неполная занятость`}
-                                                    id={`default-${type}`}
-                                                />
-                                                <Form.Check
-                                                    type={type}
-                                                    label={`Удаленная работа`}
-                                                    id={`default-${type}`}
-                                                />
-                                            </div>
-                                        ))}
-                                    </Form>
-                                </div>
-                                <div className="sidebar-divider"/>
-                                <div className="vac-sidebar-salary">
-                                    <h3>Зарплата: </h3>
-                                    <div className="salary-flex">
-                                        <div className="salary-input-line">
-                                            <span>от</span>
-                                            <input className="salary-input" type="text"/>
-                                            <span>грн.</span>
-                                            <button type="button" className="salary-input-btn">OK</button>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="sidebar-divider"/>
-                                <div className="vac-sidebar-workLevel">
-                                    <h3>Уровень должности: </h3>
-                                    <Form>
-                                        {['checkbox'].map((type) => (
-                                            <div key={`default-${type}`} className="mb-3">
-                                                <Form.Check
-                                                    type={type}
-                                                    id={`default-${type}`}
-                                                    label={`Полная занятость`}
-                                                />
+class VacanciesPage extends Component {
+    constructor(props) {
+        super(props);
 
-                                                <Form.Check
-                                                    type={type}
-                                                    label={`Практика/стажирвка`}
-                                                    id={`default-${type}`}
-                                                />
-                                                <Form.Check
-                                                    type={type}
-                                                    label={`Неполная занятость`}
-                                                    id={`default-${type}`}
-                                                />
-                                                <Form.Check
-                                                    type={type}
-                                                    label={`Удаленная работа`}
-                                                    id={`default-${type}`}
-                                                />
-                                            </div>
-                                        ))}
-                                    </Form>
-                                </div>
-                            </div>
-                        </div>
-                    </aside>
-                </div>
-            </div>
-        </div>
-    );
-}
+        this.onSearch = this.onSearch.bind(this);
+        this.handleRadioChange = this.handleRadioChange.bind(this);
+        this.state = {
+            searchInput: '',
+            category: ''
+        }
+    }
 
-class VacanciesPageContainer extends Component {
-    componentDidMount() {
-        this.props.getAllVacancies();
+    onSearch(e) {
+        this.setState({
+            searchInput: e.target.value
+        });
+    }
+
+    handleRadioChange(e) {
+        this.setState({category: e.target.value})
+    }
+
+    getUnique(arr, comp) {
+        const unique = arr
+            //store the comparison values in array
+            .map(e => e[comp])
+
+            // store the keys of the unique objects
+            .map((e, i, final) => final.indexOf(e) === i && i)
+
+            // eliminate the dead keys & store unique objects
+            .filter(e => arr[e])
+
+            .map(e => arr[e]);
+
+        return unique;
     }
 
     render() {
-        const {vacanciesList, loading, error} = this.props;
-        if (loading)
-            return (
-                <div className="vacPage-loading">
-                    <Loading/>
+        const {stylesHook} = this.props;
+        const classes = stylesHook;
+
+        const {vacanciesList} = this.props;
+        const {category} = this.state.category;
+        let filteredVacancy = vacanciesList.filter(
+            (vacancy) => {
+                return (vacancy.heading.toLowerCase().includes(this.state.searchInput.toLowerCase())) || (vacancy.company.toLowerCase().includes(this.state.searchInput.toLowerCase())) || (vacancy.category.includes(this.state.category));
+            }
+        );
+        const uniqueVacancy = this.getUnique(vacanciesList, "category");
+        return (
+            <div className="vac-content">
+                <div className="search-header">
+                    <div className="search-header-content d-flex">
+                        <div className="search">
+                            <Paper component="form" className={classes.root}>
+                                <InputBase
+                                    className={classes.input}
+                                    placeholder="Поиск"
+                                    inputProps={{'aria-label': 'Поиск'}}
+                                    value={this.state.searchInput}
+                                    onChange={this.onSearch}
+                                />
+                                <IconButton className={classes.iconButton} aria-label="search">
+                                    <SearchIcon/>
+                                </IconButton>
+                                <Divider className={classes.divider} orientation="vertical"/>
+                                <IconButton color="primary" className={classes.iconButton} aria-label="directions">
+                                    <WorkIcon/>
+                                    <h3 style={{marginLeft: '5px', fontSize: '1.5rem'}}>Все регионы</h3>
+                                    <ExpandMoreIcon/>
+                                </IconButton>
+                            </Paper>
+                        </div>
+                        <ul className="header-list">
+                            <li className="d-flex">
+                                <span>Категории</span>
+                                <ExpandMoreIcon style={{paddingBottom: '3px'}}/>
+                            </li>
+                            <li className="d-flex">
+                                <span>Компании</span>
+                                <ExpandMoreIcon style={{paddingBottom: '3px'}}/>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
-            );
-        if (error) return <ErrorIndicator/>;
-        return <VacanciesPage vacanciesList={vacanciesList}/>
+                <div className="vac-main">
+                    <div className="vac-main-wrapper">
+                        <aside className="vac-aside-wrapper">
+                            <div className="vac-rightContent">
+                                <div className="vac-sidebar">
+                                    <div className="vac-sidebar-categories">
+                                        <h3>Категория</h3>
+                                        <select className="vac-sidebar-select" value={this.state.category}
+                                                onChange={this.handleRadioChange}>
+                                            <option value=''>Все категории</option>
+                                            <option value="IT">IT</option>
+                                        </select>
+                                    </div>
+                                    <div className="sidebar-divider"/>
+                                    <div className="vac-sidebar-schedule">
+                                        <h3>Занятость: </h3>
+                                        <Form.Check
+                                            type="radio"
+                                            name="vac-radios"
+                                            id='full'
+                                            label="Полная занятость"
+                                        />
+
+                                        <Form.Check
+                                            type="radio"
+                                            name="vac-radios"
+                                            label="Практика/стажирвка"
+                                            id='practice'
+                                        />
+                                        <Form.Check
+                                            type="radio"
+                                            name="vac-radios"
+                                            label="Неполная занятость"
+                                            id='semi'
+                                        />
+                                        <Form.Check
+                                            type="radio"
+                                            name="vac-radios"
+                                            label="Удаленная работа"
+                                            id='remote'
+                                        />
+                                    </div>
+                                    <div className="sidebar-divider"/>
+                                    <div className="vac-sidebar-salary">
+                                        <h3>Зарплата: </h3>
+                                        <div className="salary-flex">
+                                            <div className="salary-input-line">
+                                                <span>от</span>
+                                                <input className="salary-input" type="text"/>
+                                                <span>грн.</span>
+                                                <button type="button" className="salary-input-btn">OK</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </aside>
+                        <section className="vac-leftContent">
+                            {
+                                filteredVacancy.map((vacancy) => {
+                                    return <div key={vacancy._id}>
+                                        <VacanciesPageItem vacancy={vacancy}/>
+                                    </div>
+                                })
+                            }
+                        </section>
+                    </div>
+                </div>
+            </div>
+        );
     }
 }
 
-
-const mapStateToProps = ({assets}) => {
-    return {
-        vacanciesList: assets.vacanciesList,
-        loading: assets.loading,
-        error: assets.error
-    }
-};
-
-const mapDispatchToProps = {
-    getAllVacancies: assetsActions.getAllVacancies
-};
-
-
-export default connect(mapStateToProps, mapDispatchToProps)(VacanciesPageContainer);
+export default withStyles(VacanciesPage);
