@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import {Redirect} from "react-router-dom";
+import { Redirect, withRouter } from "react-router-dom";
 import { renderSocials, Socials } from "./DynamicHelpers/socials";
 import { userActions } from "../../../Actions";
 import { connect } from "react-redux";
@@ -7,9 +7,30 @@ import ProfilePage from "./profile-page";
 import { ROUTES } from "../../../Routes/routes";
 
 class ProfilePageContainer extends Component {
+    refreshProfile() {
+        let userId = this.props.match.params.userId;
+        if ( !userId) {
+            userId = localStorage.getItem('userId');
+            if ( !userId) {
+                this.props.history.push(ROUTES.LOGIN);
+            }
+        }
+
+        if ( !userId) {
+            console.error("ID should exists in URI params or in state ('authorizedUserId')");
+        } else {
+            this.props.getProfileData(userId)
+        }
+    }
+
     componentDidMount() {
-        this.props.getUserData();
-        this.props.getProfileData();
+        this.refreshProfile();
+    }
+
+    componentDidUpdate(prevProps) {
+        if (this.props.match.params.userId !== prevProps.match.params.userId) {
+            this.refreshProfile();
+        }
     }
 
     state = {
@@ -27,7 +48,7 @@ class ProfilePageContainer extends Component {
 
 
     render() {
-        const {loggedIn, userData, profileData} = this.props;
+        const {loggedIn, profileData} = this.props;
         const {addJob, Facebook, LinkedIn, Github, Google} = this.state;
         const data = {
             addJob,
@@ -38,13 +59,15 @@ class ProfilePageContainer extends Component {
         };
         const socials = renderSocials(Socials, this.onSocialSelected);
 
-        if (loggedIn) {
-            return (
-                <ProfilePage userData={userData} profileData={profileData} data={data} socials={socials} onAddJob={this.onAddJob}
-                             onDeleteJob={this.onDeleteJob}/>
-            )
-        }
-        return <Redirect to={ROUTES.MAIN}/>
+        return (
+            <div>
+                {profileData.map(profile => {
+                    return <ProfilePage profile={profile} data={data} socials={socials} onAddJob={this.onAddJob}
+                                        onDeleteJob={this.onDeleteJob}/>
+                })}
+            </div>
+        )
+
 
     }
 }
@@ -53,16 +76,15 @@ class ProfilePageContainer extends Component {
 const mapStateToProps = ({auth, users}) => {
     return {
         loggedIn: auth.loggedIn,
-        userData: users.userData,
         profileData: users.profileData
     }
 };
 
 const mapDispatchToProps = {
-    getUserData: userActions.getUserData,
     getProfileData: userActions.getProfileData
 };
 
+withRouter(ProfilePageContainer);
 
 export default connect(mapStateToProps, mapDispatchToProps)(ProfilePageContainer);
 

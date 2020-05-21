@@ -53,7 +53,7 @@ class App extends Component {
                         <Route path={ROUTES.STATS} component={StatsPage}/>
                         <Route path={ROUTES.ABOUT} component={AboutPage}/>
                         <Route path={ROUTES.LOGIN} component={SignInPage}/>
-                        <Route path={ROUTES.PROFILE} component={ProfilePageContainer}/>
+                        <Route path={`${ROUTES.PROFILE}/:userId?`} component={ProfilePageContainer}/>
                         <Route path={ROUTES.REGISTRATION} component={RegistrationPage}/>
                         <Redirect from="*" to="/"/>
                     </Switch>

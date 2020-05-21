@@ -14,7 +14,6 @@ export const userService = {
 
 const _apiURL = "http://localhost:3000/api";
 
-
 function register(user) {
     const requestOptions = {
         method: 'POST',
@@ -64,15 +63,16 @@ function getUserData() {
         })
 }
 
-function getProfileData(){
+function getProfileData(userId){
     const requestOptions = {
         method: 'GET',
         redirect: 'follow'
     };
-    let userId = localStorage.getItem('userId');
+    // let userId = localStorage.getItem('userId');
     return fetch(`${_apiURL}/user/profile?userId=${userId}`, requestOptions)
         .then(handleResponse)
         .then(profileData => {
+            console.log(JSON.parse(profileData));
             return JSON.parse(profileData);
         })
 }
@@ -86,6 +86,7 @@ function getAllUsers() {
     return fetch(`${_apiURL}/user/profile/all`, requsetOptions)
         .then(handleResponse)
         .then(userData => {
+            console.log(JSON.parse(userData));
             return JSON.parse(userData);
         });
 }

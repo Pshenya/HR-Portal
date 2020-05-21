@@ -1,11 +1,13 @@
 import React from "react";
 
+import {Link} from "react-router-dom";
+import { ROUTES } from "../../../../Routes/routes";
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser } from "@fortawesome/free-solid-svg-icons";
 
 const RatingBlocksItem = ({user}) => {
     const {profile} = user;
-    console.log(profile);
     const isCompany = profile ? profile.companyName : 'Залупская залупа';
     return (
         <div className="aside-rating-item">
@@ -13,7 +15,7 @@ const RatingBlocksItem = ({user}) => {
                 <FontAwesomeIcon className="user-icon" icon={faUser} size="4x"/>
             </div>
             <div className="col-box">
-                <a href="/">{user.name} {user.lastName}</a>
+                <Link to={`${ROUTES.PROFILE}/${user._id}`}>{user.name} {user.lastName}</Link>
                 <a href="/">{isCompany}</a>
             </div>
             <div className="flex-placeholder"></div>

@@ -94,11 +94,11 @@ function getAllUsers() {
     function failure(error) { return { type: userConstants.GETALL_USERS_FAILURE, error } }
 }
 
-function getProfileData() {
+function getProfileData(userId) {
     return dispatch => {
         dispatch(request());
 
-        userService.getProfileData()
+        userService.getProfileData(userId)
             .then(profileData => dispatch(success(profileData)))
             .catch(error => dispatch(failure(error)))
     };

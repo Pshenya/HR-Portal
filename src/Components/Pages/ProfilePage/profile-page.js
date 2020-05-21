@@ -31,7 +31,7 @@ class ProfilePage extends Component {
         };
 
         this.handleChange = this.handleChange.bind(this);
-        this.handleSubmit = this.handleSubmit.bind(this);
+        // this.handleSubmit = this.handleSubmit.bind(this);
     }
 
     handleChange(event) {
@@ -45,18 +45,10 @@ class ProfilePage extends Component {
         });
     }
 
-    handleSubmit(event) {
-        event.preventDefault();
 
-        this.setState({submitted: true});
-        const {profile} = this.state;
-        if (profile.name && profile.lastName && profile.email && profile.password) {
-            this.props.register(profile);
-        }
-    }
 
     render() {
-        const {userData, profileData, data, socials} = this.props;
+        const {profile, data, socials} = this.props;
         return (
             <div className="profile-content">
                 <div className="profile-header">
@@ -70,13 +62,13 @@ class ProfilePage extends Component {
                     </div>
                     <div className="profile-blockContent profile-flex">
                         <div className="profile-data">
-                            <Form name="form" onSubmit={this.handleSubmit}>
+                            <Form name="form">
                                 <Form.Group as={Row} controlId="formHorizontalName">
                                     <Form.Label column sm={2}>
                                         Имя
                                     </Form.Label>
                                     <Col sm={10}>
-                                        <Form.Control type="text" value={userData.name}/>
+                                        <Form.Control type="text" value={profile.name}/>
                                     </Col>
                                 </Form.Group>
                                 <Form.Group as={Row} controlId="formHorizontalLastName">
@@ -84,7 +76,7 @@ class ProfilePage extends Component {
                                         Фамилия
                                     </Form.Label>
                                     <Col sm={10}>
-                                        <Form.Control type="text" value={userData.lastName}/>
+                                        <Form.Control type="text" value={profile.lastName}/>
                                     </Col>
                                 </Form.Group>
                                 <Form.Group as={Row} controlId="formHorizontalCompany">
@@ -92,13 +84,13 @@ class ProfilePage extends Component {
                                         Название компании
                                     </Form.Label>
                                     <Col sm={10}>
-                                        <Form.Control type="text" value={profileData.companyName}/>
+                                        <Form.Control type="text" value={profile.profile.companyName}/>
                                     </Col>
                                 </Form.Group>
                                 <Form.Group as={Row} controlId="formHorizontalExperience">
                                     <Form.Label column sm={2}>Опыт работы</Form.Label>
                                     <Col sm={10}>
-                                        <Form.Control as="select" value={profileData.workExperience} custom>
+                                        <Form.Control as="select" value={profile.profile.workExperience} custom>
                                             <option value={0.5}> &lt;1 года</option>
                                             <option value={1}>1 год</option>
                                             <option value={2}>2 года</option>
@@ -159,7 +151,7 @@ class ProfilePage extends Component {
                                         Телефон (в формате <strong><i>"+код страны"</i></strong> )
                                     </Form.Label>
                                     <Col sm={8}>
-                                        <Form.Control type="text" value={profileData.phone}/>
+                                        <Form.Control type="text" value={profile.profile.phone}/>
                                     </Col>
                                 </Form.Group>
                                 <Form.Group as={Row} controlId="formHorizontalEmail">
@@ -167,7 +159,7 @@ class ProfilePage extends Component {
                                         Эл. почта
                                     </Form.Label>
                                     <Col sm={8}>
-                                        <Form.Control type="text" value={userData.email}/>
+                                        <Form.Control type="text" value={profile.email}/>
                                     </Col>
                                 </Form.Group>
                                 <Form.Group as={Row} controlId="formHorizontalSocials">

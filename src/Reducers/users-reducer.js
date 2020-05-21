@@ -2,7 +2,7 @@ import { userConstants } from '../CONSTANTS';
 
 const initialState = {
     userData: {},
-    profileData: {},
+    profileData: [],
     profilesList: [],
     loading: false,
     error: null
