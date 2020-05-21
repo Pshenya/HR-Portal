@@ -54,7 +54,7 @@ class Header extends Component {
                                 }
                                 { !loggedIn &&
                                 <Link to={ROUTES.LOGIN}>
-                                    <Button className="login-btn">Вход</Button>
+                                    <button className="login-btn">Вход</button>
                                 </Link>}
 
 

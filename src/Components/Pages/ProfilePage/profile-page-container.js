@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import { Redirect, withRouter } from "react-router-dom";
-import { renderSocials, Socials } from "./DynamicHelpers/socials";
+import { withRouter } from "react-router-dom";
+import { renderSocials, Socials } from "./MyProfile/DynamicHelpers/socials";
 import { userActions } from "../../../Actions";
 import { connect } from "react-redux";
 import ProfilePage from "./profile-page";
@@ -48,14 +48,14 @@ class ProfilePageContainer extends Component {
 
 
     render() {
-        const {loggedIn, profileData} = this.props;
-        const {addJob, Facebook, LinkedIn, Github, Google} = this.state;
+        const {profileData} = this.props;
+        const {addJob, Facebook, LinkedIn, Github, Telegram} = this.state;
         const data = {
             addJob,
             Facebook,
             LinkedIn,
             Github,
-            Google
+            Telegram
         };
         const socials = renderSocials(Socials, this.onSocialSelected);
 

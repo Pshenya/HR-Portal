@@ -1,4 +1,4 @@
-import { faFacebookSquare, faGithubSquare, faGooglePlusSquare, faLinkedin } from "@fortawesome/free-brands-svg-icons";
+import { faFacebookSquare, faGithubSquare, faTelegram, faLinkedin } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
 
@@ -6,7 +6,7 @@ const Socials = [
     {id: 1, name: "Facebook", icon: faFacebookSquare, color: "#4267B2"},
     {id: 2, name: "LinkedIn", icon: faLinkedin, color: "#0e76a8"},
     {id: 3, name: "Github", icon: faGithubSquare, color: "#333"},
-    {id: 4, name: "Google", icon: faGooglePlusSquare, color: "#db3236"},
+    {id: 4, name: "Telegram", icon: faTelegram, color: "#0095e0"},
 ];
 
 
