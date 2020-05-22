@@ -13,6 +13,10 @@ import ErrorIndicator from "../../../ErrorIndicator/error-indicator";
 
 
 const RatingBlocks = ({profilesList}) => {
+    function sortArrByRating(arr) {
+        arr.sort((a, b) => a.profile.rating < b.profile.rating ? 1 : -1);
+    }
+    sortArrByRating(profilesList);
     return (
         <aside className="aside">
             <div className="aside-rating">

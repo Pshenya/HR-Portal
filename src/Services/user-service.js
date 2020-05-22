@@ -72,7 +72,6 @@ function getProfileData(userId){
     return fetch(`${_apiURL}/user/profile?userId=${userId}`, requestOptions)
         .then(handleResponse)
         .then(profileData => {
-            console.log(JSON.parse(profileData));
             return JSON.parse(profileData);
         })
 }

@@ -6,6 +6,10 @@
     vertical-align: baseline;
 }
 
+html{
+    background-color: #f4f4f4;
+}
+
 ol,ul{
     list-style: none;
 }

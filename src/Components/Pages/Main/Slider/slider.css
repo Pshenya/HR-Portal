@@ -1,5 +1,5 @@
 .carousel {
-    font-family: "Roboto-Condensed Regular", sans-serif;
+    font-family: "Roboto-Condensed Light", sans-serif;
     font-weight: normal;
     position: relative;
     box-shadow: 1px 1px 1px 1px rgba(0,0,0,0.2);
@@ -28,6 +28,11 @@
     left: 0;
 }
 
+.carousel-control-prev-icon, .carousel-control-next-icon{
+    width: 30px !important;
+    height: 30px !important;
+}
+
 .carousel-caption {
     box-sizing: border-box;
     position: absolute;
@@ -38,7 +43,8 @@
     transform: translate(-50%, -50%);
 }
 
-.carousel button {
+.read-more-btn{
+    text-decoration: none;
     -webkit-filter: drop-shadow(0 5px 5px rgba(0, 0, 0, 0.1));
     filter: drop-shadow(0 5px 5px rgba(0, 0, 0, 0.1));
     -webkit-transition: all 0.5s ease;
@@ -54,7 +60,8 @@
     cursor: pointer;
 }
 
-.carousel button:hover {
+.carousel .read-more-btn:hover {
+    text-decoration: none;
     color: #48478a;
     background: #fff;
     -webkit-filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.2));
@@ -62,13 +69,13 @@
 }
 
 
-.carousel button {
+.carousel .read-more-btn {
     -webkit-transition-delay: 0s;
     transition-delay: 0s;
 }
 
 .carousel-caption h1 {
-    font-family: "Roboto-Condensed Bold", sans-serif;
+    font-family: "Roboto-Condensed Light", sans-serif;
     font-weight: 700;
     margin: 0 auto;
     max-width: 950px;

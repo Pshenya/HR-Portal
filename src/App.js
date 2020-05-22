@@ -14,7 +14,8 @@ import Footer from "./Components/Footer/footer";
 
 import {
     AboutPage, SearchPage, ProfilePageContainer, RatingPage,
-    VacanciesPage, StatsPage, SignInPage, RegistrationPage
+    VacanciesPage, StatsPage, SignInPage, RegistrationPage,
+    NewsPageContainer
 } from './Components/Pages';
 
 class App extends Component {
@@ -50,6 +51,7 @@ class App extends Component {
                         <Route path={ROUTES.SEARCH} component={SearchPage}/>
                         <Route path={ROUTES.RATINGS} component={RatingPage}/>
                         <Route path={ROUTES.VACANCIES} component={VacanciesPage}/>
+                        <Route path={`${ROUTES.NEWS}/:post`} component={NewsPageContainer}/>
                         <Route path={ROUTES.STATS} component={StatsPage}/>
                         <Route path={ROUTES.ABOUT} component={AboutPage}/>
                         <Route path={ROUTES.LOGIN} component={SignInPage}/>

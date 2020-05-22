@@ -58,12 +58,14 @@ class ProfilePageContainer extends Component {
             Telegram
         };
         const socials = renderSocials(Socials, this.onSocialSelected);
-
+        let authorizedUserId = localStorage.getItem('userId');
+        let userId = this.props.match.params.userId;
         return (
             <div>
                 {profileData.map(profile => {
-                    return <ProfilePage profile={profile} data={data} socials={socials} onAddJob={this.onAddJob}
-                                        onDeleteJob={this.onDeleteJob}/>
+                    return <ProfilePage profile={profile} data={data}
+                                        socials={socials} userId={userId}
+                                        authorizedUserId={authorizedUserId}/>
                 })}
             </div>
         )

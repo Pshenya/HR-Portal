@@ -9,6 +9,7 @@ import { faUser } from "@fortawesome/free-solid-svg-icons";
 const RatingBlocksItem = ({user}) => {
     const {profile} = user;
     const isCompany = profile ? profile.companyName : 'Залупская залупа';
+    const isRating = profile ? profile.rating : 'N/A';
     return (
         <div className="aside-rating-item">
             <div className="aside-profile-picture">
@@ -20,7 +21,7 @@ const RatingBlocksItem = ({user}) => {
             </div>
             <div className="flex-placeholder"></div>
             <div className="aside-points">
-                <span className="bold">9.2</span>
+                <span className="bold">{isRating}</span>
                 <br/>
                 <span className="small">/10</span>
             </div>

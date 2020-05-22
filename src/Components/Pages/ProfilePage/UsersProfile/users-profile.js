@@ -4,7 +4,8 @@ import pavlik from "../../../../assets/img/pavlik.jpg";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
 import { Form } from "react-bootstrap";
-import { MDBInput } from 'mdbreact';
+import { MDBBtn, MDBInput, MDBIcon} from 'mdbreact';
+import Button from "@material-ui/core/Button";
 
 
 const UsersProfile = ({profile}) => {
@@ -77,8 +78,14 @@ const UsersProfile = ({profile}) => {
                         <h3>300 отзывов</h3>
                     </div>
                     <div className="profile-comments-form">
-                        <img src={pavlik} width={50} height={50}/>
-                        <MDBInput className="profile-comment-input" type="textarea" label="Оставьте комментарий" rows="1"/>
+                        <form className="user-feedback-form" name="form">
+                            <img src={pavlik} width={50} height={50}/>
+                            <MDBInput className="profile-comment-input" type="textarea" label="Оставьте комментарий" rows="1"/>
+                            <MDBBtn className="profile-comments-btn" outline color="black">
+                                Отправить
+                                <MDBIcon far icon="paper-plane" className="ml-1" />
+                            </MDBBtn>
+                        </form>
                     </div>
                 </div>
             </div>

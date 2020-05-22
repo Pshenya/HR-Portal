@@ -1,9 +1,10 @@
-import { assetsConstants } from '../CONSTANTS';
-import { assetsService } from '../Services';
+import { assetsConstants, userConstants } from '../CONSTANTS';
+import { assetsService, userService } from '../Services';
 
 export const assetsActions = {
     getAllVacancies,
-    getAllNews
+    getAllNews,
+    getNewsById
 };
 
 function getAllVacancies() {
@@ -38,4 +39,18 @@ function getAllNews() {
 
     function failure(error) { return {type: assetsConstants.GETALL_NEWS_FAILURE, error} }
 
+}
+
+function getNewsById(id) {
+    return dispatch => {
+        dispatch(request());
+
+        assetsService.getNewsById(id)
+            .then(postData => dispatch(success(postData)))
+            .catch(error => dispatch(failure(error)))
+    };
+
+    function request() { return {type: assetsConstants.GET_NEWS_BY_ID_REQUEST} }
+    function success(postData) { return { type: assetsConstants.GET_NEWS_BY_ID_SUCCESS, postData } }
+    function failure(error) { return { type: assetsConstants.GET_NEWS_BY_ID_FAILURE, error } }
 }

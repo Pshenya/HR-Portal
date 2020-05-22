@@ -1,8 +1,9 @@
-import { assetsConstants, userConstants } from "../CONSTANTS";
+import { assetsConstants } from "../CONSTANTS";
 
 const initialState = {
     vacanciesList: [],
     newsList: [],
+    postData: {},
     loading: false,
     error: null
 };
@@ -38,6 +39,23 @@ export function assets(state = initialState, action) {
                 newsList: action.newsList
             };
         case assetsConstants.GETALL_NEWS_FAILURE:
+            return {
+                ...state,
+                loading: false,
+                error: action.error
+            };
+        case assetsConstants.GET_NEWS_BY_ID_REQUEST:
+            return {
+                ...state,
+                loading: true
+            };
+        case assetsConstants.GET_NEWS_BY_ID_SUCCESS:
+            return {
+                ...state,
+                loading: false,
+                postData: action.postData
+            };
+        case assetsConstants.GET_NEWS_BY_ID_FAILURE:
             return {
                 ...state,
                 loading: false,

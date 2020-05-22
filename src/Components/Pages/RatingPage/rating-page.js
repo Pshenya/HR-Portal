@@ -9,6 +9,10 @@ import Loading from "../../Loading/loading";
 import ErrorIndicator from "../../ErrorIndicator/error-indicator";
 
 const RatingPage = ({profilesList}) => {
+    function sortArrByRating(arr) {
+        arr.sort((a, b) => a.profile.rating < b.profile.rating ? 1 : -1);
+    }
+    sortArrByRating(profilesList);
     return (
         <div className="rating-container">
             <div className="rating-content">

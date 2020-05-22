@@ -1,6 +1,7 @@
 export const assetsService = {
     getAllVacancies,
-    getAllNews
+    getAllNews,
+    getNewsById
 };
 
 const _apiURL = "http://localhost:3000/api";
@@ -22,11 +23,24 @@ function getAllNews() {
         method: 'GET',
         redirect: 'follow'
     };
-    return fetch(`${_apiURL}/news/news`, requsetOptions)
+    return fetch(`${_apiURL}/news/news/all`, requsetOptions)
         .then(handleResponse)
         .then(newsList => {
             return JSON.parse(newsList);
         });
+}
+
+function getNewsById(id) {
+    const requestOptions = {
+        method: 'GET',
+        redirect: 'follow'
+    };
+    return fetch(`${_apiURL}/news/news?post=${id}`, requestOptions)
+        .then(handleResponse)
+        .then(postData => {
+            console.log(JSON.parse(postData));
+            return JSON.parse(postData);
+        })
 }
 
 

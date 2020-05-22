@@ -10,6 +10,8 @@ import { Carousel } from "react-bootstrap";
 import { assetsActions } from "../../../../Actions";
 import Loading from "../../../Loading/loading";
 import ErrorIndicator from "../../../ErrorIndicator/error-indicator";
+import { Link } from "react-router-dom";
+import { ROUTES } from "../../../../Routes/routes";
 
 class Slider extends Component {
     componentDidMount() {
@@ -38,7 +40,7 @@ class Slider extends Component {
                                     <Carousel.Caption>
                                         <h1>{news.header}</h1>
                                         <p>{news.shortDescription}</p>
-                                        <button>Read More</button>
+                                        <Link className="read-more-btn" to={`${ROUTES.NEWS}/${news._id}`}>Читать</Link>
                                     </Carousel.Caption>
                                 </Carousel.Item>
                             )

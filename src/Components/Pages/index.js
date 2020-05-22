@@ -6,6 +6,7 @@ import SignInPage from "./Login/SignInPage/signin-page";
 import StatsPage from "./StatsPage/stats-page";
 import VacanciesPage from "./VacanciesPage/vacancies-page-container";
 import RegistrationPage from "./Login/RegistrationPage/registration-page";
+import NewsPageContainer from "./NewsPage/news-page";
 
 export {
     AboutPage,
@@ -15,5 +16,6 @@ export {
     SignInPage,
     StatsPage,
     VacanciesPage,
-    RegistrationPage
+    RegistrationPage,
+    NewsPageContainer
 }
