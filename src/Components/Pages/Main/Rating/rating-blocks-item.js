@@ -6,17 +6,17 @@ import { ROUTES } from "../../../../Routes/routes";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser } from "@fortawesome/free-solid-svg-icons";
 
-const RatingBlocksItem = ({user}) => {
-    const {profile} = user;
-    const isCompany = profile ? profile.companyName : 'Залупская залупа';
-    const isRating = profile ? profile.rating : 'N/A';
+const RatingBlocksItem = ({userData}) => {
+    const {user} = userData;
+    const isCompany = userData ? userData.companyName : 'Залупская залупа';
+    const isRating = userData ? userData.rating : 'N/A';
     return (
         <div className="aside-rating-item">
             <div className="aside-profile-picture">
                 <FontAwesomeIcon className="user-icon" icon={faUser} size="4x"/>
             </div>
             <div className="col-box">
-                <Link to={`${ROUTES.PROFILE}/${user._id}`}>{user.name} {user.lastName}</Link>
+                <Link to={`${ROUTES.PROFILE}/${userData.userId}`}>{user.name} {user.lastName}</Link>
                 <a href="/">{isCompany}</a>
             </div>
             <div className="flex-placeholder"></div>

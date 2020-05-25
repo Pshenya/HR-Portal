@@ -111,3 +111,12 @@
     padding: 20px;
     margin: 25px 20px;
 }
+
+.profile-feedback-block{
+    display: flex;
+}
+
+.feedback-content{
+    display: flex;
+    flex-direction: column;
+}

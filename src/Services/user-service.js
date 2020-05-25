@@ -1,4 +1,4 @@
-import { authHeader } from '../Components/HOC';
+import { authHeader } from '../Components/Helpers';
 
 export const userService = {
     register,
@@ -43,10 +43,7 @@ function login(email, password) {
         });
 }
 
-function logout() {
-    // remove user from local storage to log user out
-    localStorage.removeItem('user');
-}
+
 
 function getUserData() {
     const requestOptions = {
@@ -63,12 +60,20 @@ function getUserData() {
         })
 }
 
+function logout() {
+    // remove user from local storage to log user out
+    localStorage.removeItem('user');
+    localStorage.removeItem('userId');
+}
+
+function saveProfileData() {
+
+}
 function getProfileData(userId){
     const requestOptions = {
         method: 'GET',
         redirect: 'follow'
     };
-    // let userId = localStorage.getItem('userId');
     return fetch(`${_apiURL}/user/profile?userId=${userId}`, requestOptions)
         .then(handleResponse)
         .then(profileData => {

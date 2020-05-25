@@ -24,7 +24,7 @@ class ProfilePage extends Component {
         };
 
         this.handleChange = this.handleChange.bind(this);
-        // this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
     }
 
     handleChange(event) {
@@ -38,16 +38,23 @@ class ProfilePage extends Component {
         });
     }
 
+    handleSubmit(event) {
+        event.preventDefault();
+
+        this.setState({submitted: true});
+        const {user} = this.state;
+        if (user.name && user.lastName && user.email && user.password) {
+            this.props.register(user);
+        }
+    }
+
 
     render() {
-        const {profile, data, socials, userId, authorizedUserId} = this.props;
-        if (userId === authorizedUserId) {
-            return <MyProfile profile={profile} data={data} socials={socials}/>
+        const {userData, feedbacksList, data, socials, userId, authorizedUserId} = this.props;
+        if (userId && userId !== authorizedUserId) {
+            return <UsersProfile userData={userData} feedbacksList={feedbacksList}/>
         }
-        if (userId) {
-            return <UsersProfile profile={profile}/>
-        }
-        return <MyProfile profile={profile} data={data} socials={socials}/>
+        return <MyProfile userData={userData} feedbacksList={feedbacksList} data={data} socials={socials}/>
 
     }
 }

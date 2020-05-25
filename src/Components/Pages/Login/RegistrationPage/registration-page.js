@@ -102,32 +102,13 @@ class RegistrationPage extends Component {
                                     <div className="help-block">* Это обязательное поле</div>
                                     }
                                 </Form.Group>
-                                <Form.Group>
-                                    <button className="form-btn">Register</button>
+                                <Form.Group className="btn-group">
+                                    <button className="form-btn">Создать</button>
                                     {registering &&
                                     <img src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
                                     }
                                 </Form.Group>
                             </Form>
-                        </div>
-                        <div className="divider"></div>
-                        <div className="right-content">
-                            <a className="btn btn-block btn-social btn-google">
-                                <FontAwesomeIcon className="google-icon" icon={faGoogle}/>
-                                Sign in with Google
-                            </a>
-                            <a className="btn btn-block btn-social btn-facebook">
-                                <FontAwesomeIcon className="google-icon" icon={faFacebook}/>
-                                Sign in with Facebook
-                            </a>
-                            <a className="btn btn-block btn-social btn-linkedin">
-                                <FontAwesomeIcon className="google-icon" icon={faLinkedin}/>
-                                Sign in with LinkedIn
-                            </a>
-                            <a className="btn btn-block btn-social btn-github">
-                                <FontAwesomeIcon className="google-icon" icon={faGithub}/>
-                                Sign in with Github
-                            </a>
                         </div>
                     </div>
                     <div className="terms-of-use">

@@ -1,6 +1,9 @@
 .common-form {
     font-family: "Helvetica Neue", sans-serif;
     font-weight: 300;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .common-form .help-block {
@@ -11,9 +14,11 @@
 }
 
 .common-form .form-control {
-    width: 150%;
     font-size: 20px;
+}
 
+.common-form .btn-group{
+    margin: 0 auto;
 }
 
 .common-form .form-btn {
@@ -34,8 +39,6 @@
     background-color: #fff;
     color: #48478a;
 }
-
-.common-form
 
 .common-form .form-check input[type=checkbox] {
     position: absolute;

@@ -66,8 +66,7 @@ class SignInPage extends Component {
                         <h3>У вас ещё нет аккаунта? <Link to={ROUTES.REGISTRATION}>Создать</Link></h3>
                     </div>
                     <div className="login-content">
-                        <div className="left-content">
-                            <Form className="common-form mx-auto" name="form" onSubmit={this.handleSubmit}>
+                            <Form className="common-form" name="form" onSubmit={this.handleSubmit}>
                                 <Form.Group className={submitted && !email ? ' has-error' : ''}>
                                     <Form.Label htmlFor="email">Эл. почта</Form.Label>
                                     <Form.Control type="text" name="email" value={email} onChange={this.handleChange} />
@@ -82,7 +81,7 @@ class SignInPage extends Component {
                                     <div className="help-block">Это обязательное поле</div>
                                     }
                                 </div>
-                                <Form.Group>
+                                <Form.Group className="btn-group">
                                     <button className="form-btn">Войти</button>
                                     {loggingIn &&
                                     <img src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
@@ -104,26 +103,6 @@ class SignInPage extends Component {
                             {/*    </Form.Group>*/}
                             {/*    <Button className="form-btn">Войти</Button>*/}
                             {/*</Form>*/}
-                        </div>
-                        <div className="divider"></div>
-                        <div className="right-content">
-                            <a className="btn btn-block btn-social btn-google">
-                                <FontAwesomeIcon className="google-icon" icon={faGoogle}/>
-                                Sign in with Google
-                            </a>
-                            <a className="btn btn-block btn-social btn-facebook">
-                                <FontAwesomeIcon className="google-icon" icon={faFacebook}/>
-                                Sign in with Facebook
-                            </a>
-                            <a className="btn btn-block btn-social btn-linkedin">
-                                <FontAwesomeIcon className="google-icon" icon={faLinkedin}/>
-                                Sign in with LinkedIn
-                            </a>
-                            <a className="btn btn-block btn-social btn-github">
-                                <FontAwesomeIcon className="google-icon" icon={faGithub}/>
-                                Sign in with Github
-                            </a>
-                        </div>
                     </div>
                     <div className="terms-of-use">
                         <p>Входя в аккаунт, вы соглашаетесь с <a href="/">пользовательским соглашением</a> и,

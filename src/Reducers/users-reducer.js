@@ -12,16 +12,19 @@ export function users(state = initialState, action) {
         case userConstants.GETUSER_REQUEST:
             return {
                 ...state,
-                loading: true
+                loading: true,
+                error: null
             };
         case userConstants.GETUSER_SUCCESS:
             return {
                 ...state,
-                userData: action.userData
+                loading: false,
+                userData: action.userData,
             };
         case userConstants.GETUSER_FAILURE:
             return {
                 ...state,
+                loading: false,
                 error: action.error
             };
         case userConstants.GETALL_USERS_REQUEST:
@@ -53,11 +56,13 @@ export function users(state = initialState, action) {
         case userConstants.GETPROFILE_SUCCESS:
             return {
                 ...state,
+                loading: false,
                 profileData: action.profileData
             };
         case userConstants.GETPROFILE_FAILURE:
             return {
                 ...state,
+                loading: false,
                 error: action.error
             };
         default:

@@ -4,7 +4,8 @@ import { assetsService, userService } from '../Services';
 export const assetsActions = {
     getAllVacancies,
     getAllNews,
-    getNewsById
+    getNewsById,
+    getFeedbacks
 };
 
 function getAllVacancies() {
@@ -53,4 +54,26 @@ function getNewsById(id) {
     function request() { return {type: assetsConstants.GET_NEWS_BY_ID_REQUEST} }
     function success(postData) { return { type: assetsConstants.GET_NEWS_BY_ID_SUCCESS, postData } }
     function failure(error) { return { type: assetsConstants.GET_NEWS_BY_ID_FAILURE, error } }
+}
+
+function getFeedbacks(id) {
+    return dispatch => {
+        dispatch(request());
+
+        assetsService.getFeedbacks(id)
+            .then(feedbacksList => dispatch(success(feedbacksList)))
+            .catch(error => dispatch(failure(error)))
+    };
+
+    function request() {
+        return {type: assetsConstants.GET_FEEDBACKS_REQUEST}
+    }
+
+    function success(feedbacksList) {
+        return {type: assetsConstants.GET_FEEDBACKS_SUCCESS, feedbacksList}
+    }
+
+    function failure(error) {
+        return {type: assetsConstants.GET_FEEDBACKS_FAILURE, error}
+    }
 }

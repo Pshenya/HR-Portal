@@ -13,20 +13,16 @@ import ErrorIndicator from "../../../ErrorIndicator/error-indicator";
 
 
 const RatingBlocks = ({profilesList}) => {
-    function sortArrByRating(arr) {
-        arr.sort((a, b) => a.profile.rating < b.profile.rating ? 1 : -1);
-    }
-    sortArrByRating(profilesList);
     return (
         <aside className="aside">
             <div className="aside-rating">
                 <h3><Link to={ROUTES.RATINGS}>Топ HR</Link></h3>
                 <ul className="aside-rating-blocks">
                     {
-                        profilesList.map((user) => {
+                        profilesList.map((userData) => {
                             return (
-                                <li key={user._id}>
-                                    <RatingBlocksItem user={user}/>
+                                <li key={userData.userId}>
+                                    <RatingBlocksItem userData={userData}/>
                                 </li>
                             )
                         })

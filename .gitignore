@@ -130,4 +130,7 @@ fabric.properties
 .idea/**/markdown-navigator.xml
 .idea/**/markdown-navigator/
 
+# .xml files
+*.xml
+
 node_modules/

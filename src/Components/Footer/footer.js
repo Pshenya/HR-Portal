@@ -8,6 +8,9 @@ import { ROUTES } from "../../Routes/routes";
 import {faFacebookF, faGithub, faLinkedinIn, faTelegramPlane} from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
+import Logo from '../../assets/img/MIIIIIIIIIIII.jpg';
+
+
 
 const Footer = () => {
     return (
@@ -15,7 +18,7 @@ const Footer = () => {
                 <div className="main-content">
                     <div className="footer-content">
                         <div className="info">
-                            <p className="footer-logo">LOGO</p>
+                            <img src={Logo} height={30} width={100}/>
                             <p style={{marginBottom: '0'}}>2020 © <Link to={ROUTES.MAIN}>HR Portal</Link></p>
                         </div>
                         <ul className="footer-socials">

@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 
 import SearchPageItem from "./search-page-item";
-import { withStyles } from "../../HOC/withStyles";
+import { withStyles } from "../../Helpers/withStyles";
 
 import InputBase from "@material-ui/core/InputBase";
 import IconButton from "@material-ui/core/IconButton";
@@ -34,7 +34,7 @@ class SearchPage extends Component {
         const {profilesList} = this.props;
         let filteredProfiles = profilesList.filter(
             (profile) => {
-                return (profile.name.toLowerCase().includes(this.state.searchInput.toLowerCase())) || (profile.lastName.toLowerCase().includes(this.state.searchInput.toLowerCase())) ;
+                return (profile.user.name.toLowerCase().includes(this.state.searchInput.toLowerCase())) || (profile.user.lastName.toLowerCase().includes(this.state.searchInput.toLowerCase())) ;
             }
         );
         return (
@@ -74,9 +74,9 @@ class SearchPage extends Component {
                     </div>
                 </div>
                 {
-                    filteredProfiles.map((user, idx) => {
-                        return <div className="sp-item" key={user._id}>
-                            <SearchPageItem user={user} idx={idx}/>
+                    filteredProfiles.map((userData, idx) => {
+                        return <div className="sp-item" key={userData._id}>
+                            <SearchPageItem userData={userData} idx={idx}/>
                         </div>
                     })
                 }

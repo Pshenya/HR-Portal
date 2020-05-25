@@ -9,10 +9,6 @@ import Loading from "../../Loading/loading";
 import ErrorIndicator from "../../ErrorIndicator/error-indicator";
 
 const RatingPage = ({profilesList}) => {
-    function sortArrByRating(arr) {
-        arr.sort((a, b) => a.profile.rating < b.profile.rating ? 1 : -1);
-    }
-    sortArrByRating(profilesList);
     return (
         <div className="rating-container">
             <div className="rating-content">
@@ -33,9 +29,9 @@ const RatingPage = ({profilesList}) => {
                     </tr>
                     </thead>
                     {
-                        profilesList.map((user, idx) => {
-                            return <tbody key={user._id}>
-                                <RatingPageItem user={user} idx={idx}/>
+                        profilesList.map((userData, idx) => {
+                            return <tbody key={userData.userId}>
+                                <RatingPageItem userData={userData} idx={idx}/>
                             </tbody>
                         })
                     }

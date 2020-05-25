@@ -5,7 +5,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
 import SocialDynamic from "./DynamicHelpers/social-dynamic-form";
 
-const MyProfile = ({profile, data, socials}) => {
+const MyProfile = ({userData, data, socials}) => {
+    const {user} = userData;
     return(
         <div className="profile-content">
             <div className="profile-header">
@@ -25,7 +26,7 @@ const MyProfile = ({profile, data, socials}) => {
                                     Имя
                                 </Form.Label>
                                 <Col sm={10}>
-                                    <Form.Control type="text" value={profile.name}/>
+                                    <Form.Control type="text" value={user.name}/>
                                 </Col>
                             </Form.Group>
                             <Form.Group as={Row} controlId="formHorizontalLastName">
@@ -33,7 +34,7 @@ const MyProfile = ({profile, data, socials}) => {
                                     Фамилия
                                 </Form.Label>
                                 <Col sm={10}>
-                                    <Form.Control type="text" value={profile.lastName}/>
+                                    <Form.Control type="text" value={user.lastName}/>
                                 </Col>
                             </Form.Group>
                             <Form.Group as={Row} controlId="formHorizontalCompany">
@@ -41,13 +42,13 @@ const MyProfile = ({profile, data, socials}) => {
                                     Название компании
                                 </Form.Label>
                                 <Col sm={10}>
-                                    <Form.Control type="text" value={profile.profile.companyName}/>
+                                    <Form.Control type="text" value={userData.companyName}/>
                                 </Col>
                             </Form.Group>
                             <Form.Group as={Row} controlId="formHorizontalExperience">
                                 <Form.Label column sm={2}>Опыт работы</Form.Label>
                                 <Col sm={10}>
-                                    <Form.Control as="select" value={profile.profile.workExperience} custom>
+                                    <Form.Control as="select" value={userData.workExperience} custom>
                                         <option value={0.5}> &lt;1 года</option>
                                         <option value={1}>1 год</option>
                                         <option value={2}>2 года</option>
@@ -90,7 +91,7 @@ const MyProfile = ({profile, data, socials}) => {
                                     icon={faStar}
                                     size="2x"
                                     style={{color: "#48478A"}}/>
-                                <span>9.5</span>
+                                <span>{userData.rating}</span>
                             </div>
                         </div>
                     </div>
@@ -108,7 +109,7 @@ const MyProfile = ({profile, data, socials}) => {
                                     Контактный телефон (в формате <strong><i>"+код страны"</i></strong> )
                                 </Form.Label>
                                 <Col sm={8}>
-                                    <Form.Control type="text" value={profile.profile.phone}/>
+                                    <Form.Control type="text" value={userData.phone}/>
                                 </Col>
                             </Form.Group>
                             <Form.Group as={Row} controlId="formHorizontalEmail">
@@ -116,7 +117,7 @@ const MyProfile = ({profile, data, socials}) => {
                                     Эл. почта
                                 </Form.Label>
                                 <Col sm={8}>
-                                    <Form.Control type="text" value={profile.email}/>
+                                    <Form.Control type="text" value={user.email}/>
                                 </Col>
                             </Form.Group>
                             <Form.Group as={Row} controlId="formHorizontalSocials">

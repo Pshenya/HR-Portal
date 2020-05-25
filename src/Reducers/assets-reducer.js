@@ -3,6 +3,7 @@ import { assetsConstants } from "../CONSTANTS";
 const initialState = {
     vacanciesList: [],
     newsList: [],
+    feedbacksList: [],
     postData: {},
     loading: false,
     error: null
@@ -56,6 +57,23 @@ export function assets(state = initialState, action) {
                 postData: action.postData
             };
         case assetsConstants.GET_NEWS_BY_ID_FAILURE:
+            return {
+                ...state,
+                loading: false,
+                error: action.error
+            };
+        case assetsConstants.GET_FEEDBACKS_REQUEST:
+            return {
+                ...state,
+                loading: true
+            };
+        case assetsConstants.GET_FEEDBACKS_SUCCESS:
+            return {
+                ...state,
+                loading: false,
+                feedbacksList: action.feedbacksList
+            };
+        case assetsConstants.GET_FEEDBACKS_FAILURE:
             return {
                 ...state,
                 loading: false,

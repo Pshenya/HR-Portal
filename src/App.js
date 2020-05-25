@@ -5,7 +5,7 @@ import './App.css';
 import { connect } from "react-redux";
 import { Router, Switch, Route, Redirect } from "react-router-dom";
 import { ROUTES } from './Routes/routes';
-import { history } from './Components/HOC';
+import { history } from './Components/Helpers';
 import { alertActions, userActions } from './Actions';
 
 import Header from "./Components/Header/header";

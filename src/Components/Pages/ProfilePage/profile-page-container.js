@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
 import { renderSocials, Socials } from "./MyProfile/DynamicHelpers/socials";
-import { userActions } from "../../../Actions";
+import {assetsActions, userActions} from "../../../Actions";
 import { connect } from "react-redux";
 import ProfilePage from "./profile-page";
 import { ROUTES } from "../../../Routes/routes";
@@ -15,12 +15,8 @@ class ProfilePageContainer extends Component {
                 this.props.history.push(ROUTES.LOGIN);
             }
         }
-
-        if ( !userId) {
-            console.error("ID should exists in URI params or in state ('authorizedUserId')");
-        } else {
-            this.props.getProfileData(userId)
-        }
+        this.props.getProfileData(userId);
+        this.props.getFeedbacks(userId);
     }
 
     componentDidMount() {
@@ -48,7 +44,8 @@ class ProfilePageContainer extends Component {
 
 
     render() {
-        const {profileData} = this.props;
+        const {profileData, feedbacksList} = this.props;
+        console.log(feedbacksList);
         const {addJob, Facebook, LinkedIn, Github, Telegram} = this.state;
         const data = {
             addJob,
@@ -62,10 +59,10 @@ class ProfilePageContainer extends Component {
         let userId = this.props.match.params.userId;
         return (
             <div>
-                {profileData.map(profile => {
-                    return <ProfilePage profile={profile} data={data}
-                                        socials={socials} userId={userId}
-                                        authorizedUserId={authorizedUserId}/>
+                {profileData.map(userData => {
+                    return <ProfilePage userData={userData} feedbacksList={feedbacksList}
+                                        data={data} socials={socials}
+                                        userId={userId} authorizedUserId={authorizedUserId}/>
                 })}
             </div>
         )
@@ -75,15 +72,17 @@ class ProfilePageContainer extends Component {
 }
 
 
-const mapStateToProps = ({auth, users}) => {
+const mapStateToProps = ({auth, users, assets}) => {
     return {
         loggedIn: auth.loggedIn,
-        profileData: users.profileData
+        profileData: users.profileData,
+        feedbacksList: assets.feedbacksList
     }
 };
 
 const mapDispatchToProps = {
-    getProfileData: userActions.getProfileData
+    getProfileData: userActions.getProfileData,
+    getFeedbacks: assetsActions.getFeedbacks
 };
 
 withRouter(ProfilePageContainer);
