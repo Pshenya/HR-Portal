@@ -16,7 +16,7 @@
 
 .signIn-header .signIn-logo,
 .signIn-header .x-class{
-    margin: 60px;
+    margin: 40px;
 }
 
 .register-header .signIn-logo,
@@ -49,7 +49,7 @@
     align-items: center;
 
     max-width: 800px;
-    margin: 10px auto;
+    margin: 0 auto;
     /*background-color: #4145dd;*/
 }
 
@@ -75,43 +75,6 @@
     font-weight: 300;
     color: #007bff;
     text-decoration: none;
-}
-
-/* Login Content */
-
-.login-content{
-    width: 500px;
-}
-.right-content{
-    margin-right: 100px;
-}
-
-.divider {
-    width: 1px;
-    opacity: .8;
-    background-color: #858f96;
-    margin: 0 0 0 115px;
-}
-
-.right-content .btn{
-    font-family: "Helvetica Neue", sans-serif !important;
-    font-size: 14px !important;
-    font-weight: 300 !important;
-    color: #fff !important;
-    padding: .5rem 2rem;
-}
-
-.btn-social{
-    text-align: center !important;
-}
-
-.btn-google{
-    background-color: #4285f4 !important;
-    color: #fff !important;
-}
-.right-content a .google-icon{
-    margin-top: 5px;
-    color: #fff;
 }
 
 .terms-of-use{

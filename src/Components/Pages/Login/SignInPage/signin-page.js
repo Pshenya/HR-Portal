@@ -1,18 +1,19 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 
 import {connect} from "react-redux";
-import { Link } from "react-router-dom";
-import { ROUTES } from '../../../../Routes/routes';
-import { userActions } from "../../../../Actions";
+import {Link} from "react-router-dom";
+import {ROUTES} from '../../../../Routes/routes';
+import {userActions} from "../../../../Actions";
 
 import '../login.css';
 import '../forms.css';
 
 import 'bootstrap-social';
 
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faTimesCircle } from "@fortawesome/free-regular-svg-icons";
-import { Form } from "react-bootstrap";
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import {faTimesCircle} from "@fortawesome/free-regular-svg-icons";
+import {Form} from "react-bootstrap";
+import {MDBBtn, MDBCol, MDBContainer, MDBInput, MDBRow} from "mdbreact";
 
 
 class SignInPage extends Component {
@@ -65,43 +66,52 @@ class SignInPage extends Component {
                         <h3>У вас ещё нет аккаунта? <Link to={ROUTES.REGISTRATION}>Создать</Link></h3>
                     </div>
                     <div className="login-content">
-                            <Form className="common-form" name="form" onSubmit={this.handleSubmit}>
-                                <Form.Group className={submitted && !email ? ' has-error' : ''}>
-                                    <Form.Label htmlFor="email">Эл. почта</Form.Label>
-                                    <Form.Control type="text" name="email" value={email} onChange={this.handleChange} />
-                                    {submitted && !email &&
-                                    <div className="help-block">Это обязательное поле</div>
-                                    }
-                                </Form.Group>
-                                <div className={'form-group' + (submitted && !password ? ' has-error' : '')}>
-                                    <Form.Label htmlFor="password">Пароль</Form.Label>
-                                    <Form.Control type="password" name="password" value={password} onChange={this.handleChange} />
-                                    {submitted && !password &&
-                                    <div className="help-block">Это обязательное поле</div>
-                                    }
-                                </div>
-                                <Form.Group className="btn-group">
-                                    <button className="form-btn">Войти</button>
-                                    {loggingIn &&
-                                    <img src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" alt="loading" />
-                                    }
-                                </Form.Group>
-                            </Form>
-                            {/*<Form onSubmit={this.handleSubmit} className="common-form mx-auto">*/}
-                            {/*    <Form.Group controlId="formEmail">*/}
-                            {/*        <Form.Form.Label>Эл. почта:</Form.Form.Label>*/}
-                            {/*        <Form.Control type="email" name="email" value={email} onChange={this.handleChange} />*/}
-                            {/*    </Form.Group>*/}
+                        <MDBContainer>
+                            <MDBRow>
+                                <MDBCol>
+                                    <form className="common-form" name="form" onSubmit={this.handleSubmit}>
+                                        <div className={submitted && !email ? ' has-error' : ''}>
+                                            <MDBInput name="email" label="Эл. почта" icon="envelope" group type="email" validate
+                                                      error="wrong" value={email} onChange={this.handleChange}
+                                                      success="right"/>
+                                            {submitted && !email &&
+                                            <div className="help-block">* Это обязательное поле</div>
+                                            }
+                                        </div>
+                                        <div className={submitted && !email ? ' has-error' : ''}>
+                                            <MDBInput name="password" label="Пароль" icon="lock" group
+                                                      type="password" validate value={password} onChange={this.handleChange}/>
+                                            {submitted && !password &&
+                                            <div className="help-block">* Это обязательное поле</div>
+                                            }
+                                        </div>
+                                        <div className="btn-group">
+                                            <MDBBtn type="submit" className="form-btn" color="0">Войти</MDBBtn>
+                                            {loggingIn &&
+                                            <img
+                                                src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA=="
+                                                alt="loading"/>
+                                            }
+                                        </div>
+                                    </form>
+                                </MDBCol>
+                            </MDBRow>
+                        </MDBContainer>
+                        {/*<Form onSubmit={this.handleSubmit} className="common-form mx-auto">*/}
+                        {/*    <Form.Group controlId="formEmail">*/}
+                        {/*        <Form.Form.Label>Эл. почта:</Form.Form.Label>*/}
+                        {/*        <Form.Control type="email" name="email" value={email} onChange={this.handleChange} />*/}
+                        {/*    </Form.Group>*/}
 
-                            {/*    <Form.Group controlId="formPassword">*/}
-                            {/*        <Form.Form.Label>Пароль:</Form.Form.Label>*/}
-                            {/*        <Form.Control type="password" name="password" value={password} onChange={this.handleChange}/>*/}
-                            {/*    </Form.Group>*/}
-                            {/*    <Form.Group controlId="formBasicCheckbox">*/}
-                            {/*        <Form.Check type="checkbox" Form.Label="Запомнить меня"/>*/}
-                            {/*    </Form.Group>*/}
-                            {/*    <Button className="form-btn">Войти</Button>*/}
-                            {/*</Form>*/}
+                        {/*    <Form.Group controlId="formPassword">*/}
+                        {/*        <Form.Form.Label>Пароль:</Form.Form.Label>*/}
+                        {/*        <Form.Control type="password" name="password" value={password} onChange={this.handleChange}/>*/}
+                        {/*    </Form.Group>*/}
+                        {/*    <Form.Group controlId="formBasicCheckbox">*/}
+                        {/*        <Form.Check type="checkbox" Form.Label="Запомнить меня"/>*/}
+                        {/*    </Form.Group>*/}
+                        {/*    <Button className="form-btn">Войти</Button>*/}
+                        {/*</Form>*/}
                     </div>
                     <div className="terms-of-use">
                         <p>Входя в аккаунт, вы соглашаетесь с <a href="/">пользовательским соглашением</a> и,
@@ -115,7 +125,7 @@ class SignInPage extends Component {
 }
 
 const mapStateToProps = (state) => {
-    const { loggingIn } = state.auth;
+    const {loggingIn} = state.auth;
     return {loggingIn};
 };
 

@@ -1,4 +1,5 @@
 .common-form {
+    width: 100%;
     font-family: "Helvetica Neue", sans-serif;
     font-weight: 300;
     display: flex;
@@ -7,18 +8,31 @@
 }
 
 .common-form .help-block {
+    font-weight: 400;
     color: #FF6565;
-    padding: .5em .2em 1em;
+    padding: 10px 0 0 70px;
+    /*padding: .5em .2em 1em;*/
     height: 1em;
-    font-size: .8em;
+    font-size: 1em;
 }
 
 .common-form .form-control {
     font-size: 20px;
 }
+.login-content .md-form .validate{
+    margin-bottom: 0;
+}
+/*.login-content .md-form input[type="email"]:not(.browser-default):focus:not([readonly]) + label {*/
+/*    color: black;*/
+/*}*/
+/*.login-content .md-form input[type="email"]:not(.browser-default):focus:not([readonly]){*/
+/*    border-bottom:1px solid black;*/
+/*    box-shadow: 0 1px 0 0 black;*/
+/*}*/
 
 .common-form .btn-group{
     margin: 0 auto;
+    padding-top: 30px;
 }
 
 .common-form .form-btn {
