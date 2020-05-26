@@ -5,6 +5,7 @@ const initialState = {
     newsList: [],
     feedbacksList: [],
     postData: {},
+    sended: false,
     loading: false,
     error: null
 };
@@ -57,6 +58,22 @@ export function assets(state = initialState, action) {
                 postData: action.postData
             };
         case assetsConstants.GET_NEWS_BY_ID_FAILURE:
+            return {
+                ...state,
+                loading: false,
+                error: action.error
+            };
+        case assetsConstants.SEND_FEEDBACK_REQUEST:
+            return {
+                ...state,
+                loading: true,
+            };
+        case assetsConstants.SEND_FEEDBACK_SUCCESS:
+            return {
+                ...state,
+                loading: false,
+                sended: true            };
+        case assetsConstants.SEND_FEEDBACK_FAILURE:
             return {
                 ...state,
                 loading: false,

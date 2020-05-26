@@ -1,10 +1,11 @@
-import { assetsConstants, userConstants } from '../CONSTANTS';
-import { assetsService, userService } from '../Services';
+import {assetsConstants, userConstants} from '../CONSTANTS';
+import {assetsService, userService} from '../Services';
 
 export const assetsActions = {
     getAllVacancies,
     getAllNews,
     getNewsById,
+    sendFeedback,
     getFeedbacks
 };
 
@@ -17,11 +18,17 @@ function getAllVacancies() {
             .catch(error => dispatch(failure(error)))
     };
 
-    function request() { return {type: assetsConstants.GETALL_VACANCY_REQUEST} }
+    function request() {
+        return {type: assetsConstants.GETALL_VACANCY_REQUEST}
+    }
 
-    function success(vacanciesList) { return {type: assetsConstants.GETALL_VACANCY_SUCCESS, vacanciesList} }
+    function success(vacanciesList) {
+        return {type: assetsConstants.GETALL_VACANCY_SUCCESS, vacanciesList}
+    }
 
-    function failure(error) { return {type: assetsConstants.GETALL_VACANCY_FAILURE, error} }
+    function failure(error) {
+        return {type: assetsConstants.GETALL_VACANCY_FAILURE, error}
+    }
 
 }
 
@@ -34,11 +41,17 @@ function getAllNews() {
             .catch(error => dispatch(failure(error)))
     };
 
-    function request() { return {type: assetsConstants.GETALL_NEWS_REQUEST} }
+    function request() {
+        return {type: assetsConstants.GETALL_NEWS_REQUEST}
+    }
 
-    function success(newsList) { return {type: assetsConstants.GETALL_NEWS_SUCCESS, newsList} }
+    function success(newsList) {
+        return {type: assetsConstants.GETALL_NEWS_SUCCESS, newsList}
+    }
 
-    function failure(error) { return {type: assetsConstants.GETALL_NEWS_FAILURE, error} }
+    function failure(error) {
+        return {type: assetsConstants.GETALL_NEWS_FAILURE, error}
+    }
 
 }
 
@@ -51,9 +64,38 @@ function getNewsById(id) {
             .catch(error => dispatch(failure(error)))
     };
 
-    function request() { return {type: assetsConstants.GET_NEWS_BY_ID_REQUEST} }
-    function success(postData) { return { type: assetsConstants.GET_NEWS_BY_ID_SUCCESS, postData } }
-    function failure(error) { return { type: assetsConstants.GET_NEWS_BY_ID_FAILURE, error } }
+    function request() {
+        return {type: assetsConstants.GET_NEWS_BY_ID_REQUEST}
+    }
+
+    function success(postData) {
+        return {type: assetsConstants.GET_NEWS_BY_ID_SUCCESS, postData}
+    }
+
+    function failure(error) {
+        return {type: assetsConstants.GET_NEWS_BY_ID_FAILURE, error}
+    }
+}
+
+function sendFeedback(userId, from, text) {
+    return dispatch => {
+        dispatch(request());
+
+        assetsService.sendFeedback(userId, from, text)
+            .then(
+                res => {
+                    dispatch(success());
+                },
+                error => {
+                    console.log(error);
+                    dispatch(failure(error))
+                }
+            );
+    };
+
+    function request() { return {type: assetsConstants.SEND_FEEDBACK_REQUEST} }
+    function success() { return {type: assetsConstants.SEND_FEEDBACK_SUCCESS} }
+    function failure(error) { return {type: assetsConstants.SEND_FEEDBACK_FAILURE, error} }
 }
 
 function getFeedbacks(id) {

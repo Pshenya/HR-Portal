@@ -1,17 +1,17 @@
-import React, { Component } from "react";
-import { withRouter } from "react-router-dom";
-import { renderSocials, Socials } from "./MyProfile/DynamicHelpers/socials";
+import React, {Component} from "react";
+import {withRouter} from "react-router-dom";
+import {renderSocials, Socials} from "./MyProfile/DynamicHelpers/socials";
 import {assetsActions, userActions} from "../../../Actions";
-import { connect } from "react-redux";
+import {connect} from "react-redux";
 import ProfilePage from "./profile-page";
-import { ROUTES } from "../../../Routes/routes";
+import {ROUTES} from "../../../Routes/routes";
 
 class ProfilePageContainer extends Component {
     refreshProfile() {
         let userId = this.props.match.params.userId;
-        if ( !userId) {
+        if (!userId) {
             userId = localStorage.getItem('userId');
-            if ( !userId) {
+            if (!userId) {
                 this.props.history.push(ROUTES.LOGIN);
             }
         }
@@ -35,7 +35,7 @@ class ProfilePageContainer extends Component {
 
     onSocialSelected = (name) => {
         const isShowComponent = this.state[name];
-        if ( !isShowComponent) {
+        if (!isShowComponent) {
             this.setState({[name]: name});
         } else {
             this.setState({[name]: ''})
@@ -60,9 +60,11 @@ class ProfilePageContainer extends Component {
         return (
             <div>
                 {profileData.map(userData => {
-                    return <ProfilePage userData={userData} feedbacksList={feedbacksList}
-                                        data={data} socials={socials}
-                                        userId={userId} authorizedUserId={authorizedUserId}/>
+                    return <div key={userData._id}>
+                        <ProfilePage userData={userData} feedbacksList={feedbacksList}
+                                     data={data} socials={socials}
+                                     userId={userId} authorizedUserId={authorizedUserId}/>
+                    </div>
                 })}
             </div>
         )

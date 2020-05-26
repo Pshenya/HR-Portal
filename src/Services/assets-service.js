@@ -2,6 +2,7 @@ export const assetsService = {
     getAllVacancies,
     getAllNews,
     getNewsById,
+    sendFeedback,
     getFeedbacks
 };
 
@@ -43,7 +44,17 @@ function getNewsById(id) {
             return JSON.parse(postData);
         })
 }
+function sendFeedback(userId, from, text) {
+    const requestOptions = {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({userId, from, text}),
+        redirect: 'follow'
+    };
 
+    return fetch(`${_apiURL}/user/feedbacks`, requestOptions).then(handleResponse);
+
+}
 function getFeedbacks(id){
     const requestOptions = {
         method: 'GET',

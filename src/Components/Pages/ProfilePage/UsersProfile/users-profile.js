@@ -8,7 +8,7 @@ import {MDBBtn, MDBInput, MDBIcon} from 'mdbreact';
 import Button from "@material-ui/core/Button";
 import Feedbacks from "../Feedbacks/feedbacks";
 
-const UsersProfile = ({userData, feedbacksList}) => {
+const UsersProfile = ({userData, feedbacksList, userId}) => {
     const {user} = userData;
     return (
         <div className="profile-content">
@@ -70,7 +70,7 @@ const UsersProfile = ({userData, feedbacksList}) => {
                     </div>
                 </div>
             </div>
-            <Feedbacks feedbacksList={feedbacksList}/>
+            <Feedbacks userId={userId} feedbacksList={feedbacksList}/>
         </div>
     )
 };

@@ -52,7 +52,7 @@ class ProfilePage extends Component {
     render() {
         const {userData, feedbacksList, data, socials, userId, authorizedUserId} = this.props;
         if (userId && userId !== authorizedUserId) {
-            return <UsersProfile userData={userData} feedbacksList={feedbacksList}/>
+            return <UsersProfile userId={userId} userData={userData} feedbacksList={feedbacksList}/>
         }
         return <MyProfile userData={userData} feedbacksList={feedbacksList} data={data} socials={socials}/>
 

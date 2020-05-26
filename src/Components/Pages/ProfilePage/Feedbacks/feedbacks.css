@@ -1,0 +1,83 @@
+/*  Comments section  */
+.profile-comments-content{
+    margin: 0 60px;
+}
+
+.profile-comments-header{
+    font-family: "Roboto-Condensed Light", sans-serif;
+}
+
+.profile-comments-header h3{
+    font-size: 24px;
+}
+
+.profile-comments-form{
+    display: flex;
+}
+.profile-comments-form img{
+    border-radius: 50%;
+    margin-top: 20px;
+    border: 3px solid #48478a;
+}
+
+.md-form{
+    width: 700px;
+    margin: 40px 0 0 30px;
+}
+
+.md-form textarea.md-textarea:focus:not([readonly]) + label {
+    color: black;
+}
+.md-form textarea.md-textarea:focus:not([readonly]){
+    border-bottom:1px solid black;
+    box-shadow: 0 1px 0 0 black;
+}
+
+.user-feedback-form{
+    display: flex;
+}
+
+.profile-comments-btn{
+    font-size: 10px;
+    padding: 20px;
+    margin: 25px 20px;
+    max-height: 40px;
+    box-sizing: border-box;
+}
+
+
+.profile-feedback-block{
+    display: flex;
+    transition: .3s all ease;
+    padding: 20px 40px;
+}
+
+.profile-feedback-block:hover{
+    background-color: rgba(72, 71, 138, 0.1);
+    border-radius: 8px;
+}
+
+.feedback-content{
+    display: flex;
+    flex-direction: column;
+    margin-left: 10px;
+}
+
+.feedback-user{
+    font-family: "Roboto-Condensed Bold", sans-serif;
+    font-size: 14px;
+}
+
+.feedback-date{
+    color: rgba(0,0,0,0.5);
+    margin-left: 5px;
+}
+
+.feedback-toolbar{
+    display: flex;
+    margin-top: 5px;
+}
+
+.feedback-likes{
+    margin-right: 15px;
+}
