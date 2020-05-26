@@ -5,7 +5,7 @@ import './header.css';
 import { connect } from "react-redux";
 
 import { Link } from "react-router-dom";
-import { Button, Container, Nav, Navbar } from "react-bootstrap";
+import { Container, Nav, Navbar } from "react-bootstrap";
 import { ROUTES } from "../../Routes/routes";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -43,7 +43,7 @@ class Header extends Component {
                                 </Nav>
                                 {loggedIn &&
                                 <div className="d-flex">
-                                    <Link className="header-icon d-flex" to={ROUTES.PROFILE}>
+                                    <Link className="header-icon d-flex" to={`${ROUTES.PROFILE}/${userData.userId}`}>
                                         <h3>{userData.name}</h3>
                                         <FontAwesomeIcon className="icon" title="Мой профиль" icon={faUserCircle}/>
                                     </Link>

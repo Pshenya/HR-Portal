@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import { withStyles } from "../../Helpers/withStyles";
+import { withStyles } from "../../Helpers";
 
 import Paper from "@material-ui/core/Paper";
 import InputBase from "@material-ui/core/InputBase";

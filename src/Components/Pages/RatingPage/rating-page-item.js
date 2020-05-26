@@ -12,7 +12,7 @@ const RatingPageItem = ({userData, idx}) => {
                 {idx+1}
             </td>
             <td className="person-name">
-                <Link to={`${ROUTES.PROFILE}/${user.userId}`}>{user.name} {user.lastName}</Link>
+                <Link to={`${ROUTES.PROFILE}/${userData.userId}`}>{user.name} {user.lastName}</Link>
                 <div className="job">
                     Team Lead
                 </div>

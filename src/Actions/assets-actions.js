@@ -1,5 +1,5 @@
-import {assetsConstants, userConstants} from '../CONSTANTS';
-import {assetsService, userService} from '../Services';
+import {assetsConstants} from '../CONSTANTS';
+import {assetsService} from '../Services';
 
 export const assetsActions = {
     getAllVacancies,

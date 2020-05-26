@@ -23,11 +23,10 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-function withStyles(Component) {
+export function withStyles(Component) {
     return function WrappedComponent(props) {
         const stylesHook = useStyles();
         return <Component {...props} stylesHook={stylesHook} />;
     }
 }
 
-export {withStyles}

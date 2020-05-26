@@ -63,21 +63,28 @@
     margin-left: 10px;
 }
 
-.feedback-user{
+.feedback-not-authorized{
+    margin-bottom: 26px;
+    padding: 20px 0;
+    background-color: #f4f4f4;
+    border: 1px solid black;
+    font-size: 24px;
+    text-align: center;
+}
+.feedback-info{
     font-family: "Roboto-Condensed Bold", sans-serif;
     font-size: 14px;
 }
 
 .feedback-date{
+    font-family: "Roboto-Condensed", sans-serif;
     color: rgba(0,0,0,0.5);
     margin-left: 5px;
 }
 
-.feedback-toolbar{
-    display: flex;
-    margin-top: 5px;
-}
-
-.feedback-likes{
-    margin-right: 15px;
+.owner-feedback{
+    padding: 2px 7px;
+    border-radius: 50px;
+    color: white;
+    background-color: #999595;
 }

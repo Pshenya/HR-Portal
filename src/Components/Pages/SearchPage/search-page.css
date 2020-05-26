@@ -43,7 +43,7 @@
     color: black;
 }
 
-.item-col a + p {
+.item-col a + span {
     margin-left: 15px;
     font-size: 20px;
     color: #4e4e4e;

@@ -45,7 +45,6 @@ class ProfilePageContainer extends Component {
 
     render() {
         const {profileData, feedbacksList} = this.props;
-        console.log(feedbacksList);
         const {addJob, Facebook, LinkedIn, Github, Telegram} = this.state;
         const data = {
             addJob,

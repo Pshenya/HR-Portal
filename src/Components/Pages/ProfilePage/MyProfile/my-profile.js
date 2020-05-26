@@ -4,8 +4,9 @@ import pavlik from "../../../../assets/img/pavlik.jpg";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
 import SocialDynamic from "./DynamicHelpers/social-dynamic-form";
+import Feedbacks from "../Feedbacks/feedbacks";
 
-const MyProfile = ({userData, data, socials}) => {
+const MyProfile = ({userData, data, socials, userId, feedbacksList}) => {
     const {user} = userData;
     return(
         <div className="profile-content">
@@ -85,7 +86,7 @@ const MyProfile = ({userData, data, socials}) => {
                             {/*    onBeforeFileLoad={this.onBeforeFileLoad}*/}
                             {/*    src={this.state.src}*/}
                             {/*/>*/}
-                            <img src={pavlik} width={250} height={250}/>
+                            <img src={pavlik} alt="Profile" width={250} height={250}/>
                             <div className="profile-rating">
                                 <FontAwesomeIcon
                                     icon={faStar}
@@ -149,6 +150,7 @@ const MyProfile = ({userData, data, socials}) => {
             <div className="profile-save-data">
                 <button className="profile-btn" type="button">Сохранить</button>
             </div>
+            <Feedbacks userData={userData} userId={userId} feedbacksList={feedbacksList}/>
         </div>
     );
 };

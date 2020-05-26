@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 
 import SearchPageItem from "./search-page-item";
-import { withStyles } from "../../Helpers/withStyles";
+import { withStyles } from "../../Helpers";
 
 import InputBase from "@material-ui/core/InputBase";
 import IconButton from "@material-ui/core/IconButton";
@@ -74,9 +74,9 @@ class SearchPage extends Component {
                     </div>
                 </div>
                 {
-                    filteredProfiles.map((userData, idx) => {
+                    filteredProfiles.map((userData) => {
                         return <div className="sp-item" key={userData._id}>
-                            <SearchPageItem userData={userData} idx={idx}/>
+                            <SearchPageItem userData={userData}/>
                         </div>
                     })
                 }

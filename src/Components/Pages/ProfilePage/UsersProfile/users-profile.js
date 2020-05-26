@@ -1,12 +1,12 @@
 import React from "react";
+
 import './users-profile.css'
+
+import Feedbacks from "../Feedbacks/feedbacks";
+
 import pavlik from "../../../../assets/img/pavlik.jpg";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faStar} from "@fortawesome/free-solid-svg-icons";
-import {Form} from "react-bootstrap";
-import {MDBBtn, MDBInput, MDBIcon} from 'mdbreact';
-import Button from "@material-ui/core/Button";
-import Feedbacks from "../Feedbacks/feedbacks";
 
 const UsersProfile = ({userData, feedbacksList, userId}) => {
     const {user} = userData;
@@ -70,7 +70,7 @@ const UsersProfile = ({userData, feedbacksList, userId}) => {
                     </div>
                 </div>
             </div>
-            <Feedbacks userId={userId} feedbacksList={feedbacksList}/>
+            <Feedbacks userData={userData} userId={userId} feedbacksList={feedbacksList}/>
         </div>
     )
 };

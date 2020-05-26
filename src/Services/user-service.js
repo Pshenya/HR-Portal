@@ -65,9 +65,6 @@ function logout() {
     localStorage.removeItem('userId');
 }
 
-function saveProfileData() {
-
-}
 function getProfileData(userId){
     const requestOptions = {
         method: 'GET',

@@ -54,7 +54,7 @@ class ProfilePage extends Component {
         if (userId && userId !== authorizedUserId) {
             return <UsersProfile userId={userId} userData={userData} feedbacksList={feedbacksList}/>
         }
-        return <MyProfile userData={userData} feedbacksList={feedbacksList} data={data} socials={socials}/>
+        return <MyProfile userId={userId} userData={userData} feedbacksList={feedbacksList} data={data} socials={socials}/>
 
     }
 }

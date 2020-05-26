@@ -18,7 +18,7 @@ const Footer = () => {
                 <div className="main-content">
                     <div className="footer-content">
                         <div className="info">
-                            <img src={Logo} height={30} width={100}/>
+                            <img src={Logo} alt="Logo" height={30} width={100}/>
                             <p style={{marginBottom: '0'}}>2020 © <Link to={ROUTES.MAIN}>HR Portal</Link></p>
                         </div>
                         <ul className="footer-socials">
