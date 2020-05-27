@@ -1,0 +1,14 @@
+.width-control{
+    font-family: "Roboto-Condensed Regular", sans-serif;
+    font-weight: 400;
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+}
+.main-content{
+    position: relative;
+    display: block;
+    width: 80%;
+    /*margin-top: 140px;*/
+    padding: 30px;
+}

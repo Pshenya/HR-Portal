@@ -1,0 +1,69 @@
+/*  Common info  */
+.users-profile {
+    display: flex;
+    padding: 0 0 0 40px;
+}
+
+.users-profile-content{
+    width: 100%;
+    padding: 0 0 0 40px;
+}
+
+.users-profile-blockHeader{
+    width: 450px;
+    max-width: 400px;
+    padding: 27px 30px 26px;
+
+}
+
+.users-profile-name h3{
+    font-size: 36px;
+}
+
+.users-profile-name h3:after{
+    content: '';
+    display: block;
+    height: 1px;
+    width: 800px;
+    background-color: #b2b2b2;
+}
+
+.users-profile-info{
+    display: flex;
+}
+.users-profile-common{
+    width: 500px;
+    max-width: 500px;
+}
+.users-profile-socials{
+    width: 500px;
+    max-width: 500px;
+}
+
+.users-profile-field {
+    font-family: "Roboto-Condensed Light", sans-serif;
+    font-weight: 700;
+    margin-top: 20px;
+}
+
+.users-profile-field span{
+    margin-left: 10px;
+    font-weight: 400;
+}
+
+.users-profile-about{
+    margin-top: 25px;
+    font-family: "Roboto-Condensed Light", sans-serif;
+    font-weight: 700;
+}
+
+.users-profile-about p{
+    width: 100%;
+    max-width: 800px;
+    white-space: normal;
+}
+
+.users-profile-about p span{
+    font-weight: 400;
+}
+
