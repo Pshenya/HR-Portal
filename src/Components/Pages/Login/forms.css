@@ -61,7 +61,6 @@
 }
 
 .common-form .form-check input[type=checkbox] + label {
-    margin-left: -20px;
     display: inline-flex;
     align-items: center;
     user-select: none;
@@ -89,5 +88,5 @@
 }
 
 .common-form .form-check input[type=checkbox]:not(:disabled):not(:checked) + label:hover::before {
-    border-color: #b3d7ff;
+    border-color: #48478a;
 }

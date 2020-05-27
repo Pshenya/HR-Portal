@@ -71,19 +71,28 @@ class SignInPage extends Component {
                                 <MDBCol>
                                     <form className="common-form" name="form" onSubmit={this.handleSubmit}>
                                         <div className={submitted && !email ? ' has-error' : ''}>
-                                            <MDBInput name="email" label="Эл. почта" icon="envelope" group type="email" validate
+                                            <MDBInput name="email" label="Эл. почта" icon="envelope" group type="email"
+                                                      validate
                                                       error="wrong" value={email} onChange={this.handleChange}
                                                       success="right"/>
                                             {submitted && !email &&
                                             <div className="help-block">* Это обязательное поле</div>
                                             }
                                         </div>
-                                        <div className={submitted && !email ? ' has-error' : ''}>
+                                        <div className={submitted && !password ? ' has-error' : ''}>
                                             <MDBInput name="password" label="Пароль" icon="lock" group
-                                                      type="password" validate value={password} onChange={this.handleChange}/>
+                                                      type="password" validate value={password}
+                                                      onChange={this.handleChange}/>
                                             {submitted && !password &&
                                             <div className="help-block">* Это обязательное поле</div>
                                             }
+                                        </div>
+                                        <div className='form-check my-4'>
+                                            <MDBInput
+                                                label="Запомнить меня"
+                                                type='checkbox'
+                                                id='rememberMe'
+                                            />
                                         </div>
                                         <div className="btn-group">
                                             <MDBBtn type="submit" className="form-btn" color="0">Войти</MDBBtn>

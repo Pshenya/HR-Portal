@@ -11,9 +11,9 @@ const MyProfile = ({userData, data, socials, userId, feedbacksList}) => {
     return(
         <div className="profile-content">
             <div className="profile-header">
+                <h1 style={{color: 'red'}}>!!! Эта страница ещё не доработана до конца !!!</h1>
                 <h1>Настройка аккаунта</h1>
-                <p>Просматривайте и обновляйте данные аккаунта, профиля и др.
-                </p>
+                <p>Просматривайте и обновляйте данные аккаунта, профиля и др.</p>
             </div>
             <div className="profile-block">
                 <div className="profile-blockHeader">
