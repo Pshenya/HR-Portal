@@ -1,5 +1,6 @@
 export const assetsService = {
     getAllVacancies,
+    getVacancyById,
     getAllNews,
     getNewsById,
     sendFeedback,
@@ -13,11 +14,23 @@ function getAllVacancies() {
         method: 'GET',
         redirect: 'follow'
     };
-    return fetch(`${_apiURL}/vacan/vacancy`, requsetOptions)
+    return fetch(`${_apiURL}/vacan/vacancy/all`, requsetOptions)
         .then(handleResponse)
         .then(vacanciesList => {
             return JSON.parse(vacanciesList);
         });
+}
+
+function getVacancyById(id) {
+    const requestOptions = {
+        method: 'GET',
+        redirect: 'follow'
+    };
+    return fetch(`${_apiURL}/vacan/vacancy?vacancyID=${id}`, requestOptions)
+        .then(handleResponse)
+        .then(vacancyData => {
+            return JSON.parse(vacancyData);
+        })
 }
 
 function getAllNews() {

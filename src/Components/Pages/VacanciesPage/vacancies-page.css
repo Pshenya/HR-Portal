@@ -191,6 +191,7 @@
 }
 
 .salary-input-btn{
+    background-color: white;
     border-radius: 3px;
     border: 1px solid #48478a;
     margin-left: 10px !important;
