@@ -1,4 +1,5 @@
-import { authHeader } from '../Components/Helpers';
+import {authHeader} from '../Components/Helpers';
+import { history } from '../Components/Helpers';
 
 export const userService = {
     register,
@@ -6,10 +7,10 @@ export const userService = {
     logout,
     getUserData,
     getAllUsers,
-    getProfileData
-    // getById,
-    // update,
-    // delete: _delete
+    postProfileData,
+    getProfileData,
+    updateProfileData,
+    deleteProfileData
 };
 
 const _apiURL = "http://localhost:3000/api";
@@ -22,7 +23,13 @@ function register(user) {
         redirect: "follow"
     };
 
-    return fetch(`${_apiURL}/user/register`, requestOptions).then(handleResponse);
+    return fetch(`${_apiURL}/user/register`, requestOptions)
+        .then(handleResponse)
+        .then(user => {
+            console.log(JSON.parse(user));
+            localStorage.setItem('userId', JSON.parse(user));
+            return user;
+        })
 }
 
 function login(email, password) {
@@ -42,6 +49,11 @@ function login(email, password) {
         });
 }
 
+function logout() {
+    // remove user from local storage to log user out
+    localStorage.removeItem('user');
+    localStorage.removeItem('userId');
+}
 
 
 function getUserData() {
@@ -59,13 +71,56 @@ function getUserData() {
         })
 }
 
-function logout() {
-    // remove user from local storage to log user out
-    localStorage.removeItem('user');
-    localStorage.removeItem('userId');
+
+function postProfileData(profile) {
+    const requestOptions = {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify(profile)
+    };
+
+    return fetch(`${_apiURL}/user/profile`, requestOptions)
+        .then(handleResponse)
+        .then(profile => {
+            return profile;
+        });
 }
 
-function getProfileData(userId){
+function updateProfileData(profile, userId) {
+    const requestOptions = {
+        method: 'PUT',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify(profile)
+    };
+    return fetch(`${_apiURL}/user/profile/${userId}`, requestOptions)
+        .then(handleResponse)
+        .then(profile => {
+            return profile;
+        });
+}
+
+function deleteProfileData(userId) {
+    const requestOptions = {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+    };
+    return fetch(`${_apiURL}/user/profile/delete/${userId}`, requestOptions)
+        .then(response => response.text()
+            .then(data => {
+                    if (response.ok) {
+                        // auto logout if 400 response returned from api
+                        history.push('/');
+                        logout();
+                        window.location.reload();
+                    }
+                    const error = data.toString();
+
+                    return Promise.reject(error);
+                }
+            ))
+}
+
+function getProfileData(userId) {
     const requestOptions = {
         method: 'GET',
         redirect: 'follow'
@@ -86,7 +141,6 @@ function getAllUsers() {
     return fetch(`${_apiURL}/user/profile/all`, requsetOptions)
         .then(handleResponse)
         .then(userData => {
-            console.log(JSON.parse(userData));
             return JSON.parse(userData);
         });
 }
@@ -125,7 +179,7 @@ function getAllUsers() {
 function handleResponse(response) {
     return response.text()
         .then(data => {
-            if ( !response.ok) {
+            if (!response.ok) {
                 if (data === 'Invalid token') {
                     // auto logout if 400 response returned from api
                     logout();

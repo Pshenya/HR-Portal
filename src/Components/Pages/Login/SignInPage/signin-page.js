@@ -12,15 +12,12 @@ import 'bootstrap-social';
 
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faTimesCircle} from "@fortawesome/free-regular-svg-icons";
-import {Form} from "react-bootstrap";
 import {MDBBtn, MDBCol, MDBContainer, MDBInput, MDBRow} from "mdbreact";
 
 
 class SignInPage extends Component {
     constructor(props) {
         super(props);
-
-        // reset login status
 
         this.state = {
             email: '',

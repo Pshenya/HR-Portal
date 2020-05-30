@@ -9,6 +9,7 @@ export const ROUTES = {
     ABOUT: '/about',
     LOGIN: '/login',
     REGISTRATION: '/registration',
+    PROFILE_REGISTER: '/register-profile',
     PROFILE: '/profile'
 };
 

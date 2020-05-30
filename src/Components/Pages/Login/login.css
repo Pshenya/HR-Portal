@@ -16,7 +16,7 @@
 
 .signIn-header .signIn-logo,
 .signIn-header .x-class{
-    margin: 40px;
+    margin: 30px;
 }
 
 .register-header .signIn-logo,
@@ -81,5 +81,5 @@
     font-weight: 300;
     max-width: 350px;
     text-align: center;
-    margin-top: 30px;
+    margin-top: -15px;
 }

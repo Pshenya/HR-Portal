@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { ROUTES } from "../../../Routes/routes";
+import { randomInteger } from "../../Helpers";
 
 const RatingPageItem = ({userData, idx}) => {
     const {user} = userData;
@@ -20,7 +21,7 @@ const RatingPageItem = ({userData, idx}) => {
             <td></td>
             <td>{isCompany}</td>
             <td>
-                <p style={{color: "green"}}>+800</p>
+                <p style={{color: "green"}}>+{randomInteger(0, 10)}</p>
             </td>
             <td></td>
             <td><b>{isRating}</b></td>

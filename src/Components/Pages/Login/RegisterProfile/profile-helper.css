@@ -1,0 +1,11 @@
+.profile-helper .md-form .prefix.active{
+    color: #48478a;
+}
+
+.profile-helper .md-form input:not(.browser-default):focus:not([readonly]) + label {
+    color: #48478a;
+}
+.profile-helper .md-form input:not(.browser-default):focus:not([readonly]){
+    border-bottom:1px solid #48478a;
+    box-shadow: 0 1px 0 0 #48478a;
+}

@@ -22,7 +22,7 @@ const RatingPage = ({profilesList}) => {
                         <th></th>
                         <th>Компания</th>
                         <th>Δ
-                            <div className="period">Jul&#39;19 / Jan&#39;20</div>
+                            <div className="period">May&#39;20 / Jun&#39;20</div>
                         </th>
                         <th></th>
                         <th>Средняя оценка<br/>пользователей</th>

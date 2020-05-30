@@ -10,7 +10,6 @@ import '../login.css';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTimesCircle } from "@fortawesome/free-regular-svg-icons";
 import { ROUTES } from "../../../../Routes/routes";
-import { Form } from "react-bootstrap";
 import {MDBBtn, MDBCol, MDBContainer, MDBInput, MDBRow} from "mdbreact";
 
 class RegistrationPage extends Component {
@@ -78,7 +77,7 @@ class RegistrationPage extends Component {
                                     <MDBCol>
                                         <form className="common-form" name="form" onSubmit={this.handleSubmit}>
                                             <div className={submitted && !user.name ? ' has-error' : ''}>
-                                                <MDBInput name="name" label="Имя" icon="user-alt" group type="text" validate
+                                                <MDBInput name="name" label="Имя" icon="user-circle" group type="text" validate
                                                           error="wrong" value={user.name} onChange={this.handleChange}
                                                           success="right"/>
                                                 {submitted && !user.name &&
@@ -86,7 +85,7 @@ class RegistrationPage extends Component {
                                                 }
                                             </div>
                                             <div className={submitted && !user.lastName ? ' has-error' : ''}>
-                                                <MDBInput name="lastName" label="Фамилия" icon="user-alt" group type="text" validate
+                                                <MDBInput name="lastName" label="Фамилия" icon="user-circle" group type="text" validate
                                                           error="wrong" value={user.lastName} onChange={this.handleChange}
                                                           success="right"/>
                                                 {submitted && !user.lastName &&

@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
+
+
 import './App.css';
 
 import { connect } from "react-redux";
@@ -17,6 +19,8 @@ import {
     VacanciesPage, StatsPage, SignInPage, RegistrationPage,
     NewsPageContainer, VacancyDetailsContainer
 } from './Components/Pages';
+import ProfileHelper from "./Components/Pages/Login/RegisterProfile/profile-helper";
+import DeleteProfileModal from "./Components/Pages/ProfilePage/DeleteProfileModal/delete-profile-modal";
 
 class App extends Component {
     constructor(props) {
@@ -33,7 +37,7 @@ class App extends Component {
 
         // Скривання хедеру та футеру на сторінках регістрації та логіну
         const shouldShowHeaderAndFooter = history.location.pathname !== ROUTES.LOGIN
-            && history.location.pathname !== ROUTES.REGISTRATION;
+            && history.location.pathname !== ROUTES.REGISTRATION && history.location.pathname !== ROUTES.PROFILE_REGISTER;
 
         return (
             <div className="app">
@@ -58,6 +62,7 @@ class App extends Component {
                         <Route path={ROUTES.LOGIN} component={SignInPage}/>
                         <Route path={`${ROUTES.PROFILE}/:userId?`} component={ProfilePageContainer}/>
                         <Route path={ROUTES.REGISTRATION} component={RegistrationPage}/>
+                        <Route path={ROUTES.PROFILE_REGISTER} component={ProfileHelper}/>
                         <Redirect from="*" to="/"/>
                     </Switch>
                     {shouldShowHeaderAndFooter && <Footer/>}
