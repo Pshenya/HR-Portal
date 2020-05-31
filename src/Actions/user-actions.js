@@ -130,9 +130,11 @@ function getUserData() {
     return dispatch => {
         dispatch(request());
 
-        userService.getUserData()
+        return userService.getUserData()
             .then(
-                userData => dispatch(success(userData)),
+                userData => dispatch(success(userData))
+            )
+            .catch(
                 error => dispatch(failure(error.toString()))
             )
     };
@@ -169,20 +171,3 @@ function getProfileData(userId) {
     function success(profileData) { return { type: userConstants.GETPROFILE_SUCCESS, profileData } }
     function failure(error) { return { type: userConstants.GETPROFILE_FAILURE, error } }
 }
-//
-// // prefixed function name with underscore because delete is a reserved word in javascript
-// function _delete(id) {
-//     return dispatch => {
-//         dispatch(request(id));
-//
-//         userService.delete(id)
-//             .then(
-//                 user => dispatch(success(id)),
-//                 error => dispatch(failure(id, error.toString()))
-//             );
-//     };
-//
-//     function request(id) { return { type: userConstants.DELETE_REQUEST, id } }
-//     function success(id) { return { type: userConstants.DELETE_SUCCESS, id } }
-//     function failure(id, error) { return { type: userConstants.DELETE_FAILURE, id, error } }
-// }
