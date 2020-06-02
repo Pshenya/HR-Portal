@@ -5,6 +5,7 @@ import {randomInteger} from "../../Helpers";
 
 const RatingPageItem = ({userData, idx}) => {
     const {user} = userData;
+    console.log(userData.jobPosition);
     return (
         <tr className="ratingPage-item-block">
             <td>
@@ -13,7 +14,7 @@ const RatingPageItem = ({userData, idx}) => {
             <td className="person-name">
                 <Link to={`${ROUTES.PROFILE}/${userData.userId}`}>{user.name} {user.lastName}</Link>
                 <div className="job">
-                    Team Lead
+                    {userData.jobPosition}
                 </div>
             </td>
             <td></td>

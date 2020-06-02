@@ -11,6 +11,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTimesCircle } from "@fortawesome/free-regular-svg-icons";
 import { ROUTES } from "../../../../Routes/routes";
 import {MDBBtn, MDBCol, MDBContainer, MDBInput, MDBRow} from "mdbreact";
+import Logo from "../../../../assets/img/MIIIIIIIIIIII.jpg";
 
 class RegistrationPage extends Component {
     constructor(props) {
@@ -58,9 +59,11 @@ class RegistrationPage extends Component {
         return (
             <div className="signIn-content">
                 <div className="signIn-header register-header">
-                    <h1 className="signIn-logo">
-                        <Link to="/">LOGO</Link>
-                    </h1>
+                    <div className="signIn-logo">
+                        <Link to="/">
+                            <img style={{paddingTop: "8px"}} src={Logo} alt="logo" width={200} height={75}/>
+                        </Link>
+                    </div>
                     <Link className="x-class" aria-label="back to HR's" to={ROUTES.MAIN}>
                         <FontAwesomeIcon icon={faTimesCircle} size="2x"/>
                     </Link>

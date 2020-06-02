@@ -10,6 +10,8 @@ import pavlik from "../../../../assets/img/pavlik.jpg";
 import {MDBBtn, MDBIcon, MDBInput} from "mdbreact";
 import {Link} from "react-router-dom";
 import {ROUTES} from "../../../../Routes/routes";
+import {faUserCircle} from "@fortawesome/free-solid-svg-icons";
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 
 
 class Feedbacks extends Component {
@@ -58,7 +60,7 @@ class Feedbacks extends Component {
                     </div>
                     {loggedIn && <div className="profile-comments-form">
                         <form className="user-feedback-form" name="form" onSubmit={this.handleSubmit}>
-                            <img src={pavlik} alt="Profile" width={50} height={50}/>
+                            <FontAwesomeIcon icon={faUserCircle} size="3x" color="#48478a" style={{marginTop: '20px'}} alt="Profile"/>
                             <MDBInput className="profile-comment-input" name="text" value={text} type="textarea"
                                       label="Оставьте отзыв"
                                       rows="1" onChange={this.handleChange}/>

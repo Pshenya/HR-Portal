@@ -106,10 +106,9 @@ class VacanciesPage extends Component {
                                 <div className="vac-sidebar">
                                     <div className="vac-sidebar-categories">
                                         <h3>Категория</h3>
-                                        <select className="vac-sidebar-select" value={this.state.category}
-                                                onChange={this.handleRadioChange}>
-                                            <option value=''>Все категории</option>
-                                            <option value="IT">IT</option>
+                                        <select className="vac-sidebar-select">
+                                            <option>Все категории</option>
+                                            <option>IT</option>
                                         </select>
                                     </div>
                                     <div className="sidebar-divider"/>

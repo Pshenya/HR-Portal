@@ -14,7 +14,7 @@ const SearchPageItem = ({userData}) => {
             <FontAwesomeIcon style={{marginTop: "7px"}} className="user-icon" icon={faUser} size="10x"/>
             <div className="item-col">
                 <Link to={`${ROUTES.PROFILE}/${userData.userId}`}>{user.name} {user.lastName}</Link>
-                <span>Team Lead</span>
+                <span>{userData.jobPosition}</span>
             </div>
             <div className="flex-placeholder"></div>
             <span className="sp-companyName">{userData.companyName}</span>

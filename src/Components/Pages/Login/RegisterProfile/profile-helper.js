@@ -105,14 +105,6 @@ class ProfileHelper extends Component {
                                                       type="text" validate value={profile.phone}
                                                       onChange={this.handleChange}/>
                                         </div>
-                                        <div className={submitted && !profile.rating ? ' has-error' : ''}>
-                                            <MDBInput name="rating" label="Рейтинг" fab icon="user-secret" group
-                                                      type="text"
-                                                      validate
-                                                      error="wrong" value={profile.rating}
-                                                      onChange={this.handleChange}
-                                                      success="right"/>
-                                        </div>
                                         <div className={submitted && !profile.facebookLink ? ' has-error' : ''}>
                                             <MDBInput name="facebookLink" label="Facebook" fab icon="facebook-f" group
                                                       type="text" validate value={profile.facebookLink}

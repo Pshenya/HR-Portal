@@ -34,7 +34,8 @@ class SearchPage extends Component {
         const {profilesList} = this.props;
         let filteredProfiles = profilesList.filter(
             (profile) => {
-                return (profile.user.name.toLowerCase().includes(this.state.searchInput.toLowerCase())) || (profile.user.lastName.toLowerCase().includes(this.state.searchInput.toLowerCase())) ;
+                return (profile.user.name.toLowerCase().includes(this.state.searchInput.toLowerCase())) || (profile.user.lastName.toLowerCase().includes(this.state.searchInput.toLowerCase()))
+                    || (profile.companyName.toLowerCase().includes(this.state.searchInput.toLowerCase()));
             }
         );
         return (
@@ -61,16 +62,6 @@ class SearchPage extends Component {
                                 </IconButton>
                             </Paper>
                         </div>
-                        <ul className="header-list">
-                            <li className="d-flex">
-                                <span>Должность</span>
-                                <ExpandMoreIcon style={{paddingBottom: '3px'}}/>
-                            </li>
-                            <li className="d-flex">
-                                <span>Рейтинг</span>
-                                <ExpandMoreIcon style={{paddingBottom: '3px'}}/>
-                            </li>
-                        </ul>
                     </div>
                 </div>
                 {
