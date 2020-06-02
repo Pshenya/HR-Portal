@@ -22,13 +22,18 @@
 .login-content .md-form .validate{
     margin-bottom: 0;
 }
-/*.login-content .md-form input[type="email"]:not(.browser-default):focus:not([readonly]) + label {*/
-/*    color: black;*/
-/*}*/
-/*.login-content .md-form input[type="email"]:not(.browser-default):focus:not([readonly]){*/
-/*    border-bottom:1px solid black;*/
-/*    box-shadow: 0 1px 0 0 black;*/
-/*}*/
+
+.login-content .md-form .prefix.active{
+    color: #48478a;
+}
+
+.login-content .md-form input:not(.browser-default):focus:not([readonly]) + label {
+    color: #48478a;
+}
+.login-content .md-form input:not(.browser-default):focus:not([readonly]){
+    border-bottom:1px solid #48478a;
+    box-shadow: 0 1px 0 0 #48478a;
+}
 
 .common-form .btn-group{
     margin: 0 auto;

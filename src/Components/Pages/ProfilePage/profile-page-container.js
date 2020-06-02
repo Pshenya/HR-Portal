@@ -15,6 +15,7 @@ class ProfilePageContainer extends Component {
                 this.props.history.push(ROUTES.LOGIN);
             }
         }
+
         this.props.getProfileData(userId);
         this.props.getFeedbacks(userId);
     }
@@ -67,8 +68,6 @@ class ProfilePageContainer extends Component {
                 })}
             </div>
         )
-
-
     }
 }
 
@@ -82,6 +81,7 @@ const mapStateToProps = ({auth, users, assets}) => {
 };
 
 const mapDispatchToProps = {
+    getUser: userActions.getUserData,
     getProfileData: userActions.getProfileData,
     getFeedbacks: assetsActions.getFeedbacks
 };

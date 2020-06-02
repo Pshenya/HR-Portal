@@ -9,8 +9,10 @@ export const userActions = {
     register,
     getUserData,
     getAllUsers,
-    getProfileData
-    // delete: _delete
+    postProfileData,
+    getProfileData,
+    updateProfileData,
+    deleteProfileData
 };
 
 function login(email, password) {
@@ -22,6 +24,7 @@ function login(email, password) {
                 user => {
                     dispatch(success(user));
                     history.push('/');
+                    window.location.reload();
                 },
                 error => {
                     console.log(error);
@@ -49,8 +52,7 @@ function register(user) {
             .then(
                 user => {
                     dispatch(success());
-                    history.push('/login');
-                    dispatch(alertActions.success('Registration successful'));
+                    history.push('/register-profile');
                 },
                 error => {
                     dispatch(failure(error.toString()));
@@ -64,13 +66,75 @@ function register(user) {
     function failure(error) { return { type: userConstants.REGISTER_FAILURE, error } }
 }
 
+function postProfileData(profile) {
+    return dispatch => {
+        dispatch(request(profile));
+
+        userService.postProfileData(profile)
+            .then(
+                profile => {
+                    dispatch(success());
+                    history.push('/login');
+                },
+                error => {
+                    dispatch(failure(error.toString()));
+                }
+            );
+    };
+
+    function request(profile) { return { type: userConstants.POST_PROFILE_REQUEST, profile } }
+    function success(profile) { return { type: userConstants.POST_PROFILE_SUCCESS, profile } }
+    function failure(error) { return { type: userConstants.POST_PROFILE_FAILURE, error } }
+}
+
+function updateProfileData(profile, userId) {
+    return dispatch => {
+        dispatch(request(profile));
+
+        userService.updateProfileData(profile, userId)
+            .then(
+                profile => {
+                    dispatch(success(profile));
+                },
+                error => {
+                    dispatch(failure(error.toString()));
+                }
+            );
+    };
+
+    function request(profile) { return { type: userConstants.UPDATE_PROFILE_REQUEST, profile } }
+    function success() { return { type: userConstants.UPDATE_PROFILE_SUCCESS } }
+    function failure(error) { return { type: userConstants.UPDATE_PROFILE_FAILURE, error } }
+}
+
+function deleteProfileData(userId) {
+    return dispatch => {
+        dispatch(request());
+
+        userService.deleteProfileData(userId)
+            .then(
+                deleted => {
+                    dispatch(success());
+                },
+                error => {
+                    dispatch(failure(error.toString()));
+                }
+            );
+    };
+    function request() { return { type: userConstants.DELETE_PROFILE_REQUEST } }
+    function success() { return { type: userConstants.DELETE_PROFILE_SUCCESS } }
+    function failure(error) { return { type: userConstants.DELETE_PROFILE_FAILURE, error } }
+}
+
 function getUserData() {
     return dispatch => {
         dispatch(request());
 
-        userService.getUserData()
+        return userService.getUserData()
             .then(
-                userData => dispatch(success(userData)),
+                userData => dispatch(success(userData))
+            )
+            .catch(
                 error => dispatch(failure(error.toString()))
             )
     };
@@ -107,20 +171,3 @@ function getProfileData(userId) {
     function success(profileData) { return { type: userConstants.GETPROFILE_SUCCESS, profileData } }
     function failure(error) { return { type: userConstants.GETPROFILE_FAILURE, error } }
 }
-//
-// // prefixed function name with underscore because delete is a reserved word in javascript
-// function _delete(id) {
-//     return dispatch => {
-//         dispatch(request(id));
-//
-//         userService.delete(id)
-//             .then(
-//                 user => dispatch(success(id)),
-//                 error => dispatch(failure(id, error.toString()))
-//             );
-//     };
-//
-//     function request(id) { return { type: userConstants.DELETE_REQUEST, id } }
-//     function success(id) { return { type: userConstants.DELETE_SUCCESS, id } }
-//     function failure(id, error) { return { type: userConstants.DELETE_FAILURE, id, error } }
-// }

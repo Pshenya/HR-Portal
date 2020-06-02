@@ -7,6 +7,7 @@ import StatsPage from "./StatsPage/stats-page";
 import VacanciesPage from "./VacanciesPage/vacancies-page-container";
 import RegistrationPage from "./Login/RegistrationPage/registration-page";
 import NewsPageContainer from "./NewsPage/news-page";
+import VacancyDetailsContainer from "./VacanciesPage/VacancyDetails/vacancy-details";
 
 export {
     AboutPage,
@@ -17,5 +18,6 @@ export {
     StatsPage,
     VacanciesPage,
     RegistrationPage,
-    NewsPageContainer
+    NewsPageContainer,
+    VacancyDetailsContainer
 }

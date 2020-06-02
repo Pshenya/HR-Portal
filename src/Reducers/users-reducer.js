@@ -4,6 +4,7 @@ const initialState = {
     userData: {},
     profileData: [],
     profilesList: [],
+    deleted: false,
     loading: false,
     error: null
 };
@@ -46,6 +47,46 @@ export function users(state = initialState, action) {
                 ...state,
                 profilesList: [],
                 loading: false,
+                error: action.error
+            };
+        case userConstants.POST_PROFILE_REQUEST:
+            return { isSending: true };
+        case userConstants.POST_PROFILE_SUCCESS:
+            return {};
+        case userConstants.POST_PROFILE_FAILURE:
+            return {};
+        case userConstants.UPDATE_PROFILE_REQUEST:
+            return {
+                ...state,
+                loading: true
+            };
+        case userConstants.UPDATE_PROFILE_SUCCESS:
+            return {
+                ...state,
+                loading: false
+            };
+        case userConstants.UPDATE_PROFILE_FAILURE:
+            return {
+                ...state,
+                loading: false,
+                error: action.error
+            };
+        case userConstants.DELETE_PROFILE_REQUEST:
+            return {
+                ...state,
+                loading: true
+            };
+        case userConstants.DELETE_PROFILE_SUCCESS:
+            return {
+                ...state,
+                loading: false,
+                deleted: true
+            };
+        case userConstants.DELETE_PROFILE_FAILURE:
+            return {
+                ...state,
+                loading: false,
+                deleted: false,
                 error: action.error
             };
         case userConstants.GETPROFILE_REQUEST:

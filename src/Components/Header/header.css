@@ -1,6 +1,6 @@
 .header{
-    font-family: "Roboto-Condensed Bold", sans-serif;
-    font-weight: normal;
+    font-family: "Roboto-Condensed Light", sans-serif;
+    font-weight: 700;
     font-size: 1.5rem;
 }
 
@@ -12,7 +12,7 @@
 
 .navbar {
     background-color: #fff;
-    padding: 30px;
+    padding: 20px;
 }
 
 .navbar .container-fluid{
@@ -20,9 +20,10 @@
 }
 
 .navbar .login-btn{
+    font-family: "Roboto-Condensed Regular", sans-serif;
     filter: drop-shadow(5px 5px 5px rgba(0, 0, 0, 0.1));
-    -webkit-transition: all 0.5s ease;
-    transition: all 0.5s ease;
+    -webkit-transition: all 0.3s ease;
+    transition: all 0.3s ease;
     border: none;
     background-color: #fff;
     color: #000;
@@ -34,14 +35,18 @@
 }
 
 .navbar .login-btn:hover{
-    background-color: #000;
+    background-color: #48478a;
     color: #fff;
 }
 
 .nav-link{
     position: relative;
     color: #000 !important;
-    transition: all .5s ease;
+    transition: all .3s ease;
+}
+
+.nav-link:hover{
+    color: #48478a !important;
 }
 .nav-link:nth-child(1){
     margin: 0 0 0 5em;
@@ -67,7 +72,7 @@
     width: 0;
     content: '.';
     color: transparent;
-    background: #000;
+    background: #48478a;
     height: 2px;
 }
 .nav-link:hover:after{
@@ -100,7 +105,7 @@
 .header-icon, .header-icon:hover, .header-icon:active{
     box-sizing: border-box;
     text-decoration: none;
-    color: black;
+    color: #48478a;
 }
 .header-icon .icon{
     margin-top: .5rem;

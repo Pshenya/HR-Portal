@@ -6,7 +6,7 @@ import Feedbacks from "../Feedbacks/feedbacks";
 
 import pavlik from "../../../../assets/img/pavlik.jpg";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faStar} from "@fortawesome/free-solid-svg-icons";
+import {faStar, faUserCircle} from "@fortawesome/free-solid-svg-icons";
 
 const UsersProfile = ({userData, feedbacksList, userId}) => {
     const {user} = userData;
@@ -30,7 +30,8 @@ const UsersProfile = ({userData, feedbacksList, userId}) => {
                             {/*    onBeforeFileLoad={this.onBeforeFileLoad}*/}
                             {/*    src={this.state.src}*/}
                             {/*/>*/}
-                            <img src={pavlik} width={250} height={250}/>
+                            <FontAwesomeIcon icon={faUserCircle} size="10x" color="#48478a" alt="Profile"
+                                             width={250} height={250}/>
                             <div className="profile-rating">
                                 <FontAwesomeIcon
                                     icon={faStar}
@@ -47,6 +48,8 @@ const UsersProfile = ({userData, feedbacksList, userId}) => {
                         <div className="users-profile-info">
                             <div className="users-profile-common">
                                 <p className="users-profile-field">Компания: <span>{userData.companyName}</span>
+                                </p>
+                                <p className="users-profile-field">Должность: <span>{userData.jobPosition}</span>
                                 </p>
                                 <p className="users-profile-field">Опыт
                                     работы: <span>{userData.workExperience} года</span></p>

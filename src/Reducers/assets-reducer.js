@@ -5,6 +5,7 @@ const initialState = {
     newsList: [],
     feedbacksList: [],
     postData: {},
+    vacancyData: {},
     feedbackSended: false,
     loading: false,
     error: null
@@ -24,6 +25,23 @@ export function assets(state = initialState, action) {
                 vacanciesList: action.vacanciesList
             };
         case assetsConstants.GETALL_VACANCY_FAILURE:
+            return {
+                ...state,
+                loading: false,
+                error: action.error
+            };
+        case assetsConstants.GET_VACANCY_BY_ID_REQUEST:
+            return {
+                ...state,
+                loading: true
+            };
+        case assetsConstants.GET_VACANCY_BY_ID_SUCCESS:
+            return {
+                ...state,
+                loading: false,
+                vacancyData: action.vacancyData
+            };
+        case assetsConstants.GET_VACANCY_BY_ID_FAILURE:
             return {
                 ...state,
                 loading: false,

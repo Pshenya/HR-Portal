@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
+
+
 import './App.css';
 
 import { connect } from "react-redux";
@@ -15,10 +17,11 @@ import Footer from "./Components/Footer/footer";
 import {
     AboutPage, SearchPage, ProfilePageContainer, RatingPage,
     VacanciesPage, StatsPage, SignInPage, RegistrationPage,
-    NewsPageContainer
+    NewsPageContainer, VacancyDetailsContainer
 } from './Components/Pages';
+import ProfileHelper from "./Components/Pages/Login/RegisterProfile/profile-helper";
 
-class App extends Component {
+export class App extends Component {
     constructor(props) {
         super(props);
 
@@ -33,7 +36,7 @@ class App extends Component {
 
         // Скривання хедеру та футеру на сторінках регістрації та логіну
         const shouldShowHeaderAndFooter = history.location.pathname !== ROUTES.LOGIN
-            && history.location.pathname !== ROUTES.REGISTRATION;
+            && history.location.pathname !== ROUTES.REGISTRATION && history.location.pathname !== ROUTES.PROFILE_REGISTER;
 
         return (
             <div className="app">
@@ -51,12 +54,14 @@ class App extends Component {
                         <Route path={ROUTES.SEARCH} component={SearchPage}/>
                         <Route path={ROUTES.RATINGS} component={RatingPage}/>
                         <Route path={ROUTES.VACANCIES} component={VacanciesPage}/>
+                        <Route path={`${ROUTES.VACANCY_DETAILS}/:vacancyID`} component={VacancyDetailsContainer}/>
                         <Route path={`${ROUTES.NEWS}/:post`} component={NewsPageContainer}/>
                         <Route path={ROUTES.STATS} component={StatsPage}/>
                         <Route path={ROUTES.ABOUT} component={AboutPage}/>
                         <Route path={ROUTES.LOGIN} component={SignInPage}/>
                         <Route path={`${ROUTES.PROFILE}/:userId?`} component={ProfilePageContainer}/>
                         <Route path={ROUTES.REGISTRATION} component={RegistrationPage}/>
+                        <Route path={ROUTES.PROFILE_REGISTER} component={ProfileHelper}/>
                         <Redirect from="*" to="/"/>
                     </Switch>
                     {shouldShowHeaderAndFooter && <Footer/>}

@@ -1,15 +1,13 @@
 import React from "react";
 
 import {Link} from "react-router-dom";
-import { ROUTES } from "../../../../Routes/routes";
+import {ROUTES} from "../../../../Routes/routes";
 
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faUser } from "@fortawesome/free-solid-svg-icons";
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import {faUser} from "@fortawesome/free-solid-svg-icons";
 
 const RatingBlocksItem = ({userData}) => {
     const {user} = userData;
-    const isCompany = userData ? userData.companyName : 'Залупская залупа';
-    const isRating = userData ? userData.rating : 'N/A';
     return (
         <div className="aside-rating-item">
             <div className="aside-profile-picture">
@@ -17,11 +15,11 @@ const RatingBlocksItem = ({userData}) => {
             </div>
             <div className="col-box">
                 <Link to={`${ROUTES.PROFILE}/${userData.userId}`}>{user.name} {user.lastName}</Link>
-                <a href="/">{isCompany}</a>
+                <a href="/">{userData.companyName}</a>
             </div>
             <div className="flex-placeholder"></div>
             <div className="aside-points">
-                <span className="bold">{isRating}</span>
+                <span className="bold">{userData.rating}</span>
                 <br/>
                 <span className="small">/10</span>
             </div>

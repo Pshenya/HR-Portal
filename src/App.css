@@ -28,3 +28,13 @@ div{
     -webkit-font-smoothing: antialiased ;
     background-color: #f4f4f4;
 }
+
+.disable-link-styles{
+    text-decoration: none;
+    color: inherit;
+}
+
+.disable-link-styles:hover{
+    text-decoration: none;
+    color: inherit;
+}

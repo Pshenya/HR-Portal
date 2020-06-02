@@ -83,15 +83,35 @@
 
 .profile-btn{
     opacity: 0.7;
-    transition: all 0.5s ease;
+    transition: all 0.3s ease;
     background-color: #fff;
     color: #48478a;
-    border: 1px solid #48478a;
+    border: 2px solid #48478a;
     border-radius: 8px;
     box-sizing: border-box;
     padding: 10px 50px;
     font-size: 1rem;
     cursor: pointer;
+}
+
+.delete-btn{
+    margin-right: 38px;
+    color: #D9534F;
+    border: 2px solid #D9534F;
+    padding: 10px 60px;
+}
+
+.modal-delete-btn{
+    text-transform: none;
+    color: white !important;
+    background-color: #D9534F !important;
+}
+
+.modal-close-btn{
+    text-transform: none;
+    color: black !important;
+    border: 1px solid gray;
+    background-color: #f2f2f2 !important;
 }
 
 .profile-btn:hover{
@@ -103,7 +123,8 @@
 }
 
 .profile-save-data{
-    text-align: center;
+    display: flex;
+    justify-content: center;
     margin-bottom: 40px;
 }
 

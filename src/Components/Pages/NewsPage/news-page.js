@@ -65,7 +65,6 @@ class NewsPageContainer extends Component {
             )
         }
         return <NewsPage postData={postData}/>
-
     }
 }
 

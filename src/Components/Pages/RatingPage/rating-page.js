@@ -22,14 +22,18 @@ const RatingPage = ({profilesList}) => {
                         <th></th>
                         <th>Компания</th>
                         <th>Δ
-                            <div className="period">Jul&#39;19 / Jan&#39;20</div>
+                            <div className="period">May&#39;20 / Jun&#39;20</div>
                         </th>
                         <th></th>
                         <th>Средняя оценка<br/>пользователей</th>
                     </tr>
                     </thead>
                     {
-                        profilesList.map((userData, idx) => {
+                        profilesList.filter(userData => {
+                            return userData.jobPosition === 'HR' || userData.jobPosition === 'IT-Recruiter'
+                                || userData.jobPosition === 'HR/IT-Recruiter';
+                        })
+                            .map((userData, idx) => {
                             return <tbody key={userData.userId}>
                                 <RatingPageItem userData={userData} idx={idx}/>
                             </tbody>

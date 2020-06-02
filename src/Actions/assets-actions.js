@@ -3,6 +3,7 @@ import {assetsService} from '../Services';
 
 export const assetsActions = {
     getAllVacancies,
+    getVacancyById,
     getAllNews,
     getNewsById,
     sendFeedback,
@@ -18,18 +19,24 @@ function getAllVacancies() {
             .catch(error => dispatch(failure(error)))
     };
 
-    function request() {
-        return {type: assetsConstants.GETALL_VACANCY_REQUEST}
-    }
+    function request() { return {type: assetsConstants.GETALL_VACANCY_REQUEST} }
+    function success(vacanciesList) { return {type: assetsConstants.GETALL_VACANCY_SUCCESS, vacanciesList} }
+    function failure(error) { return {type: assetsConstants.GETALL_VACANCY_FAILURE, error} }
 
-    function success(vacanciesList) {
-        return {type: assetsConstants.GETALL_VACANCY_SUCCESS, vacanciesList}
-    }
+}
 
-    function failure(error) {
-        return {type: assetsConstants.GETALL_VACANCY_FAILURE, error}
-    }
+function getVacancyById(id){
+    return dispatch => {
+        dispatch(request());
 
+        assetsService.getVacancyById(id)
+            .then(vacancyData => dispatch(success(vacancyData)))
+            .catch(error => dispatch(failure(error)))
+    };
+
+    function request() { return {type: assetsConstants.GET_VACANCY_BY_ID_REQUEST} }
+    function success(vacancyData) { return {type: assetsConstants.GET_VACANCY_BY_ID_SUCCESS, vacancyData} }
+    function failure(error) { return {type: assetsConstants.GET_VACANCY_BY_ID_FAILURE, error} }
 }
 
 function getAllNews() {
