@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App App initial App is initialized and rendered 1`] = `ShallowWrapper {}`;
+
+exports[`App App loading renders Loading 1`] = `ShallowWrapper {}`;
+
+exports[`App App loading renders properly 1`] = `[Function]`;
+
+exports[`App App renders with error renders error 1`] = `ShallowWrapper {}`;
+
+exports[`App App renders with error renders properly 1`] = `ShallowWrapper {}`;

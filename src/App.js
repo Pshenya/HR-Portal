@@ -20,9 +20,8 @@ import {
     NewsPageContainer, VacancyDetailsContainer
 } from './Components/Pages';
 import ProfileHelper from "./Components/Pages/Login/RegisterProfile/profile-helper";
-import DeleteProfileModal from "./Components/Pages/ProfilePage/DeleteProfileModal/delete-profile-modal";
 
-class App extends Component {
+export class App extends Component {
     constructor(props) {
         super(props);
 

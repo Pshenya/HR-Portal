@@ -29,7 +29,11 @@ const RatingPage = ({profilesList}) => {
                     </tr>
                     </thead>
                     {
-                        profilesList.map((userData, idx) => {
+                        profilesList.filter(userData => {
+                            return userData.jobPosition === 'HR' || userData.jobPosition === 'IT-Recruiter'
+                                || userData.jobPosition === 'HR/IT-Recruiter';
+                        })
+                            .map((userData, idx) => {
                             return <tbody key={userData.userId}>
                                 <RatingPageItem userData={userData} idx={idx}/>
                             </tbody>

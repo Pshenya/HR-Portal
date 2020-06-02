@@ -19,7 +19,12 @@ const RatingBlocks = ({profilesList}) => {
                 <h3><Link to={ROUTES.RATINGS}>Топ HR</Link></h3>
                 <ul className="aside-rating-blocks">
                     {
-                        profilesList.map((userData) => {
+                        profilesList
+                            .filter(userData => {
+                            return userData.jobPosition === 'HR' || userData.jobPosition === 'IT-Recruiter'
+                                || userData.jobPosition === 'HR/IT-Recruiter';
+                            })
+                            .map((userData) => {
                             return (
                                 <li key={userData.userId}>
                                     <RatingBlocksItem userData={userData}/>

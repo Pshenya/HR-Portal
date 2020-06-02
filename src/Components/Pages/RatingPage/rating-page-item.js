@@ -1,12 +1,10 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import { ROUTES } from "../../../Routes/routes";
-import { randomInteger } from "../../Helpers";
+import {Link} from "react-router-dom";
+import {ROUTES} from "../../../Routes/routes";
+import {randomInteger} from "../../Helpers";
 
 const RatingPageItem = ({userData, idx}) => {
     const {user} = userData;
-    const isCompany = userData ? userData.companyName : 'Залупская залупа';
-    const isRating = userData ? userData.rating : 'N/A';
     return (
         <tr className="ratingPage-item-block">
             <td>
@@ -19,12 +17,12 @@ const RatingPageItem = ({userData, idx}) => {
                 </div>
             </td>
             <td></td>
-            <td>{isCompany}</td>
+            <td>{userData.companyName}</td>
             <td>
                 <p style={{color: "green"}}>+{randomInteger(0, 10)}</p>
             </td>
             <td></td>
-            <td><b>{isRating}</b></td>
+            <td><b>{userData.rating}</b></td>
         </tr>
     );
 };

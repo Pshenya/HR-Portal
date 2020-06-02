@@ -2,11 +2,12 @@ import React, { Component } from 'react';
 
 import './header.css';
 
-import { connect } from "react-redux";
+import {connect} from "react-redux";
 
 import { Link } from "react-router-dom";
 import { Container, Nav, Navbar } from "react-bootstrap";
 import { ROUTES } from "../../Routes/routes";
+import Loading from "../Loading/loading";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUserCircle } from "@fortawesome/free-regular-svg-icons";
@@ -14,8 +15,9 @@ import { faSignOutAlt } from "@fortawesome/free-solid-svg-icons";
 import { userActions } from "../../Actions";
 
 import Logo from '../../assets/img/MIIIIIIIIIIII.jpg';
+import ErrorIndicator from "../ErrorIndicator/error-indicator";
 
-class Header extends Component {
+export class Header extends Component {
     componentDidMount() {
         this.props.getUser();
     }

@@ -76,9 +76,14 @@ class ProfileHelper extends Component {
                                                       error="wrong" value={profile.companyName}
                                                       onChange={this.handleChange}
                                                       success="right"/>
-                                            {submitted && !profile.companyName &&
-                                            <div className="help-block">* Это обязательное поле</div>
-                                            }
+                                        </div>
+                                        <div className={submitted && !profile.jobPosition ? ' has-error' : ''}>
+                                            <MDBInput name="jobPosition" label="Должность" fab icon="user-secret" group
+                                                      type="text"
+                                                      validate
+                                                      error="wrong" value={profile.jobPosition}
+                                                      onChange={this.handleChange}
+                                                      success="right"/>
                                         </div>
                                         <div className={submitted && !profile.workExperience ? ' has-error' : ''}>
                                             <MDBInput name="workExperience" label="Опыт работы" fab icon="grav" group
@@ -87,9 +92,6 @@ class ProfileHelper extends Component {
                                                       error="wrong" value={profile.workExperience}
                                                       onChange={this.handleChange}
                                                       success="right"/>
-                                            {submitted && !profile.workExperience &&
-                                            <div className="help-block">* Это обязательное поле</div>
-                                            }
                                         </div>
                                         <div className={submitted && !profile.salary ? ' has-error' : ''}>
                                             <MDBInput name="salary" label="Зарплата ($)" icon="dollar-sign" group
@@ -97,41 +99,39 @@ class ProfileHelper extends Component {
                                                       validate
                                                       error="wrong" value={profile.salary} onChange={this.handleChange}
                                                       success="right"/>
-                                            {submitted && !profile.salary &&
-                                            <div className="help-block">* Это обязательное поле</div>
-                                            }
                                         </div>
                                         <div className={submitted && !profile.phone ? ' has-error' : ''}>
                                             <MDBInput name="phone" label="Контактный номер" icon="phone" group
                                                       type="text" validate value={profile.phone}
                                                       onChange={this.handleChange}/>
-                                            {submitted && !profile.phone &&
-                                            <div className="help-block">* Это обязательное поле</div>
-                                            }
+                                        </div>
+                                        <div className={submitted && !profile.rating ? ' has-error' : ''}>
+                                            <MDBInput name="rating" label="Рейтинг" fab icon="user-secret" group
+                                                      type="text"
+                                                      validate
+                                                      error="wrong" value={profile.rating}
+                                                      onChange={this.handleChange}
+                                                      success="right"/>
                                         </div>
                                         <div className={submitted && !profile.facebookLink ? ' has-error' : ''}>
                                             <MDBInput name="facebookLink" label="Facebook" fab icon="facebook-f" group
                                                       type="text" validate value={profile.facebookLink}
                                                       onChange={this.handleChange}/>
-                                            }
                                         </div>
                                         <div className={submitted && !profile.linkedinLink ? ' has-error' : ''}>
                                             <MDBInput name="linkedinLink" label="LinkedIn" fab icon="linkedin" group
                                                       type="text" validate value={profile.linkedinLink}
                                                       onChange={this.handleChange}/>
-                                            }
                                         </div>
                                         <div className={submitted && !profile.githubLink ? ' has-error' : ''}>
                                             <MDBInput name="githubLink" label="GitHub" fab icon="github" group
                                                       type="text" validate value={profile.githubLink}
                                                       onChange={this.handleChange}/>
-                                            }
                                         </div>
                                         <div className={submitted && !profile.telegramLink ? ' has-error' : ''}>
                                             <MDBInput name="telegramLink" label="Telegram" fab icon="telegram" group
                                                       type="text" validate value={profile.telegramLink}
                                                       onChange={this.handleChange}/>
-                                            }
                                         </div>
                                         <div className="btn-group">
                                             <MDBBtn type="submit" className="form-btn" color="0">Готово</MDBBtn>
