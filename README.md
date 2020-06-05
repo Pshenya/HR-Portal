@@ -1,3 +1,6 @@
+## Online Demo
+https://pshenya.github.io/HR-Portal/
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
