@@ -1,0 +1,31 @@
+{
+  "files": {
+    "main.css": "/HR-Portal-Frontend/static/css/main.634ebcb4.chunk.css",
+    "main.js": "/HR-Portal-Frontend/static/js/main.3c5aeeef.chunk.js",
+    "main.js.map": "/HR-Portal-Frontend/static/js/main.3c5aeeef.chunk.js.map",
+    "runtime-main.js": "/HR-Portal-Frontend/static/js/runtime-main.0926ad4f.js",
+    "runtime-main.js.map": "/HR-Portal-Frontend/static/js/runtime-main.0926ad4f.js.map",
+    "static/css/2.361b6021.chunk.css": "/HR-Portal-Frontend/static/css/2.361b6021.chunk.css",
+    "static/js/2.74cd9f24.chunk.js": "/HR-Portal-Frontend/static/js/2.74cd9f24.chunk.js",
+    "static/js/2.74cd9f24.chunk.js.map": "/HR-Portal-Frontend/static/js/2.74cd9f24.chunk.js.map",
+    "index.html": "/HR-Portal-Frontend/index.html",
+    "precache-manifest.de1f908e3e0d25bdd152fb4437be785a.js": "/HR-Portal-Frontend/precache-manifest.de1f908e3e0d25bdd152fb4437be785a.js",
+    "service-worker.js": "/HR-Portal-Frontend/service-worker.js",
+    "static/css/2.361b6021.chunk.css.map": "/HR-Portal-Frontend/static/css/2.361b6021.chunk.css.map",
+    "static/css/main.634ebcb4.chunk.css.map": "/HR-Portal-Frontend/static/css/main.634ebcb4.chunk.css.map",
+    "static/js/2.74cd9f24.chunk.js.LICENSE.txt": "/HR-Portal-Frontend/static/js/2.74cd9f24.chunk.js.LICENSE.txt",
+    "static/media/MIIIIIIIIIIII.jpg": "/HR-Portal-Frontend/static/media/MIIIIIIIIIIII.88711822.jpg",
+    "static/media/index.css": "/HR-Portal-Frontend/static/media/RobotoCondensed-Regular.52ee8b59.ttf",
+    "static/media/mdb.css": "/HR-Portal-Frontend/static/media/arrow_right.8ef6a08c.svg",
+    "static/media/all.min.css": "/HR-Portal-Frontend/static/media/fa-solid-900.ec763292.svg",
+    "static/media/font-awesome.min.css": "/HR-Portal-Frontend/static/media/fontawesome-webfont.fee66e71.woff",
+    "static/media/pavlik.jpg": "/HR-Portal-Frontend/static/media/pavlik.c09f00f8.jpg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.0926ad4f.js",
+    "static/css/2.361b6021.chunk.css",
+    "static/js/2.74cd9f24.chunk.js",
+    "static/css/main.634ebcb4.chunk.css",
+    "static/js/main.3c5aeeef.chunk.js"
+  ]
+}
