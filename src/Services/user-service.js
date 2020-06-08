@@ -13,7 +13,7 @@ export const userService = {
     deleteProfileData
 };
 
-const _apiURL = "http://localhost:3000/api";
+const _apiURL = "http://192.168.0.101:3000/api";
 
 function register(user) {
     const requestOptions = {
