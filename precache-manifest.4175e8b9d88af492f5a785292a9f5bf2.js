@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "81f2d4f4476fb2f738b85a5f3dba4d62",
+    "revision": "7a3f60c16e5e75e6486eaeac9a3ea766",
     "url": "/HR-Portal/index.html"
   },
   {
@@ -8,7 +8,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/HR-Portal/static/css/2.b2c4cd9e.chunk.css"
   },
   {
-    "revision": "26b223b136848c5af5e3",
+    "revision": "82873b835b59c6f56e02",
     "url": "/HR-Portal/static/css/main.60c14af0.chunk.css"
   },
   {
@@ -20,8 +20,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/HR-Portal/static/js/2.74cd9f24.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "26b223b136848c5af5e3",
-    "url": "/HR-Portal/static/js/main.979f5581.chunk.js"
+    "revision": "82873b835b59c6f56e02",
+    "url": "/HR-Portal/static/js/main.cf65967a.chunk.js"
   },
   {
     "revision": "3b61ca2fea8afbea40bd",
