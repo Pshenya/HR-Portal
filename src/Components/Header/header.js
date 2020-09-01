@@ -1,18 +1,18 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 
 import './header.css';
 
 import {connect} from "react-redux";
 
-import { Link } from "react-router-dom";
-import { Container, Nav, Navbar } from "react-bootstrap";
-import { ROUTES } from "../../Routes/routes";
+import {Link} from "react-router-dom";
+import {Container, Nav, Navbar} from "react-bootstrap";
+import {ROUTES} from "../../Routes/routes";
 import Loading from "../Loading/loading";
 
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faUserCircle } from "@fortawesome/free-regular-svg-icons";
-import { faSignOutAlt } from "@fortawesome/free-solid-svg-icons";
-import { userActions } from "../../Actions";
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import {faUserCircle} from "@fortawesome/free-regular-svg-icons";
+import {faSignOutAlt} from "@fortawesome/free-solid-svg-icons";
+import {userActions} from "../../Actions";
 
 import Logo from '../../assets/img/MIIIIIIIIIIII.jpg';
 import ErrorIndicator from "../ErrorIndicator/error-indicator";
@@ -26,9 +26,9 @@ export class Header extends Component {
         const {loggedIn, userData, logout} = this.props;
 
         return (
-            <div className="header">
-                <header>
-                    <Navbar collapseOnSelect expand="sm">
+            <header className="header">
+                <div className="content-container">
+                    <Navbar collapseOnSelect expand="lg">
                         <Container fluid>
                             <Navbar.Brand className="nav-logo">
                                 <Link to="/">
@@ -54,7 +54,7 @@ export class Header extends Component {
                                                      icon={faSignOutAlt}/>
                                 </div>
                                 }
-                                { !loggedIn &&
+                                {!loggedIn &&
                                 <Link to={ROUTES.LOGIN}>
                                     <button className="login-btn">Войти</button>
                                 </Link>}
@@ -63,8 +63,8 @@ export class Header extends Component {
                             </Navbar.Collapse>
                         </Container>
                     </Navbar>
-                </header>
-            </div>
+                </div>
+            </header>
         );
     }
 }

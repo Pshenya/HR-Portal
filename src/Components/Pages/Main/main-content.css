@@ -8,7 +8,6 @@
 .main-content{
     position: relative;
     display: block;
-    width: 80%;
     /*margin-top: 140px;*/
-    padding: 30px;
+    padding-top: 30px;
 }

@@ -1,14 +1,14 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 import './App.css';
 
-import { connect } from "react-redux";
-import { Router, Switch, Route, Redirect } from "react-router-dom";
-import { ROUTES } from './Routes/routes';
-import { history } from './Components/Helpers';
-import { alertActions, userActions } from './Actions';
+import {connect} from "react-redux";
+import {Router, Switch, Route, Redirect} from "react-router-dom";
+import {ROUTES} from './Routes/routes';
+import {history} from './Components/Helpers';
+import {alertActions, userActions} from './Actions';
 
 import Header from "./Components/Header/header";
 import MainPage from "./Components/Pages/Main/main-page";
@@ -44,11 +44,11 @@ export class App extends Component {
                     {shouldShowHeaderAndFooter && <Header/>}
                     {
                         alert.message &&
-                    <div style={{marginBottom: 0}} className={`alert ${alert.type}`}>
-                        {alert.message}
-                    </div>
+                        <div style={{marginBottom: 0}} className={`alert ${alert.type}`}>
+                            {alert.message}
+                        </div>
                     }
-                    { /*Роутинг сайту (сторінки і навігація по ним)*/ }
+                    { /*Роутинг сайту (сторінки і навігація по ним)*/}
                     <Switch>
                         <Route exact path={ROUTES.MAIN} component={MainPage}/>
                         <Route path={ROUTES.SEARCH} component={SearchPage}/>

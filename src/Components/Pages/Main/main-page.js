@@ -9,7 +9,7 @@ import NewsCards from "./News/news-cards";
 const MainPage = () => {
     return (
         <div className="width-control">
-            <div className="main-content">
+            <div className="content-container main-content">
                 <Slider/>
                 <NewsCards/>
             </div>
