@@ -1,11 +1,21 @@
 .width-control{
+    width: 100%;
     font-family: "Roboto-Condensed Regular", sans-serif;
     font-weight: 400;
     display: flex;
     justify-content: space-between;
     align-items: stretch;
 }
+
+.content-wrapper{
+    display: flex;
+    justify-content: space-between;
+    max-width: 1320px;
+    margin: 0 auto;
+}
+
 .main-content{
+    max-width: 1000px;
     position: relative;
     display: block;
     /*margin-top: 140px;*/

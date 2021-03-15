@@ -15,7 +15,7 @@ import Logo from '../../assets/img/MIIIIIIIIIIII.jpg';
 const Footer = () => {
     return (
             <footer className="footer">
-                <div className="content-container main-content">
+                <div className="footer-container">
                     <div className="footer-content">
                         <div className="info">
                             <img src={Logo} alt="Logo" height={30} width={100}/>

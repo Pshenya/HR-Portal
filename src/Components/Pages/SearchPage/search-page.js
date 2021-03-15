@@ -1,7 +1,7 @@
-import React, { Component } from "react";
+import React, {Component} from "react";
 
 import SearchPageItem from "./search-page-item";
-import { withStyles } from "../../Helpers";
+import {withStyles} from "../../Helpers";
 
 import InputBase from "@material-ui/core/InputBase";
 import IconButton from "@material-ui/core/IconButton";
@@ -22,11 +22,12 @@ class SearchPage extends Component {
         }
     }
 
-    onSearch(e){
+    onSearch(e) {
         this.setState({
             searchInput: e.target.value
         });
     }
+
     render() {
         const {stylesHook} = this.props;
         const classes = stylesHook;
@@ -54,23 +55,25 @@ class SearchPage extends Component {
                                 <IconButton className={classes.iconButton} aria-label="search">
                                     <SearchIcon/>
                                 </IconButton>
-                                <Divider className={classes.divider} orientation="vertical"/>
-                                <IconButton color="primary" className={classes.iconButton} aria-label="directions">
-                                    <WorkIcon/>
-                                    <h3 style={{marginLeft: '5px', fontSize: '1.5rem'}}>Все компании</h3>
-                                    <ExpandMoreIcon/>
-                                </IconButton>
+                                {/*<Divider className={classes.divider} orientation="vertical"/>*/}
+                                {/*<IconButton color="primary" className={classes.iconButton} aria-label="directions">*/}
+                                {/*    <WorkIcon/>*/}
+                                {/*    <h3 style={{marginLeft: '5px', fontSize: '1.5rem'}}>Все компании</h3>*/}
+                                {/*    <ExpandMoreIcon/>*/}
+                                {/*</IconButton>*/}
                             </Paper>
                         </div>
                     </div>
                 </div>
-                {
-                    filteredProfiles.map((userData) => {
-                        return <div className="sp-item" key={userData._id}>
-                            <SearchPageItem userData={userData}/>
-                        </div>
-                    })
-                }
+                <div className="content-container">
+                    {
+                        filteredProfiles.map((userData) => {
+                            return <div className="sp-item" key={userData._id}>
+                                <SearchPageItem userData={userData}/>
+                            </div>
+                        })
+                    }
+                </div>
             </div>
         );
     };

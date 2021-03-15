@@ -7,7 +7,7 @@ export const assetsService = {
     getFeedbacks
 };
 
-const _apiURL = "https://hr-portal-backend.herokuapp.com/api";
+const _apiURL = "http://localhost:3000/api";
 
 function getAllVacancies() {
     const requsetOptions = {

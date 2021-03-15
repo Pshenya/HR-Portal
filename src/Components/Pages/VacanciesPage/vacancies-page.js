@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
 import { withStyles } from "../../Helpers";
+import './vacancies-menus.css';
 
 import Paper from "@material-ui/core/Paper";
 import InputBase from "@material-ui/core/InputBase";
@@ -11,18 +12,28 @@ import WorkIcon from "@material-ui/icons/Work";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import VacanciesPageItem from "./vacancies-page-item";
 import { Form } from "react-bootstrap";
+import {element} from "prop-types";
 
 
 class VacanciesPage extends Component {
     constructor(props) {
         super(props);
 
-        this.onSearch = this.onSearch.bind(this);
-        this.handleRadioChange = this.handleRadioChange.bind(this);
         this.state = {
             searchInput: '',
-            category: ''
+            category: '',
+            showRegions: false,
+            showCategories: false,
+            showCompanies: false
         }
+
+        this.onSearch = this.onSearch.bind(this);
+        this.handleRadioChange = this.handleRadioChange.bind(this);
+        this.showRegions = this.showRegions.bind(this);
+        this.closeMenu = this.closeMenu.bind(this);
+        this.showCategories = this.showCategories.bind(this);
+        this.showCompanies = this.showCompanies.bind(this);
+
     }
 
     onSearch(e) {
@@ -35,20 +46,52 @@ class VacanciesPage extends Component {
         this.setState({category: e.target.value})
     }
 
-    getUnique(arr, comp) {
-        const unique = arr
-            //store the comparison values in array
-            .map(e => e[comp])
+    // getUnique(arr, comp) {
+    //     const unique = arr
+    //         //store the comparison values in array
+    //         .map(e => e[comp])
+    //
+    //         // store the keys of the unique objects
+    //         .map((e, i, final) => final.indexOf(e) === i && i)
+    //
+    //         // eliminate the dead keys & store unique objects
+    //         .filter(e => arr[e])
+    //
+    //         .map(e => arr[e]);
+    //
+    //     return unique;
+    // }
 
-            // store the keys of the unique objects
-            .map((e, i, final) => final.indexOf(e) === i && i)
+    showRegions(e){
+        e.preventDefault();
 
-            // eliminate the dead keys & store unique objects
-            .filter(e => arr[e])
+        this.setState({showRegions: true}, () => {
+            document.addEventListener('click', this.closeMenu)
+        })
+    }
 
-            .map(e => arr[e]);
+    showCategories(e){
+        e.preventDefault();
 
-        return unique;
+        this.setState({showCategories: true}, () => {
+            document.addEventListener('click', this.closeMenu)
+        })
+    }
+
+    showCompanies(e){
+        e.preventDefault();
+
+        this.setState({showCompanies: true}, () => {
+            document.addEventListener('click', this.closeMenu)
+        })
+    }
+
+    closeMenu(e){
+        if(!this.dropDownMenu.contains(e.target)){
+            this.setState({showRegions: false, showCompanies: false, showCategories: false}, () => {
+                document.removeEventListener('click', this.closeMenu);
+            });
+        }
     }
 
     render() {
@@ -62,7 +105,7 @@ class VacanciesPage extends Component {
                 return (vacancy.heading.toLowerCase().includes(this.state.searchInput.toLowerCase())) || (vacancy.company.toLowerCase().includes(this.state.searchInput.toLowerCase()));
             }
         );
-        const uniqueVacancy = this.getUnique(vacanciesList, "category");
+        // const uniqueVacancy = this.getUnique(vacanciesList, "category");
         return (
             <div className="vac-content">
                 <div className="search-header">
@@ -80,21 +123,54 @@ class VacanciesPage extends Component {
                                     <SearchIcon/>
                                 </IconButton>
                                 <Divider className={classes.divider} orientation="vertical"/>
-                                <IconButton color="primary" className={classes.iconButton} aria-label="directions">
+                                <IconButton onClick={this.showRegions} color="primary" className={classes.iconButton} aria-label="directions">
                                     <WorkIcon/>
                                     <h3 style={{marginLeft: '5px', fontSize: '1.5rem'}}>Все регионы</h3>
                                     <ExpandMoreIcon/>
+                                    {this.state.showRegions
+                                        ? (
+                                            <div className="dropdown-menu" ref={(element) => {
+                                                this.dropDownMenu = element;
+                                            }}>
+                                                <button>Menu item 1</button>
+                                                <button>Menu item 2</button>
+                                                <button>Menu item 3</button>
+                                            </div>
+                                        )
+                                        : null}
                                 </IconButton>
                             </Paper>
                         </div>
                         <ul className="header-list">
-                            <li className="d-flex">
+                            <li onClick={this.showCategories} className="d-flex">
                                 <span>Категории</span>
                                 <ExpandMoreIcon style={{paddingBottom: '3px'}}/>
+                                {this.state.showCategories
+                                    ? (
+                                        <div className="dropdown-menu" ref={(element) => {
+                                            this.dropDownMenu = element;
+                                        }}>
+                                            <button>Menu item 1</button>
+                                            <button>Menu item 2</button>
+                                            <button>Menu item 3</button>
+                                        </div>
+                                    )
+                                    : null}
                             </li>
-                            <li className="d-flex">
+                            <li onClick={this.showCompanies} className="d-flex">
                                 <span>Компании</span>
                                 <ExpandMoreIcon style={{paddingBottom: '3px'}}/>
+                                {this.state.showCompanies
+                                    ? (
+                                        <div className="dropdown-menu" ref={(element) => {
+                                            this.dropDownMenu = element;
+                                        }}>
+                                            <button>Menu item 1</button>
+                                            <button>Menu item 2</button>
+                                            <button>Menu item 3</button>
+                                        </div>
+                                    )
+                                    : null}
                             </li>
                         </ul>
                     </div>

@@ -11,7 +11,7 @@ import ErrorIndicator from "../../ErrorIndicator/error-indicator";
 const RatingPage = ({profilesList}) => {
     return (
         <div className="rating-container">
-            <div className="rating-content">
+            <div className="content-container">
                 <h1 className="rating-title">ТОП-50 HR-ов Украины</h1>
                 <table className="rating-table" id="ratingTableId">
 

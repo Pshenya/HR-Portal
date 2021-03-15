@@ -4,6 +4,12 @@
     width: 100%;
     min-height: 125px;
 }
+
+.footer-container{
+    max-width: 1320px;
+    margin: 0 auto;
+    padding: 30px;
+}
 .footer-content{
     display: flex;
     justify-content: space-between;

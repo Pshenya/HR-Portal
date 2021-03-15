@@ -13,7 +13,7 @@ export const userService = {
     deleteProfileData
 };
 
-const _apiURL = "https://hr-portal-backend.herokuapp.com/api";
+const _apiURL = "http://localhost:3000/api";
 
 function register(user) {
     const requestOptions = {
@@ -27,6 +27,7 @@ function register(user) {
         .then(handleResponse)
         .then(user => {
             console.log(JSON.parse(user));
+            console.log(localStorage.getItem('usertId'));
             localStorage.setItem('userId', JSON.parse(user));
             return user;
         })
