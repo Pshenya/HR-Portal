@@ -15,7 +15,7 @@ const VacanciesPageItem = ({vacancy}) => {
                             <span className="vac-card-salary">$ {vacancy.salary}</span>
                             <span className="vac-card-location">
                                                 <RoomIcon style={{marginRight: '5px'}}/>
-                                                Киев
+                                {vacancy.region}
                                             </span>
                         </div>
                     </div>

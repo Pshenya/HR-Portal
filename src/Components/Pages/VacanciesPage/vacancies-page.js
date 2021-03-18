@@ -22,17 +22,19 @@ class VacanciesPage extends Component {
         this.state = {
             searchInput: '',
             category: '',
+            region: '',
             showRegions: false,
             showCategories: false,
             showCompanies: false
         }
 
         this.onSearch = this.onSearch.bind(this);
-        this.handleRadioChange = this.handleRadioChange.bind(this);
         this.showRegions = this.showRegions.bind(this);
         this.closeMenu = this.closeMenu.bind(this);
         this.showCategories = this.showCategories.bind(this);
         this.showCompanies = this.showCompanies.bind(this);
+        this.handleCategory = this.handleCategory.bind(this);
+        this.handleRegion = this.handleRegion.bind(this);
 
     }
 
@@ -41,26 +43,6 @@ class VacanciesPage extends Component {
             searchInput: e.target.value
         });
     }
-
-    handleRadioChange(e) {
-        this.setState({category: e.target.value})
-    }
-
-    // getUnique(arr, comp) {
-    //     const unique = arr
-    //         //store the comparison values in array
-    //         .map(e => e[comp])
-    //
-    //         // store the keys of the unique objects
-    //         .map((e, i, final) => final.indexOf(e) === i && i)
-    //
-    //         // eliminate the dead keys & store unique objects
-    //         .filter(e => arr[e])
-    //
-    //         .map(e => arr[e]);
-    //
-    //     return unique;
-    // }
 
     showRegions(e){
         e.preventDefault();
@@ -87,11 +69,24 @@ class VacanciesPage extends Component {
     }
 
     closeMenu(e){
-        if(!this.dropDownMenu.contains(e.target)){
             this.setState({showRegions: false, showCompanies: false, showCategories: false}, () => {
                 document.removeEventListener('click', this.closeMenu);
             });
-        }
+        
+    }
+
+    handleCategory(e){
+        console.log(e.target.value)
+        this.setState({
+            category: e.target.value
+        });
+    }
+
+    handleRegion(e){
+        console.log(e.target.value)
+        this.setState({
+            region: e.target.value
+        });
     }
 
     render() {
@@ -99,13 +94,26 @@ class VacanciesPage extends Component {
         const classes = stylesHook;
 
         const {vacanciesList} = this.props;
-        const {category} = this.state.category;
         let filteredVacancy = vacanciesList.filter(
             (vacancy) => {
-                return (vacancy.heading.toLowerCase().includes(this.state.searchInput.toLowerCase())) || (vacancy.company.toLowerCase().includes(this.state.searchInput.toLowerCase()));
+                return (vacancy.category.toLowerCase().includes(this.state.category.toLowerCase()) &&
+                    vacancy.heading.toLowerCase().includes(this.state.searchInput.toLowerCase()) &&
+                    vacancy.region.toLowerCase().includes(this.state.region.toLowerCase()))
+                    || (vacancy.category.toLowerCase().includes(this.state.category.toLowerCase()) &&
+                    vacancy.company.toLowerCase().includes(this.state.searchInput.toLowerCase()) &&
+                        vacancy.region.toLowerCase().includes(this.state.region.toLowerCase()))
+
             }
         );
-        // const uniqueVacancy = this.getUnique(vacanciesList, "category");
+
+        if(filteredVacancy.length === 0){
+            return (
+                <div>
+                    <span>Ми не змогли знайти жодної вакансії по вашим критеріям</span>
+                </div>
+            )
+        }
+
         return (
             <div className="vac-content">
                 <div className="search-header">
@@ -129,12 +137,14 @@ class VacanciesPage extends Component {
                                     <ExpandMoreIcon/>
                                     {this.state.showRegions
                                         ? (
-                                            <div className="dropdown-menu" ref={(element) => {
-                                                this.dropDownMenu = element;
-                                            }}>
-                                                <button>Menu item 1</button>
-                                                <button>Menu item 2</button>
-                                                <button>Menu item 3</button>
+                                            <div className="regions-dropdown-menu">
+                                                <button value={"Kiev"} onClick={e => this.handleRegion(e, "value")}>Київ</button>
+                                                <button value={"Kharkiv"} onClick={e => this.handleRegion(e, "value")}>Харків</button>
+                                                <button value={"Dnipro"} onClick={e => this.handleRegion(e, "value")}>Дніпро</button>
+                                                <button value={"Zaporizhzhia"} onClick={e => this.handleRegion(e, "value")}>Запоріжжя</button>
+                                                <button value={"Lviv"} onClick={e => this.handleRegion(e, "value")}>Львів</button>
+                                                <button value={"Odessa"} onClick={e => this.handleRegion(e, "value")}>Одеса</button>
+                                                <button value={"All regions"} onClick={e => this.handleRegion(e, "value")}>Всі регіони</button>
                                             </div>
                                         )
                                         : null}
@@ -147,94 +157,93 @@ class VacanciesPage extends Component {
                                 <ExpandMoreIcon style={{paddingBottom: '3px'}}/>
                                 {this.state.showCategories
                                     ? (
-                                        <div className="dropdown-menu" ref={(element) => {
-                                            this.dropDownMenu = element;
-                                        }}>
-                                            <button>Menu item 1</button>
-                                            <button>Menu item 2</button>
-                                            <button>Menu item 3</button>
+                                        <div className="dropdown-menu">
+                                            <button value={"HR"} onClick={e => this.handleCategory(e, "value")}>HR-спеціалісти/Бізнес тренери</button>
+                                            <button value={"IT"} onClick={e => this.handleCategory(e, "value")}>IT</button>
+                                            <button value={"Hotels/Cafe/Restaurants"} onClick={e => this.handleCategory(e, "value")}>Готелі - Ресторани - Кафе</button>
+                                            <button value={"Graphics/Design"} onClick={e => this.handleCategory(e, "value")}>Дизайн - Фото - Графіка</button>
                                         </div>
                                     )
                                     : null}
                             </li>
-                            <li onClick={this.showCompanies} className="d-flex">
-                                <span>Компании</span>
-                                <ExpandMoreIcon style={{paddingBottom: '3px'}}/>
-                                {this.state.showCompanies
-                                    ? (
-                                        <div className="dropdown-menu" ref={(element) => {
-                                            this.dropDownMenu = element;
-                                        }}>
-                                            <button>Menu item 1</button>
-                                            <button>Menu item 2</button>
-                                            <button>Menu item 3</button>
-                                        </div>
-                                    )
-                                    : null}
-                            </li>
+                            {/*<li onClick={this.showCompanies} className="d-flex">*/}
+                            {/*    <span>Компании</span>*/}
+                            {/*    <ExpandMoreIcon style={{paddingBottom: '3px'}}/>*/}
+                            {/*    {this.state.showCompanies*/}
+                            {/*        ? (*/}
+                            {/*            <div className="dropdown-menu" ref={(element) => {*/}
+                            {/*                this.dropDownMenu = element;*/}
+                            {/*            }}>*/}
+                            {/*                <button>Menu item 1</button>*/}
+                            {/*                <button>Menu item 2</button>*/}
+                            {/*                <button>Menu item 3</button>*/}
+                            {/*            </div>*/}
+                            {/*        )*/}
+                            {/*        : null}*/}
+                            {/*</li>*/}
                         </ul>
                     </div>
                 </div>
                 <div className="vac-main">
                     <div className="vac-main-wrapper">
-                        <aside className="vac-aside-wrapper">
-                            <div className="vac-rightContent">
-                                <div className="vac-sidebar">
-                                    <div className="vac-sidebar-categories">
-                                        <h3>Категория</h3>
-                                        <select className="vac-sidebar-select">
-                                            <option>Все категории</option>
-                                            <option>IT</option>
-                                        </select>
-                                    </div>
-                                    <div className="sidebar-divider"/>
-                                    <div className="vac-sidebar-schedule">
-                                        <h3>Занятость: </h3>
-                                        <Form.Check
-                                            type="radio"
-                                            name="vac-radios"
-                                            id='full'
-                                            label="Полная занятость"
-                                        />
+                        {/*<aside className="vac-aside-wrapper">*/}
+                        {/*    <div className="vac-rightContent">*/}
+                        {/*        <div className="vac-sidebar">*/}
+                        {/*            <div className="vac-sidebar-categories">*/}
+                        {/*                <h3>Категория</h3>*/}
+                        {/*                <select className="vac-sidebar-select">*/}
+                        {/*                    <option>Все категории</option>*/}
+                        {/*                    <option>IT</option>*/}
+                        {/*                </select>*/}
+                        {/*            </div>*/}
+                        {/*            <div className="sidebar-divider"/>*/}
+                        {/*            <div className="vac-sidebar-schedule">*/}
+                        {/*                <h3>Занятость: </h3>*/}
+                        {/*                <Form.Check*/}
+                        {/*                    type="radio"*/}
+                        {/*                    name="vac-radios"*/}
+                        {/*                    id='full'*/}
+                        {/*                    label="Полная занятость"*/}
+                        {/*                />*/}
 
-                                        <Form.Check
-                                            type="radio"
-                                            name="vac-radios"
-                                            label="Практика/стажирвка"
-                                            id='practice'
-                                        />
-                                        <Form.Check
-                                            type="radio"
-                                            name="vac-radios"
-                                            label="Неполная занятость"
-                                            id='semi'
-                                        />
-                                        <Form.Check
-                                            type="radio"
-                                            name="vac-radios"
-                                            label="Удаленная работа"
-                                            id='remote'
-                                        />
-                                    </div>
-                                    <div className="sidebar-divider"/>
-                                    <div className="vac-sidebar-salary">
-                                        <h3>Зарплата: </h3>
-                                        <div className="salary-flex">
-                                            <div className="salary-input-line">
-                                                <span>от</span>
-                                                <input className="salary-input" type="text"/>
-                                                <span>грн.</span>
-                                                <button type="button" className="salary-input-btn">OK</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </aside>
+                        {/*                <Form.Check*/}
+                        {/*                    type="radio"*/}
+                        {/*                    name="vac-radios"*/}
+                        {/*                    label="Практика/стажирвка"*/}
+                        {/*                    id='practice'*/}
+                        {/*                />*/}
+                        {/*                <Form.Check*/}
+                        {/*                    type="radio"*/}
+                        {/*                    name="vac-radios"*/}
+                        {/*                    label="Неполная занятость"*/}
+                        {/*                    id='semi'*/}
+                        {/*                />*/}
+                        {/*                <Form.Check*/}
+                        {/*                    type="radio"*/}
+                        {/*                    name="vac-radios"*/}
+                        {/*                    label="Удаленная работа"*/}
+                        {/*                    id='remote'*/}
+                        {/*                />*/}
+                        {/*            </div>*/}
+                        {/*            <div className="sidebar-divider"/>*/}
+                        {/*            <div className="vac-sidebar-salary">*/}
+                        {/*                <h3>Зарплата: </h3>*/}
+                        {/*                <div className="salary-flex">*/}
+                        {/*                    <div className="salary-input-line">*/}
+                        {/*                        <span>от</span>*/}
+                        {/*                        <input className="salary-input" type="text"/>*/}
+                        {/*                        <span>грн.</span>*/}
+                        {/*                        <button type="button" className="salary-input-btn">OK</button>*/}
+                        {/*                    </div>*/}
+                        {/*                </div>*/}
+                        {/*            </div>*/}
+                        {/*        </div>*/}
+                        {/*    </div>*/}
+                        {/*</aside>*/}
                         <section className="vac-leftContent">
                             {
                                 filteredVacancy.map((vacancy) => {
-                                    return <div key={vacancy._id}>
+                                     return <div key={vacancy._id}>
                                         <VacanciesPageItem vacancy={vacancy}/>
                                     </div>
                                 })
