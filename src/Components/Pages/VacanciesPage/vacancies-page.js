@@ -72,21 +72,25 @@ class VacanciesPage extends Component {
             this.setState({showRegions: false, showCompanies: false, showCategories: false}, () => {
                 document.removeEventListener('click', this.closeMenu);
             });
-        
+
     }
 
     handleCategory(e){
-        console.log(e.target.value)
         this.setState({
             category: e.target.value
         });
     }
 
     handleRegion(e){
-        console.log(e.target.value)
-        this.setState({
-            region: e.target.value
-        });
+        if(e.target.value === 'All regions'){
+            this.setState({
+                region: ''
+            })
+        } else {
+            this.setState({
+                region: e.target.value
+            });
+        }
     }
 
     render() {
@@ -94,6 +98,7 @@ class VacanciesPage extends Component {
         const classes = stylesHook;
 
         const {vacanciesList} = this.props;
+        console.log(this.state)
         let filteredVacancy = vacanciesList.filter(
             (vacancy) => {
                 return (vacancy.category.toLowerCase().includes(this.state.category.toLowerCase()) &&
@@ -133,7 +138,13 @@ class VacanciesPage extends Component {
                                 <Divider className={classes.divider} orientation="vertical"/>
                                 <IconButton onClick={this.showRegions} color="primary" className={classes.iconButton} aria-label="directions">
                                     <WorkIcon/>
-                                    <h3 style={{marginLeft: '5px', fontSize: '1.5rem'}}>Все регионы</h3>
+                                    <h3 style={{marginLeft: '5px', fontSize: '1.5rem'}}>
+                                        {
+                                            this.state.region === ''
+                                            ? ("Всі регіони")
+                                                : this.state.region
+                                        }
+                                    </h3>
                                     <ExpandMoreIcon/>
                                     {this.state.showRegions
                                         ? (

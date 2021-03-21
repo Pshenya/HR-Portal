@@ -102,6 +102,8 @@
 }
 
 .header-icon, .header-icon:hover, .header-icon:active{
+    position: relative;
+    cursor: pointer;
     box-sizing: border-box;
     text-decoration: none;
     color: #48478a;
@@ -116,5 +118,34 @@
     font-size: 1.5rem;
 }
 
+.header-dropdown-menu{
+    width: 150px;
+    height: 180px;
+    line-height: 40px;
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 40px;
+    right: 30px;
+    bottom: 0;
+    box-shadow: 0 5px 10px rgba(33,37,39, .15);
 
+    z-index: 9;
+}
+
+.header-link{
+    font-size: 18px;
+    color: black;
+    cursor: pointer;
+    box-sizing: border-box;
+    text-decoration: none !important;
+    background-color: white;
+    text-align: right;
+    padding-right: 20px;
+}
+
+.header-dropdown-menu .header-link:hover{
+    background-color: #48478a;
+    color: white;
+}
 

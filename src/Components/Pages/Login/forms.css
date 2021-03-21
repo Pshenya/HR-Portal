@@ -59,6 +59,18 @@
     color: #48478a;
 }
 
+.common-form .roleCheck{
+    display: flex;
+    justify-content: space-evenly;
+    font-size: 16px;
+    font-weight: 400;
+    margin: 65px 0 20px 0;
+}
+
+.common-form .roleCheck input[type=radio]{
+    margin-right: 10px;
+}
+
 .common-form .form-check input[type=checkbox] {
     position: absolute;
     z-index: -1;

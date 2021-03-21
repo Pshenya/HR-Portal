@@ -149,6 +149,10 @@ class MyProfile extends Component {
                                 <div className="profile-img">
                                     <div className="img-content">
                                         <p>Фото профиля</p>
+                                        <form method="post" action="api/upload" encType="multipart/form-data">
+                                            <input type="file" name="wallpaper"/>
+                                            <input type="submit"/>
+                                        </form>
                                         {/*<Avatar*/}
                                         {/*    width={390}*/}
                                         {/*    height={295}*/}

@@ -1,15 +1,15 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 
-import { connect } from "react-redux";
-import { Link } from "react-router-dom";
-import { userActions } from '../../../../Actions';
+import {connect} from "react-redux";
+import {Link} from "react-router-dom";
+import {userActions} from '../../../../Actions';
 
 import '../login.css';
 
 
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faTimesCircle } from "@fortawesome/free-regular-svg-icons";
-import { ROUTES } from "../../../../Routes/routes";
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import {faTimesCircle} from "@fortawesome/free-regular-svg-icons";
+import {ROUTES} from "../../../../Routes/routes";
 import {MDBBtn, MDBCol, MDBContainer, MDBInput, MDBRow} from "mdbreact";
 import Logo from "../../../../assets/img/MIIIIIIIIIIII.jpg";
 
@@ -22,7 +22,8 @@ class RegistrationPage extends Component {
                 name: '',
                 lastName: '',
                 email: '',
-                password: ''
+                password: '',
+                role: ''
             },
             submitted: false
         };
@@ -32,6 +33,7 @@ class RegistrationPage extends Component {
     }
 
     handleChange(event) {
+        console.log(event.target)
         const {name, value} = event.target;
         const {user} = this.state;
         this.setState({
@@ -47,7 +49,7 @@ class RegistrationPage extends Component {
 
         this.setState({submitted: true});
         const {user} = this.state;
-        if (user.name && user.lastName && user.email && user.password) {
+        if (user.name && user.lastName && user.email && user.password && user.role) {
             this.props.register(user);
         }
     }
@@ -55,6 +57,7 @@ class RegistrationPage extends Component {
     render() {
         const {registering} = this.props;
         const {user, submitted} = this.state;
+        console.log(this.state)
 
         return (
             <div className="signIn-content">
@@ -69,9 +72,9 @@ class RegistrationPage extends Component {
                     </Link>
                 </div>
                 <div className="signIn-main register-header">
-                    <h1 className="signIn-title">Новый аккаунт</h1>
+                    <h1 className="signIn-title">Новий акаунт</h1>
                     <div className="new-user">
-                        <h3>У вас уже есть аккаунт? <Link to={ROUTES.LOGIN}>Войти</Link></h3>
+                        <h3>У вас вже є акаунт? <Link to={ROUTES.LOGIN}>Увійти</Link></h3>
                     </div>
                     <div className="login-content">
                         <div className="left-content">
@@ -80,38 +83,65 @@ class RegistrationPage extends Component {
                                     <MDBCol>
                                         <form className="common-form" name="form" onSubmit={this.handleSubmit}>
                                             <div className={submitted && !user.name ? ' has-error' : ''}>
-                                                <MDBInput name="name" label="Имя" icon="user-circle" group type="text" validate
+                                                <MDBInput name="name" label="Ім'я" icon="user-circle" group type="text"
+                                                          validate
                                                           error="wrong" value={user.name} onChange={this.handleChange}
                                                           success="right"/>
                                                 {submitted && !user.name &&
-                                                <div className="help-block">* Это обязательное поле</div>
+                                                <div className="help-block">* Це обов'язкове поле</div>
                                                 }
                                             </div>
                                             <div className={submitted && !user.lastName ? ' has-error' : ''}>
-                                                <MDBInput name="lastName" label="Фамилия" icon="user-circle" group type="text" validate
-                                                          error="wrong" value={user.lastName} onChange={this.handleChange}
+                                                <MDBInput name="lastName" label="Прізвище" icon="user-circle" group
+                                                          type="text" validate
+                                                          error="wrong" value={user.lastName}
+                                                          onChange={this.handleChange}
                                                           success="right"/>
                                                 {submitted && !user.lastName &&
-                                                <div className="help-block">* Это обязательное поле</div>
+                                                <div className="help-block">* Це обов'язкове поле</div>
                                                 }
                                             </div>
                                             <div className={submitted && !user.email ? ' has-error' : ''}>
-                                                <MDBInput name="email" label="Эл. почта" icon="envelope" group type="email" validate
+                                                <MDBInput name="email" label="Эл. пошта" icon="envelope" group
+                                                          type="email" validate
                                                           error="wrong" value={user.email} onChange={this.handleChange}
                                                           success="right"/>
                                                 {submitted && !user.email &&
-                                                <div className="help-block">* Это обязательное поле</div>
+                                                <div className="help-block">* Це обов'язкове поле</div>
                                                 }
                                             </div>
                                             <div className={submitted && !user.password ? ' has-error' : ''}>
                                                 <MDBInput name="password" label="Пароль" icon="lock" group
-                                                          type="password" validate value={user.password} onChange={this.handleChange}/>
+                                                          type="password" validate value={user.password}
+                                                          onChange={this.handleChange}/>
                                                 {submitted && !user.password &&
-                                                <div className="help-block">* Это обязательное поле</div>
+                                                <div className="help-block">* Це обов'язкове поле</div>
+                                                }
+                                            </div>
+                                            <div className={submitted && !user.role ? ' has-error' : ''}>
+                                                {/*<MDBInput name="role" label="Имя" icon="user-circle" group type="text"*/}
+                                                {/*          error="wrong" value={user.role} onChange={this.handleChange}*/}
+                                                {/*          success="right"/>*/}
+                                                <div className="roleCheck">
+                                                    <div>
+                                                        <input type="radio" name="role" id="roleChoice"
+                                                               value="Worker" onChange={this.handleChange}
+                                                               checked={user.role === "Worker"}/>
+                                                        <label htmlFor="roleChoice">Шукаю роботу</label>
+                                                    </div>
+                                                    <div>
+                                                        <input type="radio" name="role" id="roleChoice2"
+                                                               value="HR" onChange={this.handleChange}
+                                                               checked={user.role === "HR"}/>
+                                                        <label htmlFor="roleChoice2">HR/Рекрутер</label>
+                                                    </div>
+                                                </div>
+                                                {submitted && !user.role &&
+                                                <div className="help-block">* Це обов'язкове поле</div>
                                                 }
                                             </div>
                                             <div className="btn-group">
-                                                <MDBBtn type="submit" className="form-btn" color="0">Войти</MDBBtn>
+                                                <MDBBtn type="submit" className="form-btn" color="0">Створити акаунт</MDBBtn>
                                                 {registering &&
                                                 <img
                                                     src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA=="
@@ -122,48 +152,12 @@ class RegistrationPage extends Component {
                                     </MDBCol>
                                 </MDBRow>
                             </MDBContainer>
-                            {/*<Form className="common-form mx-auto" name="form" onSubmit={this.handleSubmit}>*/}
-                            {/*    <Form.Group className={(submitted && !user.name ? ' has-error' : '')}>*/}
-                            {/*        <Form.Label htmlFor="name">Имя</Form.Label>*/}
-                            {/*        <Form.Control type="text" name="name" value={user.name} onChange={this.handleChange} />*/}
-                            {/*        {submitted && !user.name &&*/}
-                            {/*        <div className="help-block">* Это обязательное поле</div>*/}
-                            {/*        }*/}
-                            {/*    </Form.Group>*/}
-                            {/*    <Form.Group className={(submitted && !user.lastName ? ' has-error' : '')}>*/}
-                            {/*        <Form.Label htmlFor="name">Фамилия</Form.Label>*/}
-                            {/*        <Form.Control type="text" name="lastName" value={user.lastName} onChange={this.handleChange} />*/}
-                            {/*        {submitted && !user.lastName &&*/}
-                            {/*        <div className="help-block">* Это обязательное поле</div>*/}
-                            {/*        }*/}
-                            {/*    </Form.Group>*/}
-                            {/*    <Form.Group className={(submitted && !user.email ? ' has-error' : '')}>*/}
-                            {/*        <Form.Label htmlFor="email">Эл. почта</Form.Label>*/}
-                            {/*        <Form.Control type="email" className="form-control" name="email" value={user.username} onChange={this.handleChange} />*/}
-                            {/*        {submitted && !user.email &&*/}
-                            {/*        <div className="help-block">* Это обязательное поле</div>*/}
-                            {/*        }*/}
-                            {/*    </Form.Group>*/}
-                            {/*    <Form.Group className={(submitted && !user.password ? ' has-error' : '')}>*/}
-                            {/*        <Form.Label htmlFor="password">Пароль</Form.Label>*/}
-                            {/*        <Form.Control type="password" className="form-control" name="password" value={user.password} onChange={this.handleChange} />*/}
-                            {/*        {submitted && !user.password &&*/}
-                            {/*        <div className="help-block">* Это обязательное поле</div>*/}
-                            {/*        }*/}
-                            {/*    </Form.Group>*/}
-                            {/*    <Form.Group className="btn-group">*/}
-                            {/*        <button className="form-btn">Создать</button>*/}
-                            {/*        {registering &&*/}
-                            {/*        <img src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" alt="loading" />*/}
-                            {/*        }*/}
-                            {/*    </Form.Group>*/}
-                            {/*</Form>*/}
                         </div>
                     </div>
                     <div className="terms-of-use">
-                        <p>Входя в аккаунт, вы соглашаетесь с <a href="/">пользовательским соглашением</a> и,
-                            подтверждаете,
-                            что ознакомились с <a href="/">политикой конфиденциальности</a>.</p>
+                        <p>Входячи в акаунт, вы погоджуєтесь з <a href="/">користувачою угодою</a> і,
+                            підтверджуєте,
+                            що ознайомились з <a href="/">політикою конфіденційності</a>.</p>
                     </div>
                 </div>
             </div>
