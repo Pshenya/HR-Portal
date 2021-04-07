@@ -30,8 +30,7 @@ const RatingPage = ({profilesList}) => {
                     </thead>
                     {
                         profilesList.filter(userData => {
-                            return userData.jobPosition === 'HR' || userData.jobPosition === 'IT-Recruiter'
-                                || userData.jobPosition === 'HR/IT-Recruiter';
+                            return userData.user.role === 'HR';
                         })
                             .map((userData, idx) => {
                             return <tbody key={userData.userId}>
@@ -52,6 +51,8 @@ class RatingPageContainer extends Component {
 
     render() {
         const {profilesList, loading, error} = this.props;
+
+        console.log("LIST", profilesList)
 
         if (loading)
             return (

@@ -73,6 +73,11 @@ const UsersProfile = ({userData, feedbacksList, userId}) => {
                             </div>
                         </div>
                     </div>
+                    <div className="rate-comment-container">
+                        <div className="rate-btn-container">
+                            <button className="rate-btn">Оставить рейтинговый отзыв</button>
+                        </div>
+                    </div>
                 </div>
                 <Feedbacks userData={userData} userId={userId} feedbacksList={feedbacksList}/>
             </div>

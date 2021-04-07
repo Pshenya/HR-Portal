@@ -1,3 +1,32 @@
+.profreg-content{
+    font-family: Roboto-Condensed, sans-serif;
+    width: 100%;
+    /*padding: 0 48px;*/
+}
+
+.profreg-header{
+    line-height: 24px;
+    margin: 0 auto;
+    max-width: 900px;
+    padding: 20px 5px;
+}
+
+.profreg-content p{
+    font-size: 16px;
+    white-space: nowrap;
+}
+
+.profreg-block{
+    box-sizing: border-box;
+    min-height: 260px;
+    min-width: 600px;
+    max-width: 900px;
+    background-color: white;
+    border-radius: 8px;
+    margin: 0 auto;
+    padding-bottom: 27px;
+}
+
 .profile-helper .md-form .prefix.active{
     color: #48478a;
 }

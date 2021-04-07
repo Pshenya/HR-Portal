@@ -120,7 +120,7 @@
 
 .header-dropdown-menu{
     width: 150px;
-    height: 180px;
+    height: 115px;
     line-height: 40px;
     display: flex;
     flex-direction: column;
@@ -133,19 +133,23 @@
     z-index: 9;
 }
 
+.header-dropdown-menu::backdrop{
+    background: rgba(0,0,0,0.7);
+}
+
 .header-link{
     font-size: 18px;
-    color: black;
+    color: white;
     cursor: pointer;
     box-sizing: border-box;
     text-decoration: none !important;
-    background-color: white;
+    background-color: #48478a;
     text-align: right;
     padding-right: 20px;
 }
 
 .header-dropdown-menu .header-link:hover{
-    background-color: #48478a;
-    color: white;
+    background-color: white;
+    color: #48478a;
 }
 
