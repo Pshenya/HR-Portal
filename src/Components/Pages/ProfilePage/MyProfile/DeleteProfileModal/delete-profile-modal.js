@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from "react-redux";
 import {MDBBtn, MDBModal, MDBModalBody, MDBModalHeader, MDBModalFooter, MDBIcon} from 'mdbreact';
-import {userActions} from "../../../../Actions";
+import {userActions} from "../../../../../Actions";
 
 class DeleteProfileModal extends Component {
     state = {
@@ -15,7 +15,6 @@ class DeleteProfileModal extends Component {
     };
 
     delete = () => {
-        console.log(this.props.userId);
         this.props.deleteProfile(this.props.userId);
         this.toggle();
     };

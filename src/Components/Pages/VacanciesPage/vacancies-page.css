@@ -6,7 +6,7 @@
 }
 
 .search-header{
-    background-color: #48478a;
+    background-color: #2bbbad;
     box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.2);
 }
 
@@ -87,7 +87,7 @@
 
 .card-main-content .common-info .vac-card-title{
     transition: .2s all ease;
-    color: #36c;
+    color: #EA3C53;
     font-size: 20px;
     line-height: 30px;
     font-weight: 800;
@@ -197,7 +197,7 @@
 .salary-input-btn{
     background-color: white;
     border-radius: 3px;
-    border: 1px solid #48478a;
+    border: 1px solid #2bbbad;
     margin-left: 10px !important;
     text-transform: uppercase;
     height: 30px;
@@ -206,13 +206,13 @@
     position: relative;
     top: -.5px;
     min-width: 0 !important;
-    color: #48478a;
+    color: #2bbbad;
     transition: .3s all ease;
 }
 
 .salary-input-btn:hover{
     color: white;
-    background-color: #48478a;
+    background-color: #2bbbad;
 }
 
 

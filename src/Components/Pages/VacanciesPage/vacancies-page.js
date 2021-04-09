@@ -136,7 +136,7 @@ class VacanciesPage extends Component {
                                     <SearchIcon/>
                                 </IconButton>
                                 <Divider className={classes.divider} orientation="vertical"/>
-                                <IconButton onClick={this.showRegions} color="primary" className={classes.iconButton} aria-label="directions">
+                                <IconButton style={{color: "#d23a5d"}} onClick={this.showRegions} className={classes.iconButton} aria-label="directions">
                                     <WorkIcon/>
                                     <h3 style={{marginLeft: '5px', fontSize: '1.5rem'}}>
                                         {

@@ -12,7 +12,7 @@
 }
 
 .vac-back-link:hover{
-    color: #48478a;
+    color: #2bbbad;
 }
 
 .vac-btn{
@@ -20,7 +20,7 @@
     -webkit-transition: all 0.1s ease;
     transition: all 0.5s ease;
     border: none;
-    background-color: #48478a;
+    background-color: #2bbbad;
     color: #fff;
     border-radius: 8px;
     box-sizing: border-box;
@@ -31,7 +31,7 @@
 
 .vac-btn:hover{
     background-color: #fff;
-    color: #48478a;
+    color: #2bbbad;
 }
 
 .link-back{

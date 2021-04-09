@@ -51,7 +51,7 @@
     -webkit-transition: all 0.5s ease;
     transition: all 0.5s ease;
     border: none;
-    background-color: #48478a;
+    background-color: #2bbbad;
     color: #fff;
     border-radius: 30px;
     text-transform: uppercase;
@@ -63,7 +63,7 @@
 
 .carousel .read-more-btn:hover {
     text-decoration: none;
-    color: #48478a;
+    color: #2bbbad;
     background: #fff;
     -webkit-filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.2));
     filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.2));

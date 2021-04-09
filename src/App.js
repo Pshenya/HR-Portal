@@ -20,6 +20,7 @@ import {
     NewsPageContainer, VacancyDetailsContainer
 } from './Components/Pages';
 import ProfileHelper from "./Components/Pages/Login/RegisterProfile/profile-helper";
+import RateCommentModal from "./Components/Pages/RateСommentModal/rate-comment-modal";
 
 export class App extends Component {
     constructor(props) {

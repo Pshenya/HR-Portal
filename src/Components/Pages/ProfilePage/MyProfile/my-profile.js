@@ -1,7 +1,7 @@
 import React, {Component} from "react";
 import {connect} from 'react-redux';
 import Feedbacks from "../Feedbacks/feedbacks";
-import DeleteProfileModal from "../DeleteProfileModal/delete-profile-modal";
+import DeleteProfileModal from "./DeleteProfileModal/delete-profile-modal";
 
 import {Col, Form, Row} from "react-bootstrap";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
@@ -161,13 +161,13 @@ class MyProfile extends Component {
                                         {/*    onBeforeFileLoad={this.onBeforeFileLoad}*/}
                                         {/*    src={this.state.src}*/}
                                         {/*/>*/}
-                                        <FontAwesomeIcon icon={faUserCircle} size="10x" color="#48478a" alt="Profile"
+                                        <FontAwesomeIcon icon={faUserCircle} size="10x" color="#2bbbad" alt="Profile"
                                                          width={250} height={250}/>
                                         <div className="profile-rating">
                                             <FontAwesomeIcon
                                                 icon={faStar}
                                                 size="2x"
-                                                style={{color: "#48478A"}}/>
+                                                style={{color: "#2bbbad"}}/>
                                             <span>{profile.rating}</span>
                                         </div>
                                     </div>

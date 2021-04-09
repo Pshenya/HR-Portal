@@ -5,8 +5,12 @@ import './users-profile.css'
 import Feedbacks from "../Feedbacks/feedbacks";
 
 import pavlik from "../../../../assets/img/pavlik.jpg";
+
+import {Link} from "react-router-dom";
+import {ROUTES} from "../../../../Routes/routes";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faStar, faUserCircle} from "@fortawesome/free-solid-svg-icons";
+import RateCommentModal from "../../RateСommentModal/rate-comment-modal";
 
 const UsersProfile = ({userData, feedbacksList, userId}) => {
     const {user} = userData;
@@ -31,14 +35,14 @@ const UsersProfile = ({userData, feedbacksList, userId}) => {
                                 {/*    onBeforeFileLoad={this.onBeforeFileLoad}*/}
                                 {/*    src={this.state.src}*/}
                                 {/*/>*/}
-                                <FontAwesomeIcon icon={faUserCircle} size="10x" color="#48478a" alt="Profile"
+                                <FontAwesomeIcon icon={faUserCircle} size="10x" color="#2bbbad" alt="Profile"
                                                  width={250} height={250}/>
                                 <div className="profile-rating">
                                     <FontAwesomeIcon
                                         icon={faStar}
                                         size="2x"
-                                        style={{color: "#48478A"}}/>
-                                    <span>{userData.rating}</span>
+                                        style={{color: "#2bbbad"}}/>
+                                    <span>{Math.round((userData.rating)*10)/10}</span>
                                 </div>
                             </div>
                         </div>
@@ -75,7 +79,7 @@ const UsersProfile = ({userData, feedbacksList, userId}) => {
                     </div>
                     <div className="rate-comment-container">
                         <div className="rate-btn-container">
-                            <button className="rate-btn">Оставить рейтинговый отзыв</button>
+                            <RateCommentModal userId={userId}/>
                         </div>
                     </div>
                 </div>

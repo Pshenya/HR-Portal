@@ -81,16 +81,16 @@
     font-size: 21px;
     width: 100%;
     padding: 10px 100px;
-    background-color: #48478a;
+    background-color: #2bbbad;
     color: white;
-    box-shadow: 0 0 7px 2px rgb(72, 71, 138);
+    box-shadow: 0 0 7px 2px rgb(43, 187, 173);
 
     transition: .4s all ease;
 }
 
 .rate-btn:hover{
     background-color: white;
-    color: #48478a;
-    border: 2px solid #48478a;
+    color: #2bbbad;
+    border: 2px solid #2bbbad;
 }
 

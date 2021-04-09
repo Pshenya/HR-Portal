@@ -57,11 +57,11 @@ function getNewsById(id) {
             return JSON.parse(postData);
         })
 }
-function sendFeedback(userId, from, text) {
+function sendFeedback(userId, from, text, rate) {
     const requestOptions = {
         method: 'POST',
         headers: {'Content-Type': 'application/json'},
-        body: JSON.stringify({userId, from, text}),
+        body: JSON.stringify({userId, from, text, rate}),
         redirect: 'follow'
     };
 

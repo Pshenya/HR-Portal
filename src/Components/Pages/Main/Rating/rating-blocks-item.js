@@ -19,7 +19,7 @@ const RatingBlocksItem = ({userData}) => {
             </div>
             <div className="flex-placeholder"></div>
             <div className="aside-points">
-                <span className="bold">{userData.rating}</span>
+                <span className="bold">{Math.round((userData.rating)*10)/10}</span>
                 <br/>
                 <span className="small">/10</span>
             </div>

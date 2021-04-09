@@ -34,7 +34,8 @@
 }
 
 .navbar .login-btn:hover{
-    background-color: #48478a;
+    /*background-color: #48478a;*/
+    background-color: #2bbbad;
     color: #fff;
 }
 
@@ -45,7 +46,7 @@
 }
 
 .nav-link:hover{
-    color: #48478a !important;
+    color: #2bbbad !important;
 }
 .nav-link:nth-child(1){
     margin: 0 0 0 5em;
@@ -71,7 +72,7 @@
     width: 0;
     content: '.';
     color: transparent;
-    background: #48478a;
+    background: #2bbbad;
     height: 2px;
 }
 .nav-link:hover:after{
@@ -93,7 +94,7 @@
 .logo{
     margin: 0 !important;
     padding: 0.5rem 2rem;
-    background-color: #48478a;
+    background-color: #2bbbad;
 }
 
 .nav-logo h1 a{
@@ -106,7 +107,7 @@
     cursor: pointer;
     box-sizing: border-box;
     text-decoration: none;
-    color: #48478a;
+    color: #2bbbad;
 }
 .header-icon .icon{
     margin-top: .5rem;
@@ -143,13 +144,14 @@
     cursor: pointer;
     box-sizing: border-box;
     text-decoration: none !important;
-    background-color: #48478a;
+    /*background-color: #48478a;*/
+    background-color: #2bbbad;
     text-align: right;
     padding-right: 20px;
 }
 
 .header-dropdown-menu .header-link:hover{
     background-color: white;
-    color: #48478a;
+    color: #2bbbad;
 }
 

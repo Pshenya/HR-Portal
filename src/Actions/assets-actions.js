@@ -84,11 +84,11 @@ function getNewsById(id) {
     }
 }
 
-function sendFeedback(userId, from, text) {
+function sendFeedback(userId, from, text, rate) {
     return dispatch => {
         dispatch(request());
 
-        assetsService.sendFeedback(userId, from, text)
+        assetsService.sendFeedback(userId, from, text, rate)
             .then(
                 res => {
                     dispatch(success());
