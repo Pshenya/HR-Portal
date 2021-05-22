@@ -50,11 +50,6 @@ class Feedbacks extends Component {
                     <h3>Лента отзывов</h3>
                 </div>
                 <div className="profile-comments-content">
-                    {!loggedIn &&
-                    <div className="feedback-not-authorized">
-                        <Link to={ROUTES.LOGIN}>Авторизуйтесь</Link> , что бы оставить отзыв.
-                    </div>
-                    }
                     <div className="profile-comments-header">
                         <h3>{feedbacksList.length} {formatCounts(feedbacksList.length, ['отзыв', 'отзыва','отзывов'])}</h3>
                     </div>

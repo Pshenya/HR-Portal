@@ -66,11 +66,16 @@
 .feedback-not-authorized{
     margin-bottom: 26px;
     padding: 20px 0;
-    background-color: #f4f4f4;
-    border: 1px solid black;
+    /*background-color: #f4f4f4;*/
+    /*border: 1px solid black;*/
     font-size: 24px;
     text-align: center;
 }
+
+.feedback-not-authorized a{
+    color: #2bbbad;
+}
+
 .feedback-info{
     font-family: "Roboto-Condensed Bold", sans-serif;
     font-size: 14px;

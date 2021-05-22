@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import {connect} from "react-redux";
 import {MDBBtn, MDBModal, MDBModalBody, MDBModalHeader, MDBModalFooter, MDBIcon, MDBInput} from 'mdbreact';
-import {userActions} from "../../../Actions/user-actions";
 
 import './rate-comment-modal.css';
 import '../../Pages/ProfilePage/UsersProfile/users-profile.css'
@@ -11,11 +10,12 @@ import {faUserCircle} from "@fortawesome/free-solid-svg-icons";
 import {Link} from "react-router-dom";
 import {ROUTES} from "../../../Routes/routes";
 import {assetsActions} from "../../../Actions";
+import Loading from "../../Loading/loading";
 
-import { Rating } from '@material-ui/lab';
+import {Rating} from '@material-ui/lab';
 
 
-class RateCommentModal extends Component{
+class RateCommentModal extends Component {
     constructor(props) {
         super(props);
 
@@ -25,6 +25,7 @@ class RateCommentModal extends Component{
             from: localStorage.getItem('userId'),
             text: '',
             rate: null,
+            done: false,
             feedbackSended: this.props.feedbackSended
         };
 
@@ -39,16 +40,17 @@ class RateCommentModal extends Component{
         this.setState({text: value});
     }
 
-    handleRateChange(e){
+    handleRateChange(e) {
         const {value} = e.target;
         this.setState({rate: value});
     }
 
     handleSubmit(e) {
-        const {userId, from, text, rate} = this.state;
+        const {userId, from, text, rate, done} = this.state;
         if (userId && from && text && rate) {
             this.props.sendFeedback(userId, from, text, rate);
-            this.toggle();
+            this.setState({done: true});
+            setTimeout(this.toggle, 3000)
         }
     }
 
@@ -60,7 +62,7 @@ class RateCommentModal extends Component{
 
     render() {
         const {loggedIn} = this.props;
-        const {text, rate} = this.state;
+        const {text, rate, done} = this.state;
 
         console.log(this.state)
 
@@ -75,31 +77,40 @@ class RateCommentModal extends Component{
                             <Link to={ROUTES.LOGIN}>Авторизуйтесь</Link> , что бы оставить отзыв.
                         </div>
                         }
-                        {loggedIn && <div className="profile-comments-form">
-                            <form className="rate-comment-form" name="form" onSubmit={this.handleSubmit}>
-                                <div className="d-flex">
-                                    <FontAwesomeIcon icon={faUserCircle} size="3x" color="#2bbbad" style={{marginTop: '20px'}} alt="Profile"/>
-                                    <MDBInput className="rate-comment-input" name="text" value={text} type="textarea"
-                                              label="Коментар"
-                                              rows="4" onChange={this.handleTextChange}/>
-                                </div>
-                                <div className="d-flex">
-                                    <label className="rate-label">Оцінка:</label>
-                                    <Rating name="hover-feedback"precision={0.5} value={rate} max={10}
-                                            onChange={this.handleRateChange} size="large"
-                                    />
-                                </div>
-                                <div className="rate-span-container">
-                                    <div className={"rate-span"}>
-                                        {rate !== null && <span >{rate}</span>}
+                        {loggedIn && done === false && <div className="profile-comments-form">
+                                <form className="rate-comment-form" name="form" onSubmit={this.handleSubmit}>
+                                    <div className="d-flex">
+                                        <FontAwesomeIcon icon={faUserCircle} size="3x" color="#2bbbad"
+                                                         style={{marginTop: '20px'}} alt="Profile"/>
+                                        <MDBInput className="rate-comment-input" name="text" value={text} type="textarea"
+                                                  label="Коментар"
+                                                  rows="4" onChange={this.handleTextChange}/>
                                     </div>
+                                    <div className="d-flex">
+                                        <label className="rate-label">Оцінка:</label>
+                                        <Rating name="hover-feedback" precision={0.5} value={rate} max={10}
+                                                onChange={this.handleRateChange} size="large"
+                                        />
+                                    </div>
+                                    <div className="rate-span-container">
+                                        <div className={"rate-span"}>
+                                            {rate !== null && <span>{rate}</span>}
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>}
+                        {loggedIn && done && <div className="done-container">
+                                <div className="done-icon">
+                                    <i style={{color: '#2bbbad', fontSize: '65px'}} className="far fa-check-circle"></i>
                                 </div>
-                            </form>
-                        </div>
+                                <div style={{display: "flex", justifyContent: "center"}}>
+                                    <span style={{color: '#2bbbad'}}>Ваш відгук був успішно відправлений!</span>
+                                </div>
+                            </div>
                         }
                     </MDBModalBody>
                     <MDBModalFooter>
-                        <MDBBtn className="modal-send-btn" onClick={this.handleSubmit}>Удалить</MDBBtn>
+                        <MDBBtn className="modal-send-btn" onClick={this.handleSubmit}>Отправить</MDBBtn>
                         <MDBBtn className="modal-close-btn" onClick={this.toggle}>Закрыть</MDBBtn>
                     </MDBModalFooter>
                 </MDBModal>

@@ -1,6 +1,7 @@
 export const assetsService = {
     getAllVacancies,
     getVacancyById,
+    postVacancy,
     getAllNews,
     getNewsById,
     sendFeedback,
@@ -31,6 +32,20 @@ function getVacancyById(id) {
         .then(vacancyData => {
             return JSON.parse(vacancyData);
         })
+}
+
+function postVacancy(vacancy){
+    const requestOptions = {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify(vacancy)
+    };
+
+    return fetch(`${_apiURL}/vacan/vacancy`, requestOptions)
+        .then(handleResponse)
+        .then(vacancy => {
+            return vacancy;
+        });
 }
 
 function getAllNews() {
@@ -85,7 +100,7 @@ function handleResponse(response) {
     return response.text()
         .then(data => {
             if ( !response.ok) {
-                window.location.reload();
+                // window.location.reload();
                 const error = data.toString();
 
                 return Promise.reject(error);

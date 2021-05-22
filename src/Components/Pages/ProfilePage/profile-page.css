@@ -1,6 +1,7 @@
 .profile-content{
     font-family: Roboto-Condensed, sans-serif;
     width: 100%;
+    margin-top: 100px !important;
     /*padding: 0 48px;*/
 }
 

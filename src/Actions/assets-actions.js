@@ -1,9 +1,11 @@
-import {assetsConstants} from '../CONSTANTS';
-import {assetsService} from '../Services';
+import {assetsConstants, userConstants} from '../CONSTANTS';
+import {assetsService, userService} from '../Services';
+import {history} from "../Components/Helpers";
 
 export const assetsActions = {
     getAllVacancies,
     getVacancyById,
+    postVacancy,
     getAllNews,
     getNewsById,
     sendFeedback,
@@ -37,6 +39,26 @@ function getVacancyById(id){
     function request() { return {type: assetsConstants.GET_VACANCY_BY_ID_REQUEST} }
     function success(vacancyData) { return {type: assetsConstants.GET_VACANCY_BY_ID_SUCCESS, vacancyData} }
     function failure(error) { return {type: assetsConstants.GET_VACANCY_BY_ID_FAILURE, error} }
+}
+
+function postVacancy(vacancy){
+    return dispatch => {
+        dispatch(request(vacancy));
+
+        assetsService.postVacancy(vacancy)
+            .then(
+                vacancy => {
+                    dispatch(success());
+                },
+                error => {
+                    dispatch(failure(error.toString()));
+                }
+            );
+    };
+
+    function request(vacancy) { return { type: assetsConstants.POST_VACANCY_REQUEST, vacancy } }
+    function success(vacancy) { return { type: assetsConstants.POST_VACANCY_SUCCESS, vacancy } }
+    function failure(error) { return { type: assetsConstants.POST_VACANCY_FAILURE, error } }
 }
 
 function getAllNews() {

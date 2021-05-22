@@ -68,7 +68,7 @@
     color: #fff;
 }
 .aside-rating-item:hover .col-box a:last-child{
-    color: #A9A9A9;
+    color: black;
 }
 
 .aside-rating-item:hover .aside-points .bold{

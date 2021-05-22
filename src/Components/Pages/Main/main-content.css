@@ -12,6 +12,7 @@
     justify-content: space-between;
     max-width: 1320px;
     margin: 0 auto;
+    margin-top: 105px !important;
 }
 
 .main-content{

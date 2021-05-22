@@ -5,6 +5,10 @@
 
     background-color: #fff;
     box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16), 0 2px 10px 0 rgba(0,0,0,0.12);
+
+    position: fixed;
+    width: 100%;
+    z-index: 999;
 }
 
 
@@ -148,6 +152,10 @@
     background-color: #2bbbad;
     text-align: right;
     padding-right: 20px;
+}
+
+.header-link:nth-child(3){
+    font-size: 16px;
 }
 
 .header-dropdown-menu .header-link:hover{

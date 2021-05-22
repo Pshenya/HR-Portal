@@ -20,8 +20,10 @@ const SearchPageItem = ({userData}) => {
             <span className="sp-companyName">{userData.companyName}</span>
             <div className="flex-placeholder"></div>
             <div className="sp-points">
-                <FontAwesomeIcon style={{color: "#48478a", marginRight: "5px"}} icon={faStar}/>
-                <span className="bold">{Math.round((userData.rating)*10)/10}</span>
+                {userData.rating &&
+                <FontAwesomeIcon style={{color: "#2bbbad", marginRight: "5px"}} icon={faStar}/>}
+                {userData.rating && <span className="bold">{Math.round((userData.rating)*10)/10}</span>}
+
             </div>
         </div>
     );

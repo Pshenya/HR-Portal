@@ -2,6 +2,7 @@ import React, {Component} from "react";
 
 import SearchPageItem from "./search-page-item";
 import {withStyles} from "../../Helpers";
+import NoSearchResults from "../../NoSearchResults/nosearchresults";
 
 import InputBase from "@material-ui/core/InputBase";
 import IconButton from "@material-ui/core/IconButton";
@@ -32,6 +33,8 @@ class SearchPage extends Component {
         const {stylesHook} = this.props;
         const classes = stylesHook;
 
+        const setting = "користувачів"
+
         const {profilesList} = this.props;
         let filteredProfiles = profilesList.filter(
             (profile) => {
@@ -39,6 +42,7 @@ class SearchPage extends Component {
                     || (profile.companyName.toLowerCase().includes(this.state.searchInput.toLowerCase()));
             }
         );
+
         return (
             <div className="sp">
                 <div className="search-header">
@@ -67,11 +71,12 @@ class SearchPage extends Component {
                 </div>
                 <div className="content-container">
                     {
+                        filteredProfiles.length !== 0 ?
                         filteredProfiles.map((userData) => {
                             return <div className="sp-item" key={userData._id}>
                                 <SearchPageItem userData={userData}/>
                             </div>
-                        })
+                        }) : <NoSearchResults setting={setting}/>
                     }
                 </div>
             </div>

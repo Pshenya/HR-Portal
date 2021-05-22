@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 
-import { withStyles } from "../../Helpers";
 import './vacancies-menus.css';
+
+import NoSearchResults from "../../NoSearchResults/nosearchresults";
+import { withStyles } from "../../Helpers";
 
 import Paper from "@material-ui/core/Paper";
 import InputBase from "@material-ui/core/InputBase";
@@ -13,6 +15,7 @@ import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import VacanciesPageItem from "./vacancies-page-item";
 import { Form } from "react-bootstrap";
 import {element} from "prop-types";
+import SearchPageItem from "../SearchPage/search-page-item";
 
 
 class VacanciesPage extends Component {
@@ -76,9 +79,15 @@ class VacanciesPage extends Component {
     }
 
     handleCategory(e){
-        this.setState({
-            category: e.target.value
-        });
+        if(e.target.value === 'All categories'){
+            this.setState({
+                category: ''
+            })
+        } else {
+            this.setState({
+                category: e.target.value
+            });
+        }
     }
 
     handleRegion(e){
@@ -97,6 +106,8 @@ class VacanciesPage extends Component {
         const {stylesHook} = this.props;
         const classes = stylesHook;
 
+        const setting = "вакансій";
+
         const {vacanciesList} = this.props;
         console.log(this.state)
         let filteredVacancy = vacanciesList.filter(
@@ -110,14 +121,6 @@ class VacanciesPage extends Component {
 
             }
         );
-
-        if(filteredVacancy.length === 0){
-            return (
-                <div>
-                    <span>Ми не змогли знайти жодної вакансії по вашим критеріям</span>
-                </div>
-            )
-        }
 
         return (
             <div className="vac-content">
@@ -173,6 +176,7 @@ class VacanciesPage extends Component {
                                             <button value={"IT"} onClick={e => this.handleCategory(e, "value")}>IT</button>
                                             <button value={"Hotels/Cafe/Restaurants"} onClick={e => this.handleCategory(e, "value")}>Готелі - Ресторани - Кафе</button>
                                             <button value={"Graphics/Design"} onClick={e => this.handleCategory(e, "value")}>Дизайн - Фото - Графіка</button>
+                                            <button value={"All categories"} onClick={e => this.handleCategory(e, "value")}>Всі категорії</button>
                                         </div>
                                     )
                                     : null}
@@ -253,11 +257,12 @@ class VacanciesPage extends Component {
                         {/*</aside>*/}
                         <section className="vac-leftContent">
                             {
+                                filteredVacancy.length !== 0 ?
                                 filteredVacancy.map((vacancy) => {
                                      return <div key={vacancy._id}>
                                         <VacanciesPageItem vacancy={vacancy}/>
                                     </div>
-                                })
+                                }) : <NoSearchResults setting={setting}/>
                             }
                         </section>
                     </div>
