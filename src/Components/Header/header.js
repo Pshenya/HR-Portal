@@ -18,8 +18,33 @@ import Logo from '../../assets/img/MIIIIIIIIIIII.jpg';
 import ErrorIndicator from "../ErrorIndicator/error-indicator";
 
 export class Header extends Component {
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            showMenu: false,
+        }
+
+        this.showMenu = this.showMenu.bind(this);
+        this.closeMenu = this.closeMenu.bind(this);
+
+    }
     componentDidMount() {
         this.props.getUser();
+    }
+
+    showMenu(e) {
+        e.preventDefault();
+
+        this.setState({showMenu: true}, () => {
+            document.addEventListener('click', this.closeMenu)
+        })
+    }
+
+    closeMenu(e){
+        this.setState({showMenu: false}, () => {
+            document.removeEventListener('click', this.closeMenu);
+        });
     }
 
     render() {
@@ -38,25 +63,52 @@ export class Header extends Component {
                             <Navbar.Toggle aria-controls="responsive-navbar-nav"/>
                             <Navbar.Collapse id="responsive-navbar-nav">
                                 <Nav>
-                                    <Nav.Link as={Link} to={ROUTES.SEARCH}>ПОИСК</Nav.Link>
+                                    <Nav.Link as={Link} to={ROUTES.SEARCH}>ПОШУК</Nav.Link>
                                     <Nav.Link as={Link} to={ROUTES.RATINGS}>РЕЙТИНГИ</Nav.Link>
-                                    <Nav.Link as={Link} to={ROUTES.VACANCIES}>ВАКАНСИИ</Nav.Link>
+                                    <Nav.Link as={Link} to={ROUTES.VACANCIES}>ВАКАНСІЇ</Nav.Link>
                                     <Nav.Link as={Link} to={ROUTES.STATS}>СТАТИСТИКА ЗП</Nav.Link>
                                 </Nav>
                                 {loggedIn &&
-                                <div className="d-flex">
-                                    <Link className="header-icon d-flex" to={`${ROUTES.PROFILE}/${userData.userId}`}>
-                                        <h3>{userData.name}</h3>
-                                        <FontAwesomeIcon className="icon" title="Мой профиль" icon={faUserCircle}/>
-                                    </Link>
-                                    <FontAwesomeIcon title='Выход' style={{marginTop: '.5rem', cursor: 'pointer'}}
-                                                     onClick={logout}
-                                                     icon={faSignOutAlt}/>
-                                </div>
+                                    <div className="d-flex">
+                                        <div className="header-icon d-flex" onClick={this.showMenu}>
+                                            <h3>{userData.name}</h3>
+                                            <FontAwesomeIcon className="icon" title="Мой профиль" icon={faUserCircle}/>
+                                            {this.state.showMenu
+                                                ? (
+                                                    <div className="header-dropdown-menu">
+                                                        <Link className="header-link" to={`${ROUTES.PROFILE}/${userData.userId}`}>Мій профіль</Link>
+                                                        <Link className="header-link" to={`${ROUTES.RESUMES}/${userData.userId}`}>Мої резюме</Link>
+                                                        {userData.role === "HR" && <Link to={ROUTES.CREATEVACANCY} className="header-link">Створити резюме</Link>}
+                                                    </div>
+                                                )
+                                                : null}
+                                        </div>
+                                        <FontAwesomeIcon title='Выход' style={{marginTop: '.5rem', cursor: 'pointer'}}
+                                                         onClick={logout}
+                                                         icon={faSignOutAlt}/>
+                                    </div>
+                                // <div className="d-flex">
+                                //     <Link className="header-icon d-flex" to={`${ROUTES.PROFILE}/${userData.userId}`}>
+                                //         <h3>{userData.name}</h3>
+                                //         <FontAwesomeIcon className="icon" title="Мой профиль" icon={faUserCircle}/>
+                                //         {this.state.showMenu
+                                //                 ? (
+                                //                     <div className="header-dropdown-menu">
+                                //                         <button>Menu item</button>
+                                //                         <button>Menu item</button>
+                                //                         <button>Menu item</button>
+                                //                     </div>
+                                //                 )
+                                //                 : null}}
+                                //     </Link>
+                                //     <FontAwesomeIcon title='Выход' style={{marginTop: '.5rem', cursor: 'pointer'}}
+                                //                      onClick={logout}
+                                //                      icon={faSignOutAlt}/>
+                                // </div>
                                 }
                                 {!loggedIn &&
                                 <Link to={ROUTES.LOGIN}>
-                                    <button className="login-btn">Войти</button>
+                                    <button className="login-btn">Увійти</button>
                                 </Link>}
 
 

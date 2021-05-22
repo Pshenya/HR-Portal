@@ -1,15 +1,17 @@
 .footerPages-content{
     width: 100%;
+    margin-top: 100px;
 }
 
 .footerPages-section{
     display: block;
     max-width: 900px;
     margin: 50px auto;
+
 }
 
 .headline-content{
-    background-color: #48478a;
+    background-color: #2bbbad;
     min-height: 100px;
     padding: 35px 70px 30px;
 }

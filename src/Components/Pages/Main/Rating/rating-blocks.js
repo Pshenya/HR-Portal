@@ -21,8 +21,7 @@ const RatingBlocks = ({profilesList}) => {
                     {
                         profilesList
                             .filter(userData => {
-                            return userData.jobPosition === 'HR' || userData.jobPosition === 'IT-Recruiter'
-                                || userData.jobPosition === 'HR/IT-Recruiter';
+                                return userData.user.role === 'HR';
                             })
                             .map((userData) => {
                             return (

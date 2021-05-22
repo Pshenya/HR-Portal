@@ -23,7 +23,7 @@ const RatingPageItem = ({userData, idx}) => {
                 <p style={{color: "green"}}>+{randomInteger(0, 10)}</p>
             </td>
             <td></td>
-            <td><b>{userData.rating}</b></td>
+            <td><b>{Math.round((userData.rating)*10)/10}</b></td>
         </tr>
     );
 };

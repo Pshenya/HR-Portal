@@ -4,6 +4,7 @@
     font-weight: normal;
     font-size: 1rem;
     padding-bottom: 60px;
+    margin-top: 100px !important;
 }
 
 .vac-details-card{
@@ -12,7 +13,7 @@
 }
 
 .vac-back-link:hover{
-    color: #48478a;
+    color: #2bbbad;
 }
 
 .vac-btn{
@@ -20,7 +21,7 @@
     -webkit-transition: all 0.1s ease;
     transition: all 0.5s ease;
     border: none;
-    background-color: #48478a;
+    background-color: #2bbbad;
     color: #fff;
     border-radius: 8px;
     box-sizing: border-box;
@@ -31,7 +32,7 @@
 
 .vac-btn:hover{
     background-color: #fff;
-    color: #48478a;
+    color: #2bbbad;
 }
 
 .link-back{
@@ -126,4 +127,42 @@
 
 .vac-details-sendCV{
     margin-top: 40px;
+}
+
+.heart-icon{
+    /*display: none;*/
+    display: inline-block;
+    height: 15px;
+    width: 15px;
+    margin: 0 10px;
+
+    position: absolute;
+    left: 93.25%; top: 43%;
+
+    background-color: red;
+
+    transform: rotate(-45deg);
+}
+
+.heart-icon:before,
+.heart-icon:after {
+    content: "";
+
+    position: absolute;
+    height: 15px;
+    width: 15px;
+
+    background-color: red;
+    border-radius: 50%;
+}
+
+/* Убираем тень при наведении */
+.heart-icon:before {
+    top: -8px;
+    left: 0;
+}
+
+.heart-icon:after {
+    left: 8px;
+    top: 0;
 }

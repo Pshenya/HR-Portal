@@ -20,6 +20,7 @@ class ProfileHelper extends Component {
                 salary: '',
                 phone: '',
                 rating: '',
+                ratingCount: '',
                 facebookLink: '',
                 linkedinLink: '',
                 githubLink: '',
@@ -59,11 +60,11 @@ class ProfileHelper extends Component {
         const {profile, submitted} = this.state;
 
         return (
-            <div className="profile-content">
-                <div className="profile-header">
+            <div className="profreg-content">
+                <div className="profreg-header">
                     <h3>Заполните информацию о себе</h3>
                 </div>
-                <div className="profile-block">
+                <div className="profreg-block">
                     <MDBContainer>
                         <MDBRow>
                             <MDBCol>

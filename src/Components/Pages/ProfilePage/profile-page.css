@@ -1,7 +1,8 @@
 .profile-content{
     font-family: Roboto-Condensed, sans-serif;
     width: 100%;
-    padding: 0 48px;
+    margin-top: 100px !important;
+    /*padding: 0 48px;*/
 }
 
 .profile-header{
@@ -62,7 +63,7 @@
 .profile-img .img-content img{
     border-radius: 50%;
     margin-bottom: 1rem;
-    border: 5px solid #48478a;
+    border: 5px solid #2bbbad;
 }
 
 .profile-rating span{
@@ -85,8 +86,8 @@
     opacity: 0.7;
     transition: all 0.3s ease;
     background-color: #fff;
-    color: #48478a;
-    border: 2px solid #48478a;
+    color: #2bbbad;
+    border: 2px solid #2bbbad;
     border-radius: 8px;
     box-sizing: border-box;
     padding: 10px 50px;

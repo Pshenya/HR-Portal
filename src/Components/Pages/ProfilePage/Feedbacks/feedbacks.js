@@ -50,27 +50,9 @@ class Feedbacks extends Component {
                     <h3>Лента отзывов</h3>
                 </div>
                 <div className="profile-comments-content">
-                    {!loggedIn &&
-                    <div className="feedback-not-authorized">
-                        <Link to={ROUTES.LOGIN}>Авторизуйтесь</Link> , что бы оставить отзыв.
-                    </div>
-                    }
                     <div className="profile-comments-header">
                         <h3>{feedbacksList.length} {formatCounts(feedbacksList.length, ['отзыв', 'отзыва','отзывов'])}</h3>
                     </div>
-                    {loggedIn && <div className="profile-comments-form">
-                        <form className="user-feedback-form" name="form" onSubmit={this.handleSubmit}>
-                            <FontAwesomeIcon icon={faUserCircle} size="3x" color="#48478a" style={{marginTop: '20px'}} alt="Profile"/>
-                            <MDBInput className="profile-comment-input" name="text" value={text} type="textarea"
-                                      label="Оставьте отзыв"
-                                      rows="1" onChange={this.handleChange}/>
-                            <MDBBtn className="profile-comments-btn" outline color="black" type="submit">
-                                Отправить
-                                <MDBIcon far icon="paper-plane" className="ml-1"/>
-                            </MDBBtn>
-                        </form>
-                    </div>
-                    }
                 </div>
                 <div>
                     {feedbacksList.map(feedback => {

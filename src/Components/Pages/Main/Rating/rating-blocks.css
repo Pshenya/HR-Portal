@@ -7,7 +7,7 @@
 .aside{
     width: 20%;
     max-width: 300px;
-    padding: 30px 30px 30px 0;
+    padding: 30px 0 30px 15px;
 }
 .aside-rating{
     /*flex: 1;*/
@@ -36,7 +36,7 @@
 
 .aside-rating h3:hover{
     color: #fff;
-    background-color: #48478a;
+    background-color: #2bbbad;
     cursor: pointer;
 }
 
@@ -62,13 +62,13 @@
     border-top: 1px solid rgba(0,0,0,0.2);
 }
 .aside-rating-item:hover{
-    background-color: #48478a;
+    background-color: #2bbbad;
 }
 .aside-rating-item:hover .col-box a:first-child{
     color: #fff;
 }
 .aside-rating-item:hover .col-box a:last-child{
-    color: #A9A9A9;
+    color: black;
 }
 
 .aside-rating-item:hover .aside-points .bold{
@@ -90,7 +90,7 @@
 .col-box a {
     margin-left: 15px;
     font-size: 20px;
-    color: #48478a;
+    color: #2bbbad;
 }
 .col-box a + a{
     font-size: 15px;

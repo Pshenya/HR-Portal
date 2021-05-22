@@ -1,0 +1,13 @@
+.no-search-results-container{
+    width: 100%;
+    min-height: 500px;
+    display: flex;
+    justify-content: center;
+}
+
+.no-search-results-content{
+    display: flex;
+    flex-direction: column;
+    margin-top: 75px;
+    color: #2bbbad;
+}

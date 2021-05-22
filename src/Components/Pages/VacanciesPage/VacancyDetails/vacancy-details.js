@@ -29,10 +29,15 @@ const VacancyDetails = ({vacancyData}) => {
                         <div className="vac-action-card">
                             <ul className="vac-action-list-inline">
                                 <li>
+                                    <form action="http://localhost:3000/api/resumes/upload" method="post" encType="multipart/form-data">
+                                        <input type="file" name="filedata"/>
+                                        <input type="submit" value="Send" />
+                                    </form>
                                     <button className="vac-btn">Отправить резюме</button>
                                 </li>
                                 <li>
-                                    <MDBIcon far icon="heart" style={{fontSize: '25px', color: '#48478a'}}/>
+                                    <MDBIcon far icon="heart" style={{fontSize: '25px', color: '#2bbbad'}}/>
+                                    {/*<div className="heart-icon"></div>*/}
                                 </li>
                             </ul>
                         </div>
@@ -43,7 +48,7 @@ const VacancyDetails = ({vacancyData}) => {
                         </div>
                         <h1 className="vac-details-card-title">{vacancyData.heading}</h1>
                         <span className="vac-details-card-company">
-                            <MDBIcon icon="briefcase" style={{fontSize: '22px', marginRight: '7px', color: '#48478a'}}/>
+                            <MDBIcon icon="briefcase" style={{fontSize: '22px', marginRight: '7px', color: '#EA3C53'}}/>
                             {vacancyData.company}
                         </span>
                         <span className="vac-details-card-salary">
@@ -54,27 +59,24 @@ const VacancyDetails = ({vacancyData}) => {
 
                         <div className="vac-details-card-info">
                             <span>
-                                <MDBIcon icon="map-marker-alt"
-                                         style={{fontSize: '25px', marginRight: '10px', color: "#48478a"}}/>
+                                <i style={{fontSize: '25px', marginRight: '10px', color: "#EA3C53"}}className="fas fa-map-marker-alt"></i>
                                 Киев
                             </span>
                             <span>
-                                <MDBIcon icon="address-book" style={{marginRight: '9px', color: "#48478a"}}/>
+                                <MDBIcon icon="address-book" style={{marginRight: '9px', color: "#EA3C53"}}/>
                                 Контакт
                             </span>
                             <span>
-                                <MDBIcon icon="mobile-alt"
-                                         style={{fontSize: '28px', margin: '5px 11px 0 0', color: "#48478a"}}/>
+                                <i style={{fontSize: '28px', margin: '5px 11px 0 0', color: "#EA3C53"}} className="fas fa-mobile-alt"></i>
                                 Контактный номер
                             </span>
                             <span>
                                 <MDBIcon icon="envelope"
-                                         style={{fontSize: '20px', marginRight: '9px', color: "#48478a"}}/>
+                                         style={{fontSize: '20px', marginRight: '9px', color: "#EA3C53"}}/>
                                 Почта
                             </span>
                             <span>
-                                <MDBIcon icon="globe-americas"
-                                         style={{fontSize: '20px', marginRight: '9px', color: "#48478a"}}/>
+                                <i style={{fontSize: '20px', marginRight: '9px', color: "#EA3C53"}} className="fas fa-globe-americas"></i>
                                 Сайт
                             </span>
                         </div>

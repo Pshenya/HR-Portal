@@ -10,7 +10,9 @@ export const ROUTES = {
     LOGIN: '/login',
     REGISTRATION: '/registration',
     PROFILE_REGISTER: '/register-profile',
-    PROFILE: '/profile'
+    PROFILE: '/profile',
+    RESUMES: '/resumes',
+    CREATEVACANCY: '/create-vacancy'
 };
 
 

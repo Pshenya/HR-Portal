@@ -2,6 +2,7 @@
     position: relative;
     padding-top: 50px;
     padding-bottom: 65px;
+    margin-top: 100px;
 }
 
 .post-content-container{
@@ -21,7 +22,7 @@
     top: 0;
     left: 0;
     overflow: hidden;
-    background: #48478a no-repeat 50% 50%/cover;
+    background: #2bbbad no-repeat 50% 50%/cover;
 }
 
 .post-main-content{
@@ -36,8 +37,8 @@
 .post-headline{
     font-family: "Roboto-Condensed Light", "Arial", sans-serif;
     position: relative;
-    background: #48478a;
-    background: rgba(72,72,138,.9);
+    background: #2bbbad;
+    background: rgba(43,187,173,.9);
 }
 
 .post-headline:after{

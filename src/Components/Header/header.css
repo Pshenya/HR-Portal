@@ -5,6 +5,10 @@
 
     background-color: #fff;
     box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16), 0 2px 10px 0 rgba(0,0,0,0.12);
+
+    position: fixed;
+    width: 100%;
+    z-index: 999;
 }
 
 
@@ -34,7 +38,8 @@
 }
 
 .navbar .login-btn:hover{
-    background-color: #48478a;
+    /*background-color: #48478a;*/
+    background-color: #2bbbad;
     color: #fff;
 }
 
@@ -45,7 +50,7 @@
 }
 
 .nav-link:hover{
-    color: #48478a !important;
+    color: #2bbbad !important;
 }
 .nav-link:nth-child(1){
     margin: 0 0 0 5em;
@@ -71,7 +76,7 @@
     width: 0;
     content: '.';
     color: transparent;
-    background: #48478a;
+    background: #2bbbad;
     height: 2px;
 }
 .nav-link:hover:after{
@@ -93,7 +98,7 @@
 .logo{
     margin: 0 !important;
     padding: 0.5rem 2rem;
-    background-color: #48478a;
+    background-color: #2bbbad;
 }
 
 .nav-logo h1 a{
@@ -102,9 +107,11 @@
 }
 
 .header-icon, .header-icon:hover, .header-icon:active{
+    position: relative;
+    cursor: pointer;
     box-sizing: border-box;
     text-decoration: none;
-    color: #48478a;
+    color: #2bbbad;
 }
 .header-icon .icon{
     margin-top: .5rem;
@@ -116,5 +123,43 @@
     font-size: 1.5rem;
 }
 
+.header-dropdown-menu{
+    width: 150px;
+    height: 115px;
+    line-height: 40px;
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 40px;
+    right: 30px;
+    bottom: 0;
+    box-shadow: 0 5px 10px rgba(33,37,39, .15);
 
+    z-index: 9;
+}
+
+.header-dropdown-menu::backdrop{
+    background: rgba(0,0,0,0.7);
+}
+
+.header-link{
+    font-size: 18px;
+    color: white;
+    cursor: pointer;
+    box-sizing: border-box;
+    text-decoration: none !important;
+    /*background-color: #48478a;*/
+    background-color: #2bbbad;
+    text-align: right;
+    padding-right: 20px;
+}
+
+.header-link:nth-child(3){
+    font-size: 16px;
+}
+
+.header-dropdown-menu .header-link:hover{
+    background-color: white;
+    color: #2bbbad;
+}
 

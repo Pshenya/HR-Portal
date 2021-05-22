@@ -2,6 +2,8 @@ import React from "react";
 import {Link} from "react-router-dom";
 import {ROUTES} from "../../../Routes/routes";
 import RoomIcon from "@material-ui/icons/Room";
+import { formatDate } from "../../Helpers"
+
 
 const VacanciesPageItem = ({vacancy}) => {
     return (
@@ -15,7 +17,7 @@ const VacanciesPageItem = ({vacancy}) => {
                             <span className="vac-card-salary">$ {vacancy.salary}</span>
                             <span className="vac-card-location">
                                                 <RoomIcon style={{marginRight: '5px'}}/>
-                                                Киев
+                                {vacancy.region}
                                             </span>
                         </div>
                     </div>
@@ -25,7 +27,7 @@ const VacanciesPageItem = ({vacancy}) => {
                 </div>
                 <div className="vac-card-footer">
                     <div className="publication-time">
-                        30 минут назаж
+                        {formatDate(vacancy.date)}
                     </div>
                 </div>
             </article>

@@ -2,10 +2,7 @@
     width: 100%;
     font-family: Roboto-Condensed, sans-serif;
     font-size: 1rem;
-}
-
-.rating-content{
-    padding: 0 20px 0 40px;
+    margin-top: 100px !important;
 }
 
 .rating-title{

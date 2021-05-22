@@ -1,0 +1,61 @@
+.modal-dialog{
+    max-width: 800px;
+    margin: 100px auto;
+}
+
+.modal-backdrop{
+    opacity: .7;
+}
+
+.modal-content{
+    border-radius: 10px;
+}
+
+.rate-comment-form .md-form{
+    margin: 25px 0 0 30px;
+}
+
+.rate-comment-input{
+    /*border: 2px solid #48478a !important;*/
+}
+
+.MuiRating-root{
+    color: #2bbbad !important;
+}
+
+.MuiRating-sizeLarge{
+    font-size: 45px !important;
+    margin: 0 auto;
+}
+.rate-label{
+    font-size: 1rem;
+    margin-top: 7px;
+}
+
+.rate-span-container{
+    width: 100%;
+    margin-top: -20px;
+}
+
+.rate-span{
+    display: flex;
+    justify-content: center;
+}
+
+.rate-span span{
+    margin-left: 60px;
+    font-size: 30px;
+    color: #2bbbad;
+}
+
+.modal-send-btn{
+    text-transform: none;
+    color: white !important;
+    background-color: #2bbbad !important;
+}
+
+.done-icon{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}

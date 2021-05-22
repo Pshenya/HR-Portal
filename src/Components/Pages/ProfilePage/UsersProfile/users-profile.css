@@ -67,3 +67,30 @@
     font-weight: 400;
 }
 
+.rate-comment-container{
+    width: 100%;
+    margin: 50px 0;
+}
+
+.rate-btn-container{
+    width: 500px;
+    margin: 0 auto;
+}
+
+.rate-btn{
+    font-size: 21px;
+    width: 100%;
+    padding: 10px 100px;
+    background-color: #2bbbad;
+    color: white;
+    box-shadow: 0 0 7px 2px rgb(43, 187, 173);
+
+    transition: .4s all ease;
+}
+
+.rate-btn:hover{
+    background-color: white;
+    color: #2bbbad;
+    border: 2px solid #2bbbad;
+}
+

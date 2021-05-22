@@ -6,6 +6,7 @@ const initialState = {
     feedbacksList: [],
     postData: {},
     vacancyData: {},
+    vacancySended: false,
     feedbackSended: false,
     loading: false,
     error: null
@@ -47,6 +48,23 @@ export function assets(state = initialState, action) {
                 loading: false,
                 error: action.error
             };
+        case assetsConstants.POST_VACANCY_REQUEST:
+            return {
+                ...state,
+                loading: true
+            }
+        case assetsConstants.POST_VACANCY_SUCCESS:
+            return {
+                ...state,
+                loading: false,
+                vacancySended: true
+            }
+        case assetsConstants.POST_VACANCY_FAILURE:
+            return {
+                ...state,
+                loading: false,
+                error: action.error
+            }
         case assetsConstants.GETALL_NEWS_REQUEST:
             return {
                 ...state,

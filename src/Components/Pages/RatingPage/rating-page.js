@@ -11,7 +11,7 @@ import ErrorIndicator from "../../ErrorIndicator/error-indicator";
 const RatingPage = ({profilesList}) => {
     return (
         <div className="rating-container">
-            <div className="rating-content">
+            <div className="content-container">
                 <h1 className="rating-title">ТОП-50 HR-ов Украины</h1>
                 <table className="rating-table" id="ratingTableId">
 
@@ -30,8 +30,7 @@ const RatingPage = ({profilesList}) => {
                     </thead>
                     {
                         profilesList.filter(userData => {
-                            return userData.jobPosition === 'HR' || userData.jobPosition === 'IT-Recruiter'
-                                || userData.jobPosition === 'HR/IT-Recruiter';
+                            return userData.user.role === 'HR';
                         })
                             .map((userData, idx) => {
                             return <tbody key={userData.userId}>
@@ -52,6 +51,8 @@ class RatingPageContainer extends Component {
 
     render() {
         const {profilesList, loading, error} = this.props;
+
+        console.log("LIST", profilesList)
 
         if (loading)
             return (

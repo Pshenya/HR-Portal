@@ -61,9 +61,9 @@ class SignInPage extends Component {
                     </Link>
                 </div>
                 <div className="signIn-main">
-                    <h1 className="signIn-title">Вход</h1>
+                    <h1 className="signIn-title">Вхід</h1>
                     <div className="new-user">
-                        <h3>У вас ещё нет аккаунта? <Link to={ROUTES.REGISTRATION}>Создать</Link></h3>
+                        <h3>У вас ще немає акаунту? <Link to={ROUTES.REGISTRATION}>Створити</Link></h3>
                     </div>
                     <div className="login-content">
                         <MDBContainer>
@@ -71,12 +71,12 @@ class SignInPage extends Component {
                                 <MDBCol>
                                     <form className="common-form" name="form" onSubmit={this.handleSubmit}>
                                         <div className={submitted && !email ? ' has-error' : ''}>
-                                            <MDBInput name="email" label="Эл. почта" icon="envelope" group type="email"
+                                            <MDBInput name="email" label="Эл. пошта" icon="envelope" group type="email"
                                                       validate
                                                       error="wrong" value={email} onChange={this.handleChange}
                                                       success="right"/>
                                             {submitted && !email &&
-                                            <div className="help-block">* Это обязательное поле</div>
+                                            <div className="help-block">* Це обов'язкове поле</div>
                                             }
                                         </div>
                                         <div className={submitted && !password ? ' has-error' : ''}>
@@ -84,18 +84,18 @@ class SignInPage extends Component {
                                                       type="password" validate value={password}
                                                       onChange={this.handleChange}/>
                                             {submitted && !password &&
-                                            <div className="help-block">* Это обязательное поле</div>
+                                            <div className="help-block">* Це обов'язкове поле</div>
                                             }
                                         </div>
                                         <div className='form-check my-4'>
                                             <MDBInput
-                                                label="Запомнить меня"
+                                                label="Запам'ятати мене"
                                                 type='checkbox'
                                                 id='rememberMe'
                                             />
                                         </div>
                                         <div className="btn-group">
-                                            <MDBBtn type="submit" className="form-btn" color="0">Войти</MDBBtn>
+                                            <MDBBtn type="submit" className="form-btn" color="0">Увійти</MDBBtn>
                                             {loggingIn &&
                                             <img
                                                 src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA=="
@@ -123,9 +123,9 @@ class SignInPage extends Component {
                         {/*</Form>*/}
                     </div>
                     <div className="terms-of-use">
-                        <p>Входя в аккаунт, вы соглашаетесь с <a href="/">пользовательским соглашением</a> и,
-                            подтверждаете,
-                            что ознакомились с <a href="/">политикой конфиденциальности</a>.</p>
+                        <p>Входячи в акаунт, вы погоджуєтесь з <a href="/">користувачою угодою</a> і,
+                            підтверджуєте,
+                            що ознайомились з <a href="/">політикою конфіденційності</a>.</p>
                     </div>
                 </div>
             </div>

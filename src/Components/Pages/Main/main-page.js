@@ -9,11 +9,13 @@ import NewsCards from "./News/news-cards";
 const MainPage = () => {
     return (
         <div className="width-control">
-            <div className="content-container main-content">
-                <Slider/>
-                <NewsCards/>
+            <div className="content-wrapper">
+                <div className="main-content">
+                    <Slider/>
+                    <NewsCards/>
+                </div>
+                <RatingBlocks/>
             </div>
-            <RatingBlocks/>
         </div>
 
     )

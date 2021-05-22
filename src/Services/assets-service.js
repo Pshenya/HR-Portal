@@ -1,13 +1,14 @@
 export const assetsService = {
     getAllVacancies,
     getVacancyById,
+    postVacancy,
     getAllNews,
     getNewsById,
     sendFeedback,
     getFeedbacks
 };
 
-const _apiURL = "https://hr-portal-backend.herokuapp.com/api";
+const _apiURL = "http://localhost:3000/api";
 
 function getAllVacancies() {
     const requsetOptions = {
@@ -31,6 +32,20 @@ function getVacancyById(id) {
         .then(vacancyData => {
             return JSON.parse(vacancyData);
         })
+}
+
+function postVacancy(vacancy){
+    const requestOptions = {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify(vacancy)
+    };
+
+    return fetch(`${_apiURL}/vacan/vacancy`, requestOptions)
+        .then(handleResponse)
+        .then(vacancy => {
+            return vacancy;
+        });
 }
 
 function getAllNews() {
@@ -57,11 +72,11 @@ function getNewsById(id) {
             return JSON.parse(postData);
         })
 }
-function sendFeedback(userId, from, text) {
+function sendFeedback(userId, from, text, rate) {
     const requestOptions = {
         method: 'POST',
         headers: {'Content-Type': 'application/json'},
-        body: JSON.stringify({userId, from, text}),
+        body: JSON.stringify({userId, from, text, rate}),
         redirect: 'follow'
     };
 
@@ -85,7 +100,7 @@ function handleResponse(response) {
     return response.text()
         .then(data => {
             if ( !response.ok) {
-                window.location.reload();
+                // window.location.reload();
                 const error = data.toString();
 
                 return Promise.reject(error);
