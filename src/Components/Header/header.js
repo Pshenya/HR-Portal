@@ -77,7 +77,7 @@ export class Header extends Component {
                                                 ? (
                                                     <div className="header-dropdown-menu">
                                                         <Link className="header-link" to={`${ROUTES.PROFILE}/${userData.userId}`}>Мій профіль</Link>
-                                                        <Link className="header-link" to={`${ROUTES.RESUMES}/${userData.userId}`}>Мої резюме</Link>
+                                                        <Link className="header-link" to={ROUTES.MYRESUMES}>Мої резюме</Link>
                                                         {userData.role === "HR" && <Link to={ROUTES.CREATEVACANCY} className="header-link">Створити резюме</Link>}
                                                     </div>
                                                 )

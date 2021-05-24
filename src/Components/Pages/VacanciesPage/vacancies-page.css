@@ -38,9 +38,8 @@
 }
 
 .vac-main{
-    max-width: 1080px;
-    margin-left: 160px;
-    margin-right: 160px;
+    max-width: 1440px;
+    margin: 0 auto;
     padding: 20px;
 }
 .vac-main h3{
@@ -68,12 +67,19 @@
     border-radius: 5px;
     margin-bottom: 20px;
     overflow: hidden;
-    transition: box-shadow .2s;
+    transition: all .2s ease;
     cursor: pointer;
 }
 .vac-leftContent .vac-card:hover{
-    box-shadow: 0 230px 20px rgba(33,37,39,.05);
     background-color: rgba(72, 71, 138, 0.1);
+}
+
+.vac-card-description p{
+    transition: all .2s ease !important;
+}
+
+.vac-card:hover .vac-card-description p{
+    background-color: inherit !important;
 }
 
 .vac-leftContent .vac-card .vac-card-body{
@@ -89,7 +95,7 @@
 .card-main-content .common-info .vac-card-title{
     transition: .2s all ease;
     color: #EA3C53;
-    font-size: 20px;
+    font-size: 25px;
     line-height: 30px;
     font-weight: 800;
     margin: 0;
@@ -103,13 +109,13 @@
 }
 
 .vac-card-salary, .vac-card-location{
-    font-size: 16px;
+    font-size: 20px;
     line-height: 20px;
 }
 
 .vac-card-salary{
     font-family: "Roboto-Condensed Bold", sans-serif;
-    margin-right: 20px;
+    margin-right: 25px;
     vertical-align: top;
 }
 

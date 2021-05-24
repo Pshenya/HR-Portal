@@ -1,6 +1,7 @@
 export const assetsService = {
     getAllVacancies,
     getVacancyById,
+    getVacancyForUser,
     postVacancy,
     getAllNews,
     getNewsById,
@@ -31,6 +32,18 @@ function getVacancyById(id) {
         .then(handleResponse)
         .then(vacancyData => {
             return JSON.parse(vacancyData);
+        })
+}
+
+function getVacancyForUser(id) {
+    const requestOptions = {
+        method: 'GET',
+        redirect: 'follow'
+    };
+    return fetch(`${_apiURL}/vacan/vacancy/my?userId=${id}`, requestOptions)
+        .then(handleResponse)
+        .then(vacanciesList => {
+            return JSON.parse(vacanciesList);
         })
 }
 
@@ -68,7 +81,6 @@ function getNewsById(id) {
     return fetch(`${_apiURL}/news/news?post=${id}`, requestOptions)
         .then(handleResponse)
         .then(postData => {
-            console.log(JSON.parse(postData));
             return JSON.parse(postData);
         })
 }
@@ -99,8 +111,8 @@ function getFeedbacks(id){
 function handleResponse(response) {
     return response.text()
         .then(data => {
-            if ( !response.ok) {
-                // window.location.reload();
+            if (!response.ok) {
+                window.location.reload();
                 const error = data.toString();
 
                 return Promise.reject(error);

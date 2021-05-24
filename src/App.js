@@ -17,11 +17,10 @@ import Footer from "./Components/Footer/footer";
 import {
     AboutPage, SearchPage, ProfilePageContainer, RatingPage,
     VacanciesPage, StatsPage, SignInPage, RegistrationPage,
-    NewsPageContainer, VacancyDetailsContainer, ResumesPageContainer,
+    NewsPageContainer, VacancyDetailsContainer, ResumesPageContainer, CreateVacancy,
     RateCommentModal
 } from './Components/Pages';
 import ProfileHelper from "./Components/Pages/Login/RegisterProfile/profile-helper";
-import CreateVacancy from "./Components/Pages/ResumesPage/create-vacancy";
 
 export class App extends Component {
     constructor(props) {
@@ -62,7 +61,7 @@ export class App extends Component {
                         <Route path={ROUTES.ABOUT} component={AboutPage}/>
                         <Route path={ROUTES.LOGIN} component={SignInPage}/>
                         <Route path={`${ROUTES.PROFILE}/:userId?`} component={ProfilePageContainer}/>
-                        {/*<Route path={`${ROUTES.RESUMES}/:userId?`} component={ResumesPageContainer} />*/}
+                        <Route path={`${ROUTES.MYRESUMES}/:userId?`} component={ResumesPageContainer} />
                         <Route path={ROUTES.CREATEVACANCY} component={CreateVacancy}/>
                         <Route path={ROUTES.REGISTRATION} component={RegistrationPage}/>
                         <Route path={ROUTES.PROFILE_REGISTER} component={ProfileHelper}/>

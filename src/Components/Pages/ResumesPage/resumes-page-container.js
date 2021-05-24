@@ -3,9 +3,11 @@ import {withRouter} from "react-router-dom";
 import {assetsActions, userActions} from "../../../Actions";
 import {connect} from "react-redux";
 import {ROUTES} from "../../../Routes/routes";
+import ResumesPage from "./resumes-page";
+import Loading from "../../Loading/loading";
 
 class ResumesPageContainer extends Component {
-    refreshProfile() {
+    refreshVacancies() {
         let userId = this.props.match.params.userId;
         if (!userId) {
             userId = localStorage.getItem('userId');
@@ -14,50 +16,55 @@ class ResumesPageContainer extends Component {
             }
         }
 
-        this.props.getProfileData(userId);
-        this.props.getFeedbacks(userId);
+        this.props.getVacancyForUser(userId);
     }
 
     componentDidMount() {
-        this.refreshProfile();
+        this.refreshVacancies();
     }
 
     componentDidUpdate(prevProps) {
         if (this.props.match.params.userId !== prevProps.match.params.userId) {
-            this.refreshProfile();
+            this.refreshVacancies();
         }
     }
 
 
     render() {
-        const {profileData, feedbacksList} = this.props;
+        const {vacanciesList, loading} = this.props;
         let authorizedUserId = localStorage.getItem('userId');
         let userId = this.props.match.params.userId;
-        return (
-            <div>
-                {/*{profileData.map(userData => {*/}
-                {/*    return <div key={userData._id}>*/}
-                {/*        <ProfilePage userData={userData} feedbacksList={feedbacksList}*/}
-                {/*                     data={data} socials={socials}*/}
-                {/*                     userId={userId} authorizedUserId={authorizedUserId}/>*/}
-                {/*    </div>*/}
-                {/*})}*/}
-            </div>
-        )
+        console.log(vacanciesList)
+        if (loading){
+            return (
+                <div className="searchPage-loading">
+                    <Loading/>
+                </div>
+            )
+        } else {
+            return (
+                <div className="resumes-container">
+                    {vacanciesList.map(vacancyData => {
+                        return <div key={vacancyData._id}>
+                            <ResumesPage vacancyData={vacancyData}/>
+                        </div>
+                    })}
+                </div>
+            )
+        }
     }
 }
 
 
-const mapStateToProps = ({auth, users, assets}) => {
+const mapStateToProps = ({assets}) => {
     return {
-        loggedIn: auth.loggedIn,
-        profileData: users.profileData,
+        loading: assets.loading,
+        vacanciesList: assets.vacanciesList,
     }
 };
 
 const mapDispatchToProps = {
-    getUser: userActions.getUserData,
-    getProfileData: userActions.getProfileData,
+    getVacancyForUser: assetsActions.getVacancyForUser,
 };
 
 withRouter(ResumesPageContainer);

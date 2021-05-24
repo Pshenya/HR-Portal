@@ -1,7 +1,7 @@
 import React from "react";
 import {Link} from "react-router-dom";
 import {ROUTES} from "../../../Routes/routes";
-import RoomIcon from "@material-ui/icons/Room";
+import RoomOutlinedIcon from '@material-ui/icons/RoomOutlined';
 import { formatDate } from "../../Helpers"
 
 
@@ -16,13 +16,12 @@ const VacanciesPageItem = ({vacancy}) => {
                             <p className="company-name">{vacancy.company}</p>
                             <span className="vac-card-salary">$ {vacancy.salary}</span>
                             <span className="vac-card-location">
-                                                <RoomIcon style={{marginRight: '5px'}}/>
+                                                <RoomOutlinedIcon style={{marginRight: '5px', color:'#EA3C53'}}/>
                                 {vacancy.region}
                                             </span>
                         </div>
                     </div>
-                    <div className="vac-card-description">
-                        {vacancy.description}
+                    <div dangerouslySetInnerHTML={{__html: vacancy.description}} className="vac-card-description">
                     </div>
                 </div>
                 <div className="vac-card-footer">

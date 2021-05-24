@@ -5,6 +5,7 @@ import {history} from "../Components/Helpers";
 export const assetsActions = {
     getAllVacancies,
     getVacancyById,
+    getVacancyForUser,
     postVacancy,
     getAllNews,
     getNewsById,
@@ -39,6 +40,20 @@ function getVacancyById(id){
     function request() { return {type: assetsConstants.GET_VACANCY_BY_ID_REQUEST} }
     function success(vacancyData) { return {type: assetsConstants.GET_VACANCY_BY_ID_SUCCESS, vacancyData} }
     function failure(error) { return {type: assetsConstants.GET_VACANCY_BY_ID_FAILURE, error} }
+}
+
+function getVacancyForUser(id){
+    return dispatch => {
+        dispatch(request());
+
+        assetsService.getVacancyForUser(id)
+            .then(vacanciesList => dispatch(success(vacanciesList)))
+            .catch(error => dispatch(failure(error)))
+    };
+
+    function request() { return {type: assetsConstants.GET_VACANCY_FOR_USER_REQUEST} }
+    function success(vacanciesList) { return {type: assetsConstants.GET_VACANCY_FOR_USER_SUCCESS, vacanciesList} }
+    function failure(error) { return {type: assetsConstants.GET_VACANCY_FOR_USER_FAILURE, error} }
 }
 
 function postVacancy(vacancy){

@@ -48,6 +48,23 @@ export function assets(state = initialState, action) {
                 loading: false,
                 error: action.error
             };
+        case assetsConstants.GET_VACANCY_FOR_USER_REQUEST:
+            return {
+                ...state,
+                loading: true
+            }
+        case assetsConstants.GET_VACANCY_FOR_USER_SUCCESS:
+            return {
+                ...state,
+                loading: false,
+                vacanciesList: action.vacanciesList
+            }
+        case assetsConstants.GET_VACANCY_FOR_USER_FAILURE:
+            return {
+                ...state,
+                loading: false,
+                error: action.error
+            }
         case assetsConstants.POST_VACANCY_REQUEST:
             return {
                 ...state,

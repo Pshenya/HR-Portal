@@ -5,6 +5,11 @@ import { store } from './store';
 
 import 'mdbreact/dist/css/mdb.css';
 import '@fortawesome/fontawesome-free/css/all.min.css';
+import 'froala-editor/js/froala_editor.pkgd.min.js';
+import 'froala-editor/css/froala_style.min.css';
+import 'froala-editor/css/froala_editor.pkgd.min.css';
+import 'font-awesome/css/font-awesome.css';
+
 
 import './index.css';
 
