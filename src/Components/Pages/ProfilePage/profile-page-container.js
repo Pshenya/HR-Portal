@@ -8,6 +8,7 @@ import {ROUTES} from "../../../Routes/routes";
 
 class ProfilePageContainer extends Component {
     refreshProfile() {
+        let authorizedUserId = localStorage.getItem('userId');
         let userId = this.props.match.params.userId;
         if (!userId) {
             userId = localStorage.getItem('userId');
@@ -15,8 +16,8 @@ class ProfilePageContainer extends Component {
                 this.props.history.push(ROUTES.LOGIN);
             }
         }
-
         this.props.getProfileData(userId);
+        this.props.getMyProfileData(authorizedUserId)
         this.props.getFeedbacks(userId);
     }
 
@@ -45,7 +46,7 @@ class ProfilePageContainer extends Component {
 
 
     render() {
-        const {profileData, feedbacksList} = this.props;
+        const {profileData, myProfileData, feedbacksList} = this.props;
         const {addJob, Facebook, LinkedIn, Github, Telegram} = this.state;
         const data = {
             addJob,
@@ -63,7 +64,7 @@ class ProfilePageContainer extends Component {
                     return <div key={userData._id}>
                         <ProfilePage userData={userData} feedbacksList={feedbacksList}
                                      data={data} socials={socials}
-                                     userId={userId} authorizedUserId={authorizedUserId}/>
+                                     userId={userId} authorizedUserId={authorizedUserId} myProfileData={myProfileData}/>
                     </div>
                 })}
             </div>
@@ -76,6 +77,7 @@ const mapStateToProps = ({auth, users, assets}) => {
     return {
         loggedIn: auth.loggedIn,
         profileData: users.profileData,
+        myProfileData: users.myProfileData,
         feedbacksList: assets.feedbacksList
     }
 };
@@ -83,6 +85,7 @@ const mapStateToProps = ({auth, users, assets}) => {
 const mapDispatchToProps = {
     getUser: userActions.getUserData,
     getProfileData: userActions.getProfileData,
+    getMyProfileData: userActions.getMyProfileData,
     getFeedbacks: assetsActions.getFeedbacks
 };
 

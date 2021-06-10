@@ -1,4 +1,4 @@
-import React, {Component, Fragment} from "react";
+import React, {Component, Fragment, useState} from "react";
 
 import './vacancy-details.css';
 
@@ -17,8 +17,12 @@ import PersonOutlineOutlinedIcon from '@material-ui/icons/PersonOutlineOutlined'
 import ChatOutlinedIcon from '@material-ui/icons/ChatOutlined';
 import companyIcon from '../../../../assets/img/company-icon.png'
 
+import { send } from 'emailjs-com';
+import emailkey from "../../../Helpers/emailkey";
+import SendCVModal from "./sendCV-modal";
 
-const VacancyDetails = ({vacancyData}) => {
+
+const VacancyDetails = ({vacancyData, loggedIn, respondSended}) => {
     const currencyChange = (data) => {
         switch (data) {
             case 'Dollar':
@@ -30,7 +34,6 @@ const VacancyDetails = ({vacancyData}) => {
         }
     }
     let ID = 1;
-    console.log(vacancyData)
     if (Object.keys(vacancyData).length === 0) {
         return (
             <div>
@@ -55,17 +58,18 @@ const VacancyDetails = ({vacancyData}) => {
                                 <div className="vac-action-card">
                                     <ul className="vac-action-list-inline">
                                         <li>
-                                            <form action="http://localhost:3000/api/resumes/upload" method="post"
-                                                  encType="multipart/form-data">
-                                                <input type="file" name="filedata"/>
-                                                <input type="submit" value="Send"/>
-                                            </form>
-                                            <button className="vac-btn">Отправить резюме</button>
+                                            {/*<form action="http://localhost:3000/api/resumes/upload" method="post"*/}
+                                            {/*      encType="multipart/form-data">*/}
+                                            {/*    <input type="file" name="filedata"/>*/}
+                                            {/*    <input type="submit" value="Send"/>*/}
+                                            {/*</form>*/}
+                                            <SendCVModal loggedIn={loggedIn} vacancyID={vacancyData._id}/>
+                                            {/*<button onClick={onSubmit} className="vac-btn">Отправить резюме</button>*/}
                                         </li>
-                                        <li>
-                                            <MDBIcon far icon="heart" style={{fontSize: '25px', color: '#2bbbad'}}/>
-                                            {/*<div className="heart-icon"></div>*/}
-                                        </li>
+                                        {/*<li>*/}
+                                        {/*    <MDBIcon far icon="heart" style={{fontSize: '25px', color: '#2bbbad'}}/>*/}
+                                        {/*    /!*<div className="heart-icon"></div>*!/*/}
+                                        {/*</li>*/}
                                     </ul>
                                 </div>
                             </div>
@@ -144,7 +148,7 @@ const VacancyDetails = ({vacancyData}) => {
                                     <p dangerouslySetInnerHTML={{__html: vacancyData.description}}></p>
                                 </div>
                                 <div className="vac-details-sendCV">
-                                    <button className="vac-btn">Отправить резюме</button>
+                                    <SendCVModal loggedIn={loggedIn}/>
                                 </div>
                             </div>
                         </div>
@@ -172,7 +176,7 @@ class VacancyDetailsContainer extends Component {
     }
 
     render() {
-        const {vacancyData, loading, error} = this.props;
+        const {vacancyData, loading, error, loggedIn} = this.props;
         if (loading) {
             return (
                 <div className="vacPage-loading">
@@ -187,13 +191,15 @@ class VacancyDetailsContainer extends Component {
                 </div>
             )
         }
-        return <VacancyDetails vacancyData={vacancyData}/>
+        return <VacancyDetails vacancyData={vacancyData} loggedIn={loggedIn}/>
     };
 }
 
-const mapStateToProps = ({assets}) => {
+const mapStateToProps = ({assets, auth}) => {
     return {
         vacancyData: assets.vacancyData,
+        respondSended: assets.respondSended,
+        loggedIn: auth.loggedIn,
         loading: assets.loading,
         error: assets.error
     }

@@ -38,7 +38,7 @@
 }
 
 .vac-main{
-    max-width: 1440px;
+    max-width: 1220px;
     margin: 0 auto;
     padding: 20px;
 }
@@ -75,6 +75,7 @@
 }
 
 .vac-card-description p{
+    color: #687e88 !important;
     transition: all .2s ease !important;
 }
 

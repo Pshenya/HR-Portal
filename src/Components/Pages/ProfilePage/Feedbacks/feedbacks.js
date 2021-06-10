@@ -56,14 +56,15 @@ class Feedbacks extends Component {
                 </div>
                 <div>
                     {feedbacksList.map(feedback => {
-                        const isOwnerFeedback = (userData.user.name === feedback.from.userData.name) && (userData.user.lastName === feedback.from.userData.lastName);
+                        console.log("FEEDBACK = ", feedback)
+                        // const isOwnerFeedback = (userData.user.name === feedback.from.userData.name) && (userData.user.lastName === feedback.from.userData.lastName);
                         return <div key={feedback._id} className="profile-comments-content">
                             <div className="profile-feedback-block">
                                 <MDBIcon icon="user-circle" size="3x"/>
                                 <div className="feedback-content">
                                     <div className="d-flex feedback-info">
                                     <span
-                                        className={(isOwnerFeedback ? 'owner-feedback' : 'feedback-user')}>{feedback.from.userData.name} {feedback.from.userData.lastName}</span>
+                                        >{feedback.from.userData.name} {feedback.from.userData.lastName}</span>
                                         <span className="feedback-date">{formatDate(feedback.createdAt)}</span>
                                     </div>
                                     <span style={{marginTop: '5px'}}>{feedback.text}</span>

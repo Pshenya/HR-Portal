@@ -12,6 +12,7 @@ import Loading from "../../../Loading/loading";
 import ErrorIndicator from "../../../ErrorIndicator/error-indicator";
 import { Link } from "react-router-dom";
 import { ROUTES } from "../../../../Routes/routes";
+import SearchPage from "../../SearchPage/search-page";
 
 class Slider extends Component {
     componentDidMount() {
@@ -22,34 +23,37 @@ class Slider extends Component {
         const {newsList, loading, error} = this.props;
         if (loading)
             return (
-                <div className="slider-loading">
+                <div className="main-loading">
                     <Loading/>
                 </div>
             );
-        if (error) return <ErrorIndicator/>;
-        return (
-            <div>
-                <Carousel>
-                    {
-                        newsList.map(news => {
-                            return (
-                                <Carousel.Item key={news._id}>
-                                    <img className="d-block w-100"
-                                         src={news.imgUrl}
-                                         alt="watch"/>
-                                    <Carousel.Caption>
-                                        <h1>{news.header}</h1>
-                                        <p>{news.shortDescription}</p>
-                                        <Link className="read-more-btn" to={`${ROUTES.NEWS}/${news._id}`}>Читать</Link>
-                                    </Carousel.Caption>
-                                </Carousel.Item>
-                            )
-                        })
-                    }
-                </Carousel>
-            </div>
+        else if (error) return <ErrorIndicator/>;
+        else {
+            return (
+                <div>
+                    <Carousel>
+                        {
+                            newsList.map(news => {
+                                return (
+                                    <Carousel.Item key={news._id}>
+                                        <img className="d-block w-100"
+                                             src={news.imgUrl}
+                                             alt="watch"/>
+                                        <Carousel.Caption>
+                                            <h1>{news.header}</h1>
+                                            <p>{news.shortDescription}</p>
+                                            <Link className="read-more-btn"
+                                                  to={`${ROUTES.NEWS}/${news._id}`}>Читать</Link>
+                                        </Carousel.Caption>
+                                    </Carousel.Item>
+                                )
+                            })
+                        }
+                    </Carousel>
+                </div>
 
-        );
+            );
+        }
     }
 }
 

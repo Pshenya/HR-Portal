@@ -39,6 +39,7 @@ export class App extends Component {
         const shouldShowHeaderAndFooter = history.location.pathname !== ROUTES.LOGIN
             && history.location.pathname !== ROUTES.REGISTRATION && history.location.pathname !== ROUTES.PROFILE_REGISTER;
 
+        console.log("ALERT", alert)
         return (
             <div className="app">
                 <Router history={history}>

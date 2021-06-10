@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import { Provider } from "react-redux";
 import { store } from './store';
 
+// UI/UX imports
 import 'mdbreact/dist/css/mdb.css';
 import '@fortawesome/fontawesome-free/css/all.min.css';
 import 'froala-editor/js/froala_editor.pkgd.min.js';

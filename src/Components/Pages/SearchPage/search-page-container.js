@@ -20,12 +20,14 @@ class SearchPageContainer extends Component {
         const {profilesList, loading, error} = this.props;
         if (loading)
             return (
-                <div className="searchPage-loading">
+                <div className="page-loading">
                     <Loading/>
                 </div>
             );
-        if (error) return <ErrorIndicator/>;
-        return <SearchPage profilesList={profilesList}/>
+        else if (error) return <ErrorIndicator/>;
+        else{
+            return <SearchPage profilesList={profilesList}/>
+        }
     }
 }
 

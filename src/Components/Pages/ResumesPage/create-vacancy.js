@@ -50,7 +50,7 @@ class CreateVacancy extends Component {
                 contactMore: '',
                 description: '',
                 salary: '',
-                salaryCurrency: '',
+                salaryCurrency: '$',
                 category: '',
                 employment: [],
                 workType: [],
@@ -172,7 +172,7 @@ class CreateVacancy extends Component {
                     </div>
                     <div className="create-vac-link-next">
                     <span>
-                        <Link to={ROUTES.VACANCIES} className="disable-link-styles vac-back-link">
+                        <Link to={ROUTES.MYRESUMES} className="disable-link-styles vac-back-link">
                         <MDBIcon icon="arrow-circle-right" style={{marginRight: '5px'}}/>
                         Мої вакансії
                         </Link>

@@ -79,7 +79,7 @@ class VacanciesPage extends Component {
     }
 
     handleCategory(e){
-        if(e.target.value === 'All categories'){
+        if(e.target.value === 'Всі категорії'){
             this.setState({
                 category: ''
             })
@@ -91,7 +91,8 @@ class VacanciesPage extends Component {
     }
 
     handleRegion(e){
-        if(e.target.value === 'All regions'){
+        console.log(e.target.value)
+        if(e.target.value === 'Всі регіони'){
             this.setState({
                 region: ''
             })

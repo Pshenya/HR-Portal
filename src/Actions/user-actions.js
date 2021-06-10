@@ -11,6 +11,7 @@ export const userActions = {
     getAllUsers,
     postProfileData,
     getProfileData,
+    getMyProfileData,
     updateProfileData,
     deleteProfileData
 };
@@ -170,4 +171,18 @@ function getProfileData(userId) {
     function request() { return {type: userConstants.GETPROFILE_REQUEST} }
     function success(profileData) { return { type: userConstants.GETPROFILE_SUCCESS, profileData } }
     function failure(error) { return { type: userConstants.GETPROFILE_FAILURE, error } }
+}
+
+function getMyProfileData(userId) {
+    return dispatch => {
+        dispatch(request());
+
+        userService.getMyProfileData(userId)
+            .then(myProfileData => dispatch(success(myProfileData)))
+            .catch(error => dispatch(failure(error)))
+    };
+
+    function request() { return {type: userConstants.GETMYPROFILE_REQUEST} }
+    function success(myProfileData) { return { type: userConstants.GETMYPROFILE_SUCCESS, myProfileData } }
+    function failure(error) { return { type: userConstants.GETMYTPROFILE_FAILURE, error } }
 }

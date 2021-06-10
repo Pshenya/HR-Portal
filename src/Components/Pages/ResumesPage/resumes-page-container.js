@@ -43,12 +43,14 @@ class ResumesPageContainer extends Component {
             )
         } else {
             return (
-                <div className="resumes-container">
-                    {vacanciesList.map(vacancyData => {
-                        return <div key={vacancyData._id}>
-                            <ResumesPage vacancyData={vacancyData}/>
-                        </div>
-                    })}
+                <div className="my-vac-container">
+                    <div className="my-vac-content">
+                        {vacanciesList.map(vacancyData => {
+                            return <div key={vacancyData._id}>
+                                <ResumesPage vacancyData={vacancyData}/>
+                            </div>
+                        })}
+                    </div>
                 </div>
             )
         }

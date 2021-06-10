@@ -7,6 +7,7 @@ export const assetsActions = {
     getVacancyById,
     getVacancyForUser,
     postVacancy,
+    postVacancyRespond,
     getAllNews,
     getNewsById,
     sendFeedback,
@@ -76,6 +77,25 @@ function postVacancy(vacancy){
     function failure(error) { return { type: assetsConstants.POST_VACANCY_FAILURE, error } }
 }
 
+function postVacancyRespond(respond){
+    return dispatch => {
+        dispatch(request(respond));
+
+        assetsService.postVacancyRespond(respond)
+            .then(
+                respond => {
+                    dispatch(success());
+                },
+                error => {
+                    dispatch(failure(error.toString()));
+                }
+            );
+    };
+
+    function request(respond) { return { type: assetsConstants.POST_VACANCY_RESPOND_REQUEST, respond } }
+    function success(respond) { return { type: assetsConstants.POST_VACANCY_RESPOND_SUCCESS, respond } }
+    function failure(error) { return { type: assetsConstants.POST_VACANCY_RESPOND_FAILURE, error } }
+}
 function getAllNews() {
     return dispatch => {
         dispatch(request());

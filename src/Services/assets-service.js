@@ -3,6 +3,7 @@ export const assetsService = {
     getVacancyById,
     getVacancyForUser,
     postVacancy,
+    postVacancyRespond,
     getAllNews,
     getNewsById,
     sendFeedback,
@@ -58,6 +59,20 @@ function postVacancy(vacancy){
         .then(handleResponse)
         .then(vacancy => {
             return vacancy;
+        });
+}
+
+function postVacancyRespond(respond){
+    const requestOptions = {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify(respond)
+    };
+
+    return fetch(`${_apiURL}/resumes/send`, requestOptions)
+        .then(handleResponse)
+        .then(respond => {
+            return respond;
         });
 }
 

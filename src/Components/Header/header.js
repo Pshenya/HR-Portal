@@ -68,7 +68,7 @@ export class Header extends Component {
                                     <Nav.Link as={Link} to={ROUTES.VACANCIES}>ВАКАНСІЇ</Nav.Link>
                                     <Nav.Link as={Link} to={ROUTES.STATS}>СТАТИСТИКА ЗП</Nav.Link>
                                 </Nav>
-                                {loggedIn &&
+                                {loggedIn && userData &&
                                     <div className="d-flex">
                                         <div className="header-icon d-flex" onClick={this.showMenu}>
                                             <h3>{userData.name}</h3>
@@ -77,7 +77,7 @@ export class Header extends Component {
                                                 ? (
                                                     <div className="header-dropdown-menu">
                                                         <Link className="header-link" to={`${ROUTES.PROFILE}/${userData.userId}`}>Мій профіль</Link>
-                                                        <Link className="header-link" to={ROUTES.MYRESUMES}>Мої резюме</Link>
+                                                        <Link className="header-link" to={ROUTES.MYRESUMES}>Мої вакансії</Link>
                                                         {userData.role === "HR" && <Link to={ROUTES.CREATEVACANCY} className="header-link">Створити резюме</Link>}
                                                     </div>
                                                 )

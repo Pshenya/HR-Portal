@@ -11,7 +11,7 @@ export const ROUTES = {
     REGISTRATION: '/registration',
     PROFILE_REGISTER: '/register-profile',
     PROFILE: '/profile',
-    MYRESUMES: '/my-resumes',
+    MYRESUMES: '/my/resumes',
     CREATEVACANCY: '/create-vacancy'
 };
 

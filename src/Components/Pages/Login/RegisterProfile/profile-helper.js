@@ -24,7 +24,8 @@ class ProfileHelper extends Component {
                 facebookLink: '',
                 linkedinLink: '',
                 githubLink: '',
-                telegramLink: ''
+                telegramLink: '',
+                approvedBy: [],
             },
             submitted: false
         };
@@ -62,7 +63,7 @@ class ProfileHelper extends Component {
         return (
             <div className="profreg-content">
                 <div className="profreg-header">
-                    <h3>Заполните информацию о себе</h3>
+                    <h3>Заповніть інформацію про себе (не обов'язково)</h3>
                 </div>
                 <div className="profreg-block">
                     <MDBContainer>
@@ -71,7 +72,7 @@ class ProfileHelper extends Component {
                                 <div className="profile-helper">
                                     <form className="common-form" name="form" onSubmit={this.handleSubmit}>
                                         <div className={submitted && !profile.companyName ? ' has-error' : ''}>
-                                            <MDBInput name="companyName" label="Компания" icon="briefcase" group
+                                            <MDBInput name="companyName" label="Компанія" icon="briefcase" group
                                                       type="text"
                                                       validate
                                                       error="wrong" value={profile.companyName}
@@ -79,7 +80,7 @@ class ProfileHelper extends Component {
                                                       success="right"/>
                                         </div>
                                         <div className={submitted && !profile.jobPosition ? ' has-error' : ''}>
-                                            <MDBInput name="jobPosition" label="Должность" fab icon="user-secret" group
+                                            <MDBInput name="jobPosition" label="Посада" fab icon="user-secret" group
                                                       type="text"
                                                       validate
                                                       error="wrong" value={profile.jobPosition}
@@ -87,7 +88,7 @@ class ProfileHelper extends Component {
                                                       success="right"/>
                                         </div>
                                         <div className={submitted && !profile.workExperience ? ' has-error' : ''}>
-                                            <MDBInput name="workExperience" label="Опыт работы" fab icon="grav" group
+                                            <MDBInput name="workExperience" label="Досвід роботи" fab icon="grav" group
                                                       type="text"
                                                       validate
                                                       error="wrong" value={profile.workExperience}
@@ -102,7 +103,7 @@ class ProfileHelper extends Component {
                                                       success="right"/>
                                         </div>
                                         <div className={submitted && !profile.phone ? ' has-error' : ''}>
-                                            <MDBInput name="phone" label="Контактный номер" icon="phone" group
+                                            <MDBInput name="phone" label="Контактний номер" icon="phone" group
                                                       type="text" validate value={profile.phone}
                                                       onChange={this.handleChange}/>
                                         </div>
@@ -127,7 +128,7 @@ class ProfileHelper extends Component {
                                                       onChange={this.handleChange}/>
                                         </div>
                                         <div className="btn-group">
-                                            <MDBBtn type="submit" className="form-btn" color="0">Готово</MDBBtn>
+                                            <MDBBtn type="submit" className="form-btn" color="0">Зареєструватися</MDBBtn>
                                             {isSending &&
                                             <img
                                                 src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA=="
