@@ -1,31 +1,31 @@
 {
   "files": {
-    "main.css": "/HR-Portal/static/css/main.18bb811e.chunk.css",
-    "main.js": "/HR-Portal/static/js/main.90f3bb5b.chunk.js",
-    "main.js.map": "/HR-Portal/static/js/main.90f3bb5b.chunk.js.map",
+    "main.css": "/HR-Portal/static/css/main.574ab933.chunk.css",
+    "main.js": "/HR-Portal/static/js/main.bef7bae5.chunk.js",
+    "main.js.map": "/HR-Portal/static/js/main.bef7bae5.chunk.js.map",
     "runtime-main.js": "/HR-Portal/static/js/runtime-main.c0863106.js",
     "runtime-main.js.map": "/HR-Portal/static/js/runtime-main.c0863106.js.map",
-    "static/css/2.b2c4cd9e.chunk.css": "/HR-Portal/static/css/2.b2c4cd9e.chunk.css",
-    "static/js/2.74cd9f24.chunk.js": "/HR-Portal/static/js/2.74cd9f24.chunk.js",
-    "static/js/2.74cd9f24.chunk.js.map": "/HR-Portal/static/js/2.74cd9f24.chunk.js.map",
+    "static/css/2.10ebf217.chunk.css": "/HR-Portal/static/css/2.10ebf217.chunk.css",
+    "static/js/2.80a26920.chunk.js": "/HR-Portal/static/js/2.80a26920.chunk.js",
+    "static/js/2.80a26920.chunk.js.map": "/HR-Portal/static/js/2.80a26920.chunk.js.map",
     "index.html": "/HR-Portal/index.html",
-    "precache-manifest.aae668fb019f83de3c04d0b909b6d919.js": "/HR-Portal/precache-manifest.aae668fb019f83de3c04d0b909b6d919.js",
+    "precache-manifest.efc8815cea5f4d5cfedb7c526b05a16d.js": "/HR-Portal/precache-manifest.efc8815cea5f4d5cfedb7c526b05a16d.js",
     "service-worker.js": "/HR-Portal/service-worker.js",
-    "static/css/2.b2c4cd9e.chunk.css.map": "/HR-Portal/static/css/2.b2c4cd9e.chunk.css.map",
-    "static/css/main.18bb811e.chunk.css.map": "/HR-Portal/static/css/main.18bb811e.chunk.css.map",
-    "static/js/2.74cd9f24.chunk.js.LICENSE.txt": "/HR-Portal/static/js/2.74cd9f24.chunk.js.LICENSE.txt",
+    "static/css/2.10ebf217.chunk.css.map": "/HR-Portal/static/css/2.10ebf217.chunk.css.map",
+    "static/css/main.574ab933.chunk.css.map": "/HR-Portal/static/css/main.574ab933.chunk.css.map",
+    "static/js/2.80a26920.chunk.js.LICENSE.txt": "/HR-Portal/static/js/2.80a26920.chunk.js.LICENSE.txt",
     "static/media/MIIIIIIIIIIII.jpg": "/HR-Portal/static/media/MIIIIIIIIIIII.88711822.jpg",
     "static/media/index.css": "/HR-Portal/static/media/RobotoCondensed-Regular.52ee8b59.ttf",
     "static/media/mdb.css": "/HR-Portal/static/media/arrow_right.8ef6a08c.svg",
     "static/media/all.min.css": "/HR-Portal/static/media/fa-solid-900.ec763292.svg",
-    "static/media/font-awesome.min.css": "/HR-Portal/static/media/fontawesome-webfont.fee66e71.woff",
+    "static/media/font-awesome.css": "/HR-Portal/static/media/fontawesome-webfont.fee66e71.woff",
     "static/media/pavlik.jpg": "/HR-Portal/static/media/pavlik.c09f00f8.jpg"
   },
   "entrypoints": [
     "static/js/runtime-main.c0863106.js",
-    "static/css/2.b2c4cd9e.chunk.css",
-    "static/js/2.74cd9f24.chunk.js",
-    "static/css/main.18bb811e.chunk.css",
-    "static/js/main.90f3bb5b.chunk.js"
+    "static/css/2.10ebf217.chunk.css",
+    "static/js/2.80a26920.chunk.js",
+    "static/css/main.574ab933.chunk.css",
+    "static/js/main.bef7bae5.chunk.js"
   ]
 }
