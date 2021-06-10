@@ -5,7 +5,9 @@ import {history} from "../Components/Helpers";
 export const assetsActions = {
     getAllVacancies,
     getVacancyById,
+    getVacancyForUser,
     postVacancy,
+    postVacancyRespond,
     getAllNews,
     getNewsById,
     sendFeedback,
@@ -41,6 +43,20 @@ function getVacancyById(id){
     function failure(error) { return {type: assetsConstants.GET_VACANCY_BY_ID_FAILURE, error} }
 }
 
+function getVacancyForUser(id){
+    return dispatch => {
+        dispatch(request());
+
+        assetsService.getVacancyForUser(id)
+            .then(vacanciesList => dispatch(success(vacanciesList)))
+            .catch(error => dispatch(failure(error)))
+    };
+
+    function request() { return {type: assetsConstants.GET_VACANCY_FOR_USER_REQUEST} }
+    function success(vacanciesList) { return {type: assetsConstants.GET_VACANCY_FOR_USER_SUCCESS, vacanciesList} }
+    function failure(error) { return {type: assetsConstants.GET_VACANCY_FOR_USER_FAILURE, error} }
+}
+
 function postVacancy(vacancy){
     return dispatch => {
         dispatch(request(vacancy));
@@ -61,6 +77,25 @@ function postVacancy(vacancy){
     function failure(error) { return { type: assetsConstants.POST_VACANCY_FAILURE, error } }
 }
 
+function postVacancyRespond(respond){
+    return dispatch => {
+        dispatch(request(respond));
+
+        assetsService.postVacancyRespond(respond)
+            .then(
+                respond => {
+                    dispatch(success());
+                },
+                error => {
+                    dispatch(failure(error.toString()));
+                }
+            );
+    };
+
+    function request(respond) { return { type: assetsConstants.POST_VACANCY_RESPOND_REQUEST, respond } }
+    function success(respond) { return { type: assetsConstants.POST_VACANCY_RESPOND_SUCCESS, respond } }
+    function failure(error) { return { type: assetsConstants.POST_VACANCY_RESPOND_FAILURE, error } }
+}
 function getAllNews() {
     return dispatch => {
         dispatch(request());

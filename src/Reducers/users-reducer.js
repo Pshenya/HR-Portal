@@ -3,8 +3,10 @@ import { userConstants } from '../CONSTANTS';
 const initialState = {
     userData: {},
     profileData: [],
+    myProfileData: [],
     profilesList: [],
     deleted: false,
+    approveSended: false,
     loading: false,
     error: null
 };
@@ -63,7 +65,8 @@ export function users(state = initialState, action) {
         case userConstants.UPDATE_PROFILE_SUCCESS:
             return {
                 ...state,
-                loading: false
+                loading: false,
+                approveSended: true
             };
         case userConstants.UPDATE_PROFILE_FAILURE:
             return {
@@ -101,6 +104,23 @@ export function users(state = initialState, action) {
                 profileData: action.profileData
             };
         case userConstants.GETPROFILE_FAILURE:
+            return {
+                ...state,
+                loading: false,
+                error: action.error
+            };
+        case userConstants.GETMYPROFILE_REQUEST:
+            return {
+                ...state,
+                loading: true
+            };
+        case userConstants.GETMYPROFILE_SUCCESS:
+            return {
+                ...state,
+                loading: false,
+                myProfileData: action.myProfileData
+            };
+        case userConstants.GETMYTPROFILE_FAILURE:
             return {
                 ...state,
                 loading: false,

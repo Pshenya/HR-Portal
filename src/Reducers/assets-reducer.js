@@ -7,6 +7,7 @@ const initialState = {
     postData: {},
     vacancyData: {},
     vacancySended: false,
+    respondSended: false,
     feedbackSended: false,
     loading: false,
     error: null
@@ -48,6 +49,23 @@ export function assets(state = initialState, action) {
                 loading: false,
                 error: action.error
             };
+        case assetsConstants.GET_VACANCY_FOR_USER_REQUEST:
+            return {
+                ...state,
+                loading: true
+            }
+        case assetsConstants.GET_VACANCY_FOR_USER_SUCCESS:
+            return {
+                ...state,
+                loading: false,
+                vacanciesList: action.vacanciesList
+            }
+        case assetsConstants.GET_VACANCY_FOR_USER_FAILURE:
+            return {
+                ...state,
+                loading: false,
+                error: action.error
+            }
         case assetsConstants.POST_VACANCY_REQUEST:
             return {
                 ...state,
@@ -60,6 +78,23 @@ export function assets(state = initialState, action) {
                 vacancySended: true
             }
         case assetsConstants.POST_VACANCY_FAILURE:
+            return {
+                ...state,
+                loading: false,
+                error: action.error
+            }
+        case assetsConstants.POST_VACANCY_RESPOND_REQUEST:
+            return {
+                ...state,
+                loading: true
+            }
+        case assetsConstants.POST_VACANCY_RESPOND_SUCCESS:
+            return {
+                ...state,
+                loading: false,
+                respondSended: true
+            }
+        case assetsConstants.POST_VACANCY_RESPOND_FAILURE:
             return {
                 ...state,
                 loading: false,

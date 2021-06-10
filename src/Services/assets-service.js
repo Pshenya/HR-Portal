@@ -1,7 +1,9 @@
 export const assetsService = {
     getAllVacancies,
     getVacancyById,
+    getVacancyForUser,
     postVacancy,
+    postVacancyRespond,
     getAllNews,
     getNewsById,
     sendFeedback,
@@ -34,6 +36,18 @@ function getVacancyById(id) {
         })
 }
 
+function getVacancyForUser(id) {
+    const requestOptions = {
+        method: 'GET',
+        redirect: 'follow'
+    };
+    return fetch(`${_apiURL}/vacan/vacancy/my?userId=${id}`, requestOptions)
+        .then(handleResponse)
+        .then(vacanciesList => {
+            return JSON.parse(vacanciesList);
+        })
+}
+
 function postVacancy(vacancy){
     const requestOptions = {
         method: 'POST',
@@ -45,6 +59,20 @@ function postVacancy(vacancy){
         .then(handleResponse)
         .then(vacancy => {
             return vacancy;
+        });
+}
+
+function postVacancyRespond(respond){
+    const requestOptions = {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify(respond)
+    };
+
+    return fetch(`${_apiURL}/resumes/send`, requestOptions)
+        .then(handleResponse)
+        .then(respond => {
+            return respond;
         });
 }
 
@@ -68,7 +96,6 @@ function getNewsById(id) {
     return fetch(`${_apiURL}/news/news?post=${id}`, requestOptions)
         .then(handleResponse)
         .then(postData => {
-            console.log(JSON.parse(postData));
             return JSON.parse(postData);
         })
 }
@@ -99,8 +126,8 @@ function getFeedbacks(id){
 function handleResponse(response) {
     return response.text()
         .then(data => {
-            if ( !response.ok) {
-                // window.location.reload();
+            if (!response.ok) {
+                window.location.reload();
                 const error = data.toString();
 
                 return Promise.reject(error);

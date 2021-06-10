@@ -168,7 +168,7 @@ class MyProfile extends Component {
                                                 icon={faStar}
                                                 size="2x"
                                                 style={{color: "#2bbbad"}}/>
-                                            <span>{profile.rating}</span>
+                                            <span>{Math.round((userData.rating)*10)/10}</span>
                                         </div>
                                     </div>
                                 </div>

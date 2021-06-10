@@ -79,7 +79,7 @@ class VacanciesPage extends Component {
     }
 
     handleCategory(e){
-        if(e.target.value === 'All categories'){
+        if(e.target.value === 'Всі категорії'){
             this.setState({
                 category: ''
             })
@@ -91,7 +91,8 @@ class VacanciesPage extends Component {
     }
 
     handleRegion(e){
-        if(e.target.value === 'All regions'){
+        console.log(e.target.value)
+        if(e.target.value === 'Всі регіони'){
             this.setState({
                 region: ''
             })
@@ -152,13 +153,13 @@ class VacanciesPage extends Component {
                                     {this.state.showRegions
                                         ? (
                                             <div className="regions-dropdown-menu">
-                                                <button value={"Kiev"} onClick={e => this.handleRegion(e, "value")}>Київ</button>
-                                                <button value={"Kharkiv"} onClick={e => this.handleRegion(e, "value")}>Харків</button>
-                                                <button value={"Dnipro"} onClick={e => this.handleRegion(e, "value")}>Дніпро</button>
-                                                <button value={"Zaporizhzhia"} onClick={e => this.handleRegion(e, "value")}>Запоріжжя</button>
-                                                <button value={"Lviv"} onClick={e => this.handleRegion(e, "value")}>Львів</button>
-                                                <button value={"Odessa"} onClick={e => this.handleRegion(e, "value")}>Одеса</button>
-                                                <button value={"All regions"} onClick={e => this.handleRegion(e, "value")}>Всі регіони</button>
+                                                <button value={"Київ"} onClick={e => this.handleRegion(e, "value")}>Київ</button>
+                                                <button value={"Харків"} onClick={e => this.handleRegion(e, "value")}>Харків</button>
+                                                <button value={"Дніпро"} onClick={e => this.handleRegion(e, "value")}>Дніпро</button>
+                                                <button value={"Запоріжжя"} onClick={e => this.handleRegion(e, "value")}>Запоріжжя</button>
+                                                <button value={"Львів"} onClick={e => this.handleRegion(e, "value")}>Львів</button>
+                                                <button value={"Одеса"} onClick={e => this.handleRegion(e, "value")}>Одеса</button>
+                                                <button value={"Всі регіони"} onClick={e => this.handleRegion(e, "value")}>Всі регіони</button>
                                             </div>
                                         )
                                         : null}
@@ -172,11 +173,11 @@ class VacanciesPage extends Component {
                                 {this.state.showCategories
                                     ? (
                                         <div className="dropdown-menu">
-                                            <button value={"HR"} onClick={e => this.handleCategory(e, "value")}>HR-спеціалісти/Бізнес тренери</button>
+                                            <button value={"HR/Рекрутинг"} onClick={e => this.handleCategory(e, "value")}>HR/Рекрутинг</button>
                                             <button value={"IT"} onClick={e => this.handleCategory(e, "value")}>IT</button>
-                                            <button value={"Hotels/Cafe/Restaurants"} onClick={e => this.handleCategory(e, "value")}>Готелі - Ресторани - Кафе</button>
-                                            <button value={"Graphics/Design"} onClick={e => this.handleCategory(e, "value")}>Дизайн - Фото - Графіка</button>
-                                            <button value={"All categories"} onClick={e => this.handleCategory(e, "value")}>Всі категорії</button>
+                                            <button value={"Готелі - Ресторани - Кафе"} onClick={e => this.handleCategory(e, "value")}>Готелі - Ресторани - Кафе</button>
+                                            <button value={"Дизайн - Фото - Графіка"} onClick={e => this.handleCategory(e, "value")}>Дизайн - Фото - Графіка</button>
+                                            <button value={"Всі категорії"} onClick={e => this.handleCategory(e, "value")}>Всі категорії</button>
                                         </div>
                                     )
                                     : null}

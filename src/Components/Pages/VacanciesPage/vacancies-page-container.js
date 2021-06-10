@@ -18,14 +18,17 @@ class VacanciesPageContainer extends Component {
 
     render() {
         const {vacanciesList, loading, error} = this.props;
-        if (loading)
+        if (loading) {
             return (
-                <div className="vacPage-loading">
+                <div className="page-loading">
                     <Loading/>
                 </div>
             );
-        if (error) return <ErrorIndicator/>;
-        return <VacanciesPage vacanciesList={vacanciesList}/>
+        }
+        else if(error) return <ErrorIndicator/>
+        else {
+            return <VacanciesPage vacanciesList={vacanciesList}/>
+        }
     }
 }
 

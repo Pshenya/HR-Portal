@@ -1,0 +1,8 @@
+.sendCV-data .modal-header{
+    text-align: center;
+}
+
+.sendCV-data .modal-header .modal-title{
+    flex: 2;
+    margin: 0 auto;
+}

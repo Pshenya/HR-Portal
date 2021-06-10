@@ -94,3 +94,65 @@
     border: 2px solid #2bbbad;
 }
 
+.disabled-btn{
+    font-size: 16px;
+    cursor: not-allowed;
+    pointer-events: all !important;
+    border: 1px solid #999999;
+    background-color: #cccccc;
+    color: #666666;
+    box-shadow: none;
+}
+
+.disabled-btn:hover{
+    cursor: not-allowed;
+    pointer-events: all !important;
+    border: 1px solid #999999;
+    background-color: #cccccc;
+    color: #666666;
+    box-shadow: none;
+}
+
+.approve-btn-block{
+    font-family: "Roboto-Condensed Regular", sans-serif;
+    font-size: 16px;
+    width: 300px;
+    height: 150px;
+    padding: 15px;
+    background-color: white;
+    position: fixed;
+    top: 150px;
+    right: 100px;
+
+    border-radius: 8px;
+    box-shadow: 11px 8px 13px 0px rgb(33 37 39 / 5%), inset 0 0 0 1px #e0e7eb
+}
+
+.approve-content{
+    display: flex;
+}
+
+.done{
+    display: flex;
+    justify-content: flex-end;
+}
+
+.approve-content .done-container{
+    margin-right: 60px;
+}
+
+.approve-btn-close .MuiSvgIcon-root{
+    transition: .2s all ease;
+}
+
+.approve-btn-close .MuiSvgIcon-root:hover{
+    color: #2bbbad;
+    transform: rotate(90deg);
+}
+
+.approve-btn{
+    display: flex;
+    justify-content: center;
+    margin-top: 15px;
+}
+

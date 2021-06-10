@@ -7,9 +7,9 @@ import UsersProfile from "./UsersProfile/users-profile";
 
 class ProfilePage extends Component {
     render() {
-        const {userData, feedbacksList, data, socials, userId, authorizedUserId} = this.props;
+        const {userData, feedbacksList, data, socials, userId, authorizedUserId, myProfileData} = this.props;
         if (userId && userId !== authorizedUserId) {
-            return <UsersProfile userId={userId} userData={userData} feedbacksList={feedbacksList}/>
+            return <UsersProfile authorizedUserId={authorizedUserId} userId={userId} userData={userData} myProfileData={myProfileData} feedbacksList={feedbacksList}/>
         }
         return <MyProfile userId={userId} userData={userData} feedbacksList={feedbacksList} data={data} socials={socials}/>
 

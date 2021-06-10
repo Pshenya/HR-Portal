@@ -52,16 +52,16 @@ class RatingPageContainer extends Component {
     render() {
         const {profilesList, loading, error} = this.props;
 
-        console.log("LIST", profilesList)
-
         if (loading)
             return (
-                <div className="ratingPage-loading">
+                <div className="page-loading">
                     <Loading/>
                 </div>
             );
-        if (error) return <ErrorIndicator/>;
-        return <RatingPage profilesList={profilesList}/>
+        else if (error) return <ErrorIndicator/>;
+        else{
+            return <RatingPage profilesList={profilesList}/>
+        }
     }
 }
 

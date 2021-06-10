@@ -1,0 +1,71 @@
+.my-vac-container{
+    margin-top: 100px;
+    width: 100%;
+    min-height: 500px;
+}
+
+.my-vac-content{
+    min-width: 1220px;
+    width: 1220px;
+    padding-top: 40px;
+    margin: 0 auto;
+}
+
+.my-vac-content > div{
+    margin-bottom: 10px;
+}
+
+.my-vac-card{
+    min-width: 1220px;
+    height: 150px;
+    background-color: transparent;
+    box-shadow: 0 10px 10px rgb(33 37 39 / 5%), inset 0 0 0 1px #e0e7eb;
+    border-radius: 5px;
+    border-left: 5px solid #cecbcb;
+    color: #212527;
+    cursor: pointer;
+
+    transition: all .4s ease;
+}
+
+.my-vac-card:hover{
+    box-shadow: 0 10px 10px rgb(33 37 39 / 15%), inset 0 0 0 1px #e0e7eb;
+}
+
+.my-vac-wrapper{
+    display: flex;
+    height: 100%;
+}
+
+.my-vac-left{
+    width: 100%;
+    font-size: 18px;
+    padding: 20px;
+}
+
+.my-vac-title{
+    font-weight: bold;
+}
+
+.my-vac-info{
+    display: flex;
+    padding: 10px 0 20px 0;
+}
+
+.my-vac-info div{
+    padding-right: 30px;
+}
+
+.my-vac-right{
+    width: 175px;
+}
+
+.my-vac-actions-inner{
+    margin-top: 55px;
+    padding-right: 15px;
+}
+
+.my-vac-actions{
+    display: flex;
+    justify-content: space-around;
+}

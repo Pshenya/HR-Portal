@@ -1,6 +1,8 @@
 import AboutPage from "./AboutPage/about-page";
 import SearchPage from "./SearchPage/search-page-container";
 import ProfilePageContainer from "./ProfilePage/profile-page-container";
+import ResumesPageContainer from "./ResumesPage/resumes-page-container";
+import CreateVacancy from "./ResumesPage/create-vacancy";
 import RatingPage from "./RatingPage/rating-page";
 import SignInPage from "./Login/SignInPage/signin-page";
 import StatsPage from "./StatsPage/stats-page";
@@ -13,6 +15,8 @@ export {
     AboutPage,
     SearchPage,
     ProfilePageContainer,
+    ResumesPageContainer,
+    CreateVacancy,
     RatingPage,
     SignInPage,
     StatsPage,

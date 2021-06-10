@@ -34,13 +34,13 @@ class NewsCardsContainer extends Component {
 
     render() {
         const {newsList, loading, error} = this.props;
-        if (loading)
-            return (
-                <div className="vacPage-loading">
-                    <Loading/>
-                </div>
-            );
-        if (error) return <ErrorIndicator/>;
+        // if (loading)
+        //     return (
+        //         <div className="vacPage-loading">
+        //             <Loading/>
+        //         </div>
+        //     );
+        // if (error) return <ErrorIndicator/>;
         return <NewsCards newsList={newsList}/>
     }
 };

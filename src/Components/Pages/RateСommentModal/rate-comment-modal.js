@@ -68,7 +68,7 @@ class RateCommentModal extends Component {
 
         return (
             <div className="profile-save-data">
-                <button className="rate-btn" onClick={this.toggle}>Рейтинговий відгук</button>
+                {<button className="rate-btn" onClick={this.toggle}>Рейтинговий відгук</button>}
                 <MDBModal isOpen={this.state.modal} toggle={this.toggle}>
                     <MDBModalHeader toggle={this.toggle}>Рейтинговий відгук</MDBModalHeader>
                     <MDBModalBody>

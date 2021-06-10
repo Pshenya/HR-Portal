@@ -44,20 +44,20 @@ class RatingBlocksContainer extends Component {
 
     render() {
         const {profilesList, loading, error} = this.props;
-        if (loading) {
-            return (
-                <div className="aside-rating-loading">
-                    <Loading/>
-                </div>
-            )
-        }
-        if (error) {
-            return (
-                <div className="aside-rating-error">
-                    <ErrorIndicator/>
-                </div>
-            )
-        }
+        // if (loading) {
+        //     return (
+        //         <div className="aside-rating-loading">
+        //             <Loading/>
+        //         </div>
+        //     )
+        // }
+        // if (error) {
+        //     return (
+        //         <div className="aside-rating-error">
+        //             <ErrorIndicator/>
+        //         </div>
+        //     )
+        // }
         return <RatingBlocks profilesList={profilesList}/>
     }
 }

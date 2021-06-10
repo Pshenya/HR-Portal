@@ -1,6 +1,6 @@
 .main-center{
     width: 100%;
-    font-family: Roboto-Condensed, sans-serif;
+    font-family: "Roboto-Condensed Light", sans-serif;
     font-weight: normal;
     font-size: 1rem;
     padding-bottom: 60px;
@@ -17,6 +17,7 @@
 }
 
 .vac-btn{
+    font-weight: bold;
     filter: drop-shadow(0 5px 5px rgba(0, 0, 0, 0.1));
     -webkit-transition: all 0.1s ease;
     transition: all 0.5s ease;
@@ -41,13 +42,13 @@
     position: relative;
 }
 
-.vac-action-top{
+.vac-top-action{
     background-color: #fff;
-    border-top: 1px solid #e9ebed;
     position: relative;
+    border-radius: 8px;
 }
 
-.vac-action-top .vac-action-card{
+.vac-top-action .vac-action-card{
     border-top: none;
     padding-top: 20px;
     position: relative;
@@ -56,7 +57,7 @@
 .vac-action-card{
     border-radius: 8px 8px 0 0;
     background-color: #fff;
-    border: 1px solid #e9ebed;
+    border-bottom: 1px solid #e9ebed;
     margin-bottom: -1px;
     padding: 20px 40px;
     position: relative;
@@ -76,10 +77,14 @@
     margin-bottom: 0;
 }
 
+.vac-details-card{
+    width: 65%;
+}
+
 .vac-details-card-main{
     display: flex;
     flex-direction: column;
-    padding: 40px;
+    padding: 50px;
 }
 
 .vac-details-card-date{
@@ -88,12 +93,11 @@
 }
 
 .vac-details-card-title{
-    font-family: "Roboto-Condensed Bold", sans-serif;
     font-size: 42px;
 }
 
 .vac-details-card-company{
-    font-family: "Roboto-Condensed Light", sans-serif;
+    /*font-family: "Roboto-Condensed Light", sans-serif;*/
     font-weight: 700;
     font-size: 20px;
     margin-bottom: 15px;
@@ -102,6 +106,25 @@
 .vac-details-card-salary{
     font-family: "Roboto-Condensed Bold", sans-serif;
     font-size: 25px;
+}
+
+.vac-details-card-address{
+    font-size: 22px;
+    padding-top: 30px;
+}
+
+.vac-details-card-contacts{
+    margin-top: 20px;
+}
+
+.contacts-heading{
+    font-family: "Roboto-Condensed Bold", sans-serif;
+    font-size: 22px;
+}
+
+.contacts-content{
+    font-family: "Roboto-Condensed Light", sans-serif;
+    font-size: 22px;
 }
 
 .vac-details-card-employment{
@@ -120,49 +143,120 @@
     margin-bottom: 10px;
 }
 
-.vac-details-card-descr span{
-    font-family: "Roboto-Condensed Bold", sans-serif;
-    font-size: 24px;
+.vac-details-card-descr{
+    margin-top: 40px;
 }
 
 .vac-details-sendCV{
     margin-top: 40px;
 }
 
-.heart-icon{
-    /*display: none;*/
-    display: inline-block;
-    height: 15px;
-    width: 15px;
-    margin: 0 10px;
+.vac-details-frame-container{
+    width: 100%;
+    min-height: 200px;
+    border: 2px solid rgba(224, 231, 235, 1);
+    border-radius: 8px;
 
+    margin-top: 40px;
+}
+
+.vac-details-frame-block{
+    padding: 20px;
+}
+
+.frame-heading{
+    font-family: "Roboto-Condensed Bold", sans-serif;
+    font-size: 25px;
+    margin-bottom: 20px;
+}
+
+.frame-content{
+    display: flex;
+    align-items: stretch;
+    flex-wrap: wrap;
+}
+
+.frame-content-section{
+    flex: 1;
+}
+
+.frame-content-section li{
+    position: relative;
+}
+
+.frame-content-section li::before{
+    content: '';
+    display: block;
     position: absolute;
-    left: 93.25%; top: 43%;
-
-    background-color: red;
-
+    background-color: #2bbbad;
+    width: 6px;
+    height: 6px;
+    top: 9px;
+    left: -18px;
     transform: rotate(-45deg);
 }
 
-.heart-icon:before,
-.heart-icon:after {
-    content: "";
-
-    position: absolute;
-    height: 15px;
-    width: 15px;
-
-    background-color: red;
-    border-radius: 50%;
+.frame-section-heading{
+    font-family: "Roboto-Condensed Bold", sans-serif;
 }
 
-/* Убираем тень при наведении */
-.heart-icon:before {
-    top: -8px;
-    left: 0;
+.vac-details-company-container{
+    width: 30%;
+    min-height: 200px;
+    max-height: 275px;
+    margin-left: 25px;
+
+    background-color: white;
+    border-radius: 8px;
 }
 
-.heart-icon:after {
-    left: 8px;
-    top: 0;
+.vac-details-icon-block{
+    display: flex;
+    justify-content: center;
 }
+
+.vac-details-info{
+    height: 150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.vac-details-info div{
+    text-align: center;
+}
+
+.vac-details-info div:nth-child(1) a{
+    font-size: 20px;
+    font-weight: bold;
+    text-decoration: none;
+
+    color: #2bbbad;
+    transition: all .4s ease;
+}
+
+.vac-details-info div:nth-child(1) a:hover{
+    color: #2bbbad;
+    text-shadow: 0 0 15px #2bbbad;
+}
+
+.vac-details-info div:nth-child(2){
+    margin-top: -15px;
+}
+
+.vac-details-info div:nth-child(2) span{
+    font-size: 17px;
+}
+
+.vac-details-info div:nth-child(3) a{
+    text-decoration: none;
+    color: #687e88;
+}
+
+.vac-details-info div:nth-child(3) a:hover{
+    color: #687e88;
+    text-shadow: 0 0 15px #687e88;
+}
+
+
+

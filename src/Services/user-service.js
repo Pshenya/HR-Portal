@@ -9,6 +9,7 @@ export const userService = {
     getAllUsers,
     postProfileData,
     getProfileData,
+    getMyProfileData,
     updateProfileData,
     deleteProfileData
 };
@@ -130,6 +131,18 @@ function getProfileData(userId) {
         .then(handleResponse)
         .then(profileData => {
             return JSON.parse(profileData);
+        })
+}
+
+function getMyProfileData(userId) {
+    const requestOptions = {
+        method: 'GET',
+        redirect: 'follow'
+    };
+    return fetch(`${_apiURL}/user/profile?userId=${userId}`, requestOptions)
+        .then(handleResponse)
+        .then(myProfileData => {
+            return JSON.parse(myProfileData);
         })
 }
 
