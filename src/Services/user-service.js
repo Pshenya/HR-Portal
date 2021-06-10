@@ -191,6 +191,7 @@ function getAllUsers() {
 // }
 
 function handleResponse(response) {
+
     return response.text()
         .then(data => {
             if (!response.ok) {
