@@ -80,7 +80,7 @@ const SendCVModal = ({loggedIn, vacancyID, postVacancyRespond, respondSended}) =
                     {loggedIn && <div className="send-comments-form">
                         <form encType="multipart/form-data" method="post" className="sendCV-form" onSubmit={onSubmit}>
                             <input type="file" name="file"/>
-                            <input type="submit" value="SEND"/>
+                            <input className="vac-btn" type="submit" value="Відправити"/>
                         </form>
                     </div>}
                     {/*{loggedIn && <div className="done-container">*/}
@@ -94,8 +94,8 @@ const SendCVModal = ({loggedIn, vacancyID, postVacancyRespond, respondSended}) =
                     {/*}*/}
                 </MDBModalBody>
                 <MDBModalFooter>
-                    <MDBBtn className="modal-send-btn" type="submit">Отправить</MDBBtn>
-                    <MDBBtn className="modal-close-btn" onClick={toggle}>Закрыть</MDBBtn>
+                    {/*<MDBBtn className="modal-send-btn" type="submit">Отправить</MDBBtn>*/}
+                    <MDBBtn className="modal-close-btn" onClick={toggle}>Закрити</MDBBtn>
                 </MDBModalFooter>
             </MDBModal>
         </div>

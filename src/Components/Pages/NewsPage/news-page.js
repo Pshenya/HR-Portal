@@ -6,6 +6,7 @@ import { assetsActions } from "../../../Actions";
 import { ROUTES } from "../../../Routes/routes";
 import Loading from "../../Loading/loading";
 import ErrorIndicator from "../../ErrorIndicator/error-indicator";
+import VacanciesPage from "../VacanciesPage/vacancies-page";
 
 const NewsPage = ({postData}) => {
     const months = ['января', 'февраля', 'марта', 'апреля', 'мая', 'июня', 'июля', 'августа', 'сентября', 'октября', 'ноября', 'декабря'];
@@ -52,19 +53,15 @@ class NewsPageContainer extends Component {
         const {postData, loading, error} = this.props;
         if (loading) {
             return (
-                <div className="news-page-loading">
+                <div className="page-loading">
                     <Loading/>
                 </div>
-            )
+            );
         }
-        if (error) {
-            return (
-                <div className="news-page-error">
-                    <ErrorIndicator/>
-                </div>
-            )
+        else if(error) return <ErrorIndicator/>
+        else {
+            return <NewsPage postData={postData}/>
         }
-        return <NewsPage postData={postData}/>
     }
 }
 

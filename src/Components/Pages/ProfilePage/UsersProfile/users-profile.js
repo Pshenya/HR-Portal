@@ -7,6 +7,7 @@ import './users-profile.css';
 import Feedbacks from '../Feedbacks/feedbacks';
 
 import pavlik from '../../../../assets/img/pavlik.jpg';
+import profile from '../../../../assets/img/profile1.png'
 
 import {Link} from 'react-router-dom';
 import {ROUTES} from '../../../../Routes/routes';
@@ -47,33 +48,26 @@ const UsersProfile = ({userData, myProfileData, feedbacksList, userId, authorize
 		<div className="content-container">
 			<div className="profile-content">
 				<div className="profile-header">
-					<h1>Профиль</h1>
+					<h1>Профіль</h1>
 				</div>
 				<div className="profile-block">
 					<div className="users-profile-blockHeader">
-						<h3>Основная информация</h3>
+						<h3>Основна інформація</h3>
 					</div>
 					<div className="users-profile">
 						<div className="profile-img">
 							<div className="img-content">
-								{/*<Avatar*/}
-								{/*    width={390}*/}
-								{/*    height={295}*/}
-								{/*    onCrop={this.onCrop}*/}
-								{/*    onClose={this.onClose}*/}
-								{/*    onBeforeFileLoad={this.onBeforeFileLoad}*/}
-								{/*    src={this.state.src}*/}
+								<img src={profile} alt="profile"/>
+								{/*<FontAwesomeIcon*/}
+								{/*	icon={faUserCircle}*/}
+								{/*	size="10x"*/}
+								{/*	color="#2bbbad"*/}
+								{/*	alt="Profile"*/}
+								{/*	width={250}*/}
+								{/*	height={250}*/}
 								{/*/>*/}
-								<FontAwesomeIcon
-									icon={faUserCircle}
-									size="10x"
-									color="#2bbbad"
-									alt="Profile"
-									width={250}
-									height={250}
-								/>
 								<div className="profile-rating">
-									<FontAwesomeIcon icon={faStar} size="2x" style={{color: '#2bbbad'}} />
+									<FontAwesomeIcon icon={faStar} size="2x" style={{color: 'black'}} />
 									<span>{Math.round(userData.rating * 10) / 10}</span>
 								</div>
 							</div>
@@ -87,22 +81,22 @@ const UsersProfile = ({userData, myProfileData, feedbacksList, userId, authorize
 							<div className="users-profile-info">
 								<div className="users-profile-common">
 									<p className="users-profile-field">
-										Компания: <span>{userData.companyName}</span>
+										Компанія: <span>{userData.companyName}</span>
 									</p>
 									<p className="users-profile-field">
-										Должность: <span>{userData.jobPosition}</span>
+										Посада: <span>{userData.jobPosition}</span>
 									</p>
 									<p className="users-profile-field">
-										Опыт работы: <span>{userData.workExperience} года</span>
+										Досвід роботи: <span>{userData.workExperience} года</span>
 									</p>
 									<p className="users-profile-field">
-										Текущая ЗП ($): <span>{userData.salary}</span>
+										Нинішня ЗП ($): <span>{userData.salary}</span>
 									</p>
 									<p className="users-profile-field">
-										Контактный телефон: <span>+{userData.phone}</span>
+										Телефон: <span>+{userData.phone}</span>
 									</p>
 									<p className="users-profile-field">
-										Эл. почта: <span>{user.email}</span>
+										Эл. пошта: <span>{user.email}</span>
 									</p>
 								</div>
 								<div className="users-profile-socials">
@@ -114,7 +108,7 @@ const UsersProfile = ({userData, myProfileData, feedbacksList, userId, authorize
 							</div>
 							<div className="users-profile-about">
 								<p>
-									О себе: <br />
+									Про себе: <br />
 									<span>
 										Меня зовут аоаовллаоа оаваолуолвтсл. аршоаушовшвтмш тООо
 										оашуошьшьшсуштмштмшвоаш. аоушаоушшатмсльсшошпмо. мткошоа. Меня зовут аоаовллаоа

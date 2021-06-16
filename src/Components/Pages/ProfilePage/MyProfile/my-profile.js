@@ -9,6 +9,7 @@ import {faStar, faUserCircle} from "@fortawesome/free-solid-svg-icons";
 import SocialDynamic from "./DynamicHelpers/social-dynamic-form";
 import {userActions} from "../../../../Actions";
 import {MDBIcon} from "mdbreact";
+import profileImg from '../../../../assets/img/profile1.png'
 
 class MyProfile extends Component {
     constructor(props) {
@@ -72,18 +73,18 @@ class MyProfile extends Component {
                 <div className="profile-content">
                     <Form name="form" onSubmit={this.handleSubmit}>
                         <div className="profile-header">
-                            <h1>Настройка аккаунта</h1>
-                            <p>Просматривайте и обновляйте данные аккаунта, профиля и др.</p>
+                            <h1>Налаштування аккаунта</h1>
+                            <p>Передивляйтеся та оновлюйте дані акаунту, профіля и др.</p>
                         </div>
                         <div className="profile-block">
                             <div className="profile-blockHeader">
-                                <h3>Основная информация</h3>
+                                <h3>Основна інформація</h3>
                             </div>
                             <div className="profile-blockContent profile-flex">
                                 <div className="profile-data">
                                     <Form.Group as={Row} controlid="formHorizontalName">
                                         <Form.Label column sm={2}>
-                                            Имя
+                                            Ім'я
                                         </Form.Label>
                                         <Col sm={10}>
                                             <Form.Control type="text" value={user.name} disabled/>
@@ -91,7 +92,7 @@ class MyProfile extends Component {
                                     </Form.Group>
                                     <Form.Group as={Row} controlid="formHorizontalLastName">
                                         <Form.Label column sm={2}>
-                                            Фамилия
+                                            Прізвище
                                         </Form.Label>
                                         <Col sm={10}>
                                             <Form.Control type="text" value={user.lastName} disabled/>
@@ -99,7 +100,7 @@ class MyProfile extends Component {
                                     </Form.Group>
                                     <Form.Group as={Row} conrolid="formHorizontalCompany">
                                         <Form.Label column sm={2}>
-                                            Название компании
+                                            Назва компанії
                                         </Form.Label>
                                         <Col sm={10}>
                                             <Form.Control name="companyName" type="text" value={profile.companyName}
@@ -108,7 +109,7 @@ class MyProfile extends Component {
                                     </Form.Group>
                                     <Form.Group as={Row} conrolid="formHorizontalJobPosition">
                                         <Form.Label column sm={2}>
-                                            Должность
+                                            Посада
                                         </Form.Label>
                                         <Col sm={10}>
                                             <Form.Control name="jobPosition" type="text" value={profile.jobPosition}
@@ -116,43 +117,44 @@ class MyProfile extends Component {
                                         </Col>
                                     </Form.Group>
                                     <Form.Group as={Row}>
-                                        <Form.Label column sm={2}>Опыт работы</Form.Label>
+                                        <Form.Label column sm={2}>Досвід роботи</Form.Label>
                                         <Col sm={10}>
                                             <Form.Control as="select" name="workExperience"
                                                           value={profile.workExperience}
                                                           onChange={this.handleChange} custom>
-                                                <option value={'<1 года'}> &lt;1 года</option>
-                                                <option value={'1 год'}>1 год</option>
-                                                <option value={"2 года"}>2 года</option>
-                                                <option value={"3 года"}>3 года</option>
-                                                <option value={"4 года"}>4 года</option>
-                                                <option value={"5 лет"}>5 лет</option>
-                                                <option value={"6 лет"}>6 лет</option>
-                                                <option value={"7 лет"}>7 лет</option>
-                                                <option value={"8 лет"}>8 лет</option>
-                                                <option value={"9 лет"}>9 лет</option>
+                                                <option value={'<1 года'}> &lt;1 рік</option>
+                                                <option value={'1 год'}>1 рік</option>
+                                                <option value={"2 года"}>2 роки</option>
+                                                <option value={"3 года"}>3 роки</option>
+                                                <option value={"4 года"}>4 роки</option>
+                                                <option value={"5 лет"}>5 років</option>
+                                                <option value={"6 лет"}>6 років</option>
+                                                <option value={"7 лет"}>7 років</option>
+                                                <option value={"8 лет"}>8 років</option>
+                                                <option value={"9 лет"}>9 років</option>
                                                 <option value={"10+ лле"}>10+ лет</option>
                                             </Form.Control>
                                         </Col>
                                     </Form.Group>
                                     <Form.Group as={Row} controlid="formHorizontalSalary">
                                         <Form.Label column sm={2}>
-                                            Текущая ЗП ($)
+                                            Нинішня ЗП ($)
                                         </Form.Label>
                                         <Col sm={10}>
                                             <Form.Control name="salary" type="text" value={profile.salary}
                                                           onChange={this.handleChange}/>
-                                            <span className="underinput-text">Информация является анонимной, и будет использоваться нами исключительно для статистики. Это поле является необязательным для заполнения.</span>
+                                            <span className="underinput-text">Информация є анонимною, и буде використовуватися нами виключно для статистики. Це поле не є обов'язковим для заповнення.</span>
                                         </Col>
                                     </Form.Group>
                                 </div>
                                 <div className="profile-img">
                                     <div className="img-content">
-                                        <p>Фото профиля</p>
-                                        <form method="post" action="api/upload" encType="multipart/form-data">
-                                            <input type="file" name="wallpaper"/>
-                                            <input type="submit"/>
-                                        </form>
+                                        <img src={profileImg} alt="profile"/>
+                                        {/*<p>Фото профиля</p>*/}
+                                        {/*<form method="post" action="api/upload" encType="multipart/form-data">*/}
+                                        {/*    <input type="file" name="wallpaper"/>*/}
+                                        {/*    <input type="submit"/>*/}
+                                        {/*</form>*/}
                                         {/*<Avatar*/}
                                         {/*    width={390}*/}
                                         {/*    height={295}*/}
@@ -161,15 +163,16 @@ class MyProfile extends Component {
                                         {/*    onBeforeFileLoad={this.onBeforeFileLoad}*/}
                                         {/*    src={this.state.src}*/}
                                         {/*/>*/}
-                                        <FontAwesomeIcon icon={faUserCircle} size="10x" color="#2bbbad" alt="Profile"
-                                                         width={250} height={250}/>
-                                        <div className="profile-rating">
+                                        {/*<FontAwesomeIcon icon={faUserCircle} size="10x" color="#2bbbad" alt="Profile"*/}
+                                        {/*                 width={250} height={250}/>*/}
+                                        {user.role === "HR" && <div className="profile-rating">
                                             <FontAwesomeIcon
                                                 icon={faStar}
                                                 size="2x"
                                                 style={{color: "#2bbbad"}}/>
-                                            <span>{Math.round((userData.rating)*10)/10}</span>
+                                            <span>{Math.round((userData.rating) * 10) / 10}</span>
                                         </div>
+                                        }
                                     </div>
                                 </div>
                             </div>
@@ -177,14 +180,14 @@ class MyProfile extends Component {
                         <div className="profile-block">
                             <div
                                 className="profile-blockHeader">
-                                <h3> Личные
-                                    данные </h3>
+                                <h3> Персональні
+                                    дані </h3>
                             </div>
                             <div className="profile-blockContent">
                                 <div className="profile-data w-100">
                                     <Form.Group as={Row} controlid="formHorizontalPhone">
                                         <Form.Label column sm={4}>
-                                            Контактный телефон (в формате <strong><i>"+код страны"</i></strong> )
+                                             Телефон (у форматі <strong><i>"+код країни"</i></strong> )
                                         </Form.Label>
                                         <Col sm={8}>
                                             <Form.Control name="phone" type="text" value={profile.phone}
@@ -193,7 +196,7 @@ class MyProfile extends Component {
                                     </Form.Group>
                                     <Form.Group as={Row} controlid="formHorizontalEmail">
                                         <Form.Label column sm={4}>
-                                            Эл. почта
+                                            Эл. пошта
                                         </Form.Label>
                                         <Col sm={8}>
                                             <Form.Control type="text" value={user.email} disabled/>
@@ -201,7 +204,7 @@ class MyProfile extends Component {
                                     </Form.Group>
                                     <Form.Group as={Row} controlid="formHorizontalSocials">
                                         <Form.Label column sm={4}>
-                                            Соц. сети
+                                            Соц. мережі
                                         </Form.Label>
                                         <Col sm={8}>
                                             <div className="social-flex">
