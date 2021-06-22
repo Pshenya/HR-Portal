@@ -87,24 +87,6 @@ export class Header extends Component {
                                                          onClick={logout}
                                                          icon={faSignOutAlt}/>
                                     </div>
-                                // <div className="d-flex">
-                                //     <Link className="header-icon d-flex" to={`${ROUTES.PROFILE}/${userData.userId}`}>
-                                //         <h3>{userData.name}</h3>
-                                //         <FontAwesomeIcon className="icon" title="Мой профиль" icon={faUserCircle}/>
-                                //         {this.state.showMenu
-                                //                 ? (
-                                //                     <div className="header-dropdown-menu">
-                                //                         <button>Menu item</button>
-                                //                         <button>Menu item</button>
-                                //                         <button>Menu item</button>
-                                //                     </div>
-                                //                 )
-                                //                 : null}}
-                                //     </Link>
-                                //     <FontAwesomeIcon title='Выход' style={{marginTop: '.5rem', cursor: 'pointer'}}
-                                //                      onClick={logout}
-                                //                      icon={faSignOutAlt}/>
-                                // </div>
                                 }
                                 {!loggedIn &&
                                 <Link to={ROUTES.LOGIN}>
