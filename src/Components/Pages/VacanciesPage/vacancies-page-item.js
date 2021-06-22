@@ -3,10 +3,19 @@ import {Link} from "react-router-dom";
 import {ROUTES} from "../../../Routes/routes";
 import RoomOutlinedIcon from '@material-ui/icons/RoomOutlined';
 import { formatDate } from "../../Helpers"
+import Loading from "../../Loading/loading";
+import ErrorIndicator from "../../ErrorIndicator/error-indicator";
 
 
-const VacanciesPageItem = ({vacancy}) => {
-    return (
+const VacanciesPageItem = ({vacancy, loading}) => {
+    if (loading) {
+        return (
+            <div className="page-loading">
+                <Loading/>
+            </div>
+        );
+    }
+    else return (
         <Link to={`${ROUTES.VACANCY_DETAILS}/${vacancy._id}`} className="disable-link-styles">
             <article className="vac-card">
                 <div className="vac-card-body">
@@ -32,6 +41,7 @@ const VacanciesPageItem = ({vacancy}) => {
             </article>
         </Link>
     )
+
 };
 
 export default VacanciesPageItem;

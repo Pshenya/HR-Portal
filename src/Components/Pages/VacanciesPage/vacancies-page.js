@@ -104,7 +104,7 @@ class VacanciesPage extends Component {
     }
 
     render() {
-        const {stylesHook} = this.props;
+        const {stylesHook, loading} = this.props;
         const classes = stylesHook;
 
         const setting = "вакансій";
@@ -182,86 +182,17 @@ class VacanciesPage extends Component {
                                     )
                                     : null}
                             </li>
-                            {/*<li onClick={this.showCompanies} className="d-flex">*/}
-                            {/*    <span>Компании</span>*/}
-                            {/*    <ExpandMoreIcon style={{paddingBottom: '3px'}}/>*/}
-                            {/*    {this.state.showCompanies*/}
-                            {/*        ? (*/}
-                            {/*            <div className="dropdown-menu" ref={(element) => {*/}
-                            {/*                this.dropDownMenu = element;*/}
-                            {/*            }}>*/}
-                            {/*                <button>Menu item 1</button>*/}
-                            {/*                <button>Menu item 2</button>*/}
-                            {/*                <button>Menu item 3</button>*/}
-                            {/*            </div>*/}
-                            {/*        )*/}
-                            {/*        : null}*/}
-                            {/*</li>*/}
                         </ul>
                     </div>
                 </div>
                 <div className="vac-main">
                     <div className="vac-main-wrapper">
-                        {/*<aside className="vac-aside-wrapper">*/}
-                        {/*    <div className="vac-rightContent">*/}
-                        {/*        <div className="vac-sidebar">*/}
-                        {/*            <div className="vac-sidebar-categories">*/}
-                        {/*                <h3>Категория</h3>*/}
-                        {/*                <select className="vac-sidebar-select">*/}
-                        {/*                    <option>Все категории</option>*/}
-                        {/*                    <option>IT</option>*/}
-                        {/*                </select>*/}
-                        {/*            </div>*/}
-                        {/*            <div className="sidebar-divider"/>*/}
-                        {/*            <div className="vac-sidebar-schedule">*/}
-                        {/*                <h3>Занятость: </h3>*/}
-                        {/*                <Form.Check*/}
-                        {/*                    type="radio"*/}
-                        {/*                    name="vac-radios"*/}
-                        {/*                    id='full'*/}
-                        {/*                    label="Полная занятость"*/}
-                        {/*                />*/}
-
-                        {/*                <Form.Check*/}
-                        {/*                    type="radio"*/}
-                        {/*                    name="vac-radios"*/}
-                        {/*                    label="Практика/стажирвка"*/}
-                        {/*                    id='practice'*/}
-                        {/*                />*/}
-                        {/*                <Form.Check*/}
-                        {/*                    type="radio"*/}
-                        {/*                    name="vac-radios"*/}
-                        {/*                    label="Неполная занятость"*/}
-                        {/*                    id='semi'*/}
-                        {/*                />*/}
-                        {/*                <Form.Check*/}
-                        {/*                    type="radio"*/}
-                        {/*                    name="vac-radios"*/}
-                        {/*                    label="Удаленная работа"*/}
-                        {/*                    id='remote'*/}
-                        {/*                />*/}
-                        {/*            </div>*/}
-                        {/*            <div className="sidebar-divider"/>*/}
-                        {/*            <div className="vac-sidebar-salary">*/}
-                        {/*                <h3>Зарплата: </h3>*/}
-                        {/*                <div className="salary-flex">*/}
-                        {/*                    <div className="salary-input-line">*/}
-                        {/*                        <span>от</span>*/}
-                        {/*                        <input className="salary-input" type="text"/>*/}
-                        {/*                        <span>грн.</span>*/}
-                        {/*                        <button type="button" className="salary-input-btn">OK</button>*/}
-                        {/*                    </div>*/}
-                        {/*                </div>*/}
-                        {/*            </div>*/}
-                        {/*        </div>*/}
-                        {/*    </div>*/}
-                        {/*</aside>*/}
                         <section className="vac-leftContent">
                             {
                                 filteredVacancy.length !== 0 ?
                                 filteredVacancy.map((vacancy) => {
-                                     return <div key={vacancy._id}>
-                                        <VacanciesPageItem vacancy={vacancy}/>
+                                    return <div key={vacancy._id}>
+                                        <VacanciesPageItem vacancy={vacancy} loading={loading}/>
                                     </div>
                                 }) : <NoSearchResults setting={setting}/>
                             }

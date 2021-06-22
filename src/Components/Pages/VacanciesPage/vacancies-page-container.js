@@ -27,7 +27,7 @@ class VacanciesPageContainer extends Component {
         }
         else if(error) return <ErrorIndicator/>
         else {
-            return <VacanciesPage vacanciesList={vacanciesList}/>
+            return <VacanciesPage vacanciesList={vacanciesList} loading={loading}/>
         }
     }
 }
