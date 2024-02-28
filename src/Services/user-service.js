@@ -14,7 +14,7 @@ export const userService = {
 	deleteProfileData,
 };
 
-const _apiURL = 'https://hr-portal-backend.herokuapp.com/api';
+const _apiURL = 'https://hr-portal-backend-b4ac2bf98d9e.herokuapp.com/api';
 
 function register(user) {
 	const requestOptions = {

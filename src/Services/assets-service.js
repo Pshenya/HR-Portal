@@ -10,7 +10,7 @@ export const assetsService = {
 	getFeedbacks,
 };
 
-const _apiURL = 'https://hr-portal-backend.herokuapp.com/api';
+const _apiURL = 'https://hr-portal-backend-b4ac2bf98d9e.herokuapp.com/api';
 
 function getAllVacancies() {
 	const requsetOptions = {
